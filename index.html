@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tal'Dorei Nights — Campaign Hub</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=IM+Fell+English:ital@0;1&display=swap');
+:root{--ink:#2a2118;--paper:#ead9b0;--card:#f6ecd3;--card2:#efe2c2;--acc:#7a1f1f;
+  --gold:#8a6d1f;--line:#cbb98c;--muted:#6b5a44;}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.5;
+  background:radial-gradient(ellipse at 12% -8%,rgba(122,31,31,.06),transparent 50%),
+    radial-gradient(ellipse at 105% 108%,rgba(138,109,31,.12),transparent 55%),var(--paper);}
+.sitenav{position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;
+  background:#3d2c1e;border-bottom:3px double var(--gold);padding:7px 8px;
+  font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.35);}
+.sitenav a{color:#ead9b0;text-decoration:none;padding:5px 15px;border-radius:3px;
+  font-size:.85rem;letter-spacing:.05em;}
+.sitenav a:hover{background:var(--acc);color:#fff;}
+.sitenav a.active{background:var(--gold);color:#2a2118;}
+.wrap{max-width:1040px;margin:0 auto;padding:18px 28px 60px;}
+.tome{border:3px double var(--gold);border-radius:3px;background:var(--card);
+  padding:20px 30px 34px;margin-top:18px;
+  box-shadow:inset 0 0 70px rgba(106,84,40,.18),0 2px 14px rgba(60,42,16,.30);}
+.banner{margin:0 0 4px}
+.banner svg{display:block;width:100%;height:auto}
+h1{font-family:'Cinzel',Georgia,serif;font-weight:800;font-size:2.2rem;text-align:center;
+  letter-spacing:.04em;color:#3d2c1e;margin:.1em 0 .05em;text-shadow:0 1px 0 rgba(255,248,230,.8);}
+.sub{text-align:center;font-family:'IM Fell English',Georgia,serif;font-style:italic;
+  color:var(--muted);margin-top:0;padding-bottom:16px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 16'%3E%3Cpath d='M10 8h98M152 8h98' stroke='%238a6d1f' stroke-width='1.5'/%3E%3Cpath d='M130 2l7 6-7 6-7-6z' fill='%237a1f1f'/%3E%3Ccircle cx='114' cy='8' r='2.2' fill='%238a6d1f'/%3E%3Ccircle cx='146' cy='8' r='2.2' fill='%238a6d1f'/%3E%3C/svg%3E") center bottom/260px 16px no-repeat;}
+.intro{font-size:1.02rem;text-align:center;max-width:680px;margin:0 auto 6px;color:#3a2e20;}
+.facts{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:18px 0 4px;}
+.fact{background:var(--card2);border:1px solid var(--line);border-radius:5px;
+  padding:8px 16px;text-align:center;min-width:120px;}
+.fact .n{font-family:'Cinzel',serif;font-weight:800;font-size:1.3rem;color:var(--acc);display:block;}
+.fact .l{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px;margin-top:22px;}
+a.tile{display:block;text-decoration:none;color:inherit;background:var(--card2);
+  border:1px solid var(--line);border-top:3px double var(--gold);border-radius:6px;
+  padding:16px 18px;box-shadow:0 1px 5px rgba(80,60,20,.22);transition:transform .12s,box-shadow .12s;}
+a.tile:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(60,42,16,.30);}
+a.tile h2{font-family:'Cinzel',serif;font-weight:800;font-size:1.18rem;color:var(--acc);
+  margin:.1em 0 .35em;letter-spacing:.03em;}
+a.tile p{margin:0 0 .6em;font-size:.92rem;color:#473a2a;}
+a.tile .go{font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.06em;color:var(--gold);}
+.foot{text-align:center;font-style:italic;color:var(--muted);font-size:.82rem;margin-top:26px;}
+@media(max-width:560px){.wrap{padding:14px 12px 40px}.tome{padding:14px 14px 24px;border-width:2px}h1{font-size:1.6rem}}
+</style>
+</head>
+<body>
+<nav class="sitenav">
+  <a href="index.html" class="active">&#8962; Home</a>
+  <a href="party-quick-reference.html">Party</a>
+  <a href="compendium.html">Compendium</a>
+  <a href="sessions.html">Sessions</a>
+  <a href="status.html">Status</a>
+</nav>
+<div class="wrap">
+  <div class="tome">
+<div class='banner'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 170" role="img" aria-label="An owlbear faces a dragon breathing fire">
+  <defs>
+    <linearGradient id="fireg" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#8e2620"/>
+      <stop offset="0.45" stop-color="#c96a25"/>
+      <stop offset="1" stop-color="#e9b34a"/>
+    </linearGradient>
+    <linearGradient id="fireg2" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#c96a25"/>
+      <stop offset="1" stop-color="#f3d27c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ground rule -->
+  <rect x="20" y="152" width="920" height="2.5" fill="#8a6d1f"/>
+  <rect x="20" y="158" width="920" height="1" fill="#8a6d1f" opacity="0.6"/>
+
+  <!-- ===================== OWLBEAR (left, facing right) ===================== -->
+  <g fill="#2a2118">
+    <path d="M95,152
+             C82,140 76,122 84,106
+             C92,88 116,78 142,80
+             C150,70 160,62 174,60
+             C170,52 168,44 172,36
+             C176,42 181,46 187,48
+             C196,44 207,44 216,48
+             C222,44 228,40 231,33
+             C235,42 234,50 230,57
+             C240,66 244,80 240,92
+             C236,104 226,112 213,115
+             C220,124 223,134 222,152
+             L204,152 L203,128
+             C196,132 186,134 176,133
+             C172,140 170,146 170,152
+             L152,152 L151,134
+             C138,132 124,127 115,118
+             C113,130 113,142 116,152 Z"/>
+    <path d="M95,152 l-7,0 l3,-5 Z M116,152 l-8,0 l3,-5 Z M152,152 l-8,0 l3,-5 Z M170,152 l-8,0 l3,-5 Z M204,152 l-8,0 l3,-5 Z M222,152 l-8,0 l3,-5 Z"/>
+  </g>
+  <circle cx="214" cy="78" r="5" fill="#f6ecd3"/>
+  <circle cx="214" cy="78" r="2" fill="#2a2118"/>
+  <path d="M232,86 q9,4 7,14 q-8,-3 -11,-9 Z" fill="#8a6d1f"/>
+
+  <!-- ===================== FIRE ===================== -->
+  <path d="M608,56
+           C560,46 510,42 466,48
+           C448,51 430,57 416,66
+           C430,74 450,80 472,82
+           C516,86 566,80 610,72 Z" fill="url(#fireg)"/>
+  <path d="M606,58
+           C570,52 534,50 502,53
+           C482,55 462,60 450,66
+           C464,72 486,75 508,75
+           C544,76 580,71 606,68 Z" fill="url(#fireg2)" opacity="0.92"/>
+  <path d="M474,44 q-16,-9 -34,-7 q11,9 25,11 Z" fill="#c96a25"/>
+  <path d="M460,80 q-18,9 -36,8 q13,-11 27,-13 Z" fill="#c96a25"/>
+  <path d="M424,62 q-20,-1 -33,5 q13,6 28,4 Z" fill="#e9b34a"/>
+
+  <!-- ===================== DRAGON (right, facing left) ===================== -->
+  <g fill="#2a2118">
+    <!-- tail: from rump sweeping along the ground to the left, arrow tip -->
+    <path d="M893,120
+             C896,136 884,146 862,148
+             C812,153 748,150 700,148
+             C688,147 676,146 668,144
+             C678,140 690,138 702,138
+             C748,136 806,140 850,138
+             C872,137 882,130 878,118 Z"/>
+    <path d="M676,146 l-30,-9 l12,15 l-16,3 l28,8 Z"/>
+    <!-- haunch + hind leg -->
+    <path d="M828,96 C854,90 880,98 890,116 C898,132 890,146 872,150 L850,152 C842,138 840,122 846,108 Z"/>
+    <path d="M848,128 C844,138 843,146 845,152 L868,152 C864,142 864,134 868,124 Z"/>
+    <path d="M845,152 l-10,0 l4,-6 Z M868,152 l-10,0 l4,-6 Z"/>
+    <!-- body -->
+    <path d="M760,80
+             C786,62 826,58 856,70
+             C880,80 892,98 886,116
+             C880,134 858,144 830,144
+             C798,144 770,130 760,110
+             C754,98 754,88 760,80 Z"/>
+    <!-- foreleg -->
+    <path d="M774,116 C768,130 766,142 770,152 L792,152 C788,140 789,128 794,118 Z"/>
+    <path d="M770,152 l-10,0 l4,-6 Z M792,152 l-10,0 l4,-6 Z"/>
+    <!-- neck: thick S-curve from body to head -->
+    <path d="M772,84
+             C748,84 722,76 702,62
+             C690,54 682,46 678,38
+             L646,44
+             C652,62 668,78 690,90
+             C714,102 744,106 768,100 Z"/>
+    <!-- head with open jaws -->
+    <path d="M688,40
+             C678,30 660,26 644,30
+             C632,33 622,40 616,50
+             L592,56 L622,62
+             C621,68 624,74 630,77
+             L606,88 L644,82
+             C658,80 668,72 672,61
+             C680,56 686,48 688,40 Z"/>
+    <!-- horns swept back -->
+    <path d="M664,32 C670,20 684,12 700,12 C694,24 684,33 672,38 Z"/>
+    <path d="M680,40 C688,33 698,30 708,32 C702,40 693,45 684,46 Z"/>
+    <!-- neck spikes -->
+    <path d="M702,60 l4,-13 l9,10 Z M722,72 l4,-13 l9,10 Z M744,81 l4,-13 l9,10 Z"/>
+    <!-- wing: one bat wing raised over the back, scalloped membrane -->
+    <path d="M796,86
+             C792,58 806,28 844,12
+             C870,2 900,4 920,16
+             C906,20 896,28 890,38
+             C884,48 882,58 884,68
+             C876,62 866,58 856,57
+             C862,68 864,80 861,92
+             C852,82 840,76 826,74
+             C814,72 804,78 796,86 Z"/>
+    <!-- wing fingers (ribs) -->
+    <path d="M800,82 C806,52 824,28 852,16 L858,22 C832,34 816,56 810,84 Z" fill="#ead9b0" opacity="0.18"/>
+  </g>
+  <!-- dragon eye -->
+  <circle cx="654" cy="40" r="3.4" fill="#e9b34a"/>
+</svg>
+</div>
+  <h1>Tal'Dorei Nights</h1>
+  <p class="sub">Campaign Reference Hub &middot; for the table</p>
+  <p class="intro">Everything our party needs in one place: live character stats pulled from D&amp;D Beyond,
+  the full campaign compendium, session-by-session recaps, and the current state of the world.</p>
+
+  <div class="facts">
+    <div class="fact"><span class="n">6</span><span class="l">Heroes</span></div>
+    <div class="fact"><span class="n">11</span><span class="l">Level</span></div>
+    <div class="fact"><span class="n">24</span><span class="l">Sessions</span></div>
+    <div class="fact"><span class="n">Tal'Dorei</span><span class="l">Setting</span></div>
+  </div>
+
+  <div class="grid">
+    <a class="tile" href="party-quick-reference.html">
+      <h2>Party Reference</h2>
+      <p>Combat stats, ability scores, saving throws, and full skill lists for all six characters. Pulled live from D&amp;D Beyond.</p>
+      <span class="go">OPEN &rarr;</span>
+    </a>
+    <a class="tile" href="compendium.html">
+      <h2>Compendium</h2>
+      <p>The full archive: characters and NPCs, factions, locations, quests, the pantheon, and the campaign timeline.</p>
+      <span class="go">OPEN &rarr;</span>
+    </a>
+    <a class="tile" href="sessions.html">
+      <h2>Session Recaps</h2>
+      <p>Detailed write-ups of every session, from the first meeting through Session 24 — summaries, loot, decisions, and quotes.</p>
+      <span class="go">OPEN &rarr;</span>
+    </a>
+    <a class="tile" href="status.html">
+      <h2>Campaign Status</h2>
+      <p>The dashboard view: active leads, urgent threats, open quests, and where things stand right now.</p>
+      <span class="go">OPEN &rarr;</span>
+    </a>
+  </div>
+
+  <p class="foot">Tal'Dorei Nights &middot; party data generated 2026-06-24</p>
+  </div>
+</div>
+</body>
+</html>

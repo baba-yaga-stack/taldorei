@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taldorei — Campaign Status</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=IM+Fell+English:ital@0;1&display=swap');
+  :root{
+    --bg:#ead9b0; --panel:#f6ecd3; --panel2:#efe2c2; --ink:#2a2118; --muted:#6b5a44;
+    --gold:#8a6d1f; --crit:#8e2620; --good:#3f6d3a; --line:#cbb98c; --accent:#5a4480;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;color:var(--ink);
+    background:radial-gradient(ellipse at 12% -8%,rgba(122,31,31,.06),transparent 50%),
+    radial-gradient(ellipse at 105% 108%,rgba(138,109,31,.12),transparent 55%),var(--bg);
+    font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;line-height:1.5}
+  .banner svg{display:block;width:100%;height:auto;margin-bottom:6px}
+  .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+  header{border-bottom:3px double var(--gold);padding-bottom:14px;margin-bottom:8px}
+  header .sub{text-align:center;font-family:'IM Fell English',Georgia,serif;font-style:italic}
+  h1{font-family:'Cinzel',Georgia,serif;font-weight:800;font-size:30px;margin:0;letter-spacing:1px;text-align:center;color:#3d2c1e}
+  .sub{color:var(--muted);font-size:14px;margin-top:4px}
+  .crit-banner{background:linear-gradient(90deg,#f0d9c6,#ecd2bd);border:1px solid var(--crit);
+    border-radius:10px;padding:12px 16px;margin:16px 0;color:#5e1b16;font-size:15px}
+  .crit-banner b{color:var(--crit)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:8px}
+  .card{background:var(--panel);border:1px solid var(--line);border-top:3px double var(--gold);border-radius:6px;padding:16px 18px;box-shadow:0 1px 5px rgba(80,60,20,.22)}
+  .card h2{font-family:'Cinzel',Georgia,serif;font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:#7a1f1f;
+    margin:0 0 12px;border-bottom:1px solid var(--line);padding-bottom:8px}
+  .row{display:flex;justify-content:space-between;gap:10px;padding:5px 0;font-size:15px;
+    border-bottom:1px dotted #c9b285}
+  .row:last-child{border-bottom:none}
+  .row .k{color:var(--muted)}
+  .lead{background:var(--panel2);border-left:3px solid var(--gold);border-radius:6px;
+    padding:10px 12px;margin-bottom:10px}
+  .lead .t{font-weight:bold}
+  .lead.priority{border-left-color:var(--crit)}
+  .lead .tag{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--crit)}
+  .lead small{color:var(--muted);display:block;margin-top:3px;font-size:13.5px}
+  ul.clean{margin:0;padding-left:18px}
+  ul.clean li{padding:3px 0;font-size:14.5px}
+  .pill{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;
+    border:1px solid var(--line);color:var(--muted);margin-left:6px}
+  .pill.foe{color:var(--crit);border-color:var(--crit)}
+  .pill.ally{color:var(--good);border-color:var(--good)}
+  .pill.q{color:var(--gold);border-color:var(--gold)}
+  .timeline{position:relative;padding-left:20px}
+  .timeline::before{content:"";position:absolute;left:6px;top:4px;bottom:4px;width:2px;background:var(--line)}
+  .tnode{position:relative;margin-bottom:14px}
+  .tnode::before{content:"";position:absolute;left:-17px;top:5px;width:10px;height:10px;
+    border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px var(--bg)}
+  .tnode .sn{color:var(--gold);font-weight:bold;font-size:14px}
+  .tnode .ti{font-size:14.5px}
+  .full{grid-column:1/-1}
+  footer{margin-top:26px;color:var(--muted);font-size:12.5px;text-align:center;
+    border-top:1px solid var(--line);padding-top:14px}
+  a{color:var(--accent);text-decoration:none}
+  .sitenav{position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;
+    background:#3d2c1e;border-bottom:3px double #8a6d1f;padding:7px 8px;
+    font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.35);}
+  .sitenav a{color:#ead9b0;text-decoration:none;padding:5px 15px;border-radius:3px;font-size:.85rem;letter-spacing:.05em;}
+  .sitenav a:hover{background:#7a1f1f;color:#fff;}
+  .sitenav a.active{background:#8a6d1f;color:#2a2118;}
+</style>
+</head>
+<body>
+<nav class="sitenav">
+  <a href="index.html">&#8962; Home</a>
+  <a href="party-quick-reference.html">Party</a>
+  <a href="compendium.html">Compendium</a>
+  <a href="sessions.html">Sessions</a>
+  <a href="status.html" class="active">Status</a>
+</nav>
+
+<div class="wrap">
+  <header>
+    <div class='banner'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 170" role="img" aria-label="An owlbear faces a dragon breathing fire">
+  <defs>
+    <linearGradient id="fireg" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#8e2620"/>
+      <stop offset="0.45" stop-color="#c96a25"/>
+      <stop offset="1" stop-color="#e9b34a"/>
+    </linearGradient>
+    <linearGradient id="fireg2" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#c96a25"/>
+      <stop offset="1" stop-color="#f3d27c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ground rule -->
+  <rect x="20" y="152" width="920" height="2.5" fill="#8a6d1f"/>
+  <rect x="20" y="158" width="920" height="1" fill="#8a6d1f" opacity="0.6"/>
+
+  <!-- ===================== OWLBEAR (left, facing right) ===================== -->
+  <g fill="#2a2118">
+    <path d="M95,152
+             C82,140 76,122 84,106
+             C92,88 116,78 142,80
+             C150,70 160,62 174,60
+             C170,52 168,44 172,36
+             C176,42 181,46 187,48
+             C196,44 207,44 216,48
+             C222,44 228,40 231,33
+             C235,42 234,50 230,57
+             C240,66 244,80 240,92
+             C236,104 226,112 213,115
+             C220,124 223,134 222,152
+             L204,152 L203,128
+             C196,132 186,134 176,133
+             C172,140 170,146 170,152
+             L152,152 L151,134
+             C138,132 124,127 115,118
+             C113,130 113,142 116,152 Z"/>
+    <path d="M95,152 l-7,0 l3,-5 Z M116,152 l-8,0 l3,-5 Z M152,152 l-8,0 l3,-5 Z M170,152 l-8,0 l3,-5 Z M204,152 l-8,0 l3,-5 Z M222,152 l-8,0 l3,-5 Z"/>
+  </g>
+  <circle cx="214" cy="78" r="5" fill="#f6ecd3"/>
+  <circle cx="214" cy="78" r="2" fill="#2a2118"/>
+  <path d="M232,86 q9,4 7,14 q-8,-3 -11,-9 Z" fill="#8a6d1f"/>
+
+  <!-- ===================== FIRE ===================== -->
+  <path d="M608,56
+           C560,46 510,42 466,48
+           C448,51 430,57 416,66
+           C430,74 450,80 472,82
+           C516,86 566,80 610,72 Z" fill="url(#fireg)"/>
+  <path d="M606,58
+           C570,52 534,50 502,53
+           C482,55 462,60 450,66
+           C464,72 486,75 508,75
+           C544,76 580,71 606,68 Z" fill="url(#fireg2)" opacity="0.92"/>
+  <path d="M474,44 q-16,-9 -34,-7 q11,9 25,11 Z" fill="#c96a25"/>
+  <path d="M460,80 q-18,9 -36,8 q13,-11 27,-13 Z" fill="#c96a25"/>
+  <path d="M424,62 q-20,-1 -33,5 q13,6 28,4 Z" fill="#e9b34a"/>
+
+  <!-- ===================== DRAGON (right, facing left) ===================== -->
+  <g fill="#2a2118">
+    <!-- tail: from rump sweeping along the ground to the left, arrow tip -->
+    <path d="M893,120
+             C896,136 884,146 862,148
+             C812,153 748,150 700,148
+             C688,147 676,146 668,144
+             C678,140 690,138 702,138
+             C748,136 806,140 850,138
+             C872,137 882,130 878,118 Z"/>
+    <path d="M676,146 l-30,-9 l12,15 l-16,3 l28,8 Z"/>
+    <!-- haunch + hind leg -->
+    <path d="M828,96 C854,90 880,98 890,116 C898,132 890,146 872,150 L850,152 C842,138 840,122 846,108 Z"/>
+    <path d="M848,128 C844,138 843,146 845,152 L868,152 C864,142 864,134 868,124 Z"/>
+    <path d="M845,152 l-10,0 l4,-6 Z M868,152 l-10,0 l4,-6 Z"/>
+    <!-- body -->
+    <path d="M760,80
+             C786,62 826,58 856,70
+             C880,80 892,98 886,116
+             C880,134 858,144 830,144
+             C798,144 770,130 760,110
+             C754,98 754,88 760,80 Z"/>
+    <!-- foreleg -->
+    <path d="M774,116 C768,130 766,142 770,152 L792,152 C788,140 789,128 794,118 Z"/>
+    <path d="M770,152 l-10,0 l4,-6 Z M792,152 l-10,0 l4,-6 Z"/>
+    <!-- neck: thick S-curve from body to head -->
+    <path d="M772,84
+             C748,84 722,76 702,62
+             C690,54 682,46 678,38
+             L646,44
+             C652,62 668,78 690,90
+             C714,102 744,106 768,100 Z"/>
+    <!-- head with open jaws -->
+    <path d="M688,40
+             C678,30 660,26 644,30
+             C632,33 622,40 616,50
+             L592,56 L622,62
+             C621,68 624,74 630,77
+             L606,88 L644,82
+             C658,80 668,72 672,61
+             C680,56 686,48 688,40 Z"/>
+    <!-- horns swept back -->
+    <path d="M664,32 C670,20 684,12 700,12 C694,24 684,33 672,38 Z"/>
+    <path d="M680,40 C688,33 698,30 708,32 C702,40 693,45 684,46 Z"/>
+    <!-- neck spikes -->
+    <path d="M702,60 l4,-13 l9,10 Z M722,72 l4,-13 l9,10 Z M744,81 l4,-13 l9,10 Z"/>
+    <!-- wing: one bat wing raised over the back, scalloped membrane -->
+    <path d="M796,86
+             C792,58 806,28 844,12
+             C870,2 900,4 920,16
+             C906,20 896,28 890,38
+             C884,48 882,58 884,68
+             C876,62 866,58 856,57
+             C862,68 864,80 861,92
+             C852,82 840,76 826,74
+             C814,72 804,78 796,86 Z"/>
+    <!-- wing fingers (ribs) -->
+    <path d="M800,82 C806,52 824,28 852,16 L858,22 C832,34 816,56 810,84 Z" fill="#ead9b0" opacity="0.18"/>
+  </g>
+  <!-- dragon eye -->
+  <circle cx="654" cy="40" r="3.4" fill="#e9b34a"/>
+</svg>
+</div>
+    <h1>⚔️ Taldorei — Campaign Status</h1>
+    <div class="sub">Abyssal Anchors Crisis · Current through <b>Session 77 — The Remnants Lead</b> · Party Level 11 · <i>Intelligence update: Fetch's letter (2026-06-27)</i></div>
+  </header>
+
+  <div class="crit-banner">
+    <b>THREAT LEVEL: CRITICAL.</b> A <b>divine gate</b> opened in the Umbral Hills and the
+    Devil Prince of Indulgence — now named <b>Graz'zt</b> — crossed into the Prime Material. Jorenn Village evacuated.
+    The <b>Iron Authority</b> is working to bring back the god <b>Bane</b>. An intercepted letter exposes the rival relic
+    hunter <b>Blaine Kraverrogg</b> as a <b>Cult of Vecna</b> agent racing the party to the <b>Shadebarrow</b>, which his
+    letter reveals to be an <b>Orcus-sealed vault</b> of "pure malice."
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <h2>Current Status</h2>
+      <div class="row"><span class="k">Location</span><span>Westruun — mid-fight against "murder ghosts" in Buddleia Austin's townhouse (in-game year 1836)</span></div>
+      <div class="row"><span class="k">Party Level</span><span>11</span></div>
+      <div class="row"><span class="k">Last Session</span><span>77 — The Remnants Lead (Sessions 25–76 unrecorded)</span></div>
+      <div class="row"><span class="k">Anchors</span><span>3 deployed · 1 captured/vaulted (needs moving out of Westruun) · 1 left to place</span></div>
+      <div class="row"><span class="k">Immediate goal</span><span>Win the murder-ghost fight, then reach the Shadebarrow in Ebonroot (Remnants) — and beat Blaine Kraverrogg there; use Buddleia's signet ring on the iron gate</span></div>
+      <div class="row"><span class="k">Party gold</span><span>0 (no gold this session)</span></div>
+    </div>
+
+    <div class="card">
+      <h2>The Party</h2>
+      <div class="row"><span class="k">Anastasia "Ana" Ravenswood</span><span>Human Artificer · Kayla</span></div>
+      <div class="row"><span class="k">Bohdi Shadowtwist</span><span>Bugbear Sorcerer · Jeremy</span></div>
+      <div class="row"><span class="k">Finnick "Finn" Marigold Mossglow</span><span>Gnome Illrigger · Sirwen</span></div>
+      <div class="row"><span class="k">Grai Malin</span><span>Half-Orc Barbarian · Liane</span></div>
+      <div class="row"><span class="k">Imdra d'Vadalis</span><span>Human Druid · Theresa</span></div>
+      <div class="row"><span class="k">Ki Nightwhisper</span><span>Aarakocra Bard · Kevin</span></div>
+      <div class="row"><span class="k">Companions</span><span>Thrack (Dwarf) · Zelthrax (Velum dragon — bond with Imdra expired, still with party)</span></div>
+    </div>
+
+    <div class="card">
+      <h2>Active Threats</h2>
+      <ul class="clean">
+        <li>Graz'zt, Devil Prince of Indulgence <span class="pill foe">overwhelming</span></li>
+        <li>Iron Authority — reviving Bane <span class="pill foe">foe</span></li>
+        <li>Blaine Kraverrogg / Cult of Vecna — racing to the Shadebarrow <span class="pill foe">foe</span></li>
+        <li>Whatever is taking the children (Umbral Hills)</li>
+        <li>Liora Mossglow / The Mawl <span class="pill foe">at large</span></li>
+        <li>Three-eyed being — orchestrator <span class="pill foe">unknown</span></li>
+      </ul>
+    </div>
+
+    <div class="card full">
+      <h2>Council Leads — The Endgame</h2>
+      <div class="grid" style="margin:0">
+        <div class="lead priority">
+          <span class="tag">Active — party committed</span>
+          <div class="t">Remnants</div>
+          <small>The party's chosen lead: deal with the remnants, recover the bomb, and potentially rescue Alorah Vasorin's soul. Third Abyssal Anchor still to place; device was in Westruun. <b>New:</b> the Remnants appear to be a <b>Cult of Vecna</b> cell holed up in the Shadebarrow — and Blaine Kraverrogg's Vecna cell is excavating it for an Orcus-sealed power. A Vecna cult as "ally" warrants suspicion.</small>
+        </div>
+        <div class="lead">
+          <div class="t">League of Miracles</div>
+          <small>Mage mercenary group — recruit their wizard via the envoy to the Palace of Wonder.</small>
+        </div>
+        <div class="lead">
+          <div class="t">Calmyros the Unbroken <span class="pill ally">ally</span></div>
+          <small>Adamantine Dragon Paladin, opposed to the Iron Authority. Turn his people to help.</small>
+        </div>
+        <div class="lead">
+          <div class="t">Magnus Wilds' Theory</div>
+          <small>The Archeart wove the Weave from their own essence — repairing it needs divine essence from many demigods.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Open Questions</h2>
+      <ul class="clean">
+        <li>What did Orcus seal beneath the Shadebarrow — and what happens if a Vecna cult breaches it?</li>
+        <li>Are the Remnants and Blaine's Cult of Vecna the same group, allies, or rivals?</li>
+        <li>Who is the Keeper of the Whispered Truth (the cult's leader)?</li>
+        <li>Did Father Abraham survive the breach? Does the Bastion still stand?</li>
+        <li>Who is Oz? (went North West)</li>
+        <li>Where are Liora and Zarissa?</li>
+        <li>Who was Pip, and what did the disposal mean?</li>
+        <li>Is the captured anchor truly inert?</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Recent Loot &amp; Notes</h2>
+      <ul class="clean">
+        <li>Vex: 18 healing potions to the shared pool (5 Healing · 7 Greater · 4 Superior · 2 Supreme)</li>
+        <li>Gilmore's spree — Ana: Ouroboros Ring · Ki: Inker's Armband, Shadow Weaver's Guise, Dragon's Call · Finn: Magentan Sun-Saw V · Grai: Greatsword of Wounding</li>
+        <li>Sold at Gilmore's: Grai's Mind Lash, Pride Mace, Battle Tax</li>
+        <li><b>Party gold: 0</b> — all spent at Gilmore's</li>
+        <li>Ki: Quill of Preservation (counter-anchor)</li>
+        <li>1 captured anchor device — Cobalt Reserve vault</li>
+      </ul>
+    </div>
+
+    <div class="card full">
+      <h2>Recent Arc — Sessions 22 → 24</h2>
+      <div class="timeline">
+        <div class="tnode"><span class="sn">Session 22</span> — <span class="ti">North into devil-haunted waste to the Bastion of the Fading Dawn. Father Abraham reveals the Battle of Umbral Hills / Drasig history. Wards break; a divine gate opens and the Devil Prince of Indulgence crosses over.</span></div>
+        <div class="tnode"><span class="sn">Session 23</span> — <span class="ti">Party flees, evacuates Jorenn, teleports to Cloudwatch. The Council lays out the endgame: Remnants, League of Miracles, Calmyros, and securing the device from Westruun. Iron Authority is reviving Bane.</span></div>
+        <div class="tnode"><span class="sn">Session 24</span> — <span class="ti">Resupply in Emon. The Devil Prince is named: Graz'zt. Vex hands over 18 healing potions; Gilmore's discount spree drains the party gold to 0. The group commits to the Remnants lead: handle the remnants, recover the bomb, and potentially rescue Alorah's soul.</span></div>
+        <div class="tnode"><span class="sn">Session 77</span> — <span class="ti">(Sessions 25–76 unrecorded.) Bohdi is promoted into the Clasp inner circle. Fetch &#8212; framed by a forged signature on Myriad letterhead &#8212; names the Remnants location: the Shadebarrow in Ebonroot, via Baron Halthos's bloodline. The party takes Buddleia Austin's cursed signet ring (the iron-gate key) and ends the session fighting "murder ghosts." The Westruun anchor needs moving after Quash tried to disintegrate it.</span></div>
+        <div class="tnode"><span class="sn">Intelligence</span> — <span class="ti">Fetch's letter, decoded. The rival relic hunter <b>Blaine Kraverrogg</b> is a secret <b>Cult of Vecna</b> devotee, using the League of Miracles as unwitting funding. He broke Baron Halthos's grandchildren (Camila, Buddleia) with "waking nightmares" to find the barrow, which he calls an <b>Orcus-sealed vault</b> of "pure malice" — a weapon to use against the Republic in Vecna's name. He has left for Ebonroot (Bohdi's former home) to excavate it personally. The sign-off, "the eye sees all, the hand takes all," confirms Vecna (the Eye and Hand).</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    Generated from the Taldorei vault · current through Session 77 · intelligence update 2026-06-27 (Fetch's letter).
+    This is a static snapshot — regenerate after each ingest to refresh.
+  </footer>
+</div>
+</body>
+</html>

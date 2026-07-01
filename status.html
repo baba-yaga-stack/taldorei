@@ -64,14 +64,115 @@
   .sitenav a:hover{background:#7a1f1f;color:#fff;}
   .sitenav a.active{background:#8a6d1f;color:#2a2118;}
 </style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@600;700;900&display=swap');
+:root{--n-bg:#0a0c12;--n-card:#141927;--n-card2:#1a2033;--n-line:#262e44;
+  --n-gold:#d4a94e;--n-gold2:#f0cf82;--n-ember:#e05a3a;--n-text:#e8e2d2;--n-muted:#9298ab;}
+html{background:var(--n-bg)}
+body{margin:0;background:var(--n-bg) radial-gradient(ellipse 80% 50% at 50% -10%,rgba(70,60,120,.18),transparent)!important;}
+.annbar{background:linear-gradient(90deg,#1a0f14,#241118,#1a0f14);border-bottom:1px solid #3a1e26;
+  overflow:hidden;white-space:nowrap;font-size:.72rem;letter-spacing:.14em;font-weight:600;
+  color:#e3b8a0;text-transform:uppercase;font-family:'Inter',system-ui,sans-serif;}
+.annbar .track{display:inline-block;padding:8px 0;animation:nmarq 36s linear infinite;}
+.annbar span{margin:0 28px}
+.annbar .d{color:var(--n-gold)}
+@keyframes nmarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+nav.newtop{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:6px;
+  padding:10px 22px;background:rgba(10,12,18,.85);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--n-line);font-family:'Inter',system-ui,sans-serif;}
+nav.newtop .logo{display:flex;align-items:center;gap:10px;margin-right:18px;text-decoration:none;}
+nav.newtop .logo svg{width:30px;height:30px}
+nav.newtop .logo .wm{font-family:'Cinzel',serif;font-weight:700;font-size:.98rem;letter-spacing:.12em;
+  background:linear-gradient(180deg,var(--n-gold2),var(--n-gold));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.navlinks{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto;}
+.navlinks>div{position:relative}
+.navlinks a.lnk{display:block;padding:9px 15px;border-radius:6px;font-size:.8rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--n-text);text-decoration:none;}
+.navlinks a.lnk:hover,.navlinks>div:hover>a.lnk{background:var(--n-card2);color:var(--n-gold2);}
+.navlinks a.lnk.active{color:var(--n-gold)}
+.navlinks .drop{position:absolute;top:100%;left:0;min-width:250px;padding:8px;display:none;
+  background:var(--n-card);border:1px solid var(--n-line);border-radius:10px;
+  box-shadow:0 18px 40px rgba(0,0,0,.55);}
+.navlinks>div:hover .drop{display:block}
+.navlinks .drop a{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:9px 12px;border-radius:6px;font-size:.85rem;color:var(--n-text);text-decoration:none;}
+.navlinks .drop a:hover{background:var(--n-card2);color:var(--n-gold2)}
+.navlinks .drop .ct{font-size:.7rem;font-weight:700;color:var(--n-muted);background:var(--n-bg);
+  border:1px solid var(--n-line);border-radius:20px;padding:1px 8px;}
+footer.newfoot{margin-top:60px;border-top:1px solid var(--n-line);
+  background:linear-gradient(180deg,#0e1220,#080a0f);color:var(--n-muted);
+  font-family:'Inter',system-ui,sans-serif;}
+footer.newfoot .fin{max-width:1180px;margin:0 auto;padding:28px 24px 26px;display:flex;
+  flex-wrap:wrap;gap:16px 30px;align-items:center;justify-content:space-between;}
+footer.newfoot .wm{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.14em;color:var(--n-gold);}
+footer.newfoot nav{display:flex;flex-wrap:wrap;gap:4px 18px;}
+footer.newfoot a{color:var(--n-muted);text-decoration:none;font-size:.82rem;}
+footer.newfoot a:hover{color:var(--n-gold2)}
+footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px solid var(--n-line);padding-top:14px;}
+.banner g[fill="#2a2118"]{fill:#c9a04a}
+@media(prefers-reduced-motion:reduce){.annbar .track{animation:none}}
+@media(max-width:640px){nav.newtop{padding:10px 12px}.navlinks a.lnk{padding:8px 10px;font-size:.72rem}}
+</style>
+<style>
+/* ==== Tal'Dorei Nights dark theme override ==== */
+:root{--bg:#0a0c12;--panel:#141927;--panel2:#1a2033;--ink:#e6e0d0;--muted:#9298ab;
+  --gold:#d4a94e;--crit:#e06a6a;--good:#7cba74;--line:#2a3147;--accent:#e0a869;}
+h1{color:#f0cf82!important;}
+.crit-banner{background:linear-gradient(90deg,rgba(176,48,64,.16),rgba(176,48,64,.30))!important;
+  border-color:rgba(224,106,106,.45)!important;color:#f0c9ce!important;}
+.crit-banner b{color:#ff9a8a!important;}
+.card{box-shadow:0 6px 22px rgba(0,0,0,.4)!important;}
+.card h2{color:#e08a5e!important;}
+.row{border-bottom-color:#232a3d!important;}
+.lead .t{color:#f0cf82;}
+::selection{background:#d4a94e;color:#141927;}
+</style>
 </head>
 <body>
-<nav class="sitenav">
-  <a href="index.html">&#8962; Home</a>
-  <a href="party-quick-reference.html">Party</a>
-  <a href="compendium.html">Compendium</a>
-  <a href="sessions.html">Sessions</a>
-  <a href="status.html" class="active">Status</a>
+
+<div class="annbar" aria-hidden="true"><div class="track">
+  <span>&#9876; Next: Session 78 <span class="d">&mdash;</span> Initiative is rolled</span><span class="d">&#9670;</span>
+  <span>&#9760; Threat level: Critical</span><span class="d">&#9670;</span>
+  <span>&#128367; In-game year 1836 &middot; Westruun</span><span class="d">&#9670;</span>
+  <span>&#127922; Free inspiration with every nat 20</span><span class="d">&#9670;</span>
+  <span>&#9876; Next: Session 78 <span class="d">&mdash;</span> Initiative is rolled</span><span class="d">&#9670;</span>
+  <span>&#9760; Threat level: Critical</span><span class="d">&#9670;</span>
+  <span>&#128367; In-game year 1836 &middot; Westruun</span><span class="d">&#9670;</span>
+  <span>&#127922; Free inspiration with every nat 20</span><span class="d">&#9670;</span>
+</div></div>
+<nav class="newtop">
+  <a class="logo" href="index.html" aria-label="Tal'Dorei Nights home">
+    <svg viewBox="0 0 100 100" fill="none" stroke="#d4a94e" stroke-width="4" stroke-linejoin="round">
+      <polygon points="50,4 90,28 90,72 50,96 10,72 10,28"/>
+      <polygon points="50,22 76,64 24,64"/>
+      <path d="M50,4 50,22 M90,28 76,64 M10,28 24,64 M50,96 76,64 M50,96 24,64"/>
+    </svg>
+    <span class="wm">TAL'DOREI NIGHTS</span>
+  </a>
+  <div class="navlinks">
+    <div><a class="lnk" href="index.html">Home</a></div>
+    <div>
+      <a class="lnk" href="party-quick-reference.html">Party &#9662;</a>
+      <div class="drop">
+        <a href="party-quick-reference.html">Quick Reference <span class="ct">live stats</span></a>
+        <a href="compendium.html#cat-the-party">Character Files <span class="ct">6</span></a>
+      </div>
+    </div>
+    <div>
+      <a class="lnk" href="compendium.html">Compendium &#9662;</a>
+      <div class="drop">
+        <a href="compendium.html#cat-the-party">The Party <span class="ct">6</span></a>
+        <a href="compendium.html#cat-people-of-taldorei-npcs">People of Tal'Dorei <span class="ct">65</span></a>
+        <a href="compendium.html#cat-locations">Locations <span class="ct">29</span></a>
+        <a href="compendium.html#cat-lore-factions">Lore &amp; Factions <span class="ct">12</span></a>
+        <a href="compendium.html#cat-active-quests">Active Quests <span class="ct">7</span></a>
+        <a href="compendium.html#cat-completed-quests">Completed Quests <span class="ct">1</span></a>
+        <a href="compendium.html#cat-quick-reference">Quick Reference <span class="ct">3</span></a>
+      </div>
+    </div>
+    <div><a class="lnk" href="sessions.html">Sessions</a></div>
+    <div><a class="lnk active" href="status.html">Status</a></div>
+  </div>
 </nav>
 
 <div class="wrap">
@@ -311,5 +412,18 @@
     This is a static snapshot — regenerate after each ingest to refresh.
   </footer>
 </div>
+
+<footer class="newfoot"><div class="fin">
+  <span class="wm">TAL'DOREI NIGHTS</span>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="party-quick-reference.html">Party</a>
+    <a href="compendium.html">Compendium</a>
+    <a href="sessions.html">Sessions</a>
+    <a href="status.html">Status</a>
+  </nav>
+  <span class="fine">&copy; 1836 P.D. Tal'Dorei Nights &middot; No refunds on failed saves. Lifetime warranty on nat 20s.</span>
+</div></footer>
+
 </body>
 </html>

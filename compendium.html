@@ -1,3 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tal'Dorei Nights — Compendium</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@600;700;900&display=swap');
+:root{--n-bg:#0a0c12;--n-card:#141927;--n-card2:#1a2033;--n-line:#262e44;
+  --n-gold:#d4a94e;--n-gold2:#f0cf82;--n-ember:#e05a3a;--n-text:#e8e2d2;--n-muted:#9298ab;}
+html{background:var(--n-bg)}
+body{margin:0;background:var(--n-bg) radial-gradient(ellipse 80% 50% at 50% -10%,rgba(70,60,120,.18),transparent)!important;}
+.annbar{background:linear-gradient(90deg,#1a0f14,#241118,#1a0f14);border-bottom:1px solid #3a1e26;
+  overflow:hidden;white-space:nowrap;font-size:.72rem;letter-spacing:.14em;font-weight:600;
+  color:#e3b8a0;text-transform:uppercase;font-family:'Inter',system-ui,sans-serif;}
+.annbar .track{display:inline-block;padding:8px 0;animation:nmarq 36s linear infinite;}
+.annbar span{margin:0 28px}
+.annbar .d{color:var(--n-gold)}
+@keyframes nmarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+nav.newtop{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:6px;
+  padding:10px 22px;background:rgba(10,12,18,.85);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--n-line);font-family:'Inter',system-ui,sans-serif;}
+nav.newtop .logo{display:flex;align-items:center;gap:10px;margin-right:18px;text-decoration:none;}
+nav.newtop .logo svg{width:30px;height:30px}
+nav.newtop .logo .wm{font-family:'Cinzel',serif;font-weight:700;font-size:.98rem;letter-spacing:.12em;
+  background:linear-gradient(180deg,var(--n-gold2),var(--n-gold));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.navlinks{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto;}
+.navlinks>div{position:relative}
+.navlinks a.lnk{display:block;padding:9px 15px;border-radius:6px;font-size:.8rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--n-text);text-decoration:none;}
+.navlinks a.lnk:hover,.navlinks>div:hover>a.lnk{background:var(--n-card2);color:var(--n-gold2);}
+.navlinks a.lnk.active{color:var(--n-gold)}
+.navlinks .drop{position:absolute;top:100%;left:0;min-width:250px;padding:8px;display:none;
+  background:var(--n-card);border:1px solid var(--n-line);border-radius:10px;
+  box-shadow:0 18px 40px rgba(0,0,0,.55);}
+.navlinks>div:hover .drop{display:block}
+.navlinks .drop a{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:9px 12px;border-radius:6px;font-size:.85rem;color:var(--n-text);text-decoration:none;}
+.navlinks .drop a:hover{background:var(--n-card2);color:var(--n-gold2)}
+.navlinks .drop .ct{font-size:.7rem;font-weight:700;color:var(--n-muted);background:var(--n-bg);
+  border:1px solid var(--n-line);border-radius:20px;padding:1px 8px;}
+footer.newfoot{margin-top:60px;border-top:1px solid var(--n-line);
+  background:linear-gradient(180deg,#0e1220,#080a0f);color:var(--n-muted);
+  font-family:'Inter',system-ui,sans-serif;}
+footer.newfoot .fin{max-width:1180px;margin:0 auto;padding:28px 24px 26px;display:flex;
+  flex-wrap:wrap;gap:16px 30px;align-items:center;justify-content:space-between;}
+footer.newfoot .wm{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.14em;color:var(--n-gold);}
+footer.newfoot nav{display:flex;flex-wrap:wrap;gap:4px 18px;}
+footer.newfoot a{color:var(--n-muted);text-decoration:none;font-size:.82rem;}
+footer.newfoot a:hover{color:var(--n-gold2)}
+footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px solid var(--n-line);padding-top:14px;}
+.banner g[fill="#2a2118"]{fill:#c9a04a}
+@media(prefers-reduced-motion:reduce){.annbar .track{animation:none}}
+@media(max-width:640px){nav.newtop{padding:10px 12px}.navlinks a.lnk{padding:8px 10px;font-size:.72rem}}
+</style>
+</head>
+<body>
+
+<div class="annbar" aria-hidden="true"><div class="track">
+  <span>&#9876; Next: Session 78 <span class="d">&mdash;</span> Initiative is rolled</span><span class="d">&#9670;</span>
+  <span>&#9760; Threat level: Critical</span><span class="d">&#9670;</span>
+  <span>&#128367; In-game year 1836 &middot; Westruun</span><span class="d">&#9670;</span>
+  <span>&#127922; Free inspiration with every nat 20</span><span class="d">&#9670;</span>
+  <span>&#9876; Next: Session 78 <span class="d">&mdash;</span> Initiative is rolled</span><span class="d">&#9670;</span>
+  <span>&#9760; Threat level: Critical</span><span class="d">&#9670;</span>
+  <span>&#128367; In-game year 1836 &middot; Westruun</span><span class="d">&#9670;</span>
+  <span>&#127922; Free inspiration with every nat 20</span><span class="d">&#9670;</span>
+</div></div>
+<nav class="newtop">
+  <a class="logo" href="index.html" aria-label="Tal'Dorei Nights home">
+    <svg viewBox="0 0 100 100" fill="none" stroke="#d4a94e" stroke-width="4" stroke-linejoin="round">
+      <polygon points="50,4 90,28 90,72 50,96 10,72 10,28"/>
+      <polygon points="50,22 76,64 24,64"/>
+      <path d="M50,4 50,22 M90,28 76,64 M10,28 24,64 M50,96 76,64 M50,96 24,64"/>
+    </svg>
+    <span class="wm">TAL'DOREI NIGHTS</span>
+  </a>
+  <div class="navlinks">
+    <div><a class="lnk" href="index.html">Home</a></div>
+    <div>
+      <a class="lnk" href="party-quick-reference.html">Party &#9662;</a>
+      <div class="drop">
+        <a href="party-quick-reference.html">Quick Reference <span class="ct">live stats</span></a>
+        <a href="compendium.html#cat-the-party">Character Files <span class="ct">6</span></a>
+      </div>
+    </div>
+    <div>
+      <a class="lnk active" href="compendium.html">Compendium &#9662;</a>
+      <div class="drop">
+        <a href="compendium.html#cat-the-party">The Party <span class="ct">6</span></a>
+        <a href="compendium.html#cat-people-of-taldorei-npcs">People of Tal'Dorei <span class="ct">65</span></a>
+        <a href="compendium.html#cat-locations">Locations <span class="ct">29</span></a>
+        <a href="compendium.html#cat-lore-factions">Lore &amp; Factions <span class="ct">12</span></a>
+        <a href="compendium.html#cat-active-quests">Active Quests <span class="ct">7</span></a>
+        <a href="compendium.html#cat-completed-quests">Completed Quests <span class="ct">1</span></a>
+        <a href="compendium.html#cat-quick-reference">Quick Reference <span class="ct">3</span></a>
+      </div>
+    </div>
+    <div><a class="lnk" href="sessions.html">Sessions</a></div>
+    <div><a class="lnk" href="status.html">Status</a></div>
+  </div>
+</nav>
+
 <div id="tw"><style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=IM+Fell+English:ital@0;1&display=swap');
 #tw{--ink:#2a2118;--paper:#ead9b0;--card:#f6ecd3;--acc:#7a1f1f;--gold:#8a6d1f;--line:#cbb98c;
@@ -51,14 +154,6 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 #tw .sitenav a:hover{background:#7a1f1f;color:#fff}
 #tw .sitenav a.active{background:#8a6d1f;color:#2a2118}
 </style>
-<nav class="sitenav">
-  <a href="index.html">&#8962; Home</a>
-  <a href="party-quick-reference.html">Party</a>
-  <a href="compendium.html" class="active">Compendium</a>
-  <a href="sessions.html">Sessions</a>
-  <a href="status.html">Status</a>
-</nav>
-
 <div class='banner'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 170" role="img" aria-label="An owlbear faces a dragon breathing fire">
   <defs>
     <linearGradient id="fireg" x1="1" y1="0" x2="0" y2="0">
@@ -469,9 +564,9 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 <li><strong>Session 66</strong> - Participated in mithril mine confrontation</li>
 <li><strong>Session 67</strong> - Fought in the demilich skull spider battle at the mithril core chamber</li>
 <li><strong>Session 71</strong> - Finn tied himself to Grai to investigate the magic circle in the dome room; one of four PCs who Dimension Door'd to the Mossglow family home in pursuit of Liora</li>
-<li><strong>Session 72</strong> - Acquired a <strong>Bracelet of Blur</strong> (casts Blur); witnessed the Vespera encounter</li>
+<li><strong>Session 72</strong> - Witnessed the Vespera encounter</li>
 <li><strong>Session 73</strong> - With Ki, first to see the translucent man approaching the <a href="#abandoned-farmhouse">Abandoned Farmhouse</a>; with Finn and Bohdi, disposed of the body of <a href="#pip">Pip</a> in <a href="#jorenn-village">Jorenn Village</a></li>
-<li><strong>Session 74</strong> - Traveled north into the devil-haunted waste to the <a href="#bastion-of-the-fading-dawn">Bastion of the Fading Dawn</a>; fought the <a href="#the-devil-prince-of-indulgence">Devil Prince of Indulgence</a>. <strong>Correction:</strong> Grai does NOT have a Bracelet of Blur (DM correction; supersedes the Session 72 entry)</li>
+<li><strong>Session 74</strong> - Traveled north into the devil-haunted waste to the <a href="#bastion-of-the-fading-dawn">Bastion of the Fading Dawn</a>; fought the <a href="#the-devil-prince-of-indulgence">Devil Prince of Indulgence</a>.</li>
 <li><strong>Session 75</strong> - Fled the Devil Prince; found a <strong>barbed-wire great club</strong> (grants advantage on Intimidation checks); retreated to <a href="#cloudwatch">Cloudwatch</a></li>
 </ul>
 <h2>Inventory</h2>
@@ -479,7 +574,7 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 <!-- pc-items:grai-malin --><ul><li><strong>Barbed-Wire Great Club</strong> &mdash; Found Session 75; grants <strong>advantage on Intimidation checks</strong></li><li><strong>Greatsword of Wounding</strong> &mdash; Purchased from <a href="#gilmore">Gilmore</a> (Session 76). Properties [TBD].</li><li><strong>Pendant of Tempered Fury</strong></li><li><strong>Abjurer's Bangle</strong></li><li>Frog poison (crafted from Prince Windybranch's frogs)</li></ul><!-- /pc-items:grai-malin -->
 <p><em>Former items:</em> Mind Lash, a whip of alien flesh (acquired Session 58; sold Session 76 along with the Pride Mace and Battle Tax).</p>
 <blockquote>
-<p>~~<strong>Bracelet of Blur</strong>~~ &#8212; <strong>RETRACTED per DM correction in Session 74.</strong> Grai does not have a Bracelet of Blur. The earlier Session 72 acquisition entry was an error.</p>
+<p><strong>Bracelet of Blur</strong> &#8212; <strong>Grai has this.</strong> It was <strong>crafted for her by Ana</strong> (Anastasia Ravenswood, party Artificer). This supersedes the earlier Session 74 retraction (corrected 2026-07-01). Same item as the "Abjurer's Bangle" on her sheet.</p>
 </blockquote>
 <h3>Gold</h3>
 <p>[Track gold here]</p>
@@ -994,7 +1089,7 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 <ul>
 <li>Party levels to <strong>11</strong></li>
 <li>Captured anchor placed in the Cobalt Reserve vault (executes at session open)</li>
-<li><a href="#grai-malin">Grai</a> acquires a <strong>Bracelet of Blur</strong></li>
+<li><a href="#grai-malin">Grai</a> has a <strong>Bracelet of Blur</strong> &#8212; crafted for her by Ana (party Artificer)</li>
 <li>Travel toward <a href="#jorenn-village">Jorenn Village</a> in the <a href="#umbral-hills">Umbral Hills</a>; unseasonable cold; winter-like in late fall</li>
 <li>Day 5: meet <a href="#andreas-du-vavier">Andreas Du Vavier</a> (retired-merchant-turned-obsessive-painter, widowed) and his dog <a href="#gully">Gully</a>; Ki sits for a portrait; Andreas and Gully are guests in Mordenkainen's Mansion</li>
 <li>Mansion evening: <a href="#finn-s-patron">Finn&#x27;s Patron</a> manifests in the fireplace flames &#8212; feminine, devil-aspected; voice familiar; demands visibility into Finn's plans; references <strong>"my cousin"</strong> in the Umbral Hills</li>
@@ -1027,7 +1122,7 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 <hr />
 <h2>Session 74 &#8212; The Bastion of the Fading Dawn</h2>
 <ul>
-<li>DM correction: <strong><a href="#grai-malin">Grai</a> does not have a Bracelet of Blur</strong> (supersedes the Session 72 entry)</li>
+<li>DM correction here (later reversed 2026-07-01): a note claimed <a href="#grai-malin">Grai</a> does not have a Bracelet of Blur; overturned &#8212; the bracelet was crafted for her by Ana</li>
 <li>Party heads <strong>north ~30 miles</strong> into barren, volcanic waste where <strong>devils (not demons)</strong> roam in packs</li>
 <li>They find a solitary <strong>alabaster monolith</strong> ringed by a "defiant garden": the <strong><a href="#bastion-of-the-fading-dawn">Bastion of the Fading Dawn</a></strong>, Temple of the Dawn Father</li>
 <li>Inside, <a href="#father-abraham">Father Abraham</a> kneels in prayer beneath a crystal in a pillar of sunlight; his prayer powers a honeycomb lattice that holds back the <strong>infernal residue of the Battle of Umbral Hills</strong></li>
@@ -1135,7 +1230,7 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 <h3>Grai</h3>
 <ul>
 <li>(Carryover from prior entries)</li>
-<li><strong>Session 72:</strong> Acquired Bracelet of Blur</li>
+<li><strong>Bracelet of Blur:</strong> crafted for her by Ana (party Artificer)</li>
 </ul>
 <h3>Imdra</h3>
 <ul>
@@ -1158,7 +1253,7 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 </ul>
 <h3>Grai</h3>
 <ul>
-<li><strong>Session 74:</strong> Confirmed (DM correction) NOT to have a Bracelet of Blur</li>
+<li><strong>Session 74:</strong> an earlier "does not have a Bracelet of Blur" note was later reversed (2026-07-01) &#8212; she has it, crafted by Ana</li>
 <li><strong>Session 75:</strong> Acquired a barbed-wire great club (advantage on Intimidation checks)</li>
 </ul>
 <hr />
@@ -4174,3 +4269,42 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 <p>Identification provided by Jeremy (2026-06-27): the Whispered One / Whispered King = Vecna. Created to give the deity a home distinct from the cult faction file. Other deity files live in Lore &amp; Factions (e.g. <a href="#bane">Bane</a>).</p><p class='top'><a href='#tw'>&uarr; top</a></p></article>
 </section>
 </div>
+<style>
+/* ==== Tal'Dorei Nights dark theme override ==== */
+#tw{--ink:#e6e0d0;--paper:#0d1017;--card:#141927;--card2:#1a2033;--acc:#e08a5e;--gold:#d4a94e;
+  --line:#2a3147;--muted:#9298ab;
+  background:linear-gradient(180deg,#10141f,#0b0e16)!important;
+  border:1px solid #2a3147!important;border-radius:14px!important;
+  box-shadow:0 24px 70px rgba(0,0,0,.55)!important;}
+#tw h1{color:#f0cf82!important;text-shadow:none!important;}
+#tw .sub{color:var(--muted)!important;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 16'%3E%3Cpath d='M10 8h98M152 8h98' stroke='%23d4a94e' stroke-width='1.5'/%3E%3Cpath d='M130 2l7 6-7 6-7-6z' fill='%23e05a3a'/%3E%3Ccircle cx='114' cy='8' r='2.2' fill='%23d4a94e'/%3E%3Ccircle cx='146' cy='8' r='2.2' fill='%23d4a94e'/%3E%3C/svg%3E") center bottom/260px 16px no-repeat!important;}
+#tw h2,#tw section.cat>h2{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 16'%3E%3Cpath d='M10 8h98M152 8h98' stroke='%23d4a94e' stroke-width='1.5'/%3E%3Cpath d='M130 2l7 6-7 6-7-6z' fill='%23e05a3a'/%3E%3Ccircle cx='114' cy='8' r='2.2' fill='%23d4a94e'/%3E%3Ccircle cx='146' cy='8' r='2.2' fill='%23d4a94e'/%3E%3C/svg%3E") center bottom/240px 15px no-repeat!important;}
+#tw table{background:#10141f!important;}
+#tw th{background:#1e2537!important;color:var(--gold)!important;}
+#tw article h3.title,#tw .card .title{color:#f0cf82!important;}
+#tw article,#tw article.card{box-shadow:0 4px 18px rgba(0,0,0,.35)!important;}
+#tw ::selection{background:#d4a94e!important;color:#141927!important;}
+#tw .stat{background:#1a2033!important;}
+#tw .abil{background:#141927!important;}
+#tw .stat-val{color:#f0cf82!important;}
+#tw .row .rmod{color:#e6e0d0!important;}
+#tw .row.prof .rname,#tw .row.expertise .rname{color:#f0cf82!important;}
+#tw .dot.none{color:#39415a!important;}
+#tw .dot.half{color:#b08d4a!important;}
+#tw nav.toc{box-shadow:0 4px 18px rgba(0,0,0,.35)!important;}
+</style>
+
+<footer class="newfoot"><div class="fin">
+  <span class="wm">TAL'DOREI NIGHTS</span>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="party-quick-reference.html">Party</a>
+    <a href="compendium.html">Compendium</a>
+    <a href="sessions.html">Sessions</a>
+    <a href="status.html">Status</a>
+  </nav>
+  <span class="fine">&copy; 1836 P.D. Tal'Dorei Nights &middot; No refunds on failed saves. Lifetime warranty on nat 20s.</span>
+</div></footer>
+
+</body>
+</html>

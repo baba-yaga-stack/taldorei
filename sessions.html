@@ -100,6 +100,46 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px so
     <div><a class="lnk" href="status.html">Status</a></div>
   </div>
 </nav>
+<div class="sitesearch"><input id="siteq" type="search" placeholder="Search session recaps&hellip;" aria-label="Search this page"><span class="hits" id="sitehits"></span></div>
+<style>
+.sitesearch{position:sticky;top:52px;z-index:90;max-width:1000px;margin:10px auto 0;padding:0 12px;display:flex;align-items:center;gap:12px;}
+.sitesearch input{flex:1;padding:11px 18px;border-radius:8px;border:1px solid #2a3147;background:rgba(16,20,31,.92);
+  color:#e8e2d2;font-family:'Inter',system-ui,sans-serif;font-size:.95rem;outline:none;backdrop-filter:blur(8px);}
+.sitesearch input:focus{border-color:#d4a94e;box-shadow:0 0 0 3px rgba(212,169,78,.15);}
+.sitesearch input::placeholder{color:#6b7186;}
+.sitesearch .hits{font-family:'Inter',system-ui,sans-serif;font-size:.78rem;color:#9298ab;min-width:90px;text-align:right;}
+</style>
+<script>
+(function(){
+  var q = document.getElementById('siteq'), hits = document.getElementById('sitehits');
+  var articles = Array.prototype.slice.call(document.querySelectorAll('#tw article'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('#tw section.cat'));
+  var toc = document.querySelector('#tw nav.toc');
+  var cache = articles.map(function(a){ return a.textContent.toLowerCase(); });
+  var t;
+  function run(){
+    var v = q.value.trim().toLowerCase();
+    if(!v){ articles.forEach(function(a){a.style.display='';});
+      sections.forEach(function(s){s.style.display='';});
+      if(toc) toc.style.display=''; hits.textContent=''; return; }
+    if(toc) toc.style.display='none';
+    var n = 0;
+    articles.forEach(function(a,i){
+      var show = cache[i].indexOf(v) !== -1;
+      a.style.display = show ? '' : 'none';
+      if(show) n++;
+    });
+    sections.forEach(function(s){
+      s.style.display = s.querySelector('article:not([style*="none"])') ? '' : 'none';
+    });
+    hits.textContent = n + (n === 1 ? ' entry' : ' entries');
+  }
+  q.addEventListener('input', function(){ clearTimeout(t); t = setTimeout(run, 120); });
+  var m = location.search.match(/[?&]q=([^&]+)/);
+  if(m){ q.value = decodeURIComponent(m[1].replace(/\+/g,' ')); run(); q.scrollIntoView(); }
+})();
+</script>
+
 
 <div id="tw"><style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=IM+Fell+English:ital@0;1&display=swap');
@@ -277,7 +317,8 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 </div>
 <h1>Taldorei Session Recaps</h1><p class='sub'>What happened, session by session (newest first)</p>
 <nav class='toc'>
-<details open><summary>Sessions (25)</summary><ul>
+<details open><summary>Sessions (26)</summary><ul>
+<li><a href='#session-78'>July 1, 2026</a></li>
 <li><a href='#session-77'>June 24, 2026</a></li>
 <li><a href='#session-76'>June 10, 2026</a></li>
 <li><a href='#session-75'>May 27, 2026</a></li>
@@ -306,6 +347,44 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 </ul></details>
 </nav>
 <section class='cat' id='cat-sessions'><h2>Sessions</h2>
+<article id='session-78'><h3 class='title'>July 1, 2026</h3><p class="meta"><b>Campaign Arc:</b> Abyssal Anchors Crisis &middot; <b>Chapter:</b> The Curse of the Hells &middot; <b>Date:</b> 2026-07-01 &middot; <b>In-Game Year:</b> 1836</p><h1>Session 78 &#8212; The Curse of the Hells</h1>
+<h2>Quick Summary</h2>
+<p>The dead of Buddleia's townhouse learn why you don't haunt a party of level 11 adventurers. Murder ghosts and their ghoul rearguard are destroyed &#8212; Ki finishes the wall-hiders by pounding the floor with thunder. Then the bill comes due: Grai has carried the Devil Prince's <b>Curse of the Hells</b> since the Bastion, and removing it costs her 4d10 psychic damage at the end of every long rest, forever. Camila's second family ring is missing from her unclaimed body &#8212; Blaine Kraverrogg almost certainly holds his own key to the Shadebarrow.</p>
+<h2>The Battle of Buddleia's Townhouse</h2>
+<ul>
+<li>Session opens on rolled initiative; the DM opens with an act of spousal warfare, crowd-controlling his own wife's barbarian</li>
+<li>Imdra unleashes her <b>unicorn of reverse hurting</b> (healing spirit); Grai tears into the ghosts with the <b>Greatsword of Wounding</b></li>
+<li>Bohdi goes full elemental: <b>Freedom of the Waves</b> sends a column of water crashing through the room, then he teleports into the melee and detonates a blast of cold</li>
+<li>Finn debuts the <b>Magentan Sun-Saw</b> &#8212; magenta, mechanical, immediately blastin'</li>
+<li>The ghosts flee through the party, then through the walls, leaving <b>ghouls</b> &#8212; Grai murders the shit out of them</li>
+<li>Ana, with one monster left standing, casts <b>See Invisibility</b> (finally gets to do something)</li>
+<li>Bohdi Fire Bolts the babbling green thing; Finn finishes it</li>
+<li><b>Ki pounds the floor with a thunderous blast that kills the murder ghosts through the walls.</b> The haunting ends not with an exorcism but with a bard hitting the building until the dead stop moving</li>
+</ul>
+<h2>The Curse of the Hells</h2>
+<ul>
+<li>The Devil Prince (Session 74, Bastion of the Fading Dawn) left something in Grai: <b>subtract 1d4 from every attack roll and saving throw</b>, anchored by the "Barbs of Hell"</li>
+<li>High Scholar <b>Lyra Finch</b> (Order of Mages, Westruun library) casts <b>Legend Lore</b> from an oak case of ivory strips and incense &#8212; her eyes go stark white, and Finn sees <b>hellfire burning in them</b>; she is out for ten minutes</li>
+<li>The verdict: only <b>Wish</b> removes the curse cleanly. Anything lesser leaves "echoes" &#8212; the curse lifts, but <b>4d10 psychic damage strikes at the end of every long rest</b>, forever</li>
+<li><b>Grai takes the echoes.</b> Every morning, hell gets one more swing at her &#8212; and every morning she gets up anyway</li>
+<li>Meanwhile Ki has started <b>molting</b>, courtesy of his new cursed cloak</li>
+</ul>
+<h2>The Missing Ring</h2>
+<ul>
+<li>Finn questions the undertaker: Camila's body is <b>unclaimed</b> and the <b>second family ring is missing</b></li>
+<li>Her townhouse shows a noble house in slow decline since her husband's death years ago</li>
+<li>Conclusion: <b>Blaine Kraverrogg has solid directions to the Shadebarrow &#8212; and likely a key of his own.</b> The race is no longer against his head start; it's against a man holding the same ring</li>
+</ul>
+<h2>Quash and the Wrecked Laboratory</h2>
+<ul>
+<li>Quash's laboratory is <b>wrecked</b> from experimenting on the captured abyssal anchor; he claims to be "almost done"</li>
+<li>Finn attempts to talk him into carrying the anchor to Emon himself, and is, by unanimous account, not doing a convincing job</li>
+</ul>
+<h2>Loot &amp; Rewards</h2>
+<ul><li>None recorded. The session's ledger was paid in the other direction: Grai now owes 4d10 psychic per long rest.</li></ul>
+<h2>Next Session Preview</h2>
+<p>Northeast to Ebonroot and the Shadebarrow: find the split-tongue monolith, cross the mud, and beat Blaine Kraverrogg to the iron gate &#8212; with Buddleia's ring in Ki's pocket and, possibly, its twin in Blaine's.</p>
+<p class='top'><a href='#top'>&#8593; top</a></p></article>
 <article id='session-77'><h3 class='title'>June 24, 2026</h3><p class="meta"><b>Campaign Arc:</b> Abyssal Anchors Crisis &middot; <b>Chapter:</b> The Remnants Lead &middot; <b>Date:</b> 2026-06-24 &middot; <b>In-Game Year:</b> 1836</p><h1>Session 77 &#8212; The Remnants Lead</h1>
 <h2>Quick Summary</h2>
 <p>The party works the Remnants lead in Westruun. Zeloah promotes Bohdi into the Clasp's inner circle ("Spook"), and Fetch gives up the Remnants' location: the Shadebarrow in Ebonroot. The group finds the haunted Buddleia Austin, takes her cursed signet ring (the barrow's key), and the session ends mid-fight against "murder ghosts" in her townhouse.</p>

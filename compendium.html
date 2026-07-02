@@ -100,6 +100,46 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px so
     <div><a class="lnk" href="status.html">Status</a></div>
   </div>
 </nav>
+<div class="sitesearch"><input id="siteq" type="search" placeholder="Search the compendium — NPCs, locations, quests, lore&hellip;" aria-label="Search this page"><span class="hits" id="sitehits"></span></div>
+<style>
+.sitesearch{position:sticky;top:52px;z-index:90;max-width:1000px;margin:10px auto 0;padding:0 12px;display:flex;align-items:center;gap:12px;}
+.sitesearch input{flex:1;padding:11px 18px;border-radius:8px;border:1px solid #2a3147;background:rgba(16,20,31,.92);
+  color:#e8e2d2;font-family:'Inter',system-ui,sans-serif;font-size:.95rem;outline:none;backdrop-filter:blur(8px);}
+.sitesearch input:focus{border-color:#d4a94e;box-shadow:0 0 0 3px rgba(212,169,78,.15);}
+.sitesearch input::placeholder{color:#6b7186;}
+.sitesearch .hits{font-family:'Inter',system-ui,sans-serif;font-size:.78rem;color:#9298ab;min-width:90px;text-align:right;}
+</style>
+<script>
+(function(){
+  var q = document.getElementById('siteq'), hits = document.getElementById('sitehits');
+  var articles = Array.prototype.slice.call(document.querySelectorAll('#tw article'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('#tw section.cat'));
+  var toc = document.querySelector('#tw nav.toc');
+  var cache = articles.map(function(a){ return a.textContent.toLowerCase(); });
+  var t;
+  function run(){
+    var v = q.value.trim().toLowerCase();
+    if(!v){ articles.forEach(function(a){a.style.display='';});
+      sections.forEach(function(s){s.style.display='';});
+      if(toc) toc.style.display=''; hits.textContent=''; return; }
+    if(toc) toc.style.display='none';
+    var n = 0;
+    articles.forEach(function(a,i){
+      var show = cache[i].indexOf(v) !== -1;
+      a.style.display = show ? '' : 'none';
+      if(show) n++;
+    });
+    sections.forEach(function(s){
+      s.style.display = s.querySelector('article:not([style*="none"])') ? '' : 'none';
+    });
+    hits.textContent = n + (n === 1 ? ' entry' : ' entries');
+  }
+  q.addEventListener('input', function(){ clearTimeout(t); t = setTimeout(run, 120); });
+  var m = location.search.match(/[?&]q=([^&]+)/);
+  if(m){ q.value = decodeURIComponent(m[1].replace(/\+/g,' ')); run(); q.scrollIntoView(); }
+})();
+</script>
+
 
 <div id="tw"><style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=IM+Fell+English:ital@0;1&display=swap');
@@ -571,7 +611,7 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 </ul>
 <h2>Inventory</h2>
 <h3>Magic Items</h3>
-<!-- pc-items:grai-malin --><ul><li><strong>Barbed-Wire Great Club</strong> &mdash; Found Session 75; grants <strong>advantage on Intimidation checks</strong></li><li><strong>Greatsword of Wounding</strong> &mdash; Purchased from <a href="#gilmore">Gilmore</a> (Session 76). Properties [TBD].</li><li><strong>Pendant of Tempered Fury</strong></li><li><strong>Abjurer's Bangle</strong></li><li>Frog poison (crafted from Prince Windybranch's frogs)</li></ul><!-- /pc-items:grai-malin -->
+<!-- pc-items:grai-malin --><ul><li><strong>Barbed-Wire Great Club</strong> &mdash; Found Session 75; grants <strong>advantage on Intimidation checks</strong></li><li><strong>Greatsword of Wounding</strong> &mdash; Purchased from <a href="#gilmore">Gilmore</a> (Session 76). Properties [TBD].</li><li><strong>Pendant of Tempered Fury</strong></li><li><strong>Abjurer's Bangle</strong></li><li><strong>Bracelet of Blur</strong> (a.k.a. "Abjurer's Bangle" on the sheet) &mdash; <strong>crafted for Grai by <a href="#anastasia-ravenswood">Anna</a></strong> (party Artificer); casts Blur</li><li>Frog poison (crafted from Prince Windybranch's frogs)</li></ul><!-- /pc-items:grai-malin -->
 <p><em>Former items:</em> Mind Lash, a whip of alien flesh (acquired Session 58; sold Session 76 along with the Pride Mace and Battle Tax).</p>
 <blockquote>
 <p><strong>Bracelet of Blur</strong> &#8212; <strong>Grai has this.</strong> It was <strong>crafted for her by Ana</strong> (Anastasia Ravenswood, party Artificer). This supersedes the earlier Session 74 retraction (corrected 2026-07-01). Same item as the "Abjurer's Bangle" on her sheet.</p>
@@ -652,7 +692,7 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 </ul>
 <h2>Inventory</h2>
 <h3>Magic Items</h3>
-<!-- pc-items:ki-nightwhisper --><ul><li><strong>Pipes (satyr gift)</strong> &mdash; Gift from satyr (acquired Session 56)</li><li><strong>Demilich Skull</strong> &mdash; Gem-encrusted skull; arcane focus that enhances Necromancy; attunable by spellcasters (acquired Session 67)</li><li><strong>Quill of Preservation</strong> &mdash; Gift from <a href="#vespera-the-dream-stitcher">Vespera the Dream Stitcher</a> (Session 72). Silver quill with an eye atop, a 10-inch fine needle below. Plays a sleep melody. Pins a <strong>non-sapient, non-conscious</strong> thing in its current state. Vespera frames it as <strong>an anchor if the world begins to unravel</strong>.</li><li><strong>Portrait of Ki (Andreas Du Vavier)</strong> &mdash; Painted by <a href="#andreas-du-vavier">Andreas Du Vavier</a> in Session 72; placed in Mordenkainen's Magnificent Mansion. <strong>Survived a Banishment effect intact</strong> (Session 73) &mdash; suggests the painting itself may have unusual properties.</li><li><strong>Inker's Armband</strong> &mdash; Purchased from <a href="#gilmore">Gilmore</a> (Session 76). Properties [TBD].</li><li><strong>Shadow Weaver's Guise</strong> &mdash; Purchased from <a href="#gilmore">Gilmore</a> (Session 76). Properties [TBD].</li><li><strong>Dragon's Call</strong> &mdash; Purchased from <a href="#gilmore">Gilmore</a> (Session 76). Properties [TBD].</li><li><strong>Studded Leather +1</strong></li><li><strong>Hand Crossbow +1</strong></li><li><strong>Frefil's Tiny Tasty Tongue Twisty Sugarbombs</strong></li><li><strong>Tale-Weaver's Token</strong></li><li><strong>Canister of Vreyval's Soothing Tea</strong></li><li><strong>Buddleia Austin's signet ring</strong> &mdash; Received Session 77. Key to the <strong>iron gate</strong> at the Shadebarrow; described as carrying a <strong>curse</strong> (the haunting weight Buddleia bore). Properties [TBD]</li></ul><!-- /pc-items:ki-nightwhisper -->
+<!-- pc-items:ki-nightwhisper --><ul><li><strong>Pipes (satyr gift)</strong> &mdash; Gift from satyr (acquired Session 56)</li><li><strong>Demilich Skull</strong> &mdash; Gem-encrusted skull; arcane focus that enhances Necromancy; attunable by spellcasters (acquired Session 67)</li><li><strong>Quill of Preservation</strong> &mdash; Gift from <a href="#vespera-the-dream-stitcher">Vespera the Dream Stitcher</a> (Session 72). Silver quill with an eye atop, a 10-inch fine needle below. Plays a sleep melody. Pins a <strong>non-sapient, non-conscious</strong> thing in its current state. Vespera frames it as <strong>an anchor if the world begins to unravel</strong>.</li><li><strong>Portrait of Ki (Andreas Du Vavier)</strong> &mdash; Painted by <a href="#andreas-du-vavier">Andreas Du Vavier</a> in Session 72; placed in Mordenkainen's Magnificent Mansion. <strong>Survived a Banishment effect intact</strong> (Session 73) &mdash; suggests the painting itself may have unusual properties.</li><li><strong>Inker's Armband</strong> &mdash; Purchased from <a href="#gilmore">Gilmore</a> (Session 76). Properties [TBD].</li><li><strong>Shadow Weaver's Guise</strong> &mdash; Purchased from <a href="#gilmore">Gilmore</a> (Session 76). Properties [TBD].</li><li><strong>Dragon's Call</strong> &mdash; Purchased from <a href="#gilmore">Gilmore</a> (Session 76). Properties [TBD].</li><li><strong>Studded Leather +1</strong></li><li><strong>Hand Crossbow +1</strong></li><li><strong>Frefil's Tiny Tasty Tongue Twisty Sugarbombs</strong></li><li><strong>Tale-Weaver's Token</strong></li><li><strong>Canister of Vreyval's Soothing Tea</strong></li><li><strong>Buddleia Austen's signet ring</strong> &mdash; Received Session 77. Key to the <strong>iron gate</strong> at the <a href="#shadebarrow">Shadebarrow</a>; described as carrying a <strong>curse</strong> (the haunting weight Buddleia bore). Properties [TBD]</li></ul><!-- /pc-items:ki-nightwhisper -->
 <h3>Gold</h3>
 <p>[Track gold here]</p>
 <h2>Relationships</h2>

@@ -184,20 +184,28 @@ footer .about{color:var(--muted);font-size:.86rem;max-width:300px;}
 @media(max-width:780px){.fgrid{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){nav.top{padding:10px 12px}.navlinks a.lnk{padding:8px 10px;font-size:.74rem}
   .featured .body{padding:24px 22px}}
+
+.navsearch{margin-left:auto;margin-right:8px}
+.navsearch input{padding:8px 14px;border-radius:6px;border:1px solid var(--line);background:var(--card);
+  color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:.85rem;outline:none;width:150px;transition:width .2s,border-color .2s;}
+.navsearch input:focus{width:210px;border-color:var(--gold);}
+.navsearch input::placeholder{color:#6b7186}
+.navlinks{margin-left:0!important}
+@media(max-width:760px){.navsearch{display:none}}
 </style>
 </head>
 <body>
 
 <!-- ANNOUNCEMENT BAR -->
 <div class="annbar" aria-hidden="true"><div class="track">
-  <span>&#9876; Next: Session 78 <span class="d">&mdash;</span> Initiative is rolled</span><span class="d">&#9670;</span>
+  <span>&#9876; Next: Session 79 <span class="d">&mdash;</span> The road to Ebonroot</span><span class="d">&#9670;</span>
   <span>&#9760; Threat level: Critical</span><span class="d">&#9670;</span>
-  <span>&#128367; In-game year 1836 &middot; Westruun</span><span class="d">&#9670;</span>
-  <span>&#127922; Free inspiration with every nat 20</span><span class="d">&#9670;</span>
-  <span>&#9876; Next: Session 78 <span class="d">&mdash;</span> Initiative is rolled</span><span class="d">&#9670;</span>
+  <span>&#128367; Year 1836 &middot; Westruun &rarr; Ebonroot</span><span class="d">&#9670;</span>
+  <span>&#9877; Grai's echoes: 4d10 psychic per long rest</span><span class="d">&#9670;</span>
+  <span>&#9876; Next: Session 79 <span class="d">&mdash;</span> The road to Ebonroot</span><span class="d">&#9670;</span>
   <span>&#9760; Threat level: Critical</span><span class="d">&#9670;</span>
-  <span>&#128367; In-game year 1836 &middot; Westruun</span><span class="d">&#9670;</span>
-  <span>&#127922; Free inspiration with every nat 20</span><span class="d">&#9670;</span>
+  <span>&#128367; Year 1836 &middot; Westruun &rarr; Ebonroot</span><span class="d">&#9670;</span>
+  <span>&#9877; Grai's echoes: 4d10 psychic per long rest</span><span class="d">&#9670;</span>
 </div></div>
 
 <!-- NAV -->
@@ -210,7 +218,8 @@ footer .about{color:var(--muted);font-size:.86rem;max-width:300px;}
     </svg>
     <span class="wm">TAL'DOREI NIGHTS</span>
   </a>
-  <div class="navlinks">
+  <form class="navsearch" action="compendium.html" method="get"><input name="q" type="search" placeholder="Search&hellip;" aria-label="Search the compendium"></form>
+<div class="navlinks">
     <div><a class="lnk active" href="index.html">Home</a></div>
     <div>
       <a class="lnk" href="party-quick-reference.html">Party &#9662;</a>
@@ -313,7 +322,7 @@ footer .about{color:var(--muted);font-size:.86rem;max-width:300px;}
 <!-- THREAT STRIP -->
 <div class="threatbar">
   <span class="pill pulse">Threat Level: Critical</span>
-  <span>Graz'zt has crossed the divine gate &middot; the Shadebarrow stirs in Ebonroot &middot; and the party is mid-fight with murder ghosts.</span>
+  <span>Graz'zt walks the Prime Material &middot; Blaine Kraverrogg likely holds his own key to the Shadebarrow &middot; the race to Ebonroot is on.</span>
 </div>
 
 <div class="wrap">
@@ -322,14 +331,14 @@ footer .about{color:var(--muted);font-size:.86rem;max-width:300px;}
   <div class="stats">
     <div class="stat"><span class="n">6</span><span class="l">Heroes</span></div>
     <div class="stat"><span class="n">11</span><span class="l">Level</span></div>
-    <div class="stat"><span class="n">25</span><span class="l">Sessions</span></div>
+    <div class="stat"><span class="n">26</span><span class="l">Sessions</span></div>
     <div class="stat"><span class="n">1836</span><span class="l">In-Game Year</span></div>
   </div>
 
   <!-- FEATURED: LATEST SESSION -->
   <section class="blk">
     <p class="kicker">Last time, in Westruun</p>
-    <h2 class="sec">Session 77 &mdash; The Remnants Lead</h2>
+    <h2 class="sec">Session 78 &mdash; The Curse of the Hells</h2>
     <div style="height:18px"></div>
     <div class="featured">
       <div class="art">
@@ -353,16 +362,17 @@ footer .about{color:var(--muted);font-size:.86rem;max-width:300px;}
         </svg>
       </div>
       <div class="body">
-        <h3>The cursed ring is the key.</h3>
-        <p>Bohdi took the black cloak of a Clasp <em>Spook</em>. Fetch gave up the Remnants' hideout &mdash;
-        the Shadebarrow in Ebonroot &mdash; and haunted Buddleia Austin pressed her cursed signet ring into Ki's
-        hands: the key to the barrow's iron gate. The session ended on rolled initiative, murder ghosts
-        screaming through her townhouse.</p>
+        <h3>Hell always collects.</h3>
+        <p>The murder ghosts died the way everything dies around this party &mdash; loudly. Ki killed the ones hiding
+        in the walls by pounding the floor with thunder. Then the real monster surfaced: the Devil Prince's
+        <em>Curse of the Hells</em>, buried in Grai since the Bastion. Only Wish removes it cleanly. Grai took the
+        echoes instead &mdash; 4d10 psychic at the end of every long rest, forever. And Camila's second ring is
+        missing: Blaine Kraverrogg likely holds his own key to the barrow.</p>
         <div class="chips">
-          <span class="chip">Bohdi joins the Clasp inner circle</span>
-          <span class="chip">Signet ring acquired</span>
-          <span class="chip hot">Cliffhanger: murder ghosts</span>
-          <span class="chip hot">Race Blaine Kraverrogg to the barrow</span>
+          <span class="chip">Murder ghosts destroyed</span>
+          <span class="chip">Magentan Sun-Saw debut</span>
+          <span class="chip hot">Grai takes the echoes: 4d10/long rest</span>
+          <span class="chip hot">Blaine likely has his own key</span>
         </div>
         <a class="btn ghost" href="sessions.html">Read the full recap &rarr;</a>
       </div>
@@ -475,7 +485,7 @@ footer .about{color:var(--muted);font-size:.86rem;max-width:300px;}
       <div>
         <h4>The Table</h4>
         <a href="status.html">Current Objectives</a>
-        <a href="sessions.html">Session 77 Recap</a>
+        <a href="sessions.html">Session 78 Recap</a>
         <a href="party-quick-reference.html#senses">Who Has Darkvision?</a>
       </div>
     </div>

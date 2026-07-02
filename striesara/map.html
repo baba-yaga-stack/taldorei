@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Striesara — Map</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital@1&display=swap');
+:root{--bg:#edefe4;--card:#f8f9f1;--card2:#eef1dd;--line:#cdd4b8;
+  --gold:#8f7d3f;--gold2:#6e6030;--green:#3e6b4f;--green2:#2c5039;--rose:#a05242;
+  --text:#2a3226;--muted:#68725f;--radius:10px;}
+html{background:var(--bg)}
+body{margin:0;color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6;
+  background:var(--bg) radial-gradient(ellipse 80% 50% at 50% -10%,rgba(143,125,63,.10),transparent)!important;}
+a{color:var(--green);text-decoration:none}
+a:hover{color:var(--green2)}
+.annbar{background:linear-gradient(90deg,#e3e6cf,#eae9d2,#e3e6cf);border-bottom:1px solid #cfd0ae;
+  overflow:hidden;white-space:nowrap;font-size:.72rem;letter-spacing:.14em;font-weight:600;
+  color:#5a6a4a;text-transform:uppercase;font-family:'Inter',system-ui,sans-serif;}
+.annbar .track{display:inline-block;padding:8px 0;animation:nmarq 36s linear infinite;}
+.annbar span{margin:0 28px}
+.annbar .d{color:var(--gold)}
+@keyframes nmarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+nav.newtop{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:6px;
+  padding:10px 22px;background:rgba(248,249,241,.88);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);font-family:'Inter',system-ui,sans-serif;}
+nav.newtop .logo{display:flex;align-items:center;gap:10px;margin-right:18px;text-decoration:none;}
+nav.newtop .logo svg{width:30px;height:30px}
+nav.newtop .logo .wm{font-family:'Cinzel',serif;font-weight:700;font-size:.98rem;letter-spacing:.12em;
+  background:linear-gradient(180deg,var(--green),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.navlinks{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto;}
+.navlinks>div{position:relative}
+.navlinks a.lnk{display:block;padding:9px 15px;border-radius:6px;font-size:.8rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--text);text-decoration:none;}
+.navlinks a.lnk:hover,.navlinks>div:hover>a.lnk{background:var(--card2);color:var(--green2);}
+.navlinks a.lnk.active{color:var(--green)}
+.navlinks .drop{position:absolute;top:100%;left:0;min-width:250px;padding:8px;display:none;
+  background:var(--card);border:1px solid var(--line);border-radius:10px;
+  box-shadow:0 18px 40px rgba(60,70,40,.25);}
+.navlinks>div:hover .drop{display:block}
+.navlinks .drop a{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:9px 12px;border-radius:6px;font-size:.85rem;color:var(--text);text-decoration:none;}
+.navlinks .drop a:hover{background:var(--card2);color:var(--green2)}
+.navlinks .drop .ct{font-size:.7rem;font-weight:700;color:var(--muted);background:var(--bg);
+  border:1px solid var(--line);border-radius:20px;padding:1px 8px;}
+footer.newfoot{margin-top:60px;border-top:1px solid var(--line);
+  background:linear-gradient(180deg,#e8ebd8,#dde1c8);color:var(--muted);
+  font-family:'Inter',system-ui,sans-serif;}
+footer.newfoot .fin{max-width:1180px;margin:0 auto;padding:28px 24px 26px;display:flex;
+  flex-wrap:wrap;gap:16px 30px;align-items:center;justify-content:space-between;}
+footer.newfoot .wm{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.14em;color:var(--green2);}
+footer.newfoot nav{display:flex;flex-wrap:wrap;gap:4px 18px;}
+footer.newfoot a{color:var(--muted);text-decoration:none;font-size:.82rem;}
+footer.newfoot a:hover{color:var(--green2)}
+footer.newfoot .fine{width:100%;font-size:.74rem;color:#8a927c;border-top:1px solid var(--line);padding-top:14px;}
+@media(prefers-reduced-motion:reduce){.annbar .track{animation:none}}
+@media(max-width:640px){nav.newtop{padding:10px 12px}.navlinks a.lnk{padding:8px 10px;font-size:.72rem}}
+</style>
+</head>
+<body>
+<div class="annbar" aria-hidden="true"><div class="track">
+  <span>&#127807; Next: Session 9 <span class="d">&mdash;</span> it opens at Mama Sugah's sweet shop</span><span class="d">&#10022;</span>
+  <span>&#9878; Renvar Ilthis at large &mdash; last seen mid&ndash;Time Stop</span><span class="d">&#10022;</span>
+  <span>&#127815; Whitethorn's vineyards are failing &mdash; the witches stand accused</span><span class="d">&#10022;</span>
+  <span>&#128055; Pickles the pygmy pig has joined the party</span><span class="d">&#10022;</span>
+  <span>&#127807; Next: Session 9 <span class="d">&mdash;</span> it opens at Mama Sugah's sweet shop</span><span class="d">&#10022;</span>
+  <span>&#9878; Renvar Ilthis at large &mdash; last seen mid&ndash;Time Stop</span><span class="d">&#10022;</span>
+  <span>&#127815; Whitethorn's vineyards are failing &mdash; the witches stand accused</span><span class="d">&#10022;</span>
+  <span>&#128055; Pickles the pygmy pig has joined the party</span><span class="d">&#10022;</span>
+</div></div>
+<nav class="newtop">
+  <a class="logo" href="index.html" aria-label="Striesara home">
+    <svg viewBox="0 0 100 100" fill="none" stroke="#3e6b4f" stroke-width="4" stroke-linejoin="round">
+      <path d="M50 6 C76 24 84 52 50 94 C16 52 24 24 50 6 Z"/>
+      <path d="M50 20 L50 84 M50 44 L68 32 M50 44 L32 32 M50 62 L70 50 M50 62 L30 50"/>
+    </svg>
+    <span class="wm">STRIESARA</span>
+  </a>
+  <div class="navlinks">
+    <div><a class="lnk" href="../index.html" title="Campaign select">&#10022; Campaigns</a></div>
+    <div><a class="lnk" href="index.html">Home</a></div>
+    <div>
+      <a class="lnk" href="party-quick-reference.html">Party &#9662;</a>
+      <div class="drop">
+        <a href="party-quick-reference.html">Quick Reference <span class="ct">live stats</span></a>
+        <a href="compendium.html#cat-the-party">Character Files <span class="ct">7</span></a>
+      </div>
+    </div>
+    <div>
+      <a class="lnk" href="compendium.html">Compendium &#9662;</a>
+      <div class="drop">
+        <a href="compendium.html#cat-the-party">The Party <span class="ct">7</span></a>
+        <a href="compendium.html#cat-people-of-striesara-npcs">People of Striesara <span class="ct">52</span></a>
+        <a href="compendium.html#cat-locations">Locations <span class="ct">37</span></a>
+        <a href="compendium.html#cat-lore-factions">Lore &amp; Factions <span class="ct">10</span></a>
+        <a href="compendium.html#cat-active-quests">Active Quests <span class="ct">3</span></a>
+        <a href="compendium.html#cat-completed-quests">Completed Quests <span class="ct">2</span></a>
+      </div>
+    </div>
+    <div><a class="lnk active" href="map.html">Map</a></div>
+    <div><a class="lnk" href="sessions.html">Sessions</a></div>
+    <div><a class="lnk" href="status.html">Status</a></div>
+  </div>
+</nav>
+
+
+<style>
+.mapwrap{max-width:1400px;margin:0 auto;padding:18px 24px 10px;}
+.mapwrap h1{font-family:'Cinzel',serif;font-weight:700;color:var(--green2);letter-spacing:.05em;margin:.2em 0 .1em;font-size:clamp(1.5rem,3vw,2.2rem);}
+.mapbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:8px 0 14px;font-family:'Inter',sans-serif;}
+.mapbar .hint{color:var(--muted);font-size:.88rem;}
+.mapbar .total{font-weight:700;color:var(--green2);font-size:1.02rem;background:var(--card);
+  border:1px solid var(--line);border-radius:8px;padding:7px 16px;min-width:170px;}
+.mapbar button{padding:8px 18px;border-radius:6px;border:1px solid var(--green);background:var(--card);
+  color:var(--green2);font-weight:600;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;}
+.mapbar button:hover{background:var(--card2);}
+.mapbar a.dl{font-size:.82rem;color:var(--muted);text-decoration:underline;}
+#mapbox{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:0 16px 44px rgba(70,80,45,.2);cursor:crosshair;}
+#mapbox img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none;}
+#mapbox svg.overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.seg-label{font-family:'Inter',sans-serif;font-weight:700;paint-order:stroke;stroke:#f8f9f1;stroke-width:4px;fill:#2c5039;}
+</style>
+<div class="mapwrap">
+  <h1>Map Striesara</h1>
+  <div class="mapbar">
+    <span class="hint">&#128207; <b>Click</b> to drop waypoints and measure the route &middot; <b>double-click</b> or press Clear to start over. Scale: 6.25 miles per map pixel.</span>
+    <span class="total" id="totaldist">Total: — </span>
+    <button id="clearbtn" type="button">Clear route</button>
+    <a class="dl" href="map-striesara.jpg" target="_blank" rel="noopener">open full-size image</a>
+  </div>
+  <div id="mapbox">
+    <img id="mapimg" src="map-striesara.jpg" alt="Map of Striesara">
+    <svg class="overlay" id="mapov"></svg>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var MI_PER_NATURAL_PX = 6.25;
+  var img = document.getElementById('mapimg'), box = document.getElementById('mapbox'),
+      ov = document.getElementById('mapov'), total = document.getElementById('totaldist'),
+      clearBtn = document.getElementById('clearbtn');
+  var pts = [];  // in natural-image pixel coords
+  function fmt(mi){ return mi >= 100 ? Math.round(mi) + ' mi' : mi.toFixed(1) + ' mi'; }
+  function days(mi){ return (mi / 24).toFixed(1); } // 24 mi/day standard travel pace
+  function redraw(){
+    var r = img.getBoundingClientRect();
+    var sx = r.width / img.naturalWidth, sy = r.height / img.naturalHeight;
+    var parts = [], distTotal = 0;
+    for (var i = 0; i < pts.length; i++){
+      var x = pts[i][0] * sx, y = pts[i][1] * sy;
+      parts.push('<circle cx="' + x + '" cy="' + y + '" r="6" fill="#a05242" stroke="#f8f9f1" stroke-width="2.5"/>');
+      if (i > 0){
+        var px = pts[i-1][0] * sx, py = pts[i-1][1] * sy;
+        var dxn = pts[i][0] - pts[i-1][0], dyn = pts[i][1] - pts[i-1][1];
+        var mi = Math.sqrt(dxn*dxn + dyn*dyn) * MI_PER_NATURAL_PX;
+        distTotal += mi;
+        parts.unshift('<line x1="' + px + '" y1="' + py + '" x2="' + x + '" y2="' + y +
+          '" stroke="#a05242" stroke-width="3" stroke-dasharray="7 5"/>');
+        parts.push('<text class="seg-label" x="' + ((px + x)/2 + 8) + '" y="' + ((py + y)/2 - 8) +
+          '" font-size="13">' + fmt(mi) + '</text>');
+      }
+    }
+    ov.innerHTML = parts.join('');
+    total.innerHTML = pts.length > 1
+      ? 'Total: <b>' + fmt(distTotal) + '</b> &middot; ~' + days(distTotal) + ' travel days'
+      : 'Total: — ';
+  }
+  box.addEventListener('click', function(e){
+    var r = img.getBoundingClientRect();
+    var nx = (e.clientX - r.left) / r.width * img.naturalWidth;
+    var ny = (e.clientY - r.top) / r.height * img.naturalHeight;
+    pts.push([nx, ny]);
+    redraw();
+  });
+  box.addEventListener('dblclick', function(e){ e.preventDefault(); pts = []; redraw(); });
+  clearBtn.addEventListener('click', function(){ pts = []; redraw(); });
+  window.addEventListener('resize', redraw);
+  if (img.complete) redraw(); else img.addEventListener('load', redraw);
+});
+</script>
+
+<footer class="newfoot"><div class="fin">
+  <span class="wm">STRIESARA</span>
+  <nav>
+    <a href="../index.html">Campaigns</a>
+    <a href="index.html">Home</a>
+    <a href="party-quick-reference.html">Party</a>
+    <a href="compendium.html">Compendium</a>
+    <a href="map.html">Map</a>
+    <a href="sessions.html">Sessions</a>
+    <a href="status.html">Status</a>
+  </nav>
+  <span class="fine">Striesara &middot; the Viekryss campaign &middot; may your leaves never wither. No refunds on failed saves.</span>
+</div></footer>
+</body>
+</html>

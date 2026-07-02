@@ -119,24 +119,45 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#8a927c;border-top:1px so
   box-shadow:0 16px 44px rgba(70,80,45,.2);cursor:crosshair;}
 #mapbox img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none;}
 #mapbox svg.overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+#mapbox svg.cities{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+#mapbox svg.cities a{pointer-events:auto;}
+.city-dot{fill:#8f7d3f;stroke:#f8f9f1;stroke-width:4;}
+.camp-dot{fill:#a05242;stroke:#f8f9f1;stroke-width:3;}
+.city-name{font-family:'Cinzel',serif;font-weight:700;font-size:26px;paint-order:stroke;stroke:#f8f9f1;stroke-width:6px;fill:#2c5039;}
+.camp-name{font-family:Georgia,serif;font-style:italic;font-size:22px;paint-order:stroke;stroke:#f8f9f1;stroke-width:5px;fill:#6d4a3f;}
+svg.cities a:hover .city-name,svg.cities a:hover .camp-name{fill:#a05242;}
 .seg-label{font-family:'Inter',sans-serif;font-weight:700;paint-order:stroke;stroke:#f8f9f1;stroke-width:4px;fill:#2c5039;}
 </style>
 <div class="mapwrap">
   <h1>Map Striesara</h1>
   <div class="mapbar">
-    <span class="hint">&#128207; <b>Click</b> to drop waypoints and measure the route &middot; <b>double-click</b> or press Clear to start over. Scale: 6.25 miles per map pixel.</span>
+    <span class="hint">&#128207; <b>Click</b> to drop waypoints and measure the route &middot; <b>double-click</b> or press Clear to start over. Scale matches the vault map (6.25 mi per map unit).</span>
     <span class="total" id="totaldist">Total: — </span>
     <button id="clearbtn" type="button">Clear route</button>
+    <button id="citybtn" type="button">Hide cities</button>
     <a class="dl" href="map-striesara.jpg" target="_blank" rel="noopener">open full-size image</a>
   </div>
   <div id="mapbox">
     <img id="mapimg" src="map-striesara.jpg" alt="Map of Striesara">
+    <svg class="cities" id="mapcities" viewBox="0 0 2400 1792" preserveAspectRatio="none"></svg>
     <svg class="overlay" id="mapov"></svg>
   </div>
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
-  var MI_PER_NATURAL_PX = 6.25;
+  var MI_PER_NATURAL_PX = 6.25 * 1024 / 2400;  // vault leaflet: 6.25 mi per map unit, 1024 units across 2400px
+  var MARKERS = [{"x": 1493.8, "y": 490.0, "name": "Berghang", "kind": "city", "href": "compendium.html#berghang"}, {"x": 1699.5, "y": 596.1, "name": "Viekryss", "kind": "city", "href": "compendium.html#viekryss"}, {"x": 1650.7, "y": 766.3, "name": "Whitethorn", "kind": "city", "href": "compendium.html#whitethorn"}, {"x": 2264.1, "y": 278.8, "name": "Ithuna", "kind": "city", "href": "compendium.html#ithuna"}, {"x": 1221.1, "y": 1079.9, "name": "Talavas", "kind": "city", "href": "compendium.html#talavas"}, {"x": 1380.5, "y": 905.5, "name": "Tauranga", "kind": "city", "href": "compendium.html#tauranga"}, {"x": 1027.5, "y": 549.0, "name": "Varnas", "kind": "city", "href": "compendium.html#varnas"}, {"x": 876.7, "y": 899.2, "name": "Kesilis", "kind": "city", "href": "compendium.html#kesilis"}, {"x": 470.7, "y": 870.3, "name": "Obale", "kind": "city", "href": "compendium.html#obale"}, {"x": 306.6, "y": 495.0, "name": "Vhela", "kind": "city", "href": "compendium.html#vhela"}, {"x": 575.1, "y": 242.5, "name": "Kota", "kind": "city", "href": "compendium.html#kota"}, {"x": 743.0, "y": 343.8, "name": "Saldeti", "kind": "city", "href": "compendium.html#saldeti"}, {"x": 2278.8, "y": 1371.3, "name": "Karich", "kind": "city", "href": "compendium.html#karich"}, {"x": 1963.9, "y": 1643.8, "name": "Sanuva", "kind": "city", "href": "compendium.html#sanuva"}, {"x": 517.1, "y": 1593.2, "name": "Girik", "kind": "city", "href": "compendium.html#girik"}, {"x": 512.1, "y": 1284.4, "name": "Vesna", "kind": "city", "href": "compendium.html#vesna"}, {"x": 107.7, "y": 1706.8, "name": "Dalain", "kind": "city", "href": "compendium.html#dalain"}, {"x": 1585.5, "y": 1061.8, "name": "Bristleboar", "kind": "camp", "href": "compendium.html#bristleboar"}, {"x": 1715.5, "y": 621.5, "name": "Davin", "kind": "camp", "href": "compendium.html#davin"}, {"x": 1160.2, "y": 834.6, "name": "Erith", "kind": "camp", "href": "compendium.html#erith"}, {"x": 1684.0, "y": 915.9, "name": "Raven Port", "kind": "camp", "href": "compendium.html#raven-port"}];
+  var cities = document.getElementById('mapcities'), cityBtn = document.getElementById('citybtn');
+  cities.innerHTML = MARKERS.map(function(m){
+    var dot = '<circle class="' + m.kind + '-dot" cx="' + m.x + '" cy="' + m.y + '" r="' + (m.kind === 'city' ? 13 : 10) + '"/>';
+    var label = '<text class="' + m.kind + '-name" x="' + (m.x + 20) + '" y="' + (m.y + 9) + '">' + m.name + '</text>';
+    return m.href ? dot + '<a href="' + m.href + '">' + label + '</a>' : dot + label;
+  }).join('');
+  cityBtn.addEventListener('click', function(){
+    var hidden = cities.style.display === 'none';
+    cities.style.display = hidden ? '' : 'none';
+    cityBtn.textContent = hidden ? 'Hide cities' : 'Show cities';
+  });
   var img = document.getElementById('mapimg'), box = document.getElementById('mapbox'),
       ov = document.getElementById('mapov'), total = document.getElementById('totaldist'),
       clearBtn = document.getElementById('clearbtn');

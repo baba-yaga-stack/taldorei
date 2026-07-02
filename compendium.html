@@ -110,7 +110,7 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px so
 .sitesearch .hits{font-family:'Inter',system-ui,sans-serif;font-size:.78rem;color:#9298ab;min-width:90px;text-align:right;}
 </style>
 <script>
-(function(){
+document.addEventListener('DOMContentLoaded', function(){
   var q = document.getElementById('siteq'), hits = document.getElementById('sitehits');
   var articles = Array.prototype.slice.call(document.querySelectorAll('#tw article'));
   var sections = Array.prototype.slice.call(document.querySelectorAll('#tw section.cat'));
@@ -137,7 +137,7 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px so
   q.addEventListener('input', function(){ clearTimeout(t); t = setTimeout(run, 120); });
   var m = location.search.match(/[?&]q=([^&]+)/);
   if(m){ q.value = decodeURIComponent(m[1].replace(/\+/g,' ')); run(); q.scrollIntoView(); }
-})();
+});
 </script>
 
 

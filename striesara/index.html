@@ -141,6 +141,12 @@ a.card .badge{position:absolute;top:18px;right:18px;font-size:.68rem;font-weight
 .threat p{font-size:.87rem;color:#6d6053;margin:0}
 .threat .tag{display:inline-block;font-size:.64rem;font-weight:800;letter-spacing:.18em;
   text-transform:uppercase;color:#a05242;margin-bottom:10px;font-family:'Inter',sans-serif;}
+.mapframe{display:block;position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:0 16px 44px rgba(70,80,45,.2);transition:transform .18s,box-shadow .18s;}
+.mapframe img{display:block;width:100%;height:auto;}
+.mapframe:hover{transform:translateY(-4px);box-shadow:0 22px 54px rgba(70,80,45,.3);}
+.maphint{position:absolute;right:14px;bottom:12px;background:rgba(248,249,241,.9);border:1px solid var(--line);
+  border-radius:20px;padding:5px 14px;font-size:.74rem;font-weight:600;color:#3e6b4f;font-family:'Inter',sans-serif;}
 .party{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;}
 a.pc{display:block;text-align:center;padding:18px 10px 16px;border:1px solid var(--line);
   border-radius:10px;background:var(--card);color:var(--text);font-size:.88rem;
@@ -183,11 +189,11 @@ a.pc .nm{font-family:'Cinzel',serif;font-weight:600}
       <a class="lnk" href="compendium.html">Compendium &#9662;</a>
       <div class="drop">
         <a href="compendium.html#cat-the-party">The Party <span class="ct">7</span></a>
-        <a href="compendium.html#cat-people-of-striesara-npcs">People of Striesara <span class="ct">40</span></a>
-        <a href="compendium.html#cat-locations">Locations <span class="ct">31</span></a>
+        <a href="compendium.html#cat-people-of-striesara-npcs">People of Striesara <span class="ct">52</span></a>
+        <a href="compendium.html#cat-locations">Locations <span class="ct">37</span></a>
         <a href="compendium.html#cat-lore-factions">Lore &amp; Factions <span class="ct">10</span></a>
         <a href="compendium.html#cat-active-quests">Active Quests <span class="ct">3</span></a>
-        <a href="compendium.html#cat-completed-quests">Completed Quests <span class="ct">1</span></a>
+        <a href="compendium.html#cat-completed-quests">Completed Quests <span class="ct">2</span></a>
       </div>
     </div>
     <div><a class="lnk" href="sessions.html">Sessions</a></div>
@@ -308,6 +314,16 @@ a.pc .nm{font-family:'Cinzel',serif;font-weight:600}
         <a class="btn ghost" href="sessions.html#session-7">Read the full recap &rarr;</a>
       </div>
     </div>
+  </section>
+
+  <section class="blk">
+    <p class="kicker">The world of Striesara</p>
+    <h2 class="sec">Map Striesara</h2>
+    <p class="sec-sub">From the mines of Viekryss to Davin and the corrupted woods of Blackroot Hollow. Click to open the full map.</p>
+    <a class="mapframe" href="map-striesara.jpg" target="_blank" rel="noopener">
+      <img src="map-striesara.jpg" alt="Map of Striesara" loading="lazy">
+      <span class="maphint">&#128269; View full size</span>
+    </a>
   </section>
 
   <section class="blk">

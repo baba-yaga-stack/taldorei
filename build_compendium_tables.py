@@ -23,7 +23,7 @@ from pathlib import Path
 import yaml
 
 VAULT = Path(__file__).resolve().parent.parent
-COMPENDIUM = VAULT / "Website" / "compendium.html"
+COMPENDIUM = VAULT / "Website" / "taldorei" / "compendium.html"
 
 # Items hidden from the player-facing site (DM secrets). Edit as needed.
 SECRET_ITEMS = {

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Striesara — Campaign Status</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital@1&display=swap');
+:root{--bg:#edefe4;--card:#f8f9f1;--card2:#eef1dd;--line:#cdd4b8;
+  --gold:#8f7d3f;--gold2:#6e6030;--green:#3e6b4f;--green2:#2c5039;--rose:#a05242;
+  --text:#2a3226;--muted:#68725f;--radius:10px;}
+html{background:var(--bg)}
+body{margin:0;color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6;
+  background:var(--bg) radial-gradient(ellipse 80% 50% at 50% -10%,rgba(143,125,63,.10),transparent)!important;}
+a{color:var(--green);text-decoration:none}
+a:hover{color:var(--green2)}
+.annbar{background:linear-gradient(90deg,#e3e6cf,#eae9d2,#e3e6cf);border-bottom:1px solid #cfd0ae;
+  overflow:hidden;white-space:nowrap;font-size:.72rem;letter-spacing:.14em;font-weight:600;
+  color:#5a6a4a;text-transform:uppercase;font-family:'Inter',system-ui,sans-serif;}
+.annbar .track{display:inline-block;padding:8px 0;animation:nmarq 36s linear infinite;}
+.annbar span{margin:0 28px}
+.annbar .d{color:var(--gold)}
+@keyframes nmarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+nav.newtop{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:6px;
+  padding:10px 22px;background:rgba(248,249,241,.88);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);font-family:'Inter',system-ui,sans-serif;}
+nav.newtop .logo{display:flex;align-items:center;gap:10px;margin-right:18px;text-decoration:none;}
+nav.newtop .logo svg{width:30px;height:30px}
+nav.newtop .logo .wm{font-family:'Cinzel',serif;font-weight:700;font-size:.98rem;letter-spacing:.12em;
+  background:linear-gradient(180deg,var(--green),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.navlinks{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto;}
+.navlinks>div{position:relative}
+.navlinks a.lnk{display:block;padding:9px 15px;border-radius:6px;font-size:.8rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--text);text-decoration:none;}
+.navlinks a.lnk:hover,.navlinks>div:hover>a.lnk{background:var(--card2);color:var(--green2);}
+.navlinks a.lnk.active{color:var(--green)}
+.navlinks .drop{position:absolute;top:100%;left:0;min-width:250px;padding:8px;display:none;
+  background:var(--card);border:1px solid var(--line);border-radius:10px;
+  box-shadow:0 18px 40px rgba(60,70,40,.25);}
+.navlinks>div:hover .drop{display:block}
+.navlinks .drop a{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:9px 12px;border-radius:6px;font-size:.85rem;color:var(--text);text-decoration:none;}
+.navlinks .drop a:hover{background:var(--card2);color:var(--green2)}
+.navlinks .drop .ct{font-size:.7rem;font-weight:700;color:var(--muted);background:var(--bg);
+  border:1px solid var(--line);border-radius:20px;padding:1px 8px;}
+footer.newfoot{margin-top:60px;border-top:1px solid var(--line);
+  background:linear-gradient(180deg,#e8ebd8,#dde1c8);color:var(--muted);
+  font-family:'Inter',system-ui,sans-serif;}
+footer.newfoot .fin{max-width:1180px;margin:0 auto;padding:28px 24px 26px;display:flex;
+  flex-wrap:wrap;gap:16px 30px;align-items:center;justify-content:space-between;}
+footer.newfoot .wm{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.14em;color:var(--green2);}
+footer.newfoot nav{display:flex;flex-wrap:wrap;gap:4px 18px;}
+footer.newfoot a{color:var(--muted);text-decoration:none;font-size:.82rem;}
+footer.newfoot a:hover{color:var(--green2)}
+footer.newfoot .fine{width:100%;font-size:.74rem;color:#8a927c;border-top:1px solid var(--line);padding-top:14px;}
+@media(prefers-reduced-motion:reduce){.annbar .track{animation:none}}
+@media(max-width:640px){nav.newtop{padding:10px 12px}.navlinks a.lnk{padding:8px 10px;font-size:.72rem}}
+</style>
+</head>
+<body>
+<div class="annbar" aria-hidden="true"><div class="track">
+  <span>&#127807; Next: Session 8 <span class="d">&mdash;</span> notes await the archive</span><span class="d">&#10022;</span>
+  <span>&#9878; Renvar Ilthis at large &mdash; last seen mid&ndash;Time Stop</span><span class="d">&#10022;</span>
+  <span>&#127960; Viekryss &middot; the Festival of Strength approaches</span><span class="d">&#10022;</span>
+  <span>&#128269; The disappearances continue</span><span class="d">&#10022;</span>
+  <span>&#127807; Next: Session 8 <span class="d">&mdash;</span> notes await the archive</span><span class="d">&#10022;</span>
+  <span>&#9878; Renvar Ilthis at large &mdash; last seen mid&ndash;Time Stop</span><span class="d">&#10022;</span>
+  <span>&#127960; Viekryss &middot; the Festival of Strength approaches</span><span class="d">&#10022;</span>
+  <span>&#128269; The disappearances continue</span><span class="d">&#10022;</span>
+</div></div>
+<nav class="newtop">
+  <a class="logo" href="index.html" aria-label="Striesara home">
+    <svg viewBox="0 0 100 100" fill="none" stroke="#3e6b4f" stroke-width="4" stroke-linejoin="round">
+      <path d="M50 6 C76 24 84 52 50 94 C16 52 24 24 50 6 Z"/>
+      <path d="M50 20 L50 84 M50 44 L68 32 M50 44 L32 32 M50 62 L70 50 M50 62 L30 50"/>
+    </svg>
+    <span class="wm">STRIESARA</span>
+  </a>
+  <div class="navlinks">
+    <div><a class="lnk" href="../index.html" title="Campaign select">&#10022; Campaigns</a></div>
+    <div><a class="lnk" href="index.html">Home</a></div>
+    <div>
+      <a class="lnk" href="party-quick-reference.html">Party &#9662;</a>
+      <div class="drop">
+        <a href="party-quick-reference.html">Quick Reference <span class="ct">live stats</span></a>
+        <a href="compendium.html#cat-the-party">Character Files <span class="ct">7</span></a>
+      </div>
+    </div>
+    <div>
+      <a class="lnk" href="compendium.html">Compendium &#9662;</a>
+      <div class="drop">
+        <a href="compendium.html#cat-the-party">The Party <span class="ct">7</span></a>
+        <a href="compendium.html#cat-people-of-striesara-npcs">People of Striesara <span class="ct">40</span></a>
+        <a href="compendium.html#cat-locations">Locations <span class="ct">31</span></a>
+        <a href="compendium.html#cat-lore-factions">Lore &amp; Factions <span class="ct">10</span></a>
+        <a href="compendium.html#cat-active-quests">Active Quests <span class="ct">3</span></a>
+        <a href="compendium.html#cat-completed-quests">Completed Quests <span class="ct">1</span></a>
+      </div>
+    </div>
+    <div><a class="lnk" href="sessions.html">Sessions</a></div>
+    <div><a class="lnk active" href="status.html">Status</a></div>
+  </div>
+</nav>
+
+
+<style>
+.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+header.page{border-bottom:3px double var(--gold);padding-bottom:14px;margin-bottom:8px}
+h1.pg{font-family:'Cinzel',Georgia,serif;font-weight:800;font-size:30px;margin:0;letter-spacing:1px;text-align:center;color:#2c5039}
+.sub{color:var(--muted);font-size:14px;margin-top:4px;text-align:center;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic}
+.amber-banner{background:linear-gradient(90deg,rgba(160,82,66,.10),rgba(160,82,66,.18));border:1px solid rgba(160,82,66,.4);
+  border-radius:10px;padding:12px 16px;margin:16px 0;color:#7a4438;font-size:15px}
+.amber-banner b{color:#a05242}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:8px}
+.card{background:var(--card);border:1px solid var(--line);border-top:3px double var(--gold);border-radius:6px;padding:16px 18px;box-shadow:0 3px 14px rgba(70,80,45,.12)}
+.card h2{font-family:'Cinzel',Georgia,serif;font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:#3e6b4f;
+  margin:0 0 12px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.row{display:flex;justify-content:space-between;gap:10px;padding:5px 0;font-size:15px;border-bottom:1px dotted #c9cfb0}
+.row:last-child{border-bottom:none}
+.row .k{color:var(--muted)}
+.lead{background:var(--card2);border-left:3px solid var(--gold);border-radius:6px;padding:10px 12px;margin-bottom:10px}
+.lead .t{font-weight:bold;color:#2c5039}
+.lead small{color:var(--muted);display:block;margin-top:3px;font-size:13.5px}
+ul.clean{margin:0;padding-left:18px}
+ul.clean li{padding:3px 0;font-size:14.5px}
+.timeline{position:relative;padding-left:20px}
+.timeline::before{content:"";position:absolute;left:6px;top:4px;bottom:4px;width:2px;background:var(--line)}
+.tnode{position:relative;margin-bottom:14px;font-size:14.5px}
+.tnode::before{content:"";position:absolute;left:-17px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px var(--bg)}
+.tnode .sn{color:var(--gold2);font-weight:bold;font-size:14px}
+.full{grid-column:1/-1}
+footer.pgfoot{margin-top:26px;color:var(--muted);font-size:12.5px;text-align:center;border-top:1px solid var(--line);padding-top:14px}
+</style>
+<div class="wrap">
+  <header class="page">
+    <h1 class="pg">&#127807; Striesara — Campaign Status</h1>
+    <div class="sub">The Davin Investigation &middot; Current through <b>Session 7 — Blackroot Hollow</b> &middot; Party Level 3</div>
+  </header>
+
+  <div class="amber-banner">
+    <b>RENVAR ILTHIS IS AT LARGE.</b> His parasite laboratory at Blackroot Hollow has been found and dismantled, and
+    <b>Perrin Slatevein recovered alive</b> (magically incapacitated) — but Renvar escaped mid-fight with <b>Time Stop</b>.
+    The research notes suggest <b>Subject 14 was likely Perigrine LeCroix</b>. The disappearances around Viekryss are not fully explained.
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Current Status</h2>
+      <div class="row"><span class="k">Location</span><span>Returning from Blackroot Hollow toward Viekryss</span></div>
+      <div class="row"><span class="k">Party Level</span><span>3</span></div>
+      <div class="row"><span class="k">Last Session</span><span>7 — Blackroot Hollow</span></div>
+      <div class="row"><span class="k">Arc</span><span>Davin Investigation</span></div>
+      <div class="row"><span class="k">Next Session</span><span>Session 8 (notes awaiting ingest)</span></div>
+    </div>
+
+    <div class="card">
+      <h2>Active Quests</h2>
+      <div class="lead"><span class="t">Locate Renvar Ilthis</span><small>He escaped via Time Stop; his lab is dismantled but his trail is open.</small></div>
+      <div class="lead"><span class="t">Find Perrin Slatevein</span><small>Found — recovered alive but magically incapacitated. Getting him home and whole remains.</small></div>
+      <div class="lead"><span class="t">Help Emmeriss</span><small>Ellowen's troubled son; possible Bloodletters involvement.</small></div>
+    </div>
+
+    <div class="card">
+      <h2>Recovered from the Lab</h2>
+      <ul class="clean">
+        <li><b>Perrin Slatevein</b> — alive, magically incapacitated ("Subject 25")</li>
+        <li><b>Research notes</b> — living parasites used as a buffer "to keep the host from tearing apart"</li>
+        <li><b>Parasite specimens</b> — crated by Varyn</li>
+        <li><b>Cloak of the Archmage</b> — drained and gray</li>
+        <li>Lyre's parting note: <i>"Mining permit has hereby been revoked."</i></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Open Mysteries</h2>
+      <ul class="clean">
+        <li>Renvar's disappearance — where does a man go mid&ndash;Time Stop?</li>
+        <li>The Blackroot Hollow experiments — what were the parasites for?</li>
+        <li>Perrin's condition — what did "Subject 25" endure?</li>
+        <li>The fate of Perigrine LeCroix (likely "Subject 14")</li>
+        <li>Emmeriss and the Bloodletters</li>
+        <li>Kessia's investigation</li>
+        <li>Lyre's antiquities</li>
+        <li>The Portal to the Sky &middot; The Succession Crisis</li>
+      </ul>
+    </div>
+
+    <div class="card full">
+      <h2>Recent Arc — Sessions 4 &rarr; 7</h2>
+      <div class="timeline">
+        <div class='tnode'><span class='sn'>Session 4</span> &mdash; <span class='ti'>Toil &amp; Trouble investigates the simultaneous disappearances of Perrin Slatevein and Renvar Ilthis, gathering information at the Aurora Vein. They discover Perrin&#x27;s expensive Cloak of the Archmage, Emmeriss&#x27;s marriage to Dara, and begin traveling to Davin with Kara Feldron. During travel, the party is attacked by mysterious tree-spider creatures and discovers a ring belonging to Perigrine LeCroix.</span></div>
+        <div class='tnode'><span class='sn'>Session 5</span> &mdash; <span class='ti'>Toil &amp; Trouble arrives in wintry Davin, returns Kara Feldron to her family&#x27;s farm, and settles in at the Griffon and Oak. At the seedy Goblin&#x27;s Fire they press Gregor and learn that Renvar personally recruited Perrin into the Adventurer&#x27;s Gambit; Marva is knocked out in a pit fight with Big John. Ellowen acquires and attunes to a goat named Snowball.</span></div>
+        <div class='tnode'><span class='sn'>Session 6</span> &mdash; <span class='ti'>Kessia rejoins the party (revealed to work for the Vykris Ledger). Lyre escorts everyone to the Earl&#x27;s Manor, where they meet Captain Edrick Havin and are housed in the chapel. Continued questioning of Big John and Gregg yields little before a confrontation lands the party in jail. They learn Renvar secured Blackroot Hollow via mining permits from the Earl, receive a coin purse from Perrin&#x27;s mother Mirabelle, and set out for Blackroot Hollow.</span></div>
+        <div class='tnode'><span class='sn'>Session 7</span> &mdash; <span class='ti'>The party travels to Blackroot Hollow, fighting through a corrupted forest and into a cave that reeks of rotting fruit and hot iron. Inside they find Renvar&#x27;s parasite laboratory and Perrin being tortured as Subject 25. After a brutal fight, Renvar casts Time Stop and escapes. The party recovers Perrin (alive but magically incapacitated), seizes the research notes and parasite specimens, finds the drained Cloak of the Archmage, and learns Subject 14 was likely Perigrine LeCroix.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="pgfoot">
+    Generated from the Striesara vault &middot; current through Session 7 (site built 2026-07-01).
+    Session 8 notes are in the inbox awaiting ingest.
+  </footer>
+</div>
+
+<footer class="newfoot"><div class="fin">
+  <span class="wm">STRIESARA</span>
+  <nav>
+    <a href="../index.html">Campaigns</a>
+    <a href="index.html">Home</a>
+    <a href="party-quick-reference.html">Party</a>
+    <a href="compendium.html">Compendium</a>
+    <a href="sessions.html">Sessions</a>
+    <a href="status.html">Status</a>
+  </nav>
+  <span class="fine">Striesara &middot; the Viekryss campaign &middot; may your leaves never wither. No refunds on failed saves.</span>
+</div></footer>
+</body>
+</html>

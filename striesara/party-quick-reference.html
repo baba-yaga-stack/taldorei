@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Striesara — Party Quick Reference</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital@1&display=swap');
+:root{--bg:#edefe4;--card:#f8f9f1;--card2:#eef1dd;--line:#cdd4b8;
+  --gold:#8f7d3f;--gold2:#6e6030;--green:#3e6b4f;--green2:#2c5039;--rose:#a05242;
+  --text:#2a3226;--muted:#68725f;--radius:10px;}
+html{background:var(--bg)}
+body{margin:0;color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6;
+  background:var(--bg) radial-gradient(ellipse 80% 50% at 50% -10%,rgba(143,125,63,.10),transparent)!important;}
+a{color:var(--green);text-decoration:none}
+a:hover{color:var(--green2)}
+.annbar{background:linear-gradient(90deg,#e3e6cf,#eae9d2,#e3e6cf);border-bottom:1px solid #cfd0ae;
+  overflow:hidden;white-space:nowrap;font-size:.72rem;letter-spacing:.14em;font-weight:600;
+  color:#5a6a4a;text-transform:uppercase;font-family:'Inter',system-ui,sans-serif;}
+.annbar .track{display:inline-block;padding:8px 0;animation:nmarq 36s linear infinite;}
+.annbar span{margin:0 28px}
+.annbar .d{color:var(--gold)}
+@keyframes nmarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+nav.newtop{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:6px;
+  padding:10px 22px;background:rgba(248,249,241,.88);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);font-family:'Inter',system-ui,sans-serif;}
+nav.newtop .logo{display:flex;align-items:center;gap:10px;margin-right:18px;text-decoration:none;}
+nav.newtop .logo svg{width:30px;height:30px}
+nav.newtop .logo .wm{font-family:'Cinzel',serif;font-weight:700;font-size:.98rem;letter-spacing:.12em;
+  background:linear-gradient(180deg,var(--green),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.navlinks{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto;}
+.navlinks>div{position:relative}
+.navlinks a.lnk{display:block;padding:9px 15px;border-radius:6px;font-size:.8rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--text);text-decoration:none;}
+.navlinks a.lnk:hover,.navlinks>div:hover>a.lnk{background:var(--card2);color:var(--green2);}
+.navlinks a.lnk.active{color:var(--green)}
+.navlinks .drop{position:absolute;top:100%;left:0;min-width:250px;padding:8px;display:none;
+  background:var(--card);border:1px solid var(--line);border-radius:10px;
+  box-shadow:0 18px 40px rgba(60,70,40,.25);}
+.navlinks>div:hover .drop{display:block}
+.navlinks .drop a{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:9px 12px;border-radius:6px;font-size:.85rem;color:var(--text);text-decoration:none;}
+.navlinks .drop a:hover{background:var(--card2);color:var(--green2)}
+.navlinks .drop .ct{font-size:.7rem;font-weight:700;color:var(--muted);background:var(--bg);
+  border:1px solid var(--line);border-radius:20px;padding:1px 8px;}
+footer.newfoot{margin-top:60px;border-top:1px solid var(--line);
+  background:linear-gradient(180deg,#e8ebd8,#dde1c8);color:var(--muted);
+  font-family:'Inter',system-ui,sans-serif;}
+footer.newfoot .fin{max-width:1180px;margin:0 auto;padding:28px 24px 26px;display:flex;
+  flex-wrap:wrap;gap:16px 30px;align-items:center;justify-content:space-between;}
+footer.newfoot .wm{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.14em;color:var(--green2);}
+footer.newfoot nav{display:flex;flex-wrap:wrap;gap:4px 18px;}
+footer.newfoot a{color:var(--muted);text-decoration:none;font-size:.82rem;}
+footer.newfoot a:hover{color:var(--green2)}
+footer.newfoot .fine{width:100%;font-size:.74rem;color:#8a927c;border-top:1px solid var(--line);padding-top:14px;}
+@media(prefers-reduced-motion:reduce){.annbar .track{animation:none}}
+@media(max-width:640px){nav.newtop{padding:10px 12px}.navlinks a.lnk{padding:8px 10px;font-size:.72rem}}
+</style>
+</head>
+<body>
+
+<div class="annbar" aria-hidden="true"><div class="track">
+  <span>&#127807; Next: Session 8 <span class="d">&mdash;</span> notes await the archive</span><span class="d">&#10022;</span>
+  <span>&#9878; Renvar Ilthis at large &mdash; last seen mid&ndash;Time Stop</span><span class="d">&#10022;</span>
+  <span>&#127960; Viekryss &middot; the Festival of Strength approaches</span><span class="d">&#10022;</span>
+  <span>&#128269; The disappearances continue</span><span class="d">&#10022;</span>
+  <span>&#127807; Next: Session 8 <span class="d">&mdash;</span> notes await the archive</span><span class="d">&#10022;</span>
+  <span>&#9878; Renvar Ilthis at large &mdash; last seen mid&ndash;Time Stop</span><span class="d">&#10022;</span>
+  <span>&#127960; Viekryss &middot; the Festival of Strength approaches</span><span class="d">&#10022;</span>
+  <span>&#128269; The disappearances continue</span><span class="d">&#10022;</span>
+</div></div>
+<nav class="newtop">
+  <a class="logo" href="index.html" aria-label="Striesara home">
+    <svg viewBox="0 0 100 100" fill="none" stroke="#3e6b4f" stroke-width="4" stroke-linejoin="round">
+      <path d="M50 6 C76 24 84 52 50 94 C16 52 24 24 50 6 Z"/>
+      <path d="M50 20 L50 84 M50 44 L68 32 M50 44 L32 32 M50 62 L70 50 M50 62 L30 50"/>
+    </svg>
+    <span class="wm">STRIESARA</span>
+  </a>
+  <div class="navlinks">
+    <div><a class="lnk" href="../index.html" title="Campaign select">&#10022; Campaigns</a></div>
+    <div><a class="lnk" href="index.html">Home</a></div>
+    <div>
+      <a class="lnk active" href="party-quick-reference.html">Party &#9662;</a>
+      <div class="drop">
+        <a href="party-quick-reference.html">Quick Reference <span class="ct">live stats</span></a>
+        <a href="compendium.html#cat-the-party">Character Files <span class="ct">7</span></a>
+      </div>
+    </div>
+    <div>
+      <a class="lnk" href="compendium.html">Compendium &#9662;</a>
+      <div class="drop">
+        <a href="compendium.html#cat-the-party">The Party <span class="ct">7</span></a>
+        <a href="compendium.html#cat-people-of-striesara-npcs">People of Striesara <span class="ct">40</span></a>
+        <a href="compendium.html#cat-locations">Locations <span class="ct">31</span></a>
+        <a href="compendium.html#cat-lore-factions">Lore &amp; Factions <span class="ct">10</span></a>
+        <a href="compendium.html#cat-active-quests">Active Quests <span class="ct">3</span></a>
+        <a href="compendium.html#cat-completed-quests">Completed Quests <span class="ct">1</span></a>
+      </div>
+    </div>
+    <div><a class="lnk" href="sessions.html">Sessions</a></div>
+    <div><a class="lnk" href="status.html">Status</a></div>
+  </div>
+</nav>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=IM+Fell+English:ital@0;1&display=swap');
+#tw{--ink:#2a2118;--paper:#ead9b0;--card:#f6ecd3;--acc:#7a1f1f;--gold:#8a6d1f;
+  --line:#cbb98c;--muted:#6b5a44;
+  font-family:Georgia,'Times New Roman',serif;color:var(--ink);
+  background:radial-gradient(ellipse at 12% -8%,rgba(122,31,31,.06),transparent 50%),
+    radial-gradient(ellipse at 105% 108%,rgba(138,109,31,.12),transparent 55%),var(--paper);
+  margin:12px auto;max-width:1040px;padding:22px 30px;line-height:1.5;
+  border:3px double var(--gold);border-radius:3px;
+  box-shadow:inset 0 0 70px rgba(106,84,40,.20),0 2px 14px rgba(60,42,16,.35);}
+#tw h1{font-family:'Cinzel',Georgia,serif;font-weight:800;font-size:2.05rem;text-align:center;
+  letter-spacing:.04em;color:#3d2c1e;margin:.15em 0 .05em;text-shadow:0 1px 0 rgba(255,248,230,.8);}
+#tw .sub{text-align:center;font-family:'IM Fell English',Georgia,serif;font-style:italic;
+  color:var(--muted);margin-top:0;padding-bottom:16px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 16'%3E%3Cpath d='M10 8h98M152 8h98' stroke='%238a6d1f' stroke-width='1.5'/%3E%3Cpath d='M130 2l7 6-7 6-7-6z' fill='%237a1f1f'/%3E%3Ccircle cx='114' cy='8' r='2.2' fill='%238a6d1f'/%3E%3Ccircle cx='146' cy='8' r='2.2' fill='%238a6d1f'/%3E%3C/svg%3E") center bottom/260px 16px no-repeat;}
+#tw h2{font-family:'Cinzel',Georgia,serif;font-weight:800;font-size:1.4rem;
+  color:var(--acc);text-align:center;margin:1.6em 0 .2em;padding-bottom:18px;letter-spacing:.05em;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 16'%3E%3Cpath d='M10 8h98M152 8h98' stroke='%238a6d1f' stroke-width='1.5'/%3E%3Cpath d='M130 2l7 6-7 6-7-6z' fill='%237a1f1f'/%3E%3Ccircle cx='114' cy='8' r='2.2' fill='%238a6d1f'/%3E%3Ccircle cx='146' cy='8' r='2.2' fill='%238a6d1f'/%3E%3C/svg%3E") center bottom/240px 15px no-repeat;}
+#tw table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.4em 0;background:#fbf4e0;}
+#tw th,#tw td{border:1px solid var(--line);padding:4px 9px;text-align:left;}
+#tw th{background:#e4d4a8;font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:.8rem;
+  letter-spacing:.03em;}
+#tw td.who{font-weight:600;white-space:nowrap;}
+#tw .legend{text-align:center;font-size:.82rem;color:var(--muted);margin:6px 0 0;font-style:italic;}
+#tw .legend .dot{margin:0 4px 0 12px;}
+/* Wide summary tables scroll sideways on narrow screens instead of
+   overflowing the page. -webkit-overflow-scrolling gives momentum on iOS. */
+#tw .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.4em 0;}
+#tw .table-wrap table{margin:0;min-width:540px;}
+
+/* min(100%,420px) so the card never demands more width than the viewport —
+   that was what broke the phone layout (it forced a 420px column and overflowed). */
+#tw .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:16px;margin-top:8px;}
+#tw article.card{background:var(--card);border:1px solid var(--line);border-top:3px double var(--gold);
+  border-radius:4px;padding:8px 16px 14px;box-shadow:0 1px 5px rgba(80,60,20,.22);break-inside:avoid;}
+#tw article.card--error{padding:14px;}
+#tw .card--error .err{color:var(--acc);}
+#tw .card .title{font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:1.18rem;
+  margin:.4em 0 .1em;color:#3d2c1e;}
+#tw .card .meta{font-family:'IM Fell English',Georgia,serif;font-style:italic;color:var(--muted);
+  font-size:.9rem;margin:0 0 .5em;}
+#tw .combat{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:3px;overflow:hidden;}
+#tw .stat{background:#efe2bf;padding:6px 2px;text-align:center;}
+#tw .stat-val{font-size:1.05rem;font-weight:700;color:#3d2c1e;}
+#tw .stat-lbl{font-size:.6rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);}
+#tw .abilities{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-top:none;margin-bottom:6px;}
+#tw .abil{background:#f6ecd3;padding:5px 2px;text-align:center;}
+#tw .abil-name{font-size:.66rem;color:var(--muted);letter-spacing:1px;font-family:'Cinzel',serif;}
+#tw .abil-mod{font-size:1.05rem;font-weight:700;color:var(--acc);}
+#tw .abil-score{font-size:.66rem;color:var(--muted);}
+#tw .senses{font-size:.8rem;color:var(--muted);font-style:italic;margin:0 0 4px;}
+#tw .cols{display:grid;grid-template-columns:118px 1fr;gap:0;}
+#tw .col{padding:2px 8px;}
+#tw .col--skills{border-left:1px solid var(--line);}
+#tw .col h4{font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:.78rem;color:var(--acc);
+  border-bottom:1px solid var(--line);padding-bottom:2px;margin:.2em 0 .3em;letter-spacing:.03em;}
+#tw .row{display:flex;align-items:center;gap:5px;font-size:.84rem;padding:0;}
+#tw .row .rname{flex:1;}
+#tw .row .rstat{font-size:.62rem;color:var(--muted);width:24px;text-align:right;}
+#tw .row .rmod{width:30px;text-align:right;font-variant-numeric:tabular-nums;color:#3d2c1e;font-weight:600;}
+#tw .row.prof .rname,#tw .row.expertise .rname{font-weight:700;color:#2a2118;}
+#tw .dot{font-size:.7rem;width:11px;display:inline-block;text-align:center;}
+#tw .dot.prof{color:var(--acc);}
+#tw .dot.expertise{color:var(--gold);}
+#tw .dot.half{color:#a8915c;}
+#tw .dot.none{color:#c9b88a;}
+#tw a.ddb{color:inherit;text-decoration:none;border-bottom:1px dotted var(--acc);}
+#tw a.ddb:hover{color:var(--acc);border-bottom-style:solid;}
+#tw td.dv{text-align:center;font-weight:700;}
+#tw h2{scroll-margin-top:70px;}
+#tw ::selection{background:#d8b65e;color:#2a2118;}
+@media(max-width:760px){#tw .grid{grid-template-columns:1fr;}}
+/* Phone layout: reclaim the wasted side margins, shrink the tome chrome, and
+   keep the per-character combat/ability bands legible at ~360px. */
+@media(max-width:560px){
+  #tw{margin:0;padding:14px 12px;border-width:2px;max-width:none;
+    box-shadow:inset 0 0 40px rgba(106,84,40,.18);}
+  #tw h1{font-size:1.55rem;}
+  #tw .sub{font-size:.85rem;background-size:200px 13px;}
+  #tw h2{font-size:1.2rem;background-size:200px 13px;}
+  #tw th,#tw td{padding:4px 7px;}
+  #tw article.card{padding:8px 12px 12px;}
+  #tw .card .title{font-size:1.08rem;}
+  #tw .stat-val{font-size:1rem;}
+  #tw .abil-mod{font-size:1rem;}
+  #tw .cols{grid-template-columns:104px 1fr;}
+  #tw .row{font-size:.82rem;}
+}
+@media print{
+  #tw{box-shadow:none;border-color:#999;background:#fff;max-width:none;margin:0;}
+  #tw article.card{box-shadow:none;break-inside:avoid;}
+  #tw .grid{grid-template-columns:repeat(2,1fr);}
+  #tw h2{page-break-after:avoid;}
+}
+</style>
+<div id="tw">
+  <h1>Striesara</h1>
+  <p class="sub">Party Quick Reference &middot; 6 characters &middot; generated 2026-07-02</p>
+
+  <h2>Combat Stats</h2>
+  <div class="table-wrap"><table><thead><tr><th>Character</th><th>AC</th><th>HP</th><th>Initiative</th><th>Speed</th><th>Prof. Bonus</th><th>Passive Perc.</th></tr></thead><tbody><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/153524095" target="_blank" rel="noopener">Taliesin Briarmane</a></td><td>18</td><td>34</td><td>+1</td><td>30 ft</td><td>+2</td><td>11</td></tr><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/153526264" target="_blank" rel="noopener">Ellowen Moonthorn</a></td><td>16</td><td>26</td><td>+2</td><td>30 ft</td><td>+2</td><td>17</td></tr><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/153525367" target="_blank" rel="noopener">Marva Ironfist</a></td><td>16</td><td>41</td><td>+3</td><td>30 ft</td><td>+2</td><td>10</td></tr><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/153524186" target="_blank" rel="noopener">Raeve Nyaxia</a></td><td>15</td><td>25</td><td>+4</td><td>30 ft</td><td>+2</td><td>9</td></tr><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/153536483" target="_blank" rel="noopener">Varyn Starwhisper</a></td><td>17</td><td>18</td><td>+4</td><td>40 ft</td><td>+2</td><td>15</td></tr><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/160601605" target="_blank" rel="noopener">Kessia Brightpage</a></td><td>14</td><td>21</td><td>+3</td><td>30 ft</td><td>+2</td><td>15</td></tr></tbody></table></div>
+
+  <h2 id="senses">Senses &amp; Vision</h2>
+  <div class="table-wrap"><table><thead><tr><th>Character</th><th>Darkvision?</th><th>Senses</th><th>Source / Notes</th></tr></thead><tbody><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/153524095" target="_blank" rel="noopener">Taliesin Briarmane</a></td><td class='dv'>✗</td><td>None</td><td>No darkvision (Firbolg) — keep a light source handy</td></tr><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/153526264" target="_blank" rel="noopener">Ellowen Moonthorn</a></td><td class='dv'>✓</td><td>Darkvision 60 ft.</td><td>High Elf racial</td></tr><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/153525367" target="_blank" rel="noopener">Marva Ironfist</a></td><td class='dv'>✓</td><td>Darkvision 60 ft.</td><td>Goblin racial</td></tr><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/153524186" target="_blank" rel="noopener">Raeve Nyaxia</a></td><td class='dv'>✓</td><td>Darkvision 120 ft.</td><td>Beyond the Half-Elf 60 ft norm — extended range source not tracked in notes</td></tr><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/153536483" target="_blank" rel="noopener">Varyn Starwhisper</a></td><td class='dv'>✓</td><td>Darkvision 120 ft.</td><td>Owlin racial</td></tr><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/160601605" target="_blank" rel="noopener">Kessia Brightpage</a></td><td class='dv'>✓</td><td>Darkvision 60 ft.</td><td>Half-Elf racial</td></tr></tbody></table></div>
+
+  <h2>Languages</h2>
+  <div class="table-wrap"><table><thead><tr><th>Character</th><th>Race</th><th>Class</th><th>Languages</th></tr></thead><tbody><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/153524095" target="_blank" rel="noopener">Taliesin Briarmane</a></td><td>Firbolg</td><td>Paladin 2 / Warlock</td><td>Common, Common Sign Language, Elvish, Giant</td></tr><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/153526264" target="_blank" rel="noopener">Ellowen Moonthorn</a></td><td>High Elf</td><td>Druid</td><td>Common, Draconic, Druidic, Elvish, Sylvan</td></tr><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/153525367" target="_blank" rel="noopener">Marva Ironfist</a></td><td>Goblin</td><td>Barbarian</td><td>Common, Goblin</td></tr><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/153524186" target="_blank" rel="noopener">Raeve Nyaxia</a></td><td>Half-Elf</td><td>Warlock</td><td>Abyssal, Common, Deep Speech, Elvish</td></tr><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/153536483" target="_blank" rel="noopener">Varyn Starwhisper</a></td><td>Owlin</td><td>Monk</td><td>Common, Dwarvish, Gith</td></tr><tr><td class='who'><a class="ddb" href="https://www.dndbeyond.com/characters/160601605" target="_blank" rel="noopener">Kessia Brightpage</a></td><td>Half-Elf</td><td>Rogue</td><td>Common, Elvish, Sylvan, Thieves’ Cant</td></tr></tbody></table></div>
+
+  <h2>Character Detail</h2>
+  <p class="legend">Proficiency: <span class="dot prof">●</span>proficient<span class="dot expertise">★</span>expertise<span class="dot half">◐</span>half (Jack of All Trades)<span class="dot none">○</span>none</p>
+  <div class="grid">
+  <article class="card">
+  <h3 class="title">Taliesin Briarmane</h3>
+  <div class="meta">Firbolg &middot; Paladin 2 / Warlock 1</div>
+  <div class="combat"><div class="stat"><div class="stat-val">18</div><div class="stat-lbl">AC</div></div><div class="stat"><div class="stat-val">34</div><div class="stat-lbl">HP</div></div><div class="stat"><div class="stat-val">30 ft</div><div class="stat-lbl">Speed</div></div><div class="stat"><div class="stat-val">+1</div><div class="stat-lbl">Init</div></div><div class="stat"><div class="stat-val">11</div><div class="stat-lbl">Pass. Per</div></div><div class="stat"><div class="stat-val">+2</div><div class="stat-lbl">Prof</div></div></div>
+  <div class="abilities"><div class="abil"><div class="abil-name">STR</div><div class="abil-mod">+1</div><div class="abil-score">13</div></div><div class="abil"><div class="abil-name">DEX</div><div class="abil-mod">+1</div><div class="abil-score">12</div></div><div class="abil"><div class="abil-name">CON</div><div class="abil-mod">+4</div><div class="abil-score">18</div></div><div class="abil"><div class="abil-name">INT</div><div class="abil-mod">-1</div><div class="abil-score">9</div></div><div class="abil"><div class="abil-name">WIS</div><div class="abil-mod">-1</div><div class="abil-score">9</div></div><div class="abil"><div class="abil-name">CHA</div><div class="abil-mod">+5</div><div class="abil-score">20</div></div></div>
+  
+  <div class="cols">
+    <div class="col">
+      <h4>Saving Throws</h4>
+      <div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">STR</span><span class="rmod">+1</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">DEX</span><span class="rmod">+1</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">CON</span><span class="rmod">+4</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">INT</span><span class="rmod">-1</span></div><div class="row"><span class="dot prof" title="Proficient">●</span><span class="rname">WIS</span><span class="rmod">+1</span></div><div class="row"><span class="dot prof" title="Proficient">●</span><span class="rname">CHA</span><span class="rmod">+7</span></div>
+    </div>
+    <div class="col col--skills">
+      <h4>Skills</h4>
+      <div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Acrobatics</span><span class="rstat">DEX</span><span class="rmod">+1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Animal Handling</span><span class="rstat">WIS</span><span class="rmod">-1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Arcana</span><span class="rstat">INT</span><span class="rmod">-1</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Athletics</span><span class="rstat">STR</span><span class="rmod">+3</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Deception</span><span class="rstat">CHA</span><span class="rmod">+5</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">History</span><span class="rstat">INT</span><span class="rmod">-1</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Insight</span><span class="rstat">WIS</span><span class="rmod">+1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Intimidation</span><span class="rstat">CHA</span><span class="rmod">+5</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Investigation</span><span class="rstat">INT</span><span class="rmod">-1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Medicine</span><span class="rstat">WIS</span><span class="rmod">-1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Nature</span><span class="rstat">INT</span><span class="rmod">-1</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Perception</span><span class="rstat">WIS</span><span class="rmod">+1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Performance</span><span class="rstat">CHA</span><span class="rmod">+5</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Persuasion</span><span class="rstat">CHA</span><span class="rmod">+7</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Religion</span><span class="rstat">INT</span><span class="rmod">-1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Sleight of Hand</span><span class="rstat">DEX</span><span class="rmod">+1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Stealth</span><span class="rstat">DEX</span><span class="rmod">+1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Survival</span><span class="rstat">WIS</span><span class="rmod">-1</span></div>
+    </div>
+  </div>
+</article>
+<article class="card">
+  <h3 class="title">Ellowen Moonthorn</h3>
+  <div class="meta">High Elf &middot; Druid 3</div>
+  <div class="combat"><div class="stat"><div class="stat-val">16</div><div class="stat-lbl">AC</div></div><div class="stat"><div class="stat-val">26</div><div class="stat-lbl">HP</div></div><div class="stat"><div class="stat-val">30 ft</div><div class="stat-lbl">Speed</div></div><div class="stat"><div class="stat-val">+2</div><div class="stat-lbl">Init</div></div><div class="stat"><div class="stat-val">17</div><div class="stat-lbl">Pass. Per</div></div><div class="stat"><div class="stat-val">+2</div><div class="stat-lbl">Prof</div></div></div>
+  <div class="abilities"><div class="abil"><div class="abil-name">STR</div><div class="abil-mod">-1</div><div class="abil-score">9</div></div><div class="abil"><div class="abil-name">DEX</div><div class="abil-mod">+2</div><div class="abil-score">14</div></div><div class="abil"><div class="abil-name">CON</div><div class="abil-mod">+3</div><div class="abil-score">17</div></div><div class="abil"><div class="abil-name">INT</div><div class="abil-mod">+1</div><div class="abil-score">12</div></div><div class="abil"><div class="abil-name">WIS</div><div class="abil-mod">+5</div><div class="abil-score">20</div></div><div class="abil"><div class="abil-name">CHA</div><div class="abil-mod">-1</div><div class="abil-score">9</div></div></div>
+  <div class="senses">Senses: Darkvision 60 ft.</div>
+  <div class="cols">
+    <div class="col">
+      <h4>Saving Throws</h4>
+      <div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">STR</span><span class="rmod">-1</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">DEX</span><span class="rmod">+2</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">CON</span><span class="rmod">+3</span></div><div class="row"><span class="dot prof" title="Proficient">●</span><span class="rname">INT</span><span class="rmod">+3</span></div><div class="row"><span class="dot prof" title="Proficient">●</span><span class="rname">WIS</span><span class="rmod">+7</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">CHA</span><span class="rmod">-1</span></div>
+    </div>
+    <div class="col col--skills">
+      <h4>Skills</h4>
+      <div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Acrobatics</span><span class="rstat">DEX</span><span class="rmod">+2</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Animal Handling</span><span class="rstat">WIS</span><span class="rmod">+5</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Arcana</span><span class="rstat">INT</span><span class="rmod">+1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Athletics</span><span class="rstat">STR</span><span class="rmod">-1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Deception</span><span class="rstat">CHA</span><span class="rmod">-1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">History</span><span class="rstat">INT</span><span class="rmod">+1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Insight</span><span class="rstat">WIS</span><span class="rmod">+5</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Intimidation</span><span class="rstat">CHA</span><span class="rmod">-1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Investigation</span><span class="rstat">INT</span><span class="rmod">+1</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Medicine</span><span class="rstat">WIS</span><span class="rmod">+7</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Nature</span><span class="rstat">INT</span><span class="rmod">+3</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Perception</span><span class="rstat">WIS</span><span class="rmod">+7</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Performance</span><span class="rstat">CHA</span><span class="rmod">-1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Persuasion</span><span class="rstat">CHA</span><span class="rmod">-1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Religion</span><span class="rstat">INT</span><span class="rmod">+1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Sleight of Hand</span><span class="rstat">DEX</span><span class="rmod">+2</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Stealth</span><span class="rstat">DEX</span><span class="rmod">+4</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Survival</span><span class="rstat">WIS</span><span class="rmod">+7</span></div>
+    </div>
+  </div>
+</article>
+<article class="card">
+  <h3 class="title">Marva Ironfist</h3>
+  <div class="meta">Goblin &middot; Barbarian 3</div>
+  <div class="combat"><div class="stat"><div class="stat-val">16</div><div class="stat-lbl">AC</div></div><div class="stat"><div class="stat-val">41</div><div class="stat-lbl">HP</div></div><div class="stat"><div class="stat-val">30 ft</div><div class="stat-lbl">Speed</div></div><div class="stat"><div class="stat-val">+3</div><div class="stat-lbl">Init</div></div><div class="stat"><div class="stat-val">10</div><div class="stat-lbl">Pass. Per</div></div><div class="stat"><div class="stat-val">+2</div><div class="stat-lbl">Prof</div></div></div>
+  <div class="abilities"><div class="abil"><div class="abil-name">STR</div><div class="abil-mod">+3</div><div class="abil-score">16</div></div><div class="abil"><div class="abil-name">DEX</div><div class="abil-mod">+3</div><div class="abil-score">16</div></div><div class="abil"><div class="abil-name">CON</div><div class="abil-mod">+3</div><div class="abil-score">16</div></div><div class="abil"><div class="abil-name">INT</div><div class="abil-mod">-2</div><div class="abil-score">7</div></div><div class="abil"><div class="abil-name">WIS</div><div class="abil-mod">+0</div><div class="abil-score">10</div></div><div class="abil"><div class="abil-name">CHA</div><div class="abil-mod">+1</div><div class="abil-score">12</div></div></div>
+  <div class="senses">Senses: Darkvision 60 ft.</div>
+  <div class="cols">
+    <div class="col">
+      <h4>Saving Throws</h4>
+      <div class="row"><span class="dot prof" title="Proficient">●</span><span class="rname">STR</span><span class="rmod">+5</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">DEX</span><span class="rmod">+3</span></div><div class="row"><span class="dot prof" title="Proficient">●</span><span class="rname">CON</span><span class="rmod">+5</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">INT</span><span class="rmod">-2</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">WIS</span><span class="rmod">+0</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">CHA</span><span class="rmod">+1</span></div>
+    </div>
+    <div class="col col--skills">
+      <h4>Skills</h4>
+      <div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Acrobatics</span><span class="rstat">DEX</span><span class="rmod">+3</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Animal Handling</span><span class="rstat">WIS</span><span class="rmod">+0</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Arcana</span><span class="rstat">INT</span><span class="rmod">-2</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Athletics</span><span class="rstat">STR</span><span class="rmod">+5</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Deception</span><span class="rstat">CHA</span><span class="rmod">+1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">History</span><span class="rstat">INT</span><span class="rmod">-2</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Insight</span><span class="rstat">WIS</span><span class="rmod">+2</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Intimidation</span><span class="rstat">CHA</span><span class="rmod">+3</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Investigation</span><span class="rstat">INT</span><span class="rmod">-2</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Medicine</span><span class="rstat">WIS</span><span class="rmod">+0</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Nature</span><span class="rstat">INT</span><span class="rmod">-2</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Perception</span><span class="rstat">WIS</span><span class="rmod">+0</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Performance</span><span class="rstat">CHA</span><span class="rmod">+3</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Persuasion</span><span class="rstat">CHA</span><span class="rmod">+1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Religion</span><span class="rstat">INT</span><span class="rmod">-2</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Sleight of Hand</span><span class="rstat">DEX</span><span class="rmod">+3</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Stealth</span><span class="rstat">DEX</span><span class="rmod">+3</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Survival</span><span class="rstat">WIS</span><span class="rmod">+2</span></div>
+    </div>
+  </div>
+</article>
+<article class="card">
+  <h3 class="title">Raeve Nyaxia</h3>
+  <div class="meta">Half-Elf &middot; Warlock 3</div>
+  <div class="combat"><div class="stat"><div class="stat-val">15</div><div class="stat-lbl">AC</div></div><div class="stat"><div class="stat-val">25</div><div class="stat-lbl">HP</div></div><div class="stat"><div class="stat-val">30 ft</div><div class="stat-lbl">Speed</div></div><div class="stat"><div class="stat-val">+4</div><div class="stat-lbl">Init</div></div><div class="stat"><div class="stat-val">9</div><div class="stat-lbl">Pass. Per</div></div><div class="stat"><div class="stat-val">+2</div><div class="stat-lbl">Prof</div></div></div>
+  <div class="abilities"><div class="abil"><div class="abil-name">STR</div><div class="abil-mod">-1</div><div class="abil-score">9</div></div><div class="abil"><div class="abil-name">DEX</div><div class="abil-mod">+4</div><div class="abil-score">18</div></div><div class="abil"><div class="abil-name">CON</div><div class="abil-mod">+2</div><div class="abil-score">14</div></div><div class="abil"><div class="abil-name">INT</div><div class="abil-mod">+1</div><div class="abil-score">12</div></div><div class="abil"><div class="abil-name">WIS</div><div class="abil-mod">-1</div><div class="abil-score">9</div></div><div class="abil"><div class="abil-name">CHA</div><div class="abil-mod">+5</div><div class="abil-score">20</div></div></div>
+  <div class="senses">Senses: Darkvision 120 ft.</div>
+  <div class="cols">
+    <div class="col">
+      <h4>Saving Throws</h4>
+      <div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">STR</span><span class="rmod">-1</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">DEX</span><span class="rmod">+4</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">CON</span><span class="rmod">+2</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">INT</span><span class="rmod">+1</span></div><div class="row"><span class="dot prof" title="Proficient">●</span><span class="rname">WIS</span><span class="rmod">+1</span></div><div class="row"><span class="dot prof" title="Proficient">●</span><span class="rname">CHA</span><span class="rmod">+7</span></div>
+    </div>
+    <div class="col col--skills">
+      <h4>Skills</h4>
+      <div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Acrobatics</span><span class="rstat">DEX</span><span class="rmod">+4</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Animal Handling</span><span class="rstat">WIS</span><span class="rmod">-1</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Arcana</span><span class="rstat">INT</span><span class="rmod">+3</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Athletics</span><span class="rstat">STR</span><span class="rmod">-1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Deception</span><span class="rstat">CHA</span><span class="rmod">+5</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">History</span><span class="rstat">INT</span><span class="rmod">+3</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Insight</span><span class="rstat">WIS</span><span class="rmod">+1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Intimidation</span><span class="rstat">CHA</span><span class="rmod">+5</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Investigation</span><span class="rstat">INT</span><span class="rmod">+3</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Medicine</span><span class="rstat">WIS</span><span class="rmod">-1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Nature</span><span class="rstat">INT</span><span class="rmod">+1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Perception</span><span class="rstat">WIS</span><span class="rmod">-1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Performance</span><span class="rstat">CHA</span><span class="rmod">+5</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Persuasion</span><span class="rstat">CHA</span><span class="rmod">+7</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Religion</span><span class="rstat">INT</span><span class="rmod">+1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Sleight of Hand</span><span class="rstat">DEX</span><span class="rmod">+4</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Stealth</span><span class="rstat">DEX</span><span class="rmod">+4</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Survival</span><span class="rstat">WIS</span><span class="rmod">-1</span></div>
+    </div>
+  </div>
+</article>
+<article class="card">
+  <h3 class="title">Varyn Starwhisper</h3>
+  <div class="meta">Owlin &middot; Monk 3</div>
+  <div class="combat"><div class="stat"><div class="stat-val">17</div><div class="stat-lbl">AC</div></div><div class="stat"><div class="stat-val">18</div><div class="stat-lbl">HP</div></div><div class="stat"><div class="stat-val">40 ft</div><div class="stat-lbl">Speed</div></div><div class="stat"><div class="stat-val">+4</div><div class="stat-lbl">Init</div></div><div class="stat"><div class="stat-val">15</div><div class="stat-lbl">Pass. Per</div></div><div class="stat"><div class="stat-val">+2</div><div class="stat-lbl">Prof</div></div></div>
+  <div class="abilities"><div class="abil"><div class="abil-name">STR</div><div class="abil-mod">-2</div><div class="abil-score">6</div></div><div class="abil"><div class="abil-name">DEX</div><div class="abil-mod">+4</div><div class="abil-score">18</div></div><div class="abil"><div class="abil-name">CON</div><div class="abil-mod">+2</div><div class="abil-score">15</div></div><div class="abil"><div class="abil-name">INT</div><div class="abil-mod">+0</div><div class="abil-score">10</div></div><div class="abil"><div class="abil-name">WIS</div><div class="abil-mod">+3</div><div class="abil-score">16</div></div><div class="abil"><div class="abil-name">CHA</div><div class="abil-mod">+1</div><div class="abil-score">12</div></div></div>
+  <div class="senses">Senses: Darkvision 120 ft.</div>
+  <div class="cols">
+    <div class="col">
+      <h4>Saving Throws</h4>
+      <div class="row"><span class="dot prof" title="Proficient">●</span><span class="rname">STR</span><span class="rmod">+0</span></div><div class="row"><span class="dot prof" title="Proficient">●</span><span class="rname">DEX</span><span class="rmod">+6</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">CON</span><span class="rmod">+2</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">INT</span><span class="rmod">+0</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">WIS</span><span class="rmod">+3</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">CHA</span><span class="rmod">+1</span></div>
+    </div>
+    <div class="col col--skills">
+      <h4>Skills</h4>
+      <div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Acrobatics</span><span class="rstat">DEX</span><span class="rmod">+6</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Animal Handling</span><span class="rstat">WIS</span><span class="rmod">+3</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Arcana</span><span class="rstat">INT</span><span class="rmod">+0</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Athletics</span><span class="rstat">STR</span><span class="rmod">-2</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Deception</span><span class="rstat">CHA</span><span class="rmod">+1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">History</span><span class="rstat">INT</span><span class="rmod">+0</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Insight</span><span class="rstat">WIS</span><span class="rmod">+5</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Intimidation</span><span class="rstat">CHA</span><span class="rmod">+1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Investigation</span><span class="rstat">INT</span><span class="rmod">+0</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Medicine</span><span class="rstat">WIS</span><span class="rmod">+3</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Nature</span><span class="rstat">INT</span><span class="rmod">+0</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Perception</span><span class="rstat">WIS</span><span class="rmod">+5</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Performance</span><span class="rstat">CHA</span><span class="rmod">+1</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Persuasion</span><span class="rstat">CHA</span><span class="rmod">+3</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Religion</span><span class="rstat">INT</span><span class="rmod">+0</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Sleight of Hand</span><span class="rstat">DEX</span><span class="rmod">+4</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Stealth</span><span class="rstat">DEX</span><span class="rmod">+6</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Survival</span><span class="rstat">WIS</span><span class="rmod">+3</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Cartographer&#x27;s Tools</span><span class="rstat">WIS</span><span class="rmod">+5</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Painter&#x27;s Tools</span><span class="rstat">WIS</span><span class="rmod">+5</span></div>
+    </div>
+  </div>
+</article>
+<article class="card">
+  <h3 class="title">Kessia Brightpage</h3>
+  <div class="meta">Half-Elf &middot; Rogue 3</div>
+  <div class="combat"><div class="stat"><div class="stat-val">14</div><div class="stat-lbl">AC</div></div><div class="stat"><div class="stat-val">21</div><div class="stat-lbl">HP</div></div><div class="stat"><div class="stat-val">30 ft</div><div class="stat-lbl">Speed</div></div><div class="stat"><div class="stat-val">+3</div><div class="stat-lbl">Init</div></div><div class="stat"><div class="stat-val">15</div><div class="stat-lbl">Pass. Per</div></div><div class="stat"><div class="stat-val">+2</div><div class="stat-lbl">Prof</div></div></div>
+  <div class="abilities"><div class="abil"><div class="abil-name">STR</div><div class="abil-mod">-1</div><div class="abil-score">8</div></div><div class="abil"><div class="abil-name">DEX</div><div class="abil-mod">+3</div><div class="abil-score">16</div></div><div class="abil"><div class="abil-name">CON</div><div class="abil-mod">+1</div><div class="abil-score">13</div></div><div class="abil"><div class="abil-name">INT</div><div class="abil-mod">+0</div><div class="abil-score">10</div></div><div class="abil"><div class="abil-name">WIS</div><div class="abil-mod">+1</div><div class="abil-score">13</div></div><div class="abil"><div class="abil-name">CHA</div><div class="abil-mod">+3</div><div class="abil-score">16</div></div></div>
+  <div class="senses">Senses: Darkvision 60 ft.</div>
+  <div class="cols">
+    <div class="col">
+      <h4>Saving Throws</h4>
+      <div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">STR</span><span class="rmod">-1</span></div><div class="row"><span class="dot prof" title="Proficient">●</span><span class="rname">DEX</span><span class="rmod">+5</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">CON</span><span class="rmod">+1</span></div><div class="row"><span class="dot prof" title="Proficient">●</span><span class="rname">INT</span><span class="rmod">+2</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">WIS</span><span class="rmod">+1</span></div><div class="row"><span class="dot none" title="Not Proficient">○</span><span class="rname">CHA</span><span class="rmod">+3</span></div>
+    </div>
+    <div class="col col--skills">
+      <h4>Skills</h4>
+      <div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Acrobatics</span><span class="rstat">DEX</span><span class="rmod">+3</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Animal Handling</span><span class="rstat">WIS</span><span class="rmod">+1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Arcana</span><span class="rstat">INT</span><span class="rmod">+0</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Athletics</span><span class="rstat">STR</span><span class="rmod">-1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Deception</span><span class="rstat">CHA</span><span class="rmod">+3</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">History</span><span class="rstat">INT</span><span class="rmod">+2</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Insight</span><span class="rstat">WIS</span><span class="rmod">+3</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Intimidation</span><span class="rstat">CHA</span><span class="rmod">+3</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Investigation</span><span class="rstat">INT</span><span class="rmod">+2</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Medicine</span><span class="rstat">WIS</span><span class="rmod">+1</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Nature</span><span class="rstat">INT</span><span class="rmod">+0</span></div><div class="row expertise"><span class="dot expertise" title="Expert">★</span><span class="rname">Perception</span><span class="rstat">WIS</span><span class="rmod">+5</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Performance</span><span class="rstat">CHA</span><span class="rmod">+5</span></div><div class="row expertise"><span class="dot expertise" title="Expert">★</span><span class="rname">Persuasion</span><span class="rstat">CHA</span><span class="rmod">+7</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Religion</span><span class="rstat">INT</span><span class="rmod">+0</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Sleight of Hand</span><span class="rstat">DEX</span><span class="rmod">+5</span></div><div class="row prof"><span class="dot prof" title="Proficient">●</span><span class="rname">Stealth</span><span class="rstat">DEX</span><span class="rmod">+5</span></div><div class="row none"><span class="dot none" title="Not Proficient">○</span><span class="rname">Survival</span><span class="rstat">WIS</span><span class="rmod">+1</span></div>
+    </div>
+  </div>
+</article>
+<article class="card card--error"><h3 class="title">Lysander Cross</h3><p class="err">Could not load: Sheet not accessible on D&amp;D Beyond (private/unavailable) — stats from the vault: Dhampir Bard</p></article>
+  </div>
+</div>
+<style>
+/* ==== Striesara elven light theme ==== */
+#tw{--ink:#2a3226;--paper:#f2f4e8;--card:#f8f9f1;--acc:#3e6b4f;--gold:#8f7d3f;
+  --line:#cdd4b8;--muted:#68725f;
+  background:linear-gradient(180deg,#f6f8ee,#eef1e0)!important;
+  border:1px solid #cdd4b8!important;border-radius:14px!important;
+  box-shadow:0 18px 50px rgba(70,80,45,.18)!important;}
+#tw h1{color:#2c5039!important;text-shadow:none!important;}
+#tw .sub{color:var(--muted)!important;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 16'%3E%3Cpath d='M10 8h98M152 8h98' stroke='%238f7d3f' stroke-width='1.5'/%3E%3Cpath d='M130 2l7 6-7 6-7-6z' fill='%233e6b4f'/%3E%3Ccircle cx='114' cy='8' r='2.2' fill='%238f7d3f'/%3E%3Ccircle cx='146' cy='8' r='2.2' fill='%238f7d3f'/%3E%3C/svg%3E") center bottom/260px 16px no-repeat!important;}
+#tw h2{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 16'%3E%3Cpath d='M10 8h98M152 8h98' stroke='%238f7d3f' stroke-width='1.5'/%3E%3Cpath d='M130 2l7 6-7 6-7-6z' fill='%233e6b4f'/%3E%3Ccircle cx='114' cy='8' r='2.2' fill='%238f7d3f'/%3E%3Ccircle cx='146' cy='8' r='2.2' fill='%238f7d3f'/%3E%3C/svg%3E") center bottom/240px 15px no-repeat!important;}
+#tw table{background:#fdfdf7!important;}
+#tw th{background:#e6e9d2!important;color:#2c5039!important;}
+#tw .card .title{color:#2c5039!important;}
+#tw article.card{box-shadow:0 3px 14px rgba(70,80,45,.14)!important;}
+#tw ::selection{background:#c9d3a4!important;color:#2a3226!important;}
+#tw .stat{background:#eef1dd!important;}
+#tw .abil{background:#f8f9f1!important;}
+#tw .stat-val{color:#2c5039!important;}
+#tw .row .rmod{color:#2a3226!important;}
+#tw .row.prof .rname,#tw .row.expertise .rname{color:#2c5039!important;}
+#tw .dot.none{color:#c3cbaa!important;}
+#tw .dot.half{color:#9c8f5e!important;}
+#tw h2{scroll-margin-top:70px;}
+</style>
+
+<footer class="newfoot"><div class="fin">
+  <span class="wm">STRIESARA</span>
+  <nav>
+    <a href="../index.html">Campaigns</a>
+    <a href="index.html">Home</a>
+    <a href="party-quick-reference.html">Party</a>
+    <a href="compendium.html">Compendium</a>
+    <a href="sessions.html">Sessions</a>
+    <a href="status.html">Status</a>
+  </nav>
+  <span class="fine">Striesara &middot; the Viekryss campaign &middot; may your leaves never wither. No refunds on failed saves.</span>
+</div></footer>
+
+</body>
+</html>

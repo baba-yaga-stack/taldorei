@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Striesara — Campaign Hub</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital@1&display=swap');
+:root{--bg:#edefe4;--card:#f8f9f1;--card2:#eef1dd;--line:#cdd4b8;
+  --gold:#8f7d3f;--gold2:#6e6030;--green:#3e6b4f;--green2:#2c5039;--rose:#a05242;
+  --text:#2a3226;--muted:#68725f;--radius:10px;}
+html{background:var(--bg)}
+body{margin:0;color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6;
+  background:var(--bg) radial-gradient(ellipse 80% 50% at 50% -10%,rgba(143,125,63,.10),transparent)!important;}
+a{color:var(--green);text-decoration:none}
+a:hover{color:var(--green2)}
+.annbar{background:linear-gradient(90deg,#e3e6cf,#eae9d2,#e3e6cf);border-bottom:1px solid #cfd0ae;
+  overflow:hidden;white-space:nowrap;font-size:.72rem;letter-spacing:.14em;font-weight:600;
+  color:#5a6a4a;text-transform:uppercase;font-family:'Inter',system-ui,sans-serif;}
+.annbar .track{display:inline-block;padding:8px 0;animation:nmarq 36s linear infinite;}
+.annbar span{margin:0 28px}
+.annbar .d{color:var(--gold)}
+@keyframes nmarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+nav.newtop{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:6px;
+  padding:10px 22px;background:rgba(248,249,241,.88);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);font-family:'Inter',system-ui,sans-serif;}
+nav.newtop .logo{display:flex;align-items:center;gap:10px;margin-right:18px;text-decoration:none;}
+nav.newtop .logo svg{width:30px;height:30px}
+nav.newtop .logo .wm{font-family:'Cinzel',serif;font-weight:700;font-size:.98rem;letter-spacing:.12em;
+  background:linear-gradient(180deg,var(--green),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.navlinks{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto;}
+.navlinks>div{position:relative}
+.navlinks a.lnk{display:block;padding:9px 15px;border-radius:6px;font-size:.8rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--text);text-decoration:none;}
+.navlinks a.lnk:hover,.navlinks>div:hover>a.lnk{background:var(--card2);color:var(--green2);}
+.navlinks a.lnk.active{color:var(--green)}
+.navlinks .drop{position:absolute;top:100%;left:0;min-width:250px;padding:8px;display:none;
+  background:var(--card);border:1px solid var(--line);border-radius:10px;
+  box-shadow:0 18px 40px rgba(60,70,40,.25);}
+.navlinks>div:hover .drop{display:block}
+.navlinks .drop a{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:9px 12px;border-radius:6px;font-size:.85rem;color:var(--text);text-decoration:none;}
+.navlinks .drop a:hover{background:var(--card2);color:var(--green2)}
+.navlinks .drop .ct{font-size:.7rem;font-weight:700;color:var(--muted);background:var(--bg);
+  border:1px solid var(--line);border-radius:20px;padding:1px 8px;}
+footer.newfoot{margin-top:60px;border-top:1px solid var(--line);
+  background:linear-gradient(180deg,#e8ebd8,#dde1c8);color:var(--muted);
+  font-family:'Inter',system-ui,sans-serif;}
+footer.newfoot .fin{max-width:1180px;margin:0 auto;padding:28px 24px 26px;display:flex;
+  flex-wrap:wrap;gap:16px 30px;align-items:center;justify-content:space-between;}
+footer.newfoot .wm{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.14em;color:var(--green2);}
+footer.newfoot nav{display:flex;flex-wrap:wrap;gap:4px 18px;}
+footer.newfoot a{color:var(--muted);text-decoration:none;font-size:.82rem;}
+footer.newfoot a:hover{color:var(--green2)}
+footer.newfoot .fine{width:100%;font-size:.74rem;color:#8a927c;border-top:1px solid var(--line);padding-top:14px;}
+@media(prefers-reduced-motion:reduce){.annbar .track{animation:none}}
+@media(max-width:640px){nav.newtop{padding:10px 12px}.navlinks a.lnk{padding:8px 10px;font-size:.72rem}}
+</style>
+<style>
+.serif{font-family:'Cinzel',serif}
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+.hero svg.scene{display:block;width:100%;height:auto;min-height:420px;}
+.hero .overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;padding:20px;
+  background:linear-gradient(180deg,transparent 30%,rgba(237,239,228,.55) 78%,var(--bg) 100%);}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--rose);margin:0 0 10px;}
+h1.title{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(2.4rem,7vw,4.6rem);
+  letter-spacing:.06em;line-height:1.05;margin:0;
+  background:linear-gradient(180deg,#2c5039 10%,#3e6b4f 45%,#8f7d3f 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 2px 10px rgba(143,125,63,.3));}
+.tagline{max-width:640px;color:#4a5544;font-size:clamp(.95rem,1.6vw,1.1rem);margin:14px 0 24px;
+  font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:1.2rem;}
+.ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-block;padding:13px 30px;border-radius:6px;font-weight:700;font-size:.82rem;
+  letter-spacing:.14em;text-transform:uppercase;transition:transform .15s,box-shadow .15s;font-family:'Inter',sans-serif;}
+.btn.gold{background:linear-gradient(180deg,#4a7a58,#3e6b4f);color:#f4f6ea;
+  box-shadow:0 4px 18px rgba(62,107,79,.35);}
+.btn.gold:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(62,107,79,.5);color:#fff;}
+.btn.ghost{border:1px solid var(--green);color:var(--green2);background:rgba(248,249,241,.5);}
+.btn.ghost:hover{background:rgba(62,107,79,.1);transform:translateY(-2px);}
+.mote{position:absolute;bottom:-8px;width:5px;height:5px;border-radius:50%;
+  background:#d9c87a;box-shadow:0 0 8px 2px rgba(217,200,122,.7);opacity:0;animation:rise linear infinite;}
+@keyframes rise{0%{transform:translateY(0)}8%{opacity:.9}70%{opacity:.5}
+  100%{transform:translateY(-520px) translateX(36px);opacity:0}}
+.birdfly{animation:drift 16s ease-in-out infinite}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(50px,-12px)}}
+@media(prefers-reduced-motion:reduce){.mote,.birdfly{animation:none!important}.mote{display:none}}
+.threatbar{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+  padding:12px 20px;background:linear-gradient(90deg,rgba(160,82,66,.10),rgba(160,82,66,.20),rgba(160,82,66,.10));
+  border-top:1px solid rgba(160,82,66,.3);border-bottom:1px solid rgba(160,82,66,.3);
+  font-size:.85rem;color:#7a4438;text-align:center;}
+.threatbar .pill{font-weight:800;font-size:.7rem;letter-spacing:.18em;padding:4px 14px;border-radius:20px;
+  background:var(--rose);color:#fff;text-transform:uppercase;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+section.blk{padding:58px 0 8px}
+.kicker{font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--rose);margin:0 0 6px;}
+h2.sec{font-family:'Cinzel',serif;font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);
+  letter-spacing:.05em;color:var(--green2);margin:0 0 8px;}
+.sec-sub{color:var(--muted);max-width:640px;margin:0 0 28px;font-size:.95rem;}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:34px auto 0;max-width:900px;}
+.stat{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);
+  border-radius:10px;padding:20px 10px;text-align:center;}
+.stat .n{font-family:'Cinzel',serif;font-weight:900;font-size:2rem;display:block;line-height:1.1;
+  background:linear-gradient(180deg,#3e6b4f,#8f7d3f);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.stat .l{font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);}
+.featured{display:grid;grid-template-columns:1.05fr 1.4fr;overflow:hidden;
+  background:linear-gradient(135deg,var(--card2),var(--card));border:1px solid var(--line);
+  border-radius:14px;box-shadow:0 16px 44px rgba(70,80,45,.18);}
+.featured .art{position:relative;min-height:280px;background:radial-gradient(circle at 55% 40%,#e3e8cf,#ccd6b4 75%);}
+.featured .art svg{position:absolute;inset:0;width:100%;height:100%;}
+.featured .body{padding:34px 38px 30px;}
+.featured .body h3{font-family:'Cinzel',serif;font-size:1.7rem;font-weight:700;color:var(--green2);margin:.2em 0 .4em;}
+.featured .body p{color:#4a5544;font-size:.95rem;margin:0 0 18px;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;}
+.chip{font-size:.74rem;font-weight:600;padding:5px 13px;border-radius:20px;
+  border:1px solid var(--line);background:var(--bg);color:#55604c;font-family:'Inter',sans-serif;}
+.chip.hot{border-color:rgba(160,82,66,.45);color:#96503f}
+@media(max-width:820px){.featured{grid-template-columns:1fr}.featured .art{min-height:190px}}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,255px),1fr));gap:18px;}
+a.card{display:flex;flex-direction:column;gap:10px;padding:26px 24px 22px;color:var(--text);
+  background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);
+  border-radius:14px;position:relative;overflow:hidden;
+  transition:transform .18s,border-color .18s,box-shadow .18s;text-decoration:none;}
+a.card::before{content:'';position:absolute;inset:0 0 auto 0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .18s;}
+a.card:hover{transform:translateY(-5px);border-color:rgba(143,125,63,.6);
+  box-shadow:0 14px 34px rgba(70,80,45,.22);color:var(--text);}
+a.card:hover::before{opacity:1}
+a.card .ic{width:44px;height:44px;color:var(--green)}
+a.card h3{font-family:'Cinzel',serif;font-size:1.16rem;font-weight:700;margin:0;color:var(--green2);}
+a.card p{margin:0;font-size:.87rem;color:var(--muted);flex:1}
+a.card .go{font-size:.72rem;font-weight:700;letter-spacing:.2em;color:var(--gold2);text-transform:uppercase;}
+a.card .badge{position:absolute;top:18px;right:18px;font-size:.68rem;font-weight:700;
+  color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:2px 10px;background:var(--bg);}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:18px;}
+.threat{background:linear-gradient(180deg,#f3ece2,#efe6da);border:1px solid rgba(160,82,66,.3);
+  border-radius:14px;padding:24px;}
+.threat h3{font-family:'Cinzel',serif;font-size:1.1rem;color:#8a4a3a;margin:.1em 0 .4em;}
+.threat p{font-size:.87rem;color:#6d6053;margin:0}
+.threat .tag{display:inline-block;font-size:.64rem;font-weight:800;letter-spacing:.18em;
+  text-transform:uppercase;color:#a05242;margin-bottom:10px;font-family:'Inter',sans-serif;}
+.party{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;}
+a.pc{display:block;text-align:center;padding:18px 10px 16px;border:1px solid var(--line);
+  border-radius:10px;background:var(--card);color:var(--text);font-size:.88rem;
+  transition:border-color .15s,transform .15s;text-decoration:none;}
+a.pc:hover{border-color:var(--gold);transform:translateY(-3px);color:var(--green2)}
+a.pc .leaf{display:block;margin:0 auto 8px;width:22px;height:22px;color:var(--green)}
+a.pc .nm{font-family:'Cinzel',serif;font-weight:600}
+</style>
+</head>
+<body>
+<div class="annbar" aria-hidden="true"><div class="track">
+  <span>&#127807; Next: Session 8 <span class="d">&mdash;</span> notes await the archive</span><span class="d">&#10022;</span>
+  <span>&#9878; Renvar Ilthis at large &mdash; last seen mid&ndash;Time Stop</span><span class="d">&#10022;</span>
+  <span>&#127960; Viekryss &middot; the Festival of Strength approaches</span><span class="d">&#10022;</span>
+  <span>&#128269; The disappearances continue</span><span class="d">&#10022;</span>
+  <span>&#127807; Next: Session 8 <span class="d">&mdash;</span> notes await the archive</span><span class="d">&#10022;</span>
+  <span>&#9878; Renvar Ilthis at large &mdash; last seen mid&ndash;Time Stop</span><span class="d">&#10022;</span>
+  <span>&#127960; Viekryss &middot; the Festival of Strength approaches</span><span class="d">&#10022;</span>
+  <span>&#128269; The disappearances continue</span><span class="d">&#10022;</span>
+</div></div>
+<nav class="newtop">
+  <a class="logo" href="index.html" aria-label="Striesara home">
+    <svg viewBox="0 0 100 100" fill="none" stroke="#3e6b4f" stroke-width="4" stroke-linejoin="round">
+      <path d="M50 6 C76 24 84 52 50 94 C16 52 24 24 50 6 Z"/>
+      <path d="M50 20 L50 84 M50 44 L68 32 M50 44 L32 32 M50 62 L70 50 M50 62 L30 50"/>
+    </svg>
+    <span class="wm">STRIESARA</span>
+  </a>
+  <div class="navlinks">
+    <div><a class="lnk" href="../index.html" title="Campaign select">&#10022; Campaigns</a></div>
+    <div><a class="lnk active" href="index.html">Home</a></div>
+    <div>
+      <a class="lnk" href="party-quick-reference.html">Party &#9662;</a>
+      <div class="drop">
+        <a href="party-quick-reference.html">Quick Reference <span class="ct">live stats</span></a>
+        <a href="compendium.html#cat-the-party">Character Files <span class="ct">7</span></a>
+      </div>
+    </div>
+    <div>
+      <a class="lnk" href="compendium.html">Compendium &#9662;</a>
+      <div class="drop">
+        <a href="compendium.html#cat-the-party">The Party <span class="ct">7</span></a>
+        <a href="compendium.html#cat-people-of-striesara-npcs">People of Striesara <span class="ct">40</span></a>
+        <a href="compendium.html#cat-locations">Locations <span class="ct">31</span></a>
+        <a href="compendium.html#cat-lore-factions">Lore &amp; Factions <span class="ct">10</span></a>
+        <a href="compendium.html#cat-active-quests">Active Quests <span class="ct">3</span></a>
+        <a href="compendium.html#cat-completed-quests">Completed Quests <span class="ct">1</span></a>
+      </div>
+    </div>
+    <div><a class="lnk" href="sessions.html">Sessions</a></div>
+    <div><a class="lnk" href="status.html">Status</a></div>
+  </div>
+</nav>
+
+
+<header class="hero">
+  <svg class="scene" viewBox="0 0 1600 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dfe9d8"/><stop offset=".45" stop-color="#e9e9cf"/>
+      <stop offset=".8" stop-color="#f0e6c8"/><stop offset="1" stop-color="#edefe4"/>
+    </linearGradient>
+    <radialGradient id="sun" cx=".5" cy=".5" r=".5">
+      <stop offset=".4" stop-color="#f7ecc7"/><stop offset=".7" stop-color="#f0dfa8" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#f0dfa8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="r1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b9c8a6"/><stop offset="1" stop-color="#a8b995"/></linearGradient>
+    <linearGradient id="r2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#93a882"/><stop offset="1" stop-color="#84996f"/></linearGradient>
+    <linearGradient id="r3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6d8465"/><stop offset="1" stop-color="#5c7355"/></linearGradient>
+  </defs>
+  <rect width="1600" height="640" fill="url(#sky)"/>
+  <circle cx="1150" cy="200" r="190" fill="url(#sun)"/>
+  <circle cx="1150" cy="200" r="85" fill="#f6eccb"/>
+  <g stroke="#e8d9a4" stroke-width="2" opacity=".55">
+    <path d="M1150 60 v-38 M1150 340 v38 M1010 200 h-38 M1290 200 h38 M1052 102 l-26 -26 M1248 298 l26 26 M1052 298 l-26 26 M1248 102 l26 -26"/>
+  </g>
+  <!-- distant elven spires -->
+  <g fill="#aebe9d" opacity=".8">
+    <path d="M330 380 l14 -150 14 150 Z M358 380 l8 -80 8 80 Z M300 380 l8 -90 8 90 Z"/>
+    <path d="M322 250 q22 -18 44 0" fill="none" stroke="#aebe9d" stroke-width="5"/>
+  </g>
+  <!-- birds -->
+  <g class="birdfly" stroke="#7a8a68" stroke-width="3" fill="none" opacity=".8">
+    <path d="M520 150 q10 -10 20 0 q10 -10 20 0"/>
+    <path d="M580 180 q8 -8 16 0 q8 -8 16 0"/>
+    <path d="M470 190 q7 -7 14 0 q7 -7 14 0"/>
+  </g>
+  <!-- ridges -->
+  <path fill="url(#r1)" d="M0 430 L140 350 L280 420 L430 320 L580 425 L740 340 L900 430 L1060 350 L1220 440 L1380 360 L1600 430 L1600 640 L0 640 Z"/>
+  <path fill="url(#r2)" d="M0 500 L180 420 L340 490 L520 400 L700 500 L880 420 L1060 510 L1240 430 L1420 505 L1600 450 L1600 640 L0 640 Z"/>
+  <!-- birch trunks on the fore-ridge -->
+  <g stroke="#f2f4e8" stroke-width="10" opacity=".85">
+    <path d="M240 640 L246 500"/><path d="M296 640 L290 520"/><path d="M1310 640 L1316 505"/><path d="M1370 640 L1364 525"/>
+  </g>
+  <g stroke="#8a9a76" stroke-width="3" opacity=".6">
+    <path d="M242 560 h10 M292 570 h10 M1312 560 h10 M1366 575 h10 M244 530 h10 M1314 535 h10"/>
+  </g>
+  <path fill="url(#r3)" d="M0 570 L220 505 L440 560 L660 500 L900 565 L1140 510 L1380 565 L1600 520 L1600 640 L0 640 Z"/>
+  <!-- mist -->
+  <ellipse cx="800" cy="590" rx="900" ry="70" fill="#ffffff" opacity=".28"/>
+  <ellipse cx="420" cy="615" rx="700" ry="55" fill="#ffffff" opacity=".22"/>
+</svg>
+  <div class="overlay">
+    <p class="eyebrow">A Dungeons &amp; Dragons Campaign &middot; The Viekryss Chronicle</p>
+    <h1 class="title">STRIESARA</h1>
+    <p class="tagline">Seven adventurers, three storefronts, one mining town where people keep vanishing &mdash;
+      and a surgeon of parasites who stopped time itself to escape them.</p>
+    <div class="ctas">
+      <a class="btn gold" href="compendium.html">Open the Compendium</a>
+      <a class="btn ghost" href="sessions.html">Latest Session &rarr;</a>
+    </div>
+  </div>
+  <span class="mote" style="left:14%;animation-duration:8s;animation-delay:0s"></span>
+  <span class="mote" style="left:30%;animation-duration:10s;animation-delay:2s"></span>
+  <span class="mote" style="left:48%;animation-duration:9s;animation-delay:4s"></span>
+  <span class="mote" style="left:66%;animation-duration:11s;animation-delay:1s"></span>
+  <span class="mote" style="left:82%;animation-duration:8.5s;animation-delay:3s"></span>
+</header>
+
+<div class="threatbar">
+  <span class="pill">Renvar at large</span>
+  <span>The parasite laboratory at Blackroot Hollow is dismantled &mdash; but its maker escaped through a hole in time, and the disappearances aren't over.</span>
+</div>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><span class="n">7</span><span class="l">Heroes</span></div>
+    <div class="stat"><span class="n">3</span><span class="l">Level</span></div>
+    <div class="stat"><span class="n">8</span><span class="l">Sessions</span></div>
+    <div class="stat"><span class="n">Viekryss</span><span class="l">Home Base</span></div>
+  </div>
+
+  <section class="blk">
+    <p class="kicker">Last time, at Blackroot Hollow</p>
+    <h2 class="sec">Session 7 &mdash; Blackroot Hollow</h2>
+    <div style="height:18px"></div>
+    <div class="featured">
+      <div class="art">
+        <svg viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <ellipse cx="200" cy="170" rx="150" ry="120" fill="#4a5a42"/>
+          <path d="M95 170 q105 -95 210 0 q-40 60 -105 60 q-65 0 -105 -60 Z" fill="#232d1f"/>
+          <path d="M110 168 l18 -20 M150 150 l12 -24 M250 150 l-12 -24 M290 168 l-18 -20" stroke="#374733" stroke-width="7" fill="none"/>
+          <g fill="#d9c87a">
+            <circle cx="170" cy="185" r="5"/><circle cx="230" cy="185" r="5"/>
+          </g>
+          <path d="M140 235 q60 26 120 0" stroke="#748a64" stroke-width="4" fill="none" opacity=".7"/>
+          <g stroke="#9fb28a" stroke-width="3" fill="none" opacity=".6">
+            <path d="M60 300 q20 -40 8 -80 M340 300 q-20 -40 -8 -80"/>
+          </g>
+        </svg>
+      </div>
+      <div class="body">
+        <h3>The cave shaped like a mouth.</h3>
+        <p>Using the Earl's maps, the party fought through a forest that changed as they walked it, into a cave
+        reeking of rotting fruit and hot iron: Renvar's parasite laboratory. They found Perrin tortured as
+        &ldquo;Subject 25&rdquo; &mdash; and when the fight turned, Renvar cast <i>Time Stop</i> and simply wasn't there
+        anymore. The party carried out Perrin, the research notes, the parasite specimens, and a drained, gray
+        Cloak of the Archmage. Subject 14 was likely Perigrine LeCroix.</p>
+        <div class="chips">
+          <span class="chip">Perrin recovered alive</span>
+          <span class="chip">Research notes &amp; specimens seized</span>
+          <span class="chip hot">Renvar escaped via Time Stop</span>
+          <span class="chip hot">"Mining permit has hereby been revoked"</span>
+        </div>
+        <a class="btn ghost" href="sessions.html#session-7">Read the full recap &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <p class="kicker">The Archives</p>
+    <h2 class="sec">Everything the table needs</h2>
+    <p class="sec-sub">Live character stats, the campaign compendium, session recaps, and the current state of Viekryss.</p>
+    <div class="grid4">
+      <a class="card" href="party-quick-reference.html">
+        <span class="badge">Live from D&amp;D Beyond</span>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M12 8v5M9.5 10.5h5"/></svg>
+        <h3>Party Reference</h3>
+        <p>Combat stats, ability scores, saves, senses, and full skill lists for the party.</p>
+        <span class="go">Enter &rarr;</span>
+      </a>
+      <a class="card" href="compendium.html">
+        <span class="badge">92 entries</span>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M4 4a2 2 0 012-2h14v18H6a2 2 0 00-2 2z"/><path d="M4 20a2 2 0 012-2h14"/><path d="M9 6h7M9 9h5"/></svg>
+        <h3>Compendium</h3>
+        <p>The party, 40 NPCs, 31 locations, quests, and the lore and factions of Striesara.</p>
+        <span class="go">Enter &rarr;</span>
+      </a>
+      <a class="card" href="sessions.html">
+        <span class="badge">8 recaps</span>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M6 2h9l4 4v16H6z"/><path d="M15 2v4h4M9 11h7M9 14h7M9 17h4"/></svg>
+        <h3>Session Recaps</h3>
+        <p>From Session Zero through the assault on Blackroot Hollow &mdash; every recap and key event.</p>
+        <span class="go">Enter &rarr;</span>
+      </a>
+      <a class="card" href="status.html">
+        <span class="badge">Updated S7</span>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        <h3>Campaign Status</h3>
+        <p>Active quests, open mysteries, and where things stand in Viekryss right now.</p>
+        <span class="go">Enter &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="blk">
+    <p class="kicker">Watch the shadows</p>
+    <h2 class="sec">Open Threats</h2>
+    <div style="height:14px"></div>
+    <div class="grid3">
+      <div class="threat">
+        <span class="tag">At Large</span>
+        <h3>Renvar Ilthis</h3>
+        <p>The parasite surgeon of Blackroot Hollow. Cast Time Stop mid-fight and vanished. His laboratory is dismantled; his work is not.</p>
+      </div>
+      <div class="threat">
+        <span class="tag">Unanswered</span>
+        <h3>The Blackroot Experiments</h3>
+        <p>Living parasites used as a "buffer to keep the host from tearing apart." Subject 14 was likely Perigrine LeCroix. Subject 25 &mdash; Perrin &mdash; came home. The others didn't.</p>
+      </div>
+      <div class="threat">
+        <span class="tag">Ongoing</span>
+        <h3>The Disappearances</h3>
+        <p>People keep vanishing from Viekryss without explanation. The lab explains some of them. It does not explain all of them.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <p class="kicker">The heroes</p>
+    <h2 class="sec">The Party</h2>
+    <div style="height:14px"></div>
+    <div class="party">
+<a class="pc" href="compendium.html#cat-the-party"><svg class="leaf" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"><path d="M50 6 C76 24 84 52 50 94 C16 52 24 24 50 6 Z"/><path d="M50 20 L50 84"/></svg><span class="nm">Ellowen Moonthorn</span></a>
+<a class="pc" href="compendium.html#cat-the-party"><svg class="leaf" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"><path d="M50 6 C76 24 84 52 50 94 C16 52 24 24 50 6 Z"/><path d="M50 20 L50 84"/></svg><span class="nm">Kessia Brightpage</span></a>
+<a class="pc" href="compendium.html#cat-the-party"><svg class="leaf" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"><path d="M50 6 C76 24 84 52 50 94 C16 52 24 24 50 6 Z"/><path d="M50 20 L50 84"/></svg><span class="nm">Lysander Cross</span></a>
+<a class="pc" href="compendium.html#cat-the-party"><svg class="leaf" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"><path d="M50 6 C76 24 84 52 50 94 C16 52 24 24 50 6 Z"/><path d="M50 20 L50 84"/></svg><span class="nm">Marva Ironfist</span></a>
+<a class="pc" href="compendium.html#cat-the-party"><svg class="leaf" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"><path d="M50 6 C76 24 84 52 50 94 C16 52 24 24 50 6 Z"/><path d="M50 20 L50 84"/></svg><span class="nm">Raeve Nyaxia</span></a>
+<a class="pc" href="compendium.html#cat-the-party"><svg class="leaf" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"><path d="M50 6 C76 24 84 52 50 94 C16 52 24 24 50 6 Z"/><path d="M50 20 L50 84"/></svg><span class="nm">Taliesin Briarmane</span></a>
+<a class="pc" href="compendium.html#cat-the-party"><svg class="leaf" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"><path d="M50 6 C76 24 84 52 50 94 C16 52 24 24 50 6 Z"/><path d="M50 20 L50 84"/></svg><span class="nm">Varyn Starwhisper</span></a>
+    </div>
+  </section>
+</div>
+
+<footer class="newfoot"><div class="fin">
+  <span class="wm">STRIESARA</span>
+  <nav>
+    <a href="../index.html">Campaigns</a>
+    <a href="index.html">Home</a>
+    <a href="party-quick-reference.html">Party</a>
+    <a href="compendium.html">Compendium</a>
+    <a href="sessions.html">Sessions</a>
+    <a href="status.html">Status</a>
+  </nav>
+  <span class="fine">Striesara &middot; the Viekryss campaign &middot; may your leaves never wither. No refunds on failed saves.</span>
+</div></footer>
+</body>
+</html>

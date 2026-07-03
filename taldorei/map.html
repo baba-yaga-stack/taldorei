@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tal'Dorei Nights — Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@600;700;900&display=swap');
+:root{--n-bg:#0a0c12;--n-card:#141927;--n-card2:#1a2033;--n-line:#262e44;
+  --n-gold:#d4a94e;--n-gold2:#f0cf82;--n-ember:#e05a3a;--n-text:#e8e2d2;--n-muted:#9298ab;}
+html{background:var(--n-bg)}
+body{margin:0;color:var(--n-text);font-family:'Inter',system-ui,sans-serif;line-height:1.6;
+  background:var(--n-bg) radial-gradient(ellipse 80% 50% at 50% -10%,rgba(70,60,120,.18),transparent)!important;}
+a{color:var(--n-gold);text-decoration:none}
+a:hover{color:var(--n-gold2)}
+.annbar{background:linear-gradient(90deg,#1a0f14,#241118,#1a0f14);border-bottom:1px solid #3a1e26;
+  overflow:hidden;white-space:nowrap;font-size:.72rem;letter-spacing:.14em;font-weight:600;
+  color:#e3b8a0;text-transform:uppercase;font-family:'Inter',system-ui,sans-serif;}
+.annbar .track{display:inline-block;padding:8px 0;animation:nmarq 36s linear infinite;}
+.annbar span{margin:0 28px}
+.annbar .d{color:var(--n-gold)}
+@keyframes nmarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+nav.newtop{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:6px;
+  padding:10px 22px;background:rgba(10,12,18,.85);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--n-line);font-family:'Inter',system-ui,sans-serif;}
+nav.newtop .logo{display:flex;align-items:center;gap:10px;margin-right:18px;text-decoration:none;}
+nav.newtop .logo svg{width:30px;height:30px}
+nav.newtop .logo .wm{font-family:'Cinzel',serif;font-weight:700;font-size:.98rem;letter-spacing:.12em;
+  background:linear-gradient(180deg,var(--n-gold2),var(--n-gold));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.navlinks{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto;}
+.navlinks>div{position:relative}
+.navlinks a.lnk{display:block;padding:9px 15px;border-radius:6px;font-size:.8rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--n-text);text-decoration:none;}
+.navlinks a.lnk:hover,.navlinks>div:hover>a.lnk{background:var(--n-card2);color:var(--n-gold2);}
+.navlinks a.lnk.active{color:var(--n-gold)}
+.navlinks .drop{position:absolute;top:100%;left:0;min-width:250px;padding:8px;display:none;
+  background:var(--n-card);border:1px solid var(--n-line);border-radius:10px;
+  box-shadow:0 18px 40px rgba(0,0,0,.55);}
+.navlinks>div:hover .drop{display:block}
+.navlinks .drop a{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:9px 12px;border-radius:6px;font-size:.85rem;color:var(--n-text);text-decoration:none;}
+.navlinks .drop a:hover{background:var(--n-card2);color:var(--n-gold2)}
+.navlinks .drop .ct{font-size:.7rem;font-weight:700;color:var(--n-muted);background:var(--n-bg);
+  border:1px solid var(--n-line);border-radius:20px;padding:1px 8px;}
+footer.newfoot{margin-top:60px;border-top:1px solid var(--n-line);
+  background:linear-gradient(180deg,#0e1220,#080a0f);color:var(--n-muted);
+  font-family:'Inter',system-ui,sans-serif;}
+footer.newfoot .fin{max-width:1180px;margin:0 auto;padding:28px 24px 26px;display:flex;
+  flex-wrap:wrap;gap:16px 30px;align-items:center;justify-content:space-between;}
+footer.newfoot .wm{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.14em;color:var(--n-gold);}
+footer.newfoot nav{display:flex;flex-wrap:wrap;gap:4px 18px;}
+footer.newfoot a{color:var(--n-muted);text-decoration:none;font-size:.82rem;}
+footer.newfoot a:hover{color:var(--n-gold2)}
+footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px solid var(--n-line);padding-top:14px;}
+@media(prefers-reduced-motion:reduce){.annbar .track{animation:none}}
+@media(max-width:640px){nav.newtop{padding:10px 12px}.navlinks a.lnk{padding:8px 10px;font-size:.72rem}}
+</style>
+</head>
+<body>
+<div class="annbar" aria-hidden="true"><div class="track">
+  <span>&#9876; Next: Session 79 <span class="d">&mdash;</span> Northeast to Ebonroot</span><span class="d">&#9670;</span>
+  <span>&#9760; Threat level: Critical</span><span class="d">&#9670;</span>
+  <span>&#128367; In-game year 1836 &middot; Westruun</span><span class="d">&#9670;</span>
+  <span>&#127922; Free inspiration with every nat 20</span><span class="d">&#9670;</span>
+  <span>&#9876; Next: Session 79 <span class="d">&mdash;</span> Northeast to Ebonroot</span><span class="d">&#9670;</span>
+  <span>&#9760; Threat level: Critical</span><span class="d">&#9670;</span>
+  <span>&#128367; In-game year 1836 &middot; Westruun</span><span class="d">&#9670;</span>
+  <span>&#127922; Free inspiration with every nat 20</span><span class="d">&#9670;</span>
+</div></div>
+<nav class="newtop">
+  <a class="logo" href="index.html" aria-label="Tal'Dorei Nights home">
+    <svg viewBox="0 0 100 100" fill="none" stroke="#d4a94e" stroke-width="4" stroke-linejoin="round">
+      <polygon points="50,4 90,28 90,72 50,96 10,72 10,28"/>
+      <polygon points="50,22 76,64 24,64"/>
+      <path d="M50,4 50,22 M90,28 76,64 M10,28 24,64 M50,96 76,64 M50,96 24,64"/>
+    </svg>
+    <span class="wm">TAL'DOREI NIGHTS</span>
+  </a>
+  <div class="navlinks">
+    <div><a class="lnk" href="../index.html" title="Campaign select">&#10022; Campaigns</a></div>
+    <div><a class="lnk" href="index.html">Home</a></div>
+    <div>
+      <a class="lnk" href="party-quick-reference.html">Party &#9662;</a>
+      <div class="drop">
+        <a href="party-quick-reference.html">Quick Reference <span class="ct">live stats</span></a>
+        <a href="compendium.html#cat-the-party">Character Files <span class="ct">6</span></a>
+      </div>
+    </div>
+    <div>
+      <a class="lnk" href="compendium.html">Compendium &#9662;</a>
+      <div class="drop">
+        <a href="compendium.html#cat-the-party">The Party <span class="ct">6</span></a>
+        <a href="compendium.html#cat-people-of-taldorei-npcs">People of Tal'Dorei <span class="ct">65</span></a>
+        <a href="compendium.html#cat-locations">Locations <span class="ct">29</span></a>
+        <a href="compendium.html#cat-lore-factions">Lore &amp; Factions <span class="ct">12</span></a>
+        <a href="compendium.html#cat-active-quests">Active Quests <span class="ct">7</span></a>
+        <a href="compendium.html#cat-completed-quests">Completed Quests <span class="ct">1</span></a>
+        <a href="compendium.html#cat-quick-reference">Quick Reference <span class="ct">3</span></a>
+      </div>
+    </div>
+    <div><a class="lnk active" href="map.html">Map</a></div>
+    <div><a class="lnk" href="sessions.html">Sessions</a></div>
+    <div><a class="lnk" href="status.html">Status</a></div>
+  </div>
+</nav>
+
+<style>
+.mapwrap{max-width:1400px;margin:0 auto;padding:18px 24px 10px;}
+.mapwrap h1{font-family:'Cinzel',serif;font-weight:700;color:var(--n-gold2);letter-spacing:.05em;margin:.2em 0 .1em;font-size:clamp(1.5rem,3vw,2.2rem);}
+.mapbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:8px 0 14px;font-family:'Inter',sans-serif;}
+.mapbar .hint{color:var(--n-muted);font-size:.88rem;}
+.mapbar .total{font-weight:700;color:var(--n-gold2);font-size:1.02rem;background:var(--n-card);
+  border:1px solid var(--n-line);border-radius:8px;padding:7px 16px;min-width:170px;}
+.mapbar button{padding:8px 18px;border-radius:6px;border:1px solid var(--n-gold);background:var(--n-card);
+  color:var(--n-gold2);font-weight:600;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;}
+.mapbar button:hover{background:var(--n-card2);}
+.mapbar a.dl{font-size:.82rem;color:var(--n-muted);text-decoration:underline;}
+.mapbar .legend{display:flex;gap:14px;align-items:center;font-size:.78rem;color:var(--n-muted);}
+.mapbar .legend b{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:middle;}
+#mapbox{position:relative;border:1px solid var(--n-line);border-radius:14px;overflow:hidden;
+  box-shadow:0 16px 44px rgba(0,0,0,.55);cursor:crosshair;}
+#mapbox img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none;}
+#mapbox svg.overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+#mapbox svg.cities{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+#mapbox svg.cities a{pointer-events:auto;}
+.city-dot{fill:#d4a94e;stroke:#0a0c12;stroke-width:4;}
+.camp-dot{fill:#e05a3a;stroke:#0a0c12;stroke-width:3;}
+.site-dot{fill:#8a6fd4;stroke:#0a0c12;stroke-width:2.5;}
+.city-name{font-family:'Cinzel',serif;font-weight:700;font-size:26px;paint-order:stroke;stroke:#0a0c12;stroke-width:6px;fill:#f0cf82;}
+.camp-name{font-family:Georgia,serif;font-style:italic;font-size:22px;paint-order:stroke;stroke:#0a0c12;stroke-width:5px;fill:#f0a488;}
+.site-name{font-family:Georgia,serif;font-style:italic;font-size:19px;paint-order:stroke;stroke:#0a0c12;stroke-width:5px;fill:#b8a4e8;}
+svg.cities a:hover .city-name{fill:#fff2c9;}
+svg.cities a:hover .camp-name{fill:#ffcbb3;}
+svg.cities a:hover .site-name{fill:#d8c9f7;}
+.seg-label{font-family:'Inter',sans-serif;font-weight:700;paint-order:stroke;stroke:#0a0c12;stroke-width:4px;fill:#f0cf82;}
+</style>
+<div class="mapwrap">
+  <h1>Map of Tal'Dorei</h1>
+  <div class="mapbar">
+    <span class="hint">&#128207; <b>Click</b> to drop waypoints and measure the route &middot; <b>double-click</b> or press Clear to start over. Scale matches the vault map (2.1 mi per map unit).</span>
+    <span class="total" id="totaldist">Total: — </span>
+    <button id="clearbtn" type="button">Clear route</button>
+    <button id="citybtn" type="button">Hide markers</button>
+    <a class="dl" href="map-taldorei.png" target="_blank" rel="noopener">open full-size image</a>
+  </div>
+  <div class="mapbar legend">
+    <span><b style="background:#d4a94e"></b>City</span>
+    <span><b style="background:#e05a3a"></b>Town</span>
+    <span><b style="background:#8a6fd4"></b>Dungeon / region / site</span>
+  </div>
+  <div id="mapbox">
+    <img id="mapimg" src="map-taldorei.png" alt="Map of Tal'Dorei">
+    <svg class="cities" id="mapcities" viewBox="0 0 1280 1651" preserveAspectRatio="none"></svg>
+    <svg class="overlay" id="mapov"></svg>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  // Scale derived from the vault's own World Map.md leaflet config: bounds
+  // [0,0]-[1000,775] (y,x units), 1 unit = 2.1 mi, image is 1280x1651px.
+  // 775 x-units span the 1280px image width, so: mi/px = 2.1 * 775 / 1280.
+  var MI_PER_NATURAL_PX = 2.1 * 775 / 1280;
+  var MARKERS = [{"x": 721.8, "y": 609.2, "name": "Bastion of the Fading Dawn", "kind": "site", "href": "compendium.html#bastion-of-the-fading-dawn"}, {"x": 735.0, "y": 549.8, "name": "Ebonroot", "kind": "site", "href": "compendium.html#ebonroot"}, {"x": 655.7, "y": 889.9, "name": "Emberholdt", "kind": "camp", "href": "compendium.html#emberholdt"}, {"x": 287.4, "y": 660.4, "name": "Emon", "kind": "city", "href": "compendium.html#emon"}, {"x": 721.8, "y": 632.3, "name": "Jorenn Village", "kind": "camp", "href": "compendium.html#jorenn-village"}, {"x": 528.5, "y": 675.3, "name": "Kymal", "kind": "city", "href": "compendium.html#kymal"}, {"x": 662.3, "y": 652.1, "name": "Mossglow Cult Headquarters", "kind": "site", "href": "compendium.html#mossglow-cult-headquarters"}, {"x": 746.5, "y": 556.4, "name": "Shadebarrow", "kind": "site", "href": "compendium.html#shadebarrow"}, {"x": 505.4, "y": 866.8, "name": "Syngorn", "kind": "city", "href": "compendium.html#syngorn"}, {"x": 746.5, "y": 642.2, "name": "Umbral Hills", "kind": "site", "href": "compendium.html#umbral-hills"}, {"x": 693.7, "y": 625.7, "name": "Vespera's Grove", "kind": "site", "href": "compendium.html#vespera-s-grove"}, {"x": 660.6, "y": 650.5, "name": "Westen", "kind": "camp", "href": "compendium.html#westen"}, {"x": 665.6, "y": 619.1, "name": "Westruun", "kind": "city", "href": "compendium.html#westruun"}];
+  var DOT_R = {city: 13, camp: 10, site: 7};
+  var cities = document.getElementById('mapcities'), cityBtn = document.getElementById('citybtn');
+  cities.innerHTML = MARKERS.map(function(m){
+    var dot = '<circle class="' + m.kind + '-dot" cx="' + m.x + '" cy="' + m.y + '" r="' + DOT_R[m.kind] + '"/>';
+    var label = '<text class="' + m.kind + '-name" x="' + (m.x + 16) + '" y="' + (m.y + 8) + '">' + m.name + '</text>';
+    // href is built from MARKERS[].href at runtime, not a static <a href="..."> in the HTML source.
+    // Naive static link checkers won't see these compendium.html#anchor links; harmless, expected.
+    return m.href ? dot + '<a href="' + m.href + '">' + label + '</a>' : dot + label;
+  }).join('');
+  cityBtn.addEventListener('click', function(){
+    var hidden = cities.style.display === 'none';
+    cities.style.display = hidden ? '' : 'none';
+    cityBtn.textContent = hidden ? 'Hide markers' : 'Show markers';
+  });
+  var img = document.getElementById('mapimg'), box = document.getElementById('mapbox'),
+      ov = document.getElementById('mapov'), total = document.getElementById('totaldist'),
+      clearBtn = document.getElementById('clearbtn');
+  var pts = [];  // in natural-image pixel coords
+  function fmt(mi){ return mi >= 100 ? Math.round(mi) + ' mi' : mi.toFixed(1) + ' mi'; }
+  function days(mi){ return (mi / 24).toFixed(1); } // 24 mi/day standard travel pace
+  function redraw(){
+    var r = img.getBoundingClientRect();
+    var sx = r.width / img.naturalWidth, sy = r.height / img.naturalHeight;
+    var parts = [], distTotal = 0;
+    for (var i = 0; i < pts.length; i++){
+      var x = pts[i][0] * sx, y = pts[i][1] * sy;
+      parts.push('<circle cx="' + x + '" cy="' + y + '" r="6" fill="#e05a3a" stroke="#0a0c12" stroke-width="2.5"/>');
+      if (i > 0){
+        var px = pts[i-1][0] * sx, py = pts[i-1][1] * sy;
+        var dxn = pts[i][0] - pts[i-1][0], dyn = pts[i][1] - pts[i-1][1];
+        var mi = Math.sqrt(dxn*dxn + dyn*dyn) * MI_PER_NATURAL_PX;
+        distTotal += mi;
+        parts.unshift('<line x1="' + px + '" y1="' + py + '" x2="' + x + '" y2="' + y +
+          '" stroke="#e05a3a" stroke-width="3" stroke-dasharray="7 5"/>');
+        parts.push('<text class="seg-label" x="' + ((px + x)/2 + 8) + '" y="' + ((py + y)/2 - 8) +
+          '" font-size="13">' + fmt(mi) + '</text>');
+      }
+    }
+    ov.innerHTML = parts.join('');
+    total.innerHTML = pts.length > 1
+      ? 'Total: <b>' + fmt(distTotal) + '</b> &middot; ~' + days(distTotal) + ' travel days'
+      : 'Total: — ';
+  }
+  box.addEventListener('click', function(e){
+    var r = img.getBoundingClientRect();
+    var nx = (e.clientX - r.left) / r.width * img.naturalWidth;
+    var ny = (e.clientY - r.top) / r.height * img.naturalHeight;
+    pts.push([nx, ny]);
+    redraw();
+  });
+  box.addEventListener('dblclick', function(e){ e.preventDefault(); pts = []; redraw(); });
+  clearBtn.addEventListener('click', function(){ pts = []; redraw(); });
+  window.addEventListener('resize', redraw);
+  if (img.complete) redraw(); else img.addEventListener('load', redraw);
+});
+</script>
+
+<footer class="newfoot"><div class="fin">
+  <span class="wm">TAL'DOREI NIGHTS</span>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="party-quick-reference.html">Party</a>
+    <a href="compendium.html">Compendium</a>
+    <a href="map.html">Map</a>
+    <a href="sessions.html">Sessions</a>
+    <a href="status.html">Status</a>
+  </nav>
+  <span class="fine">&copy; 1836 P.D. Tal'Dorei Nights &middot; No refunds on failed saves. Lifetime warranty on nat 20s.</span>
+</div></footer>
+</body>
+</html>

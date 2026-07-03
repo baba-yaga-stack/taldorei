@@ -53,6 +53,15 @@ footer.newfoot nav{display:flex;flex-wrap:wrap;gap:4px 18px;}
 footer.newfoot a{color:var(--muted);text-decoration:none;font-size:.82rem;}
 footer.newfoot a:hover{color:var(--green2)}
 footer.newfoot .fine{width:100%;font-size:.74rem;color:#8a927c;border-top:1px solid var(--line);padding-top:14px;}
+footer{margin-top:70px;border-top:1px solid var(--line);background:linear-gradient(180deg,#e8ebd8,#dde1c8);}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;padding:46px 0 30px;}
+footer h4{font-size:.72rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin:0 0 14px;}
+footer a{display:block;color:var(--muted);font-size:.86rem;padding:3px 0;}
+footer a:hover{color:var(--gold2)}
+footer .about{color:var(--muted);font-size:.86rem;max-width:300px;}
+.fbottom{border-top:1px solid var(--line);padding:16px 0 22px;display:flex;justify-content:space-between;
+  gap:12px;flex-wrap:wrap;font-size:.76rem;color:#8a927c;}
+@media(max-width:780px){.fgrid{grid-template-columns:1fr 1fr}}
 @media(prefers-reduced-motion:reduce){.annbar .track{animation:none}}
 @media(max-width:640px){nav.newtop{padding:10px 12px}.navlinks a.lnk{padding:8px 10px;font-size:.72rem}}
 </style>
@@ -403,18 +412,42 @@ a.pc .nm{font-family:'Cinzel',serif;font-weight:600}
   </section>
 </div>
 
-<footer class="newfoot"><div class="fin">
-  <span class="wm">STRIESARA</span>
-  <nav>
-    <a href="../index.html">Campaigns</a>
-    <a href="index.html">Home</a>
-    <a href="party-quick-reference.html">Party</a>
-    <a href="compendium.html">Compendium</a>
-    <a href="map.html">Map</a>
-    <a href="sessions.html">Sessions</a>
-    <a href="status.html">Status</a>
-  </nav>
-  <span class="fine">Striesara &middot; the Viekryss campaign &middot; may your leaves never wither. No refunds on failed saves.</span>
-</div></footer>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>Striesara</h4>
+        <p class="about">The living archive of our Striesara campaign: the road to Whitethorn, the Viekryss wilds, and every leaf-caught secret the party has turned up along the way.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <a href="index.html">Home</a>
+        <a href="party-quick-reference.html">Party Reference</a>
+        <a href="compendium.html">Compendium</a>
+        <a href="map.html">Map</a>
+        <a href="sessions.html">Sessions</a>
+        <a href="status.html">Status</a>
+      </div>
+      <div>
+        <h4>Compendium</h4>
+        <a href="compendium.html#cat-the-party">The Party</a>
+        <a href="compendium.html#cat-people-of-striesara-npcs">NPCs</a>
+        <a href="compendium.html#cat-locations">Locations</a>
+        <a href="compendium.html#cat-lore-factions">Lore &amp; Factions</a>
+        <a href="compendium.html#cat-active-quests">Active Quests</a>
+      </div>
+      <div>
+        <h4>The Table</h4>
+        <a href="status.html">Current Objectives</a>
+        <a href="sessions.html">Session 8 Recap</a>
+        <a href="party-quick-reference.html#senses">Who Has Darkvision?</a>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>Striesara &middot; the Viekryss campaign &middot; may your leaves never wither.</span>
+      <span>No refunds on failed saves.</span>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

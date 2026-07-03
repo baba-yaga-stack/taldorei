@@ -162,6 +162,12 @@ a.card .badge{position:absolute;top:18px;right:18px;font-size:.68rem;font-weight
 .threat p{font-size:.87rem;color:#b6aab4;margin:0}
 .threat .tag{display:inline-block;font-size:.64rem;font-weight:800;letter-spacing:.18em;
   text-transform:uppercase;color:#ff9a8a;margin-bottom:10px;}
+.mapframe{display:block;position:relative;border:1px solid var(--n-line);border-radius:14px;overflow:hidden;
+  box-shadow:0 16px 44px rgba(0,0,0,.5);transition:transform .18s,box-shadow .18s;}
+.mapframe img{display:block;width:100%;height:auto;}
+.mapframe:hover{transform:translateY(-4px);box-shadow:0 22px 54px rgba(0,0,0,.6);}
+.maphint{position:absolute;right:14px;bottom:12px;background:rgba(20,25,39,.9);border:1px solid var(--n-line);
+  border-radius:20px;padding:5px 14px;font-size:.74rem;font-weight:600;color:#f0cf82;font-family:'Inter',sans-serif;}
 
 /* party strip */
 .party{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;}
@@ -241,6 +247,7 @@ footer .about{color:var(--muted);font-size:.86rem;max-width:300px;}
         <a href="compendium.html#cat-quick-reference">Quick Reference <span class="ct">3</span></a>
       </div>
     </div>
+    <div><a class="lnk" href="map.html">Map</a></div>
     <div><a class="lnk" href="sessions.html">Sessions</a></div>
     <div><a class="lnk" href="status.html">Status</a></div>
   </div>
@@ -380,6 +387,16 @@ footer .about{color:var(--muted);font-size:.86rem;max-width:300px;}
     </div>
   </section>
 
+  <section class="blk">
+    <p class="kicker">The world of Tal'Dorei</p>
+    <h2 class="sec">Map of Tal'Dorei</h2>
+    <p class="sec-sub">From Emon in the west to Ebonroot in the east. Open the full map to measure travel distances by clicking.</p>
+    <a class="mapframe" href="map.html">
+      <img src="map-taldorei.png" alt="Map of Tal'Dorei" loading="lazy">
+      <span class="maphint">&#128207; Open the map &mdash; click to measure distances</span>
+    </a>
+  </section>
+
   <!-- ARCHIVES -->
   <section class="blk">
     <p class="kicker">The Archives</p>
@@ -404,11 +421,11 @@ footer .about{color:var(--muted);font-size:.86rem;max-width:300px;}
         <span class="badge">25 recaps</span>
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M6 2h9l4 4v16H6z"/><path d="M15 2v4h4M9 11h7M9 14h7M9 17h4"/></svg>
         <h3>Session Recaps</h3>
-        <p>Every write-up from the first meeting through Session 77 &mdash; loot, decisions, and quotes.</p>
+        <p>Every write-up from the first meeting through Session 78 &mdash; loot, decisions, and quotes.</p>
         <span class="go">Enter &rarr;</span>
       </a>
       <a class="card" href="status.html">
-        <span class="badge">Updated S77</span>
+        <span class="badge">Updated S78</span>
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
         <h3>Campaign Status</h3>
         <p>The dashboard: active leads, urgent threats, open quests, and where things stand now.</p>
@@ -472,6 +489,7 @@ footer .about{color:var(--muted);font-size:.86rem;max-width:300px;}
         <a href="index.html">Home</a>
         <a href="party-quick-reference.html">Party Reference</a>
         <a href="compendium.html">Compendium</a>
+        <a href="map.html">Map</a>
         <a href="sessions.html">Sessions</a>
         <a href="status.html">Status</a>
       </div>

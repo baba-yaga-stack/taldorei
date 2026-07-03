@@ -151,6 +151,8 @@ document.addEventListener('DOMContentLoaded', function(){
   cities.innerHTML = MARKERS.map(function(m){
     var dot = '<circle class="' + m.kind + '-dot" cx="' + m.x + '" cy="' + m.y + '" r="' + (m.kind === 'city' ? 13 : 10) + '"/>';
     var label = '<text class="' + m.kind + '-name" x="' + (m.x + 20) + '" y="' + (m.y + 9) + '">' + m.name + '</text>';
+    // href is built from MARKERS[].href at runtime, not a static <a href="..."> in the HTML source.
+    // Naive static link checkers won't see these compendium.html#anchor links; harmless, expected.
     return m.href ? dot + '<a href="' + m.href + '">' + label + '</a>' : dot + label;
   }).join('');
   cityBtn.addEventListener('click', function(){

@@ -91,7 +91,7 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px so
       <a class="lnk" href="compendium.html">Compendium &#9662;</a>
       <div class="drop">
         <a href="compendium.html#cat-the-party">The Party <span class="ct">6</span></a>
-        <a href="compendium.html#cat-people-of-taldorei-npcs">People of Tal'Dorei <span class="ct">65</span></a>
+        <a href="compendium.html#cat-people-of-taldorei-npcs">People of Tal'Dorei <span class="ct">64</span></a>
         <a href="compendium.html#cat-locations">Locations <span class="ct">29</span></a>
         <a href="compendium.html#cat-lore-factions">Lore &amp; Factions <span class="ct">12</span></a>
         <a href="compendium.html#cat-active-quests">Active Quests <span class="ct">7</span></a>
@@ -134,6 +134,30 @@ svg.cities a:hover .city-name{fill:#fff2c9;}
 svg.cities a:hover .camp-name{fill:#ffcbb3;}
 svg.cities a:hover .site-name{fill:#d8c9f7;}
 .seg-label{font-family:'Inter',sans-serif;font-weight:700;paint-order:stroke;stroke:#0a0c12;stroke-width:4px;fill:#f0cf82;}
+.map-ring{fill:none;stroke:#d4a94e;stroke-width:2.5;opacity:.6;stroke-dasharray:3 4;}
+svg.cities a:hover .map-ring{opacity:1;stroke:#f0cf82;}
+.citymodal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(5,6,10,.82);backdrop-filter:blur(3px);padding:24px;}
+.citymodal.open{display:flex;}
+.citymodal .box{background:var(--n-card);border:1px solid var(--n-line);border-radius:14px;max-width:min(960px,94vw);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.6);}
+.citymodal .hd{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px;border-bottom:1px solid var(--n-line);}
+.citymodal .hd h2{margin:0;font-family:'Cinzel',serif;color:var(--n-gold2);font-size:1.15rem;letter-spacing:.04em;}
+.citymodal .hd .acts{display:flex;gap:10px;align-items:center;}
+.citymodal .hd a.det{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:7px 13px;border:1px solid var(--n-gold);border-radius:6px;color:var(--n-gold2);white-space:nowrap;}
+.citymodal .hd a.det:hover{background:var(--n-card2);}
+.citymodal .hd button{background:none;border:none;color:var(--n-muted);font-size:1.6rem;line-height:1;cursor:pointer;padding:2px 6px;}
+.citymodal .hd button:hover{color:var(--n-gold2);}
+.citymodal .bd{overflow:auto;padding:14px;}
+.citymodal .bd img{display:block;max-width:100%;height:auto;border-radius:8px;margin:0 auto;}
+.citymaps{max-width:1400px;margin:26px auto 10px;padding:0 24px;}
+.citymaps h2{font-family:'Cinzel',serif;color:var(--n-gold2);font-size:1.3rem;letter-spacing:.04em;margin:0 0 4px;}
+.citymaps .cmnote{color:var(--n-muted);font-size:.86rem;margin:0 0 14px;}
+.cmgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;}
+.cmcard{background:var(--n-card);border:1px solid var(--n-line);border-radius:12px;overflow:hidden;cursor:pointer;text-align:left;padding:0;color:var(--n-text);font-family:inherit;}
+.cmcard:hover{border-color:var(--n-gold);}
+.cmcard img{display:block;width:100%;height:150px;object-fit:cover;background:var(--n-bg);}
+.cmcard .cap{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 12px;}
+.cmcard .cap b{font-family:'Cinzel',serif;color:var(--n-gold2);font-weight:700;font-size:.95rem;}
+.cmcard .cap .tag{font-size:.7rem;color:var(--n-muted);text-transform:uppercase;letter-spacing:.05em;}
 </style>
 <div class="mapwrap">
   <h1>Map of Tal'Dorei</h1>
@@ -148,6 +172,7 @@ svg.cities a:hover .site-name{fill:#d8c9f7;}
     <span><b style="background:#d4a94e"></b>City</span>
     <span><b style="background:#e05a3a"></b>Town</span>
     <span><b style="background:#8a6fd4"></b>Dungeon / region / site</span>
+    <span>&#9711; Gold-ringed cities (Emon, Westruun, Syngorn) open a detailed city map</span>
   </div>
   <div id="mapbox">
     <img id="mapimg" src="map-taldorei.png" alt="Map of Tal'Dorei">
@@ -155,26 +180,84 @@ svg.cities a:hover .site-name{fill:#d8c9f7;}
     <svg class="overlay" id="mapov"></svg>
   </div>
 </div>
+<section class="citymaps">
+  <h2>City Maps</h2>
+  <p class="cmnote">Detailed maps for cities the party has visited. Click any map to enlarge; where a compendium entry exists, a link to it appears in the viewer.</p>
+  <div class="cmgrid" id="cmgrid"></div>
+</section>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
   // Scale derived from the vault's own World Map.md leaflet config: bounds
   // [0,0]-[1000,775] (y,x units), 1 unit = 2.1 mi, image is 1280x1651px.
   // 775 x-units span the 1280px image width, so: mi/px = 2.1 * 775 / 1280.
   var MI_PER_NATURAL_PX = 2.1 * 775 / 1280;
-  var MARKERS = [{"x": 721.8, "y": 609.2, "name": "Bastion of the Fading Dawn", "kind": "site", "href": "compendium.html#bastion-of-the-fading-dawn"}, {"x": 735.0, "y": 549.8, "name": "Ebonroot", "kind": "site", "href": "compendium.html#ebonroot"}, {"x": 655.7, "y": 889.9, "name": "Emberholdt", "kind": "camp", "href": "compendium.html#emberholdt"}, {"x": 287.4, "y": 660.4, "name": "Emon", "kind": "city", "href": "compendium.html#emon"}, {"x": 721.8, "y": 632.3, "name": "Jorenn Village", "kind": "camp", "href": "compendium.html#jorenn-village"}, {"x": 528.5, "y": 675.3, "name": "Kymal", "kind": "city", "href": "compendium.html#kymal"}, {"x": 662.3, "y": 652.1, "name": "Mossglow Cult Headquarters", "kind": "site", "href": "compendium.html#mossglow-cult-headquarters"}, {"x": 746.5, "y": 556.4, "name": "Shadebarrow", "kind": "site", "href": "compendium.html#shadebarrow"}, {"x": 505.4, "y": 866.8, "name": "Syngorn", "kind": "city", "href": "compendium.html#syngorn"}, {"x": 746.5, "y": 642.2, "name": "Umbral Hills", "kind": "site", "href": "compendium.html#umbral-hills"}, {"x": 693.7, "y": 625.7, "name": "Vespera's Grove", "kind": "site", "href": "compendium.html#vespera-s-grove"}, {"x": 660.6, "y": 650.5, "name": "Westen", "kind": "camp", "href": "compendium.html#westen"}, {"x": 665.6, "y": 619.1, "name": "Westruun", "kind": "city", "href": "compendium.html#westruun"}];
+  var MARKERS = [{"x": 721.8, "y": 609.2, "name": "Bastion of the Fading Dawn", "kind": "site", "href": "compendium.html#bastion-of-the-fading-dawn"}, {"x": 735.0, "y": 549.8, "name": "Ebonroot", "kind": "site", "href": "compendium.html#ebonroot"}, {"x": 655.7, "y": 889.9, "name": "Emberhold", "kind": "camp", "href": "compendium.html#emberhold"}, {"x": 287.4, "y": 660.4, "name": "Emon", "kind": "city", "href": "compendium.html#emon", "map": "maps/emon-city-map.png"}, {"x": 721.8, "y": 632.3, "name": "Jorenn Village", "kind": "camp", "href": "compendium.html#jorenn-village"}, {"x": 528.5, "y": 675.3, "name": "Kymal", "kind": "city", "href": "compendium.html#kymal"}, {"x": 662.3, "y": 652.1, "name": "Mossglow Cult Headquarters", "kind": "site", "href": "compendium.html#mossglow-cult-headquarters"}, {"x": 746.5, "y": 556.4, "name": "Shadebarrow", "kind": "site", "href": "compendium.html#shadebarrow"}, {"x": 505.4, "y": 866.8, "name": "Syngorn", "kind": "city", "href": "compendium.html#syngorn", "map": "maps/syngorn-city-map.png"}, {"x": 746.5, "y": 642.2, "name": "Umbra Hills", "kind": "site", "href": "compendium.html#umbra-hills"}, {"x": 693.7, "y": 625.7, "name": "Vespera's Grove", "kind": "site", "href": "compendium.html#vespera-s-grove"}, {"x": 660.6, "y": 650.5, "name": "Westen", "kind": "camp", "href": "compendium.html#westen"}, {"x": 665.6, "y": 619.1, "name": "Westruun", "kind": "city", "href": "compendium.html#westruun", "map": "maps/westruun-city-map.png"}];
   var DOT_R = {city: 13, camp: 10, site: 7};
   var cities = document.getElementById('mapcities'), cityBtn = document.getElementById('citybtn');
   cities.innerHTML = MARKERS.map(function(m){
-    var dot = '<circle class="' + m.kind + '-dot" cx="' + m.x + '" cy="' + m.y + '" r="' + DOT_R[m.kind] + '"/>';
+    var r = DOT_R[m.kind];
+    var dot = '<circle class="' + m.kind + '-dot" cx="' + m.x + '" cy="' + m.y + '" r="' + r + '"/>';
+    var ring = m.map ? '<circle class="map-ring" cx="' + m.x + '" cy="' + m.y + '" r="' + (r + 6) + '"/>' : '';
     var label = '<text class="' + m.kind + '-name" x="' + (m.x + 16) + '" y="' + (m.y + 8) + '">' + m.name + '</text>';
-    // href is built from MARKERS[].href at runtime, not a static <a href="..."> in the HTML source.
+    var inner = ring + dot + label;
+    // href/data are built from MARKERS[] at runtime, not static <a href> in the source.
     // Naive static link checkers won't see these compendium.html#anchor links; harmless, expected.
-    return m.href ? dot + '<a href="' + m.href + '">' + label + '</a>' : dot + label;
+    if (!(m.href || m.map)) return inner;
+    var attrs = 'href="' + (m.href || '#') + '"';
+    var tip = '';
+    if (m.map) {
+      attrs += ' data-map="' + m.map + '" data-name="' + m.name + '" data-href="' + (m.href || '') + '"';
+      tip = '<title>Open ' + m.name + ' city map</title>';
+    }
+    return '<a ' + attrs + '>' + tip + inner + '</a>';
   }).join('');
   cityBtn.addEventListener('click', function(){
     var hidden = cities.style.display === 'none';
     cities.style.display = hidden ? '' : 'none';
     cityBtn.textContent = hidden ? 'Hide markers' : 'Show markers';
+  });
+  // City-map popup: markers with a data-map open a modal (city map image + link to details).
+  var modal = document.getElementById('citymodal'),
+      cmTitle = document.getElementById('cm-title'),
+      cmImg = document.getElementById('cm-img'),
+      cmDet = document.getElementById('cm-details');
+  function openCityModal(name, map, href){
+    cmTitle.textContent = name + ' — City Map';
+    cmImg.src = map; cmImg.alt = name + ' city map';
+    if (href){ cmDet.href = href; cmDet.style.display = ''; } else { cmDet.style.display = 'none'; }
+    modal.classList.add('open');
+  }
+  function closeCityModal(){ modal.classList.remove('open'); cmImg.src = ''; }
+  cities.addEventListener('click', function(e){
+    var a = e.target.closest('a'); if (!a) return;
+    e.stopPropagation();               // never drop a measuring waypoint when clicking a marker
+    var map = a.getAttribute('data-map');
+    if (map){ e.preventDefault(); openCityModal(a.getAttribute('data-name'), map, a.getAttribute('data-href')); }
+  });
+  document.getElementById('cm-close').addEventListener('click', closeCityModal);
+  modal.addEventListener('click', function(e){ if (e.target === modal) closeCityModal(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeCityModal(); });
+  // City Maps gallery — thumbnails reuse the same popup. Cities without a compendium
+  // entry (Whitestone, Kraghammer, Stilben) open the map with no details link.
+  var CITYMAPS = [
+    {name: 'Emon',       img: 'maps/emon-city-map.png',                 href: 'compendium.html#emon'},
+    {name: 'Westruun',   img: 'maps/westruun-city-map.png',             href: 'compendium.html#westruun'},
+    {name: 'Syngorn',    img: 'maps/syngorn-city-map.png',              href: 'compendium.html#syngorn'},
+    {name: 'Whitestone', img: 'maps/whitestone-city-map.png',           href: ''},
+    {name: 'Kraghammer', img: 'maps/kraghammer-tunnels-cross-section.png', href: ''},
+    {name: 'Stilben',    img: 'maps/stilben-city-map.png',              href: ''}
+  ];
+  var grid = document.getElementById('cmgrid');
+  grid.innerHTML = CITYMAPS.map(function(c, i){
+    return '<button type="button" class="cmcard" data-i="' + i + '">' +
+      '<img loading="lazy" src="' + c.img + '" alt="' + c.name + ' city map">' +
+      '<span class="cap"><b>' + c.name + '</b><span class="tag">' + (c.href ? 'map + details' : 'map') + '</span></span>' +
+    '</button>';
+  }).join('');
+  grid.addEventListener('click', function(e){
+    var b = e.target.closest('.cmcard'); if (!b) return;
+    var c = CITYMAPS[+b.getAttribute('data-i')];
+    openCityModal(c.name, c.img, c.href);
   });
   var img = document.getElementById('mapimg'), box = document.getElementById('mapbox'),
       ov = document.getElementById('mapov'), total = document.getElementById('totaldist'),
@@ -218,6 +301,19 @@ document.addEventListener('DOMContentLoaded', function(){
   if (img.complete) redraw(); else img.addEventListener('load', redraw);
 });
 </script>
+
+<div class="citymodal" id="citymodal" role="dialog" aria-modal="true" aria-labelledby="cm-title">
+  <div class="box">
+    <div class="hd">
+      <h2 id="cm-title">City</h2>
+      <div class="acts">
+        <a class="det" id="cm-details" href="#">View details &rarr;</a>
+        <button type="button" id="cm-close" aria-label="Close">&times;</button>
+      </div>
+    </div>
+    <div class="bd"><img id="cm-img" src="" alt=""></div>
+  </div>
+</div>
 
 <footer class="newfoot"><div class="fin">
   <span class="wm">TAL'DOREI NIGHTS</span>

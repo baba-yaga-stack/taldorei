@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Files | The Shadowtwist Dossier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600;700&display=swap');
+:root{
+  --bg:#0a0a0e;--bg2:#0e0e16;--card:#14121d;--card2:#1b1828;--line:#2a2438;
+  --acc:#a98ee0;--acc2:#cbb8f2;--venom:#7fb54b;--crimson:#b03040;
+  --text:#e6e2ee;--muted:#8f8aa3;--radius:10px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6;
+  background-image:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(90,60,140,.20),transparent);}
+a{color:var(--acc);text-decoration:none}
+a:hover{color:var(--acc2)}
+nav.top{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:6px;
+  padding:10px 22px;background:rgba(10,10,14,.85);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);}
+nav.top .logo .wm{font-family:'Cinzel',serif;font-weight:700;font-size:1.02rem;letter-spacing:.12em;
+  background:linear-gradient(180deg,var(--acc2),var(--acc));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.navlinks{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto;}
+.navlinks a{display:block;padding:9px 15px;border-radius:6px;font-size:.82rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--text);}
+.navlinks a:hover{background:var(--card2);color:var(--acc2);}
+.navlinks a.active{color:var(--acc)}
+.navlinks a.official{color:var(--muted);border:1px dashed var(--line)}
+header.page{padding:64px 24px 34px;text-align:center;border-bottom:1px solid var(--line);}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--venom);margin:0 0 10px;}
+h1{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1.9rem,5vw,3.2rem);letter-spacing:.06em;margin:0;
+  background:linear-gradient(180deg,#f4eeff 5%,var(--acc2) 45%,var(--acc) 75%,#4f3a80);
+  -webkit-background-clip:text;background-clip:text;color:transparent;}
+.sub{color:var(--muted);max-width:660px;margin:14px auto 0;font-size:.95rem}
+.wrap{max-width:1080px;margin:0 auto;padding:24px;}
+section.blk{padding:38px 0 8px}
+.kicker{font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--venom);margin:0 0 6px;}
+h2.sec{font-family:'Cinzel',serif;font-weight:700;font-size:clamp(1.4rem,3vw,1.9rem);
+  letter-spacing:.05em;color:var(--acc2);margin:0 0 20px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;}
+.card{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);
+  border-radius:var(--radius);padding:20px 22px;}
+.card h3{font-family:'Cinzel',serif;color:var(--acc2);margin:0 0 2px;font-size:1.05rem;letter-spacing:.04em}
+.card .role{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--venom);margin:0 0 10px}
+.card p{margin:0;color:#c3bed4;font-size:.9rem}
+.card .risk{display:inline-block;margin-top:12px;font-size:.68rem;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;border-radius:20px;padding:2px 10px;border:1px solid var(--line);color:var(--muted)}
+.card .risk.hi{border-color:var(--crimson);color:#e79aa6}
+.card .risk.mid{border-color:#a98e3a;color:#d9c47a}
+.card .risk.ally{border-color:var(--venom);color:#b1d38a}
+.toc{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:22px 0 0}
+.toc a{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);
+  border-radius:20px;padding:6px 14px;color:var(--text)}
+.toc a:hover{border-color:var(--acc);color:var(--acc2)}
+.redact{background:#2a2438;color:#2a2438;border-radius:3px;padding:0 6px;user-select:none}
+.redact:hover{color:#8f8aa3;transition:color .8s}
+footer{border-top:1px solid var(--line);margin-top:64px;padding:34px 24px;color:var(--muted);font-size:.82rem;text-align:center}
+@media(max-width:640px){nav.top{padding:10px 12px}.navlinks a{padding:8px 10px;font-size:.72rem}}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="logo"><span class="wm">THE SHADOWTWIST DOSSIER</span></div>
+  <div class="navlinks">
+    <a href="index.html">Dossier</a>
+    <a href="sessions.html">Field Journal</a>
+    <a href="compendium.html" class="active">Files</a>
+    <a href="status.html">Current Job</a>
+    <a href="../index.html" class="official">Official Record &#8599;</a>
+  </div>
+</nav>
+
+<header class="page">
+  <p class="eyebrow">Files</p>
+  <h1>DOSSIERS &amp; ASSESSMENTS</h1>
+  <p class="sub">Everyone worth a page, filed by category and rated by risk. Assessments are candid. If you're
+  reading your own entry, you were warned by the title of the site.</p>
+  <div class="toc">
+    <a href="#crew">The Crew</a><a href="#clasp">Clasp Business</a><a href="#contacts">Contacts &amp; Marks</a>
+    <a href="#threats">Threats</a><a href="#factions">Factions</a><a href="#places">Places</a><a href="#contracts">Open Contracts</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section class="blk" id="crew">
+  <p class="kicker">Internal</p>
+  <h2 class="sec">The Crew</h2>
+  <div class="cards">
+    <div class="card"><h3>Anastasia "Ana" Ravenswood</h3><p class="role">Human &middot; Artificer 11</p>
+      <p>The smart one, which is why it offends me professionally that someone spent 9th-level money rewriting her
+      memory. Dean Damill's Modify Memory is confirmed; what he erased is not. Her home city, Cathmoira, sleeps
+      drowned in the Shattered Teeth. Ana wards our valuables, cuts anchors out of monsters, and once insulted a
+      stranger into a windstorm. Handle with respect; she builds things that hold grudges.</p>
+      <span class="risk ally">Asset: Irreplaceable</span></div>
+    <div class="card"><h3>Finnick "Finn" Marigold Mossglow</h3><p class="role">Gnome &middot; Illrigger 11</p>
+      <p>A devil-knight with a patron who makes fireplace calls and a mother who ran a blood cult under a tannery.
+      His name was on the cult plinth, scratched out. He left, which tells you the important thing about him.
+      Reliable in a disposal situation (see: the Pip matter, of which there is no matter). The Sun-Saw was a good purchase.</p>
+      <span class="risk ally">Asset: Complicated Estate</span></div>
+    <div class="card"><h3>Grai Malin</h3><p class="role">Half-Orc &middot; Barbarian 11</p>
+      <p>Our front line and our conscience, in that order. Bears the Curse of the Hells' echoes: 4d10 psychic every
+      morning, by her own choice, rather than owe anyone a Wish. That's the hardest bargain I've ever watched someone
+      take standing up. She also wears a crown nobody can see, acquired in a spider mine, and I have elected to be
+      professionally incurious. Greatsword of Wounding does what it says.</p>
+      <span class="risk ally">Asset: Do Not Cross</span></div>
+    <div class="card"><h3>Imdra d'Vadalis</h3><p class="role">Human &middot; Druid 11</p>
+      <p>Speaks with summoned creatures, deploys a healing unicorn I have privately named the reverse-hurting horse,
+      and can wildshape into a giant slug, a skill acquired at a slug party, which I attended, and about which the
+      less said the better. Eight days bonded to Zelthrax made her our dragon whisperer. Underestimated by everyone
+      we fight, which I encourage.</p>
+      <span class="risk ally">Asset: Versatile</span></div>
+    <div class="card"><h3>Ki Nightwhisper</h3><p class="role">Aarakocra &middot; Bard 11</p>
+      <p>A historian of the Cobalt Soul, which means the crew has a cop in it. A librarian cop. I'm handling it.
+      Carries a demilich's gem-crusted skull as an arcane focus and the Quill of Preservation, an artifact rated for
+      the apocalypse. Currently molting, which he blames on a cursed cloak. Ended a haunting by percussion. Watch
+      what he reports to Griselda; assume everything.</p>
+      <span class="risk mid">Asset: Reports To Someone Else</span></div>
+    <div class="card"><h3>Bohdi Shadowtwist</h3><p class="role">Bugbear &middot; Sorcerer 11 &middot; Spook of the Clasp</p>
+      <p>Author of this archive. Healer, banisher of ghosts, drawer of escape circles, survivor of a marble hand,
+      and the reason half this crew is alive. Recently promoted to the Clasp inner circle. In a relationship with
+      Mama Mara of Jorenn Village. Net worth: 0 gp and one exceptionally fine black cloak. Assessment: flawless.
+      Self-assessments are permitted; I checked the rules I wrote.</p>
+      <span class="risk ally">Asset: The Asset</span></div>
+    <div class="card"><h3>Thrack</h3><p class="role">Dwarf &middot; Companion &middot; +15 lbs and climbing</p>
+      <p>Ran into us at our door (NOT trapped, NOT "Thracked"), negotiated 2 gold per night not spent in the mansion
+      (a clause I frame and admire) and became family the day we paid his 200gp debt in Emberhold, his hometown.
+      Knows Yug'Voril's slaver routes. Sells session intelligence for waffles. Loyal as gravity.</p>
+      <span class="risk ally">Asset: Feed Regularly</span></div>
+  </div>
+</section>
+
+<section class="blk" id="clasp">
+  <p class="kicker">Eyes Only</p>
+  <h2 class="sec">Clasp Business</h2>
+  <div class="cards">
+    <div class="card"><h3>Zeloah</h3><p class="role">Spireling &middot; Shadows &middot; My Sponsor</p>
+      <p>Handed me the black cloak and the Spooks rank. I evacuated her to Cloudwatch personally during the Graz'zt
+      retreat, which is the kind of deposit that earns interest. Trust her exactly as far as the Clasp trusts anyone,
+      which is to say: keep making yourself useful.</p><span class="risk ally">Sponsor</span></div>
+    <div class="card"><h3>Fetch</h3><p class="role">Spireling &middot; Secrets &middot; Underweave Haberdashery, Westruun</p>
+      <p>Being framed (forged signature on Myriad letterhead) for the fall of Kymal. Gave up the Remnants' location
+      (Shadebarrow, Ebonroot) under pressure I applied with, I think, considerable style. If the frame job succeeds
+      on a Spireling of Secrets, no one in the organization is safe. Finding the forger is Spooks work now.</p>
+      <span class="risk mid">Handle: Under Threat</span></div>
+    <div class="card"><h3>Sable &amp; Kellen</h3><p class="role">Kymal Chapter Survivors &middot; Saddled Planes Cow</p>
+      <p>Sources on the Kymal guild war: Clasp routed, Myriad won, money "came from somewhere." They believe Fetch
+      sold them out; the forged letterhead says otherwise. They also once shaved me in Kymal, an incident this
+      archive does not otherwise contain.</p><span class="risk mid">Sources: Grudge-Bearing</span></div>
+    <div class="card"><h3>Sylas</h3><p class="role">Clasp &middot; Black Pudding Logistics</p>
+      <p>Received my sign like an insult, got shaken down for 10 platinum by my crew, rode off allegedly to murder
+      guards. Either the Clasp has factions or Sylas has opinions. Now that I outrank him: looking forward to the
+      performance review.</p><span class="risk mid">Internal: Unresolved</span></div>
+    <div class="card"><h3>Katalina Caines &amp; Gaggle Thunderfist</h3><p class="role">Slithering Fang, Kymal</p>
+      <p>Believe Fetch was the traitor. Katalina could have run Kymal and chose not to, the most interesting fact in
+      the whole Kymal file. People who decline power always want something more expensive.</p>
+      <span class="risk mid">Watch</span></div>
+  </div>
+</section>
+
+<section class="blk" id="contacts">
+  <p class="kicker">External</p>
+  <h2 class="sec">Contacts &amp; Marks</h2>
+  <div class="cards">
+    <div class="card"><h3>Mama Mara</h3><p class="role">Goliath &middot; Proprietor, Shady Tap Room &middot; Personal</p>
+      <p>This file intentionally kept thin. She runs the best room in Jorenn Village, pours honestly, and stayed calm
+      through an evacuation. What a Spook writes down can be taken from him; some things I keep where the Clasp
+      doesn't file.</p><span class="risk ally">Off The Books</span></div>
+    <div class="card"><h3>Gilmore</h3><p class="role">Merchant &middot; Gilmore's Glorious Goods, Emon</p>
+      <p>Restored my marble hand and later hosted the discount spree that zeroed our treasury. A merchant who sells
+      you back your own dignity and makes you grateful for the price. Immense respect. Guard your coin purse anyway.</p>
+      <span class="risk ally">Friendly Vendor</span></div>
+    <div class="card"><h3>Zelthrax the Folded Promise</h3><p class="role">Vellum Dragon &middot; Walking Library</p>
+      <p>Freed from the Remembrance book, made of paper and planar secrets. Identified the divine gate, confirmed the
+      captured anchor, keeps Bigby's Hand prepared. The single most valuable document I have ever met.</p>
+      <span class="risk ally">Asset: Flammable</span></div>
+    <div class="card"><h3>Prince Windybranch</h3><p class="role">Fey &middot; Creditor</p>
+      <p>Sold us an escape through the moon and collected a hand, a story, a rune, a bond, and frogs. Every item in
+      that invoice was a technicality. I respect the craft and want the account closed permanently.</p>
+      <span class="risk mid">Do Not Sign Anything</span></div>
+    <div class="card"><h3>Eskil</h3><p class="role">Diviner &middot; Found At His Crib</p>
+      <p>Scried Liora for us: dead or on another plane, which for a scry is a shrug with production values. Hard to
+      reach, worth reaching.</p><span class="risk mid">Contact: Unreliable Hours</span></div>
+    <div class="card"><h3>Buddleia Austan</h3><p class="role">Widow of Westruun &middot; Former Ringbearer</p>
+      <p>Haunted by her sister Camilla Tenver's murder ghosts until we un-haunted the premises with extreme prejudice.
+      Surrendered the cursed signet ring, a key to the Shadebarrow's iron gate. The second family ring is missing,
+      presumed with Blaine Kraverrogg.</p><span class="risk ally">Settled</span></div>
+    <div class="card"><h3>Father Abraham</h3><p class="role">Priest of the Dawn Father &middot; Bastion of the Fading Dawn</p>
+      <p>Eighteen years alone, holding a sun-lattice against the Hells with prayer and irritation. We brought him an
+      apocalypse in return. Status after the gate: unknown. If he lives, we owe him. I dislike owing clergy; they
+      charge in virtue.</p><span class="risk mid">Debt: Unsettled</span></div>
+    <div class="card"><h3>Vespera the Dream Stitcher</h3><p class="role">Moonstone Dragon &middot; Not From This World</p>
+      <p>Gave Ki the Quill of Preservation, "an anchor if the world begins to unravel." Entities who hand out
+      apocalypse insurance know actuarial things we don't. Politeness advised.</p><span class="risk mid">Powerful: Motives Unknown</span></div>
+    <div class="card"><h3>Quash &amp; Vex</h3><p class="role">Suppliers of Intelligence &amp; Potions</p>
+      <p>Quash delivered the constraint that shapes everything (anchors cannot be teleported) plus the Unmake Magic
+      notes. Vex handed us eighteen healing potions, a gift that doubles as a prognosis.</p>
+      <span class="risk ally">Friendly</span></div>
+    <div class="card"><h3>Griselda Cassius</h3><p class="role">High Curator &middot; Cobalt Soul</p>
+      <p>Ki's chain of command. Sharp, direct, and correct, which is the dangerous combination. Sent us to Umbra
+      Hills as the last uncommitted asset on the board. Everything Ki knows, assume she knows. Everything she knows,
+      assume I'd like to.</p><span class="risk mid">Respect: Verify</span></div>
+  </div>
+</section>
+
+<section class="blk" id="threats">
+  <p class="kicker">Red File</p>
+  <h2 class="sec">Threats</h2>
+  <div class="cards">
+    <div class="card"><h3>Graz'zt, Demon Prince of Indulgence</h3><p class="role">Archfiend &middot; At Large</p>
+      <p>Came through a divine gate under raining gold and a dark-iron trident and took the measure of us in minutes.
+      We retreated; Jorenn Village evacuated; Grai carries his echoes every morning. The only entity in this file I
+      recommend never meeting again without a plan, an army, and someone else's body double.</p>
+      <span class="risk hi">Extreme</span></div>
+    <div class="card"><h3>The Abyssal Anchors</h3><p class="role">Planar Bombs &middot; 2 Deployed, 1 Vaulted</p>
+      <p>Tenfold artifact yield, anchored to Hell, the Abyss, and the Far Realm. Cannot be teleported: every anchor
+      moves on someone's back, which means every anchor has a paper trail. Alignments: Gap Shadow (Chained Oblivion),
+      the Vecna temple, Umbra Hills (Lord of Hells). Ours sits in the Cobalt Reserve vault.</p>
+      <span class="risk hi">Extreme</span></div>
+    <div class="card"><h3>Blaine Kraverrogg</h3><p class="role">Excavator &middot; Bound for Ebonroot</p>
+      <p>Holds, in all likelihood, Camilla Tenver's second ring, a key to the Shadebarrow. Digging toward the
+      Remnants in the region where I grew up. Race in progress. I intend to win it and be insufferable about it.</p>
+      <span class="risk hi">Priority Target</span></div>
+    <div class="card"><h3>Morgranth</h3><p class="role">Illithiliche &middot; "Deceased"</p>
+      <p>Mind flayer, planar saboteur, employer of enthralled grad students. The spider wore his skull and became a
+      lich; the trail went cold at his convenient death. His correspondence with a hag proves the conspiracy has
+      co-authors. File stays open. Liches are a subscription, not a purchase.</p>
+      <span class="risk hi">Presumed Active</span></div>
+    <div class="card"><h3>Liora Mossglow</h3><p class="role">The Mawl &middot; Dead Or Planar</p>
+      <p>Finn's mother. Ran the tannery cult, wore an anchor's inscription in her own manic hand, Dimension Doored
+      out of our fight. Eskil's scry can't find her on this plane. Mothers-in-law are traditionally difficult; ours
+      may be in the Abyss.</p><span class="risk hi">Unresolved</span></div>
+    <div class="card"><h3>Dean Damill</h3><p class="role">Lyceum &middot; Memory Editor</p>
+      <p>Cast 9th-level Modify Memory on Ana. Whoever pays for ninth-circle enchantment on a student is protecting
+      something worth more than the spell. His spellbook is in friendlier hands now. His reckoning is on the schedule.</p>
+      <span class="risk hi">Pending</span></div>
+    <div class="card"><h3>The Chain Mother</h3><p class="role">Below Yug'Voril &middot; Collects Weekly</p>
+      <p>An entire underground city pays her a weekly sacrifice tariff. I've run protection schemes; this is the
+      genre perfected. We left her alone. She noticed us not at all, I hope.</p>
+      <span class="risk hi">Avoid</span></div>
+  </div>
+</section>
+
+<section class="blk" id="factions">
+  <p class="kicker">The Board</p>
+  <h2 class="sec">Factions</h2>
+  <div class="cards">
+    <div class="card"><h3>The Clasp</h3><p class="role">Ours</p>
+      <p>Three branches: Shadows (Zeloah, Golesh), Secrets (Shen), Blades (Morin, Melquior). Above the rank and
+      file, the inner circle, where the Spooks work. Smuggling, secrets, and now, apparently, saving the world,
+      because the world is where we keep our business.</p><span class="risk ally">Home Office</span></div>
+    <div class="card"><h3>The Myriad</h3><p class="role">Rival &middot; Won Kymal</p>
+      <p>Took Kymal from us with money that "came from somewhere," and their letterhead carries Fetch's forged
+      signature. Either they framed him or someone wants both organizations at war. Both options are somebody's
+      product. Find the customer.</p><span class="risk hi">Adversary</span></div>
+    <div class="card"><h3>The Cobalt Soul</h3><p class="role">Monk-Librarians &middot; Ki's People</p>
+      <p>They vault our anchor and direct our missions, and their curator is the smartest person we answer to.
+      An alliance of convenience so convenient I keep checking its pockets.</p><span class="risk mid">Ally: Audit Regularly</span></div>
+    <div class="card"><h3>The Order of Desolation / The Mawl</h3><p class="role">Cult Network</p>
+      <p>Devil-worshippers, Shadow Masters, spider whispers, tannery basements. The Mawl carried an anchor inside a
+      mutant. Zarissa, the drow who led them, is still unlocated. Cults are franchises; we keep closing branches and
+      the brand persists.</p><span class="risk hi">Active</span></div>
+    <div class="card"><h3>The Iron Authority</h3><p class="role">Bane Revivalists</p>
+      <p>Working to bring back the god of tyranny. Calmyros the Unbroken stands against them, which is why the
+      Council wants his forces turned to our column. Recruiting trip pending.</p><span class="risk hi">Rising</span></div>
+    <div class="card"><h3>The Remnants</h3><p class="role">Objective &middot; Shadebarrow, Ebonroot</p>
+      <p>The people who can place the third anchor where it needs to go, and possibly recover Alorah Vasorin's soul.
+      Under a barrow in my old home region, behind an iron gate that opens to a dead woman's rings. We hold one ring.
+      Blaine holds the other. Everything now runs through this door.</p><span class="risk mid">Priority</span></div>
+  </div>
+</section>
+
+<section class="blk" id="places">
+  <p class="kicker">Geography</p>
+  <h2 class="sec">Places</h2>
+  <div class="cards">
+    <div class="card"><h3>Ebonroot &amp; the Shadebarrow</h3><p class="role">Home</p>
+      <p>Where I grew up, now the most important dot on the war map. The Remnants sleep under the barrow. I left
+      Ebonroot without meaning to return; the universe has a documented sense of humor.</p></div>
+    <div class="card"><h3>Westruun</h3><p class="role">Current Base of Operations</p>
+      <p>Clasp bar: the Saddled Planes Cow. Fetch's shop: the Underweave Haberdashery. Anchor storage: the Cobalt
+      Reserve. Murder ghosts: handled. A city that keeps giving.</p></div>
+    <div class="card"><h3>Jorenn Village</h3><p class="role">Silver Boom Town &middot; Evacuated &amp; Recovering</p>
+      <p>Frontier town, no Council presence, Shadewatch keeping order. Home of the Shady Tap Room and its proprietor,
+      to whom my file refers you elsewhere. We saved this town by Skywrite. It had better reopen the Tap Room.</p></div>
+    <div class="card"><h3>Yug'Voril</h3><p class="role">Underground Metropolis</p>
+      <p>Mind flayer architecture, reversed days, a caste system, a mithril ley-core, and a goddess collecting
+      protection weekly. Big, orderly, and wrong in the joints. We did good work in its mines and left before it
+      noticed.</p></div>
+    <div class="card"><h3>Emon</h3><p class="role">Friendly Port</p>
+      <p>Gilmore's, Azalea Park, the Laughing Lamia. Where my hand became a hand again. Sentimental rating: high.
+      Everything in Emon costs money and is worth it.</p></div>
+    <div class="card"><h3>Cloudwatch</h3><p class="role">Council Seat</p>
+      <p>Where the masters of their fields meet and hand out impossible errands in order of urgency. Reached by my
+      teleportation circle, a fact I mention whenever the room goes quiet.</p></div>
+    <div class="card"><h3>The Bastion of the Fading Dawn</h3><p class="role">Shrine &middot; Status Unknown</p>
+      <p>One alabaster tower against an infernal waste, warded by one stubborn priest for eighteen years, breached in
+      an afternoon because we visited. Return trip required, with the cavalry this time.</p></div>
+    <div class="card"><h3>Syngorn</h3><p class="role">Where It Started</p>
+      <p>Elven city, excellent library, briefly on fire. We took one book out of it and the world has been rattling
+      like that wardrobe ever since.</p></div>
+  </div>
+</section>
+
+<section class="blk" id="contracts">
+  <p class="kicker">Ledger</p>
+  <h2 class="sec">Open Contracts</h2>
+  <div class="cards">
+    <div class="card"><h3>Stop the Abyssal Anchors</h3><p>The contract over all contracts. Two placed, one vaulted,
+      three eyes out there smiling. Payment terms: continued existence of the planes.</p><span class="risk hi">Active</span></div>
+    <div class="card"><h3>Clear the Baron's Barrow</h3><p>The Shadebarrow, Ebonroot. Ring in hand, gate ahead, Blaine
+      racing us with the other key. Personal, professional, and geographic: my trifecta.</p><span class="risk hi">Active: Priority</span></div>
+    <div class="card"><h3>Recover Alorah's Soul</h3><p>She asked for help and marked it "not urgent." We were slow;
+      her soul was taken. The Remnants may know the way to get it back. This one is conscience work, the most
+      expensive kind.</p><span class="risk mid">Active</span></div>
+    <div class="card"><h3>The Forged Signature</h3><p>Someone framed Fetch on Myriad letterhead. Spooks jurisdiction.
+      When I find the forger, the Clasp will hold a performance review.</p><span class="risk mid">Active: Mine</span></div>
+    <div class="card"><h3>Turn Calmyros the Unbroken</h3><p>His forces oppose the Iron Authority's Bane project;
+      the Council wants them aimed our way. Diplomacy by adventurer: what could go wrong that hasn't already.</p>
+      <span class="risk mid">Active</span></div>
+    <div class="card"><h3>Investigate Dean Damill</h3><p>Who paid for a 9th-level rewrite of Ana's memory, and what
+      did it delete? The spellbook is evidence. The Dean is a loose end. I dislike loose ends with tenure.</p>
+      <span class="risk mid">Active</span></div>
+    <div class="card"><h3>The Mawl &amp; Zarissa</h3><p>Cult decapitated, leader unlocated, franchise presumed
+      operating. Liora's fate is a subfolder of this file and a dinner-table hazard for Finn.</p>
+      <span class="risk mid">Active</span></div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  Files of Bohdi Shadowtwist &middot; risk ratings are opinions, but they're correct &middot;
+  <a href="../compendium.html">Official compendium</a> for the sanitized versions.
+</footer>
+
+</body>
+</html>

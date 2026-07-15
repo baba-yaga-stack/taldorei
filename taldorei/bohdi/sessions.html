@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Field Journal | The Shadowtwist Dossier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600;700&display=swap');
+:root{
+  --bg:#0a0a0e;--bg2:#0e0e16;--card:#14121d;--card2:#1b1828;--line:#2a2438;
+  --acc:#a98ee0;--acc2:#cbb8f2;--venom:#7fb54b;--crimson:#b03040;
+  --text:#e6e2ee;--muted:#8f8aa3;--radius:10px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.65;
+  background-image:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(90,60,140,.20),transparent);}
+a{color:var(--acc);text-decoration:none}
+a:hover{color:var(--acc2)}
+nav.top{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:6px;
+  padding:10px 22px;background:rgba(10,10,14,.85);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);}
+nav.top .logo .wm{font-family:'Cinzel',serif;font-weight:700;font-size:1.02rem;letter-spacing:.12em;
+  background:linear-gradient(180deg,var(--acc2),var(--acc));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.navlinks{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto;}
+.navlinks a{display:block;padding:9px 15px;border-radius:6px;font-size:.82rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--text);}
+.navlinks a:hover{background:var(--card2);color:var(--acc2);}
+.navlinks a.active{color:var(--acc)}
+.navlinks a.official{color:var(--muted);border:1px dashed var(--line)}
+header.page{padding:64px 24px 34px;text-align:center;border-bottom:1px solid var(--line);}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--venom);margin:0 0 10px;}
+h1{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1.9rem,5vw,3.2rem);letter-spacing:.06em;margin:0;
+  background:linear-gradient(180deg,#f4eeff 5%,var(--acc2) 45%,var(--acc) 75%,#4f3a80);
+  -webkit-background-clip:text;background-clip:text;color:transparent;}
+.sub{color:var(--muted);max-width:660px;margin:14px auto 0;font-size:.95rem}
+.wrap{max-width:860px;margin:0 auto;padding:24px;}
+.entry{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);
+  border-radius:var(--radius);padding:26px 30px;margin:22px 0;}
+.entry .meta{display:flex;gap:12px;flex-wrap:wrap;align-items:baseline;margin-bottom:6px}
+.entry .num{font-family:'Cinzel',serif;font-weight:900;color:var(--venom);font-size:.85rem;letter-spacing:.2em}
+.entry h2{font-family:'Cinzel',serif;font-weight:700;color:var(--acc2);margin:0 0 12px;font-size:1.3rem;letter-spacing:.04em}
+.entry .date{color:var(--muted);font-size:.78rem;letter-spacing:.1em}
+.entry p{margin:0 0 12px;color:#cfcadd;font-size:.95rem}
+.entry p:last-child{margin-bottom:0}
+.entry .tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:#101505;background:var(--venom);border-radius:20px;padding:2px 10px;margin-left:auto}
+.entry.thin{opacity:.75}
+blockquote{border-left:3px solid var(--venom);margin:14px 0;padding:6px 16px;color:#cfd8bf;
+  background:rgba(127,181,75,.05);border-radius:0 8px 8px 0;font-style:italic;font-size:.92rem}
+.redact{background:#2a2438;color:#2a2438;border-radius:3px;padding:0 6px;user-select:none}
+.redact:hover{color:#8f8aa3;transition:color .8s}
+footer{border-top:1px solid var(--line);margin-top:64px;padding:34px 24px;color:var(--muted);font-size:.82rem;text-align:center}
+@media(max-width:640px){nav.top{padding:10px 12px}.navlinks a{padding:8px 10px;font-size:.72rem}.entry{padding:20px}}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="logo"><span class="wm">THE SHADOWTWIST DOSSIER</span></div>
+  <div class="navlinks">
+    <a href="index.html">Dossier</a>
+    <a href="sessions.html" class="active">Field Journal</a>
+    <a href="compendium.html">Files</a>
+    <a href="status.html">Current Job</a>
+    <a href="../index.html" class="official">Official Record &#8599;</a>
+  </div>
+</nav>
+
+<header class="page">
+  <p class="eyebrow">Field Journal</p>
+  <h1>TWENTY-SIX JOBS, HONESTLY TOLD</h1>
+  <p class="sub">Newest first, because the past doesn't pay. Entries marked with a seal have been abridged for
+  operational security, personal dignity, or both.</p>
+</header>
+
+<div class="wrap">
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 78</span><span class="date">1 JULY 1836 (TABLE TIME: 2026-07-01)</span><span class="tag">My Best Work</span></div>
+  <h2>The Curse of the Hells</h2>
+  <p>The murder ghosts of Buddleia's townhouse learned an important lesson about ambushing professionals. I opened
+  with <strong>Freedom of the Waves</strong> (a crashing column of water through the whole room), then teleported
+  into the middle of the melee, because fear is for people without misty exits, and detonated a blast of cold over
+  everything still standing. Later I Fire Bolted a babbling green horror so Finn could finish it. Ki ended the
+  haunting by pounding the floor until the dead stopped moving through the walls, which is not exorcism, but it is percussion.</p>
+  <p>Then the real bill arrived. Graz'zt left something in Grai back at the Bastion: the <strong>Curse of the
+  Hells</strong>, barbed into her flesh. The scholar Lyra Finch cast Legend Lore with hellfire in her eyes and gave
+  us the terms: a Wish removes it clean; anything less leaves "echoes," 4d10 psychic at the end of every long rest,
+  forever. Grai took the echoes. Every morning hell gets one swing at her, and every morning she gets up. I've
+  worked with worse people for worse reasons.</p>
+  <p>Also: Camilla Tenver's second ring is missing, which means <strong>Blaine Kraverrogg almost certainly holds a
+  key to the Shadebarrow</strong>. My barrow. We need to move.</p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 77</span><span class="date">24 JUNE 1836</span><span class="tag">The Promotion</span></div>
+  <h2>The Remnants Lead, and a Black Cloak</h2>
+  <p>Zeloah sent for me. In her quarters, draped over a chair: a fine black cloak. The Clasp's inner circle has a
+  leadership rank called <strong>"Spooks,"</strong> and it is now mine. The rest of the crew spent that hour resting
+  in a park and collecting inspiration. I collected a career.</p>
+  <p>Westruun. The Clasp bar there is the Saddled Planes Cow, where I found Sable and Kellen (old acquaintances
+  from Kymal, of whom nothing further need be said) and heard the guild war story: the Clasp run out of Kymal, the
+  Myriad victorious, and the Kymal chapter convinced <strong>Fetch</strong> financed the enemy. At the Underweave
+  Haberdashery I pressed Fetch myself. His signature was <strong>forged on Myriad letterhead</strong>. Someone is
+  framing a Spireling of Secrets, and in exchange for a sympathetic ear he gave me the prize: the Remnants are in
+  the <strong>Shadebarrow at Ebonroot</strong>. Home. Of course it's home.</p>
+  <p>The others found Buddleia Austan, a woman haunted by her dead sister, and relieved her of a cursed signet ring
+  that opens the barrow's iron gate. The shadows in her townhouse rose as we left the pleasantries. Initiative was rolled.</p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 76</span><span class="date">10 JUNE 1836</span></div>
+  <h2>Shopping With Gilmore, or: How We Achieved Zero Gold</h2>
+  <p>Vex handed us eighteen healing potions, which tells you what the professionals think our survival odds are.
+  Gilmore opened his shop at a discount and the crew spent <strong>every coin we had</strong> on six magic items.
+  I bought nothing. I am choosing to describe our treasury as an investment posture rather than a crime scene.</p>
+  <p>One piece of real intelligence: the Demon Prince of Indulgence has a name: <strong>Graz'zt</strong>. Demon
+  lord of the Abyss. We set out to find Calmyros the Unbroken, per the Council's list.</p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 75</span><span class="date">27 MAY 1836</span><span class="tag">I Held The Door</span></div>
+  <h2>Retreat to Cloudwatch</h2>
+  <p>We began the session losing to a Demon Prince, which concentrates the mind wonderfully. Sendings went to the
+  top three; <strong>Skywrite</strong> went up over Jorenn Village telling everyone to flee. At the Shady Tap Room
+  (emptied of everyone but Spoons and the washboard player, who I believe would play through the apocalypse) I cast
+  <strong>Teleportation Circle</strong>, gathered Zeloah, and got us all to Cloudwatch. The official record says
+  "the party escaped." Note the passive voice. Note who drew the circle.</p>
+  <p>The Cloudwatch Council laid out the board: recruit the League of Miracles' wizard, turn Calmyros the Unbroken's
+  forces, and work the <strong>Remnants</strong>, who can place the third anchor where it belongs and might recover
+  <strong>Alorah Vasorin's soul</strong>. Also noted: the Iron Authority is trying to bring back Bane, and a scholar
+  named Magnus Wilds thinks the weave can only be mended with divine essence from many demigods. Cheerful stuff.</p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 74</span><span class="date">20 MAY 1836</span></div>
+  <h2>The Bastion of the Fading Dawn</h2>
+  <p>Everyone said going north was death, so we went north. Thirty miles of titan-stomped waste, devils crossing
+  the dunes in packs, and then: one defiant alabaster monolith with a garden. Inside: <strong>Father Abraham</strong>,
+  eighteen years into a one-man prayer shift holding back the infernal residue of the old Battle of Umbra Hills.
+  A genuinely holy man, which I say as someone professionally suspicious of the type. He explained the fall of the
+  dictator Drasig, the rise of Tal'Dorei, and that the veil here is thin and charged for blood magic.</p>
+  <p>While certain crew members rifled his belongings (I name no gnomes) an explosion shattered his wards. Gold
+  rained from the sky. A dark-iron trident split the heavens into what Zelthrax called a <strong>divine gate</strong>,
+  and the <strong>Demon Prince of Indulgence</strong> stepped through and began taking us apart. To be continued,
+  regrettably.</p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 73</span><span class="date">13 MAY 1836</span><span class="tag">Personal</span></div>
+  <h2>Jorenn Village, a Ghost, and Mama Mara</h2>
+  <p>An abandoned farmhouse in the Umbra Hills. A translucent man petted a dog that wasn't there, went inside, and
+  then <strong>magically hanged the entire party</strong>. I would like the record to show who cast
+  <strong>Banishment</strong> and un-hanged them. It was me. It is often me.</p>
+  <p>Jorenn Village is a silver boom town three times the size of any map, with no Tal'Dorei Council presence:
+  frontier rules, my favorite kind. The Shademaster, Arhanna Lewyn, warned of "complications in the Hills," things
+  that take children. Rumor added a death warning for the north and a Temple of the Dawn Father. At the Shady Tap
+  Room we drank, we performed, and I met the proprietor: <strong>Mama Mara</strong>, Goliath, magnificent. We are,
+  as of this entry, an item.</p>
+  <p>Separately: Finn, Grai, and I handled a disposal matter concerning an individual named Pip.
+  <span class="redact">The less in writing the better. The Shadewatch asks fewer questions than a coroner.</span></p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 72</span><span class="date">6 MAY 1836</span></div>
+  <h2>The Road to the Umbra Hills</h2>
+  <p>The captured anchor went into the <strong>Cobalt Reserve vault</strong> in Westruun, the one deposit I've ever
+  made at a bank of monks. Eskil's scry on Liora came back inconclusive: dead, or on another plane. Then the long
+  cold road south, in winds that had no business being that cold in late fall.</p>
+  <p>The road provided: a retired merchant named Andreas Du Vavier painting obsessively through his grief, with an
+  excellent dog named Gully. We hosted them a night in the mansion, and Ki sat for a portrait. A feminine face made
+  of fire appeared in our fireplace and told Finn he marches to meet <em>"her cousin"</em>: his patron, making a
+  house call. A roadside fortune teller dealt Finn and Imdra prophecies I didn't like the smell of. And then
+  <strong>Vespera the Dream Stitcher</strong>, a moonstone dragon not of this world, gave Ki the <strong>Quill of
+  Preservation</strong>, described as an anchor if the world begins to unravel. People keep handing this crew
+  doomsday equipment. I try not to take it personally.</p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 71</span><span class="date">15 APR 1836</span></div>
+  <h2>The Mawl</h2>
+  <p>We finished the sanctum fight. The mutant with a maw of horrors for a chest went down, and Ana cut an
+  <strong>Abyssal Anchor out of its body</strong>: a platinum device, chaotic orb, four crystals. Zelthrax confirmed
+  it. Mrs. Mossglow (first name <strong>Liora</strong>) Dimension Doored out of the fight mid-sentence. The cult
+  has a name now: <strong>The Mawl</strong>.</p>
+  <p>When Faith's Sending said their mother might be at the family home, four of us moved. I led the Dimension Door
+  jump with Ki, Grai, and Imdra. Food still set out, a teleportation circle scorched into the back yard, and no
+  Liora. Finn took her hairbrush for scrying. Eskil's scry says dead or another plane. Either way, she's off the
+  board and the anchor is ours; loot included two ritual daggers, 500gp of residuum, and six diamonds. A profitable
+  tragedy, which is the only kind worth attending.</p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 70</span><span class="date">8 APR 1836</span></div>
+  <h2>The Mossglow Family</h2>
+  <p>We detoured to Westen to check on Finn's family, which is how I learned that everyone's family is worse than
+  mine. His father Orin: drunk, losing at cards. His mother: running a <strong>blood-sacrifice cult headquarters
+  under the old tannery</strong>, with an inscription in her manic handwriting: <em>"the anchor is dropped, the
+  anchor is unbarred, the weaver's threads is ours to cut."</em> Finn's name was on the member plinth, scratched
+  out, under a localized rift in reality. Also confirmed: <strong>Zarissa</strong>, the drow we'd been hunting via
+  Fetch, led this cult, current whereabouts unknown.</p>
+  <p>It ended as family reunions do: Finn confronting his mother while I hit her with a <strong>Synaptic Static</strong>
+  for 28. I take no pleasure in striking anyone's mother. I am simply very good at it.</p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 69</span><span class="date">11 MAR 1836</span><span class="tag">Clasp Business</span></div>
+  <h2>Westruun and the Cobalt Reserve</h2>
+  <p>A day of proper tradecraft. Through Dusty we reached <strong>Fetch, Spireling of Secrets</strong>, who confirmed
+  the trail on the old drow cult leader and dropped the real headline: <strong>Morgranth was an Illithiliche</strong>:
+  the spider wore his skull and became a lich, and the trail went cold at his "death." For the curious, the Clasp
+  runs on three legs: <strong>Shadows</strong> (Zeloah, Golesh), <strong>Secrets</strong> (Shen), <strong>Blades</strong>
+  (Morin, Melquior). You did not read that here.</p>
+  <p>At the Cobalt Reserve, Ana found research on pre-Calamity sister cities (Avolere and Cathmoira) and learned her
+  own city, Cathmoira, lies drowned in the Shattered Teeth. Ki briefed High Curator Griselda Cassius, who cut through
+  everything: <strong>get to Umbra Hills immediately</strong>. Three anchor alignments confirmed: Gap Shadow (Chained
+  Oblivion), the Vecna temple, and Umbra Hills (Lord of Hells). We were the only asset left to send. Flattering, in a fatal way.</p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 68</span><span class="date">4 MAR 1836</span></div>
+  <h2>Emon Intel</h2>
+  <p>I bought an <strong>Elemental Essence Shard (Water)</strong> for 2,400 gold, and everything I have done with
+  water since has justified it. Quash met us at Gilmore's with the crucial constraint: <strong>anchors cannot be
+  teleported</strong>: hence mules, hence cults. We hold notes for crafting an Unmake Magic spell.</p>
+  <p>Heavier news: Alorah Vasorin was buried in the cemetery district with the Arch Heart, the first sitting council
+  member to die. And the Lyceum's cleaning staff (Tyce, a professional after my own heart) lifted Dean Damill's
+  spellbook: the Dean cast a <strong>9th-level Modify Memory on Ana</strong>. Someone paid ninth-circle money to
+  rewrite my colleague's head. That isn't academia. That's wet work with tenure. Skitter's stakeout of Ana's family
+  home reported a barrister father, a scribe mother, two siblings, all apparently unaware. We rode for Westruun and
+  met Echo and Dusty at the Underwalk Gates.</p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 67</span><span class="date">18 FEB 1836</span><span class="tag">Absent, Regrettably</span></div>
+  <h2>The Demilich (As Told To Me By Thrack)</h2>
+  <p>I was <span class="redact">elsewhere on business that predates my promotion and remains billable</span>, so this
+  entry is reconstructed from Thrack's account, purchased for the price of waffles. The crew finished the mithril-core
+  fight: the invisible spider was a <strong>demilich riding a skull spider</strong>. It died. Ki kept the gem-crusted
+  skull as an arcane focus, because bards.</p>
+  <p>Two items of note. First, the second half of the Morgranth/hag correspondence was recovered: the conspiracy has
+  more than one author. Second, Grai came out of that fight with an eerie calm and a crown no one can see, and the
+  word "Lolth" has started appearing in the margins of other people's notes. I notice things. Noticing is free;
+  writing it down costs, so consider this entry paid in full. Thrack's 200gp debt was cleared and he joined us
+  properly. We walked out through Emberhold, his home.</p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 66</span><span class="date">14 JAN 1836</span></div>
+  <h2>Nerds Shipped, Spider Found</h2>
+  <p>Back at the Morgranth estate: the grad students were enthralled, one hung from the ceiling with wires draped
+  over his shoulders like a marionette on break. We freed them and shipped them home to the Lyceum. Maylis's notes
+  told the real story: "Finally had a success!" in her hand, then later entries in a script that wasn't human.
+  An Intellect Devourer had been keeping her diary. The data confirmed the nightmare: <strong>the Abyssal Anchors
+  are bombs</strong> with tenfold the energy of an artifact explosion, tied to Hell, the Abyss, and the Far Realm.
+  And something with three eyes out there is smiling.</p>
+  <p>Mid-rest, Brom's Sending arrived: <strong>Alorah Vasorin is dead, her soul taken.</strong> The "not urgent"
+  request from Job 55 became a funeral. We went down into the old mithril mine (webs fine as silk and strong as
+  regret) and found a perfect mithril sphere at the ley-line core, guarded by something small and invisible that
+  asked, in a feminine voice, <em>"Why have you come?"</em> Then everyone started swinging.</p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 65</span><span class="date">3 DEC 1835</span></div>
+  <h2>The Zarga Lab</h2>
+  <p>We hit Morgranth's estate. The lab was non-Euclidean: wet membrane walls, silver sinew, biofilm floors, cranial
+  tissue where no tissue should be, the whole house pulsing like an organ. Three apprentices (Atarah, Jax, Teyeres)
+  and their void wraiths went down in the first wave; an earth elemental, a pitch tyrant, and a brain devourer in the
+  second. <strong>Maylis</strong> got exactly one sentence into her monologue before the crew rocked her. Professional
+  courtesy: never let them finish. Monologues are just reinforcements with better diction.</p>
+  <p>We smashed the magical relays on the way out and took four spellbooks. Somewhere, Morgranth felt his quarterly
+  projections die.</p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 64</span><span class="date">19 NOV 1835</span></div>
+  <h2>Casing the City</h2>
+  <p>Surveillance week in Yug'Voril. The official record says "details not available." Correct. That's what
+  surveillance means.</p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 63</span><span class="date">12 NOV 1835</span></div>
+  <h2>Yug'Voril</h2>
+  <p>An underground city, enormous and orderly, once run by mind flayers, with a reversed day cycle, a caste system,
+  and a library containing (Ki checked) no smut. Slavery is legal outside the walls and forbidden within, which is
+  the kind of moral geometry that keeps lawyers fed. We <em>extracted</em> three gnomes from the Hall of Worn Chains
+  for 135 gold ("purchased" is such an ugly word): Grizzle, who immediately ran; Bink and Flicker, who stayed.</p>
+  <p>Contacts logged: Silvanae, a drow with a genuinely swole drider attendant; Gorthrock Stonehand at the Central
+  Guild Registry, whose secret knock is <span class="redact">three sharps, pause, soft</span>. We witnessed the
+  weekly sacrifice to the <strong>Chain Mother</strong>: a whole city paying protection money to something below.
+  I recognized the business model immediately.</p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 62</span><span class="date">5 NOV 1835</span></div>
+  <h2>The Price For Dwarves Is Waffles</h2>
+  <p>My journal for this week reads suspiciously like my journal from three weeks prior: mansion, lava tubes, two
+  dead elementals, slavers taking gnomes. Either time looped or someone copied my notes, and in this crew both are
+  live possibilities. New material: the Remembrance book bears the <strong>sigil of the Lyceum</strong>, and analysis
+  of Grai's frogs concluded the "poison" is mostly numbing agent. Windybranch gave her novelty frogs. The fey
+  economy is built entirely on technicalities.</p>
+  <p>For the final time: Thrack ran into us at our door. Nobody was "Thracked." Stop.</p>
+</div>
+
+<div class="entry thin">
+  <div class="meta"><span class="num">JOB 61</span><span class="date">29 OCT 1835</span><span class="tag">The Hand</span></div>
+  <h2>Emon, and the Restoration of My Hand</h2>
+  <p>South on the trade route: a stranger called Mud whom Ana insulted into a windstorm, a satyr who gifted Ki his
+  pipes, and Imdra partying with Barnacle Beard's giant slugs until she learned to <em>become</em> one, which is the
+  most druid sentence ever recorded. Then Emon. <strong>Gilmore's Glorious Goods.</strong> Gilmore took my marble
+  hand (the fee from Windybranch's teleport) and made it flesh again. I flexed each finger and said nothing,
+  because some transactions are sacred. We sold two Stuffy Familiars for 300 gold and bought a Cottage Chest, and I
+  cast spells with both hands all week purely because I could.</p>
+</div>
+
+<div class="entry thin">
+  <div class="meta"><span class="num">JOBS 56-60</span><span class="date">SEPT-OCT 1835</span></div>
+  <h2>[Pages Torn Out]</h2>
+  <p>Five entries missing from this journal. The official record also has nothing, which should worry you more:
+  they have six note-takers and I drink. Whatever happened in these weeks, it either didn't matter or mattered so
+  much that someone with my exact handwriting removed it. <span class="redact">If Zeloah asks: routine travel.</span></p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 55</span><span class="date">2 SEPT 1835</span></div>
+  <h2>The Mansion, and a Dwarf at the Door</h2>
+  <p>We established Mordenkainen's Magnificent Mansion as a base: extradimensional, well-appointed, and free, my
+  three favorite qualities. A dwarf named <strong>Thrack</strong> ran into us at our door (see errata, see it again,
+  keep seeing it) and negotiated a rate of 2 gold per night <em>not</em> spent in the mansion, which is the finest
+  contract clause I've ever witnessed. He stayed.</p>
+  <p>Below, in the lava tubes: two elementals, dispatched, and slavers taking gnomes underground. A message arrived
+  from one Alorah Vasorin of the Lyceum, requesting aid, "not urgent." Remember those words. I do.</p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 54</span><span class="date">27 AUG 1835</span><span class="tag">The Fee</span></div>
+  <h2>Zelthrax, the Moon, and the Price of My Left Hand</h2>
+  <p>The cultists came for their book and the seal broke. Out came <strong>Zelthrax the Folded Promise</strong>,
+  a tiny dragon of living vellum who ate a treatise on planar travel and knows where the Abyssal Anchors sleep.
+  Then <strong>Prince Windybranch</strong> appeared with an exit and an invoice. Everyone paid: Ana, her origin
+  story and an impossibly heavy figurine of herself; Finn, a rune on his hand; Imdra, eight days bonded to the
+  dragon; Grai, frogs. I paid a <strong>left hand, turned to marble</strong>, knowingly, professionally, and
+  temporarily, whatever the official record implies about "curses." We teleported through the moon. Through it.</p>
+  <p>On the Southern Trade Route we met <strong>Sylas</strong>, Clasp, hauling barrels of black puddings. I flashed
+  the sign; he received it the way a man receives a subpoena. The crew shook him down for 10 platinum anyway, which
+  I logged as an internal audit. He rode off allegedly to murder guards. Not my department. Yet.</p>
+</div>
+
+<div class="entry">
+  <div class="meta"><span class="num">JOB 53</span><span class="date">20 AUG 1835</span><span class="tag">Where It Started</span></div>
+  <h2>The Syngorn Library Job</h2>
+  <p>A book heist. Finally, honest work. The mark: <em>The Remembrance of Fragility of Knowledge and What Has Been
+  Lost</em>, held by the Order of Desolation's Shadow Masters in the Syngorn library. Then the city caught fire
+  mid-operation, and the crew split: Grai, Ana, and Finn lifted the book while <strong>Ki, Imdra, and I fought the
+  fire</strong>: visible, heroic, and an unimpeachable alibi. That is called cover, and you're welcome.</p>
+  <p>A vagrant cultist muttered the first of many spider-flavored warnings: <em>"She who watches in silence,
+  guides us. The widow weaves a tangled veil."</em> Lolth, Betrayer God, as we'd learn. Ana warded the book in a
+  wardrobe and it started shaking on its own. In hindsight, the entire campaign was in that wardrobe, rattling.</p>
+</div>
+
+</div>
+
+<footer>
+  Field journal of Bohdi Shadowtwist, Spook of the Clasp &middot; <a href="../sessions.html">The official session record</a> exists for people who prefer the passive voice.
+</footer>
+
+</body>
+</html>

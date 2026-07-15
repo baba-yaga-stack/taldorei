@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Shadowtwist Dossier: Bohdi's Version</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600;700&display=swap');
+:root{
+  --bg:#0a0a0e;--bg2:#0e0e16;--card:#14121d;--card2:#1b1828;--line:#2a2438;
+  --acc:#a98ee0;--acc2:#cbb8f2;--venom:#7fb54b;--crimson:#b03040;
+  --text:#e6e2ee;--muted:#8f8aa3;--radius:10px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6;
+  background-image:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(90,60,140,.20),transparent),
+    radial-gradient(ellipse 60% 40% at 90% 110%,rgba(127,181,75,.06),transparent);}
+a{color:var(--acc);text-decoration:none}
+a:hover{color:var(--acc2)}
+.serif{font-family:'Cinzel',serif}
+.annbar{background:linear-gradient(90deg,#120f1a,#191227,#120f1a);border-bottom:1px solid #2c2140;
+  overflow:hidden;white-space:nowrap;font-size:.72rem;letter-spacing:.14em;font-weight:600;
+  color:#bfa9e8;text-transform:uppercase;}
+.annbar .track{display:inline-block;padding:8px 0;animation:marquee 40s linear infinite;}
+.annbar span{margin:0 28px}
+.annbar .d{color:var(--venom)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+nav.top{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:6px;
+  padding:10px 22px;background:rgba(10,10,14,.85);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);}
+nav.top .logo{display:flex;align-items:center;gap:10px;margin-right:18px;}
+nav.top .logo .wm{font-family:'Cinzel',serif;font-weight:700;font-size:1.02rem;letter-spacing:.12em;
+  background:linear-gradient(180deg,var(--acc2),var(--acc));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.navlinks{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto;}
+.navlinks a{display:block;padding:9px 15px;border-radius:6px;font-size:.82rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--text);}
+.navlinks a:hover{background:var(--card2);color:var(--acc2);}
+.navlinks a.active{color:var(--acc)}
+.navlinks a.official{color:var(--muted);border:1px dashed var(--line)}
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+  padding:90px 24px 70px;text-align:center;
+  background:radial-gradient(ellipse 70% 90% at 50% 0%,rgba(90,60,140,.25),transparent);}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--venom);margin:0 0 10px;text-shadow:0 0 18px rgba(127,181,75,.5);}
+h1.title{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(2.2rem,6.5vw,4.2rem);
+  letter-spacing:.06em;line-height:1.05;margin:0;
+  background:linear-gradient(180deg,#f4eeff 5%,var(--acc2) 45%,var(--acc) 75%,#4f3a80);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 3px 14px rgba(169,142,224,.35));}
+.tagline{max-width:640px;color:#c9c4d8;font-size:clamp(.92rem,1.6vw,1.06rem);margin:14px auto 24px;}
+.ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-block;padding:13px 30px;border-radius:6px;font-weight:700;font-size:.82rem;
+  letter-spacing:.14em;text-transform:uppercase;transition:transform .15s,box-shadow .15s;}
+.btn.gold{background:linear-gradient(180deg,var(--acc2),var(--acc));color:#171022;
+  box-shadow:0 4px 20px rgba(169,142,224,.35);}
+.btn.gold:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(169,142,224,.55);color:#171022;}
+.btn.ghost{border:1px solid var(--acc);color:var(--acc2);background:rgba(10,10,14,.4);}
+.btn.ghost:hover{background:rgba(169,142,224,.12);transform:translateY(-2px);}
+.threatbar{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+  padding:12px 20px;background:linear-gradient(90deg,rgba(127,181,75,.10),rgba(127,181,75,.22),rgba(127,181,75,.10));
+  border-top:1px solid rgba(127,181,75,.35);border-bottom:1px solid rgba(127,181,75,.35);
+  font-size:.85rem;color:#d4e6bf;text-align:center;}
+.threatbar .pill{font-weight:800;font-size:.7rem;letter-spacing:.18em;padding:4px 14px;border-radius:20px;
+  background:var(--venom);color:#101505;text-transform:uppercase;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+section.blk{padding:58px 0 8px}
+.kicker{font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--venom);margin:0 0 6px;}
+h2.sec{font-family:'Cinzel',serif;font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);
+  letter-spacing:.05em;color:var(--acc2);margin:0 0 8px;}
+.sec-sub{color:var(--muted);max-width:640px;margin:0 0 28px;font-size:.95rem;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+.card{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);
+  border-radius:var(--radius);padding:22px;}
+.card h3{font-family:'Cinzel',serif;color:var(--acc2);margin:0 0 8px;font-size:1.05rem;letter-spacing:.04em}
+.card p{margin:0;color:#c3bed4;font-size:.92rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin:34px auto 0;max-width:900px;}
+.stat{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);
+  border-radius:var(--radius);padding:20px 10px;text-align:center;}
+.stat .n{font-family:'Cinzel',serif;font-weight:900;font-size:1.9rem;display:block;line-height:1.1;color:var(--acc2)}
+.stat .l{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+blockquote{border-left:3px solid var(--venom);margin:26px 0;padding:8px 18px;color:#cfd8bf;
+  background:rgba(127,181,75,.05);border-radius:0 8px 8px 0;font-style:italic}
+.disclaimer{font-size:.8rem;color:var(--muted);border:1px dashed var(--line);border-radius:8px;
+  padding:14px 18px;margin:40px 0}
+footer{border-top:1px solid var(--line);margin-top:64px;padding:34px 24px;color:var(--muted);
+  font-size:.82rem;text-align:center}
+.redact{background:#2a2438;color:#2a2438;border-radius:3px;padding:0 6px;user-select:none}
+.redact:hover{color:#8f8aa3;transition:color .8s}
+@media(max-width:640px){nav.top{padding:10px 12px}.navlinks a{padding:8px 10px;font-size:.72rem}}
+</style>
+</head>
+<body>
+
+<div class="annbar"><div class="track">
+  <span>NOTICE: THIS IS THE ACCURATE RECORD <span class="d">&#9670;</span></span>
+  <span>THE "OFFICIAL" SITE CONTAINS ERRORS, CHIEFLY REGARDING MY HEROISM <span class="d">&#9670;</span></span>
+  <span>THRACK WAS NEVER "THRACKED." THAT IS NOT A WORD <span class="d">&#9670;</span></span>
+  <span>CURRENT GOLD: 0 GP (AN INVESTMENT POSTURE) <span class="d">&#9670;</span></span>
+  <span>NOTICE: THIS IS THE ACCURATE RECORD <span class="d">&#9670;</span></span>
+  <span>THE "OFFICIAL" SITE CONTAINS ERRORS, CHIEFLY REGARDING MY HEROISM <span class="d">&#9670;</span></span>
+  <span>THRACK WAS NEVER "THRACKED." THAT IS NOT A WORD <span class="d">&#9670;</span></span>
+  <span>CURRENT GOLD: 0 GP (AN INVESTMENT POSTURE) <span class="d">&#9670;</span></span>
+</div></div>
+
+<nav class="top">
+  <div class="logo"><span class="wm">THE SHADOWTWIST DOSSIER</span></div>
+  <div class="navlinks">
+    <a href="index.html" class="active">Dossier</a>
+    <a href="sessions.html">Field Journal</a>
+    <a href="compendium.html">Files</a>
+    <a href="status.html">Current Job</a>
+    <a href="../index.html" class="official">Official Record &#8599;</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <p class="eyebrow">Eyes Only &middot; Clasp Inner Circle</p>
+  <h1 class="title">BOHDI'S VERSION</h1>
+  <p class="tagline">Everything on the other site is true-ish. This is what actually happened, as recorded by
+  Bohdi Shadowtwist: bugbear, sorcerer, healer of the ungrateful, newly appointed <strong>Spook</strong> of the Clasp,
+  and the only member of this crew keeping honest notes.</p>
+  <div class="ctas">
+    <a class="btn gold" href="sessions.html">Read the Field Journal</a>
+    <a class="btn ghost" href="status.html">The Current Job</a>
+  </div>
+</div>
+
+<div class="threatbar">
+  <span class="pill">Standing Order</span>
+  <span>The Remnants are in the <strong>Shadebarrow</strong> at <strong>Ebonroot</strong>, my old home. Blaine Kraverrogg is headed there with a key. We go first.</span>
+</div>
+
+<div class="wrap">
+
+<section class="blk">
+  <p class="kicker">Who Is Writing This</p>
+  <h2 class="sec">A Professional Introduction</h2>
+  <p>I am a sorcerer. The magic was free; everything since has cost extra. I grew up in <strong>Ebonroot</strong>,
+  which the rest of the crew has just discovered on a map like it's a rumor. I joined the Clasp because talent
+  should be compensated, and I've recently been promoted into the inner circle, a leadership role called
+  <strong>"Spooks."</strong> There is a black cloak. It is extremely fine. People have asked if it's magical and the
+  answer is <span class="redact">unconfirmed, which is how I like it</span>.</p>
+  <p>I travel with five other adventurers and a dwarf named Thrack. They are, against my professional instincts,
+  my friends. When they are dying, I heal them. When they are hanged by a farmhouse ghost, I banish it. When they
+  need to flee a Demon Prince, I draw the teleportation circle. You will notice a pattern: things go wrong, and then I fix them.</p>
+  <blockquote>"The official record says the party escaped. The accurate record says I opened the door and held it."</blockquote>
+</section>
+
+<section class="blk">
+  <p class="kicker">By The Numbers</p>
+  <h2 class="sec">An Honest Accounting</h2>
+  <div class="stats">
+    <div class="stat"><span class="n">26</span><span class="l">Jobs Logged</span></div>
+    <div class="stat"><span class="n">1</span><span class="l">Ghost Banished</span></div>
+    <div class="stat"><span class="n">1</span><span class="l">Demon Prince Fled (Tactically)</span></div>
+    <div class="stat"><span class="n">28</span><span class="l">Damage, One Synaptic Static</span></div>
+    <div class="stat"><span class="n">0</span><span class="l">Gold Pieces Remaining</span></div>
+    <div class="stat"><span class="n">1</span><span class="l">Black Cloak</span></div>
+  </div>
+</section>
+
+<section class="blk">
+  <p class="kicker">The Portfolio</p>
+  <h2 class="sec">Matters Currently In Hand</h2>
+  <div class="cards">
+    <div class="card"><h3>The Abyssal Anchors</h3>
+      <p>Three planar bombs, each ten times the yield of an artifact detonation, anchored to Hell, the Abyss, and the
+      Far Realm. Two deployed before we ever heard of them. We captured one and vaulted it at the Cobalt Reserve.
+      Somebody wants the world unmade, and they had a budget.</p></div>
+    <div class="card"><h3>The Clasp's Fetch Problem</h3>
+      <p>Someone forged Fetch's signature on Myriad letterhead and let the Kymal chapter burn for it. Fetch is a
+      Spireling of Secrets. If someone can frame him, no one's ledger is safe. This is now a Spooks matter, which means it is my matter.</p></div>
+    <div class="card"><h3>The Shadebarrow, Ebonroot</h3>
+      <p>The Remnants (the people who can place the third anchor where it needs to go and possibly recover Alorah
+      Vasorin's soul) are under a barrow in the region where I grew up. Blaine Kraverrogg is en route to dig it up. I have opinions about strangers excavating my childhood.</p></div>
+    <div class="card"><h3>Graz'zt</h3>
+      <p>The Demon Prince of Indulgence came through a divine gate and hit us like weather. We retreated in good
+      order (see: my teleportation circle). He left a curse in Grai as a parting gift. This account is not settled.</p></div>
+    <div class="card"><h3>The Crew</h3>
+      <p>An artificer with edited memories, an illrigger whose mother runs a cult, a barbarian with a crown I don't
+      ask about, a druid who can become a slug, a bard who is molting, and a dwarf who has gained fifteen pounds on
+      our payroll. <a href="compendium.html">Full dossiers here.</a></p></div>
+    <div class="card"><h3>Mama Mara</h3>
+      <p>Proprietor of the Shady Tap Room, Jorenn Village. Goliath. This entry is personal, not professional, and
+      that is all the detail the file requires.</p></div>
+  </div>
+</section>
+
+<section class="blk">
+  <p class="kicker">Errata</p>
+  <h2 class="sec">Corrections To The Official Record</h2>
+  <div class="cards">
+    <div class="card"><h3>On Thrack</h3><p>Thrack was not trapped by a magical door. He ran into us at our door.
+    "Thracked" is not a word, has never been a word, and I will die on this barrow.</p></div>
+    <div class="card"><h3>On the Marble Hand</h3><p>The official record calls it a "curse." I call it a negotiated
+    fee, paid knowingly, to teleport six people through the moon. Gilmore restored the hand. The dignity restored itself.</p></div>
+    <div class="card"><h3>On Kymal</h3><p>Certain parties claim two Clasp associates "shaved me" in Kymal. Context
+    is everything and none will be provided.</p></div>
+    <div class="card"><h3>On Pip</h3><p>There is no entry on Pip.</p></div>
+  </div>
+  <p class="disclaimer">This site is the personal record of Bohdi Shadowtwist and reflects events as they genuinely,
+  more or less, happened. Where it conflicts with the <a href="../index.html">official campaign record</a>, consider
+  which of the two authors was actually paying attention. Discrepancies regarding valor, timing, or the Kymal
+  incident should be resolved in my favor.</p>
+</section>
+
+</div>
+
+<footer>
+  The Shadowtwist Dossier &middot; kept in a fine black cloak's inner pocket &middot;
+  <a href="../index.html">Return to the official record</a>
+</footer>
+
+</body>
+</html>

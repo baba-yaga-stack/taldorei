@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Current Job | The Shadowtwist Dossier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600;700&display=swap');
+:root{
+  --bg:#0a0a0e;--bg2:#0e0e16;--card:#14121d;--card2:#1b1828;--line:#2a2438;
+  --acc:#a98ee0;--acc2:#cbb8f2;--venom:#7fb54b;--crimson:#b03040;
+  --text:#e6e2ee;--muted:#8f8aa3;--radius:10px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.65;
+  background-image:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(90,60,140,.20),transparent);}
+a{color:var(--acc);text-decoration:none}
+a:hover{color:var(--acc2)}
+nav.top{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:6px;
+  padding:10px 22px;background:rgba(10,10,14,.85);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);}
+nav.top .logo .wm{font-family:'Cinzel',serif;font-weight:700;font-size:1.02rem;letter-spacing:.12em;
+  background:linear-gradient(180deg,var(--acc2),var(--acc));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.navlinks{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto;}
+.navlinks a{display:block;padding:9px 15px;border-radius:6px;font-size:.82rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--text);}
+.navlinks a:hover{background:var(--card2);color:var(--acc2);}
+.navlinks a.active{color:var(--acc)}
+.navlinks a.official{color:var(--muted);border:1px dashed var(--line)}
+header.page{padding:64px 24px 34px;text-align:center;border-bottom:1px solid var(--line);}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--venom);margin:0 0 10px;}
+h1{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1.9rem,5vw,3.2rem);letter-spacing:.06em;margin:0;
+  background:linear-gradient(180deg,#f4eeff 5%,var(--acc2) 45%,var(--acc) 75%,#4f3a80);
+  -webkit-background-clip:text;background-clip:text;color:transparent;}
+.sub{color:var(--muted);max-width:660px;margin:14px auto 0;font-size:.95rem}
+.wrap{max-width:820px;margin:0 auto;padding:24px;}
+.memo{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);
+  border-radius:var(--radius);padding:30px 34px;margin:26px 0;}
+.memo .stamp{float:right;transform:rotate(6deg);border:2px solid var(--crimson);color:#e79aa6;
+  font-weight:900;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;border-radius:6px;
+  padding:5px 12px;margin:-6px -6px 10px 14px}
+.memo h2{font-family:'Cinzel',serif;color:var(--acc2);margin:0 0 4px;font-size:1.25rem;letter-spacing:.04em}
+.memo .from{color:var(--muted);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin:0 0 16px}
+.memo p{margin:0 0 12px;color:#cfcadd;font-size:.95rem}
+.memo p:last-child{margin-bottom:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0}
+.tile{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);
+  border-radius:var(--radius);padding:18px 20px}
+.tile .l{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--venom);margin:0 0 6px}
+.tile .v{font-family:'Cinzel',serif;font-weight:700;color:var(--acc2);font-size:1.05rem;margin:0 0 4px}
+.tile p{margin:0;color:#b9b4c9;font-size:.85rem}
+ol.moves{counter-reset:mv;list-style:none;padding:0;margin:0}
+ol.moves li{counter-increment:mv;position:relative;padding:14px 16px 14px 58px;margin:10px 0;
+  background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:var(--radius);
+  color:#cfcadd;font-size:.93rem}
+ol.moves li::before{content:counter(mv,decimal-leading-zero);position:absolute;left:16px;top:12px;
+  font-family:'Cinzel',serif;font-weight:900;color:var(--venom);font-size:1.15rem}
+.redact{background:#2a2438;color:#2a2438;border-radius:3px;padding:0 6px;user-select:none}
+.redact:hover{color:#8f8aa3;transition:color .8s}
+footer{border-top:1px solid var(--line);margin-top:64px;padding:34px 24px;color:var(--muted);font-size:.82rem;text-align:center}
+@media(max-width:640px){nav.top{padding:10px 12px}.navlinks a{padding:8px 10px;font-size:.72rem}.memo{padding:22px}}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="logo"><span class="wm">THE SHADOWTWIST DOSSIER</span></div>
+  <div class="navlinks">
+    <a href="index.html">Dossier</a>
+    <a href="sessions.html">Field Journal</a>
+    <a href="compendium.html">Files</a>
+    <a href="status.html" class="active">Current Job</a>
+    <a href="../index.html" class="official">Official Record &#8599;</a>
+  </div>
+</nav>
+
+<header class="page">
+  <p class="eyebrow">Situation Report</p>
+  <h1>THE CURRENT JOB</h1>
+  <p class="sub">As of Job 78 (1 July 1836). Prepared in the style the Clasp would want, containing only what the
+  Clasp needs, which are different things.</p>
+</header>
+
+<div class="wrap">
+
+<div class="memo">
+  <span class="stamp">Spooks &middot; Eyes Only</span>
+  <h2>Memorandum: State of Play</h2>
+  <p class="from">From: B. Shadowtwist, Spook &middot; To: The File</p>
+  <p><strong>The world:</strong> Three Abyssal Anchors exist. Two are deployed: Gap Shadow (aligned to the Chained
+  Oblivion) and the Vecna temple. The third we cut out of a cult mutant and locked in the Cobalt Reserve vault in
+  Westruun. Anchors cannot be teleported; they travel on backs, and backs leave trails. Somebody with a hag, a
+  dead Illithiliche, and a smiling three-eyed sponsor wants the planes cracked open.</p>
+  <p><strong>The job:</strong> Reach the <strong>Remnants</strong> beneath the <strong>Shadebarrow at Ebonroot</strong>,
+  the crew that can place our anchor where it must go, and may be able to recover <strong>Alorah Vasorin's stolen
+  soul</strong>. We hold Buddleia Austan's cursed signet ring, one of the keys to the barrow's iron gate.</p>
+  <p><strong>The complication:</strong> <strong>Blaine Kraverrogg</strong> is en route to excavate the same barrow
+  and almost certainly holds the second ring. This is now a race, and the finish line is my childhood.</p>
+</div>
+
+<div class="grid">
+  <div class="tile"><p class="l">Location</p><p class="v">Westruun</p><p>Post-townhouse cleanup. Murder ghosts: zero. Reputations: enhanced.</p></div>
+  <div class="tile"><p class="l">Next Waypoint</p><p class="v">Shadebarrow, Ebonroot</p><p>Iron gate, one ring in hand, one in enemy hands.</p></div>
+  <div class="tile"><p class="l">Treasury</p><p class="v">0 gp</p><p>Investment posture (see: Gilmore). Morale unaffected; sarcasm elevated.</p></div>
+  <div class="tile"><p class="l">Party Condition</p><p class="v">Operational</p><p>Grai: cursed echoes, 4d10/morning, undeterred. Ki: molting. Bohdi: excellent, as usual.</p></div>
+  <div class="tile"><p class="l">Consumables</p><p class="v">18 → fewer potions</p><p>Vex's gift. The count decays; the gratitude doesn't.</p></div>
+  <div class="tile"><p class="l">My Standing</p><p class="v">Spook, Inner Circle</p><p>Black cloak. Fine one. Zeloah sponsoring; Fetch owing.</p></div>
+</div>
+
+<div class="memo">
+  <h2>Threat Ledger</h2>
+  <p class="from">Descending order of how much sleep they cost</p>
+  <p><strong>Graz'zt.</strong> At large since the Bastion. He marked Grai; the debt runs both directions now.</p>
+  <p><strong>The unnamed sponsor.</strong> Hag correspondence, a paid-off Illithiliche, a 9th-level memory edit on
+  Ana, and a forged Spireling signature. Different fingers, one hand. Finding the hand is the real job under all the jobs.</p>
+  <p><strong>Blaine Kraverrogg.</strong> Second ring, head start, and a shovel pointed at my home region.</p>
+  <p><strong>The Iron Authority.</strong> Trying to raise Bane. Calmyros the Unbroken opposes them; the Council wants
+  us to turn his forces to our side. Pending.</p>
+  <p><strong>Zarissa &amp; the Mawl remainder.</strong> Leaderless is not the same as harmless.</p>
+</div>
+
+<div class="memo">
+  <h2>Next Moves</h2>
+  <ol class="moves">
+    <li>Reach the <strong>Shadebarrow</strong> before Blaine Kraverrogg. Use the signet ring on the iron gate. Beat
+    the other key to the lock.</li>
+    <li>Contact the <strong>Remnants</strong>. Terms: placement of the third anchor, recovery of Alorah's soul.
+    Negotiator: me, obviously.</li>
+    <li>Work the <strong>forged signature</strong>. Whoever framed Fetch can frame any of us. Spooks jurisdiction;
+    personal interest.</li>
+    <li><strong>Calmyros the Unbroken</strong>: the recruiting trip the Council keeps mentioning and the road keeps
+    postponing.</li>
+    <li>Revisit the <strong>Bastion of the Fading Dawn</strong> in strength. Determine Father Abraham's fate. Settle
+    the Graz'zt account when (and only when) the ledger favors us.</li>
+    <li><span class="redact">Write to Mama Mara. Confirm the Tap Room reopened. This item is not for the file but the file can mind its own business.</span></li>
+  </ol>
+</div>
+
+<div class="memo">
+  <h2>Personal Addendum</h2>
+  <p class="from">Not for distribution</p>
+  <p>I left Ebonroot a nobody with borrowed magic and a talent for not being noticed. I go back wearing the inner
+  circle's cloak, with five friends, a dwarf, a paper dragon, and the fate of several planes in a bank vault behind
+  me. The barrow under my childhood holds either the way to save the world or one more thing that should have
+  stayed buried. Knowing Ebonroot, it's both.</p>
+  <p>The official record will say the party went home. The accurate record, this one, will say who opened the gate.</p>
+</div>
+
+</div>
+
+<footer>
+  Situation reports filed irregularly, honestly, and in that order &middot; <a href="../status.html">Official status page</a>
+</footer>
+
+</body>
+</html>

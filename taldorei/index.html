@@ -82,8 +82,9 @@ h1.title{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(2.4rem,7vw,4
 .hero .overlay{pointer-events:none}
 .hero .overlay a{pointer-events:auto}
 a.owl-door{cursor:pointer;outline:none}
-a.owl-door circle[fill="#f0cf82"]{transition:fill .35s}
-a.owl-door:hover circle[fill="#f0cf82"],a.owl-door:focus circle[fill="#f0cf82"]{fill:#a98ee0}
+a.owl-door circle[fill="#f0cf82"]{transition:fill .35s,filter .35s}
+a.owl-door:hover circle[fill="#f0cf82"],a.owl-door:focus circle[fill="#f0cf82"]{
+  fill:#e6dcff;filter:drop-shadow(0 0 5px rgba(203,184,242,.95)) drop-shadow(0 0 12px rgba(169,142,224,.7));}
 
 /* scene animations */
 .dragonfly{animation:drift 14s ease-in-out infinite}

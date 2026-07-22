@@ -129,6 +129,10 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#8a927c;border-top:1px so
 .camp-name{font-family:Georgia,serif;font-style:italic;font-size:22px;paint-order:stroke;stroke:#f8f9f1;stroke-width:5px;fill:#6d4a3f;}
 svg.cities a:hover .city-name,svg.cities a:hover .camp-name{fill:#a05242;}
 .seg-label{font-family:'Inter',sans-serif;font-weight:700;paint-order:stroke;stroke:#f8f9f1;stroke-width:4px;fill:#2c5039;}
+.party-halo{fill:none;stroke:#2f6fe4;stroke-width:3;}
+.party-core{fill:#2f6fe4;stroke:#f8f9f1;stroke-width:3;}
+.party-name{font-family:'Cinzel',serif;font-weight:700;font-size:24px;paint-order:stroke;stroke:#f8f9f1;stroke-width:6px;fill:#1c3fa0;}
+@media(prefers-reduced-motion:reduce){.party-halo animate{display:none}}
 </style>
 <div class="mapwrap">
   <h1>Map Striesara</h1>
@@ -138,6 +142,7 @@ svg.cities a:hover .city-name,svg.cities a:hover .camp-name{fill:#a05242;}
     <button id="clearbtn" type="button">Clear route</button>
     <button id="citybtn" type="button">Hide cities</button>
     <a class="dl" href="map-striesara.jpg" target="_blank" rel="noopener">open full-size image</a>
+    <span class="hint"><b style="color:#2f6fe4">&#9873; Party (current position)</b> shown at Whitethorn</span>
   </div>
   <div id="mapbox">
     <img id="mapimg" src="map-striesara.jpg" alt="Map of Striesara">
@@ -157,6 +162,20 @@ document.addEventListener('DOMContentLoaded', function(){
     // Naive static link checkers won't see these compendium.html#anchor links; harmless, expected.
     return m.href ? dot + '<a href="' + m.href + '">' + label + '</a>' : dot + label;
   }).join('');
+  // Party's current position. Update x/y/title/label each session (anchor to the
+  // party's current mapped location). Currently: the Cookie Pantry, part of the
+  // Whitethorn Investigation — anchored to Whitethorn (Session 10 status).
+  var PARTY = {x: 1650.7, y: 766.3, label: "⚑ The Party", title: "The Party — The Cookie Pantry (Whitethorn Investigation)"};
+  (function(p){
+    var halo = '<circle class="party-halo" cx="' + p.x + '" cy="' + p.y + '" r="18">' +
+      '<animate attributeName="r" values="18;30;18" dur="2.4s" repeatCount="indefinite"/>' +
+      '<animate attributeName="opacity" values="0.85;0.1;0.85" dur="2.4s" repeatCount="indefinite"/>' +
+      '</circle>';
+    var ring = '<circle class="party-halo" cx="' + p.x + '" cy="' + p.y + '" r="17" opacity="0.85"/>';
+    var core = '<circle class="party-core" cx="' + p.x + '" cy="' + p.y + '" r="8"/>';
+    var label = '<text class="party-name" x="' + (p.x + 20) + '" y="' + (p.y - 16) + '">' + p.label + '</text>';
+    cities.innerHTML += '<g><title>' + p.title + '</title>' + halo + ring + core + label + '</g>';
+  })(PARTY);
   cityBtn.addEventListener('click', function(){
     var hidden = cities.style.display === 'none';
     cities.style.display = hidden ? '' : 'none';

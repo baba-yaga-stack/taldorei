@@ -136,6 +136,10 @@ svg.cities a:hover .site-name{fill:#d8c9f7;}
 .seg-label{font-family:'Inter',sans-serif;font-weight:700;paint-order:stroke;stroke:#0a0c12;stroke-width:4px;fill:#f0cf82;}
 .map-ring{fill:none;stroke:#d4a94e;stroke-width:2.5;opacity:.6;stroke-dasharray:3 4;}
 svg.cities a:hover .map-ring{opacity:1;stroke:#f0cf82;}
+.party-halo{fill:none;stroke:#37e0d8;stroke-width:3;}
+.party-core{fill:#37e0d8;stroke:#0a0c12;stroke-width:3;}
+.party-name{font-family:'Cinzel',serif;font-weight:700;font-size:24px;paint-order:stroke;stroke:#0a0c12;stroke-width:6px;fill:#8ff5ee;}
+@media(prefers-reduced-motion:reduce){.party-halo animate{display:none}}
 .citymodal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(5,6,10,.82);backdrop-filter:blur(3px);padding:24px;}
 .citymodal.open{display:flex;}
 .citymodal .box{background:var(--n-card);border:1px solid var(--n-line);border-radius:14px;max-width:min(960px,94vw);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.6);}
@@ -173,6 +177,7 @@ svg.cities a:hover .map-ring{opacity:1;stroke:#f0cf82;}
     <span><b style="background:#e05a3a"></b>Town</span>
     <span><b style="background:#8a6fd4"></b>Dungeon / region / site</span>
     <span>&#9711; Gold-ringed cities (Emon, Westruun, Syngorn) open a detailed city map</span>
+    <span><b style="background:#37e0d8"></b>&#9873; Party (current position)</span>
   </div>
   <div id="mapbox">
     <img id="mapimg" src="map-taldorei.png" alt="Map of Tal'Dorei">
@@ -211,6 +216,19 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     return '<a ' + attrs + '>' + tip + inner + '</a>';
   }).join('');
+  // Party's current position. Update x/y/title/label each session (anchor to the
+  // party's current mapped location). Currently: Westruun (Session 78 status).
+  var PARTY = {x: 665.6, y: 619.1, label: "⚑ The Party", title: "The Party — Westruun (preparing to ride NE to Ebonroot)"};
+  (function(p){
+    var halo = '<circle class="party-halo" cx="' + p.x + '" cy="' + p.y + '" r="16">' +
+      '<animate attributeName="r" values="16;27;16" dur="2.4s" repeatCount="indefinite"/>' +
+      '<animate attributeName="opacity" values="0.85;0.1;0.85" dur="2.4s" repeatCount="indefinite"/>' +
+      '</circle>';
+    var ring = '<circle class="party-halo" cx="' + p.x + '" cy="' + p.y + '" r="15" opacity="0.85"/>';
+    var core = '<circle class="party-core" cx="' + p.x + '" cy="' + p.y + '" r="7"/>';
+    var label = '<text class="party-name" x="' + (p.x + 18) + '" y="' + (p.y - 14) + '">' + p.label + '</text>';
+    cities.innerHTML += '<g><title>' + p.title + '</title>' + halo + ring + core + label + '</g>';
+  })(PARTY);
   cityBtn.addEventListener('click', function(){
     var hidden = cities.style.display === 'none';
     cities.style.display = hidden ? '' : 'none';

@@ -26,27 +26,14 @@ import yaml
 # The Website repo lives inside the D&D Campaign Management hub, alongside the
 # Obsidian vaults: Taldorei/ and Striesara/ are siblings of Website/. Derive the
 # vault from this file's location so it survives folder moves; override with
-# TALDOREI_VAULT if the vault ever lives elsewhere.
+# TALDOREI_VAULT / STRIESARA_VAULT if a vault ever lives elsewhere.
 WEBSITE = Path(__file__).resolve().parent
 HUB = WEBSITE.parent
-DEFAULT_VAULT = HUB / "Taldorei"
-VAULT = Path(os.environ.get("TALDOREI_VAULT", str(DEFAULT_VAULT)))
-# Output lives alongside this script (the Website repo), not in the vault.
-COMPENDIUM = WEBSITE / "taldorei" / "compendium.html"
-
-# Items hidden from the player-facing site (DM secrets). Edit as needed.
-SECRET_ITEMS = {
-    "Invisible Crown of Lolth",
-    "Circlet of Barbed Vision (Exalted)",  # proper name of the Crown — still secret
-    # Mind Lash is public knowledge (acquired openly, Session 6) — not listed here
-}
-
-# Folders never scanned for notes
-EXCLUDE_DIRS = {".obsidian", ".trash", ".git", "Website", "System"}
 
 # Map: section header (as it appears in compendium.html, HTML-escaped) ->
 #      (header tag, .base file relative to vault)
 # All targets live inside the article id='party-quick-reference'.
+# Both vaults use the same base names (System/Bases migration, June 2026).
 INJECTIONS = [
     ("h2", "Combat Stats", "System/Bases/Party Stat Tracker.base"),
     ("h2", "Languages &amp; Abilities", "System/Bases/Party Abilities.base"),
@@ -54,6 +41,42 @@ INJECTIONS = [
     ("h2", "Magic Items &amp; Equipment", "System/Bases/Magic Items Tracker.base"),
     ("h3", "Consumables", "System/Bases/Consumables Tracker.base"),
 ]
+
+# Per-campaign configuration (extended to Striesara 2026-08-14 — Improvement
+# Plan item 11). pc_items: the per-PC magic-item injection needs a
+# "<h3>Magic Items</h3>" anchor in each PC article; the Striesara compendium's
+# PC articles use hand-written "Equipment &amp; Inventory" sections instead,
+# so per-PC injection stays Tal'Dorei-only until that structure exists.
+CAMPAIGNS = [
+    {
+        "name": "taldorei",
+        "vault": Path(os.environ.get("TALDOREI_VAULT", str(HUB / "Taldorei"))),
+        # Output lives alongside this script (the Website repo), not in the vault.
+        "compendium": WEBSITE / "taldorei" / "compendium.html",
+        # Items hidden from the player-facing site (DM secrets). Edit as needed.
+        "secret_items": {
+            "Invisible Crown of Lolth",
+            "Circlet of Barbed Vision (Exalted)",  # proper name of the Crown — still secret
+            # Mind Lash is public knowledge (acquired openly, Session 6) — not listed here
+        },
+        "pc_items": True,
+    },
+    {
+        "name": "striesara",
+        "vault": Path(os.environ.get("STRIESARA_VAULT", str(HUB / "Striesara"))),
+        "compendium": WEBSITE / "striesara" / "compendium.html",
+        "secret_items": set(),  # none known for Striesara yet
+        "pc_items": False,
+    },
+]
+
+# Set per campaign in the __main__ loop; module-level so the existing helper
+# functions keep their signatures.
+VAULT = CAMPAIGNS[0]["vault"]
+SECRET_ITEMS = CAMPAIGNS[0]["secret_items"]
+
+# Folders never scanned for notes
+EXCLUDE_DIRS = {".obsidian", ".trash", ".git", "Website", "System"}
 
 COLUMN_LABELS = {
     "file.name": "Character",
@@ -97,14 +120,17 @@ def read_frontmatter(path):
 
 
 def collect_notes():
-    """All vault notes with frontmatter, as (name, frontmatter) pairs."""
+    """All vault notes with frontmatter, as (name, frontmatter, folder)
+    triples. folder is the note's parent dir relative to the vault, posix
+    style, so base filters like file.folder == "Characters/PCs" can match."""
     notes = []
     for path in VAULT.rglob("*.md"):
         if any(part in EXCLUDE_DIRS for part in path.parts):
             continue
         fm = read_frontmatter(path)
         if fm:
-            notes.append((path.stem, fm))
+            folder = path.parent.relative_to(VAULT).as_posix()
+            notes.append((path.stem, fm, "" if folder == "." else folder))
     return notes
 
 
@@ -115,8 +141,8 @@ def get_tags(fm):
     return [str(t) for t in tags]
 
 
-def matches_filters(name, fm, filters):
-    """Supports the filter forms used by this vault's .base files."""
+def matches_filters(name, fm, folder, filters):
+    """Supports the filter forms used by both vaults' .base files."""
     for cond in filters.get("and", []):
         cond = str(cond)
         m = re.match(r'file\.tags\.contains\("([^"]+)"\)', cond)
@@ -128,6 +154,12 @@ def matches_filters(name, fm, filters):
         if m:
             val = fm.get(m.group(1))
             if not val:
+                return False
+            continue
+        # file.folder == "Characters/PCs" (used by Striesara's bases)
+        m = re.match(r'file\.folder\s*==\s*"([^"]+)"', cond)
+        if m:
+            if folder != m.group(1).strip("/"):
                 return False
             continue
         # Unknown condition: fail closed so we never leak unintended rows
@@ -161,8 +193,8 @@ def render_table(base_rel, notes):
     columns = view.get("order") or ["file.name"]
 
     rows = []
-    for name, fm in sorted(notes, key=lambda n: n[0].lower()):
-        if not matches_filters(name, fm, filters):
+    for name, fm, folder in sorted(notes, key=lambda n: n[0].lower()):
+        if not matches_filters(name, fm, folder, filters):
             continue
         cells = []
         for col in columns:
@@ -182,16 +214,19 @@ def render_table(base_rel, notes):
     return f"<table><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table>"
 
 
-def inject(html):
+def inject(html, notes):
     # Work only inside the party-quick-reference article
     start = html.index("<article id='party-quick-reference'>")
     end = html.index("<article ", start + 1)
     article = html[start:end]
 
     for tag, header, base_rel in INJECTIONS:
+        if not (VAULT / base_rel).exists():
+            print(f"  ! base file missing, skipped: {base_rel}")
+            continue
         marker_a = f"<!-- base:{base_rel} -->"
         marker_b = f"<!-- /base:{base_rel} -->"
-        table = render_table(base_rel, NOTES)
+        table = render_table(base_rel, notes)
         block = f"{marker_a}{table}{marker_b}"
 
         if marker_a in article:  # rerun: replace previous injection
@@ -380,11 +415,20 @@ def collect_pcs():
 
 
 if __name__ == "__main__":
-    NOTES = collect_notes()
-    pc_count = sum(1 for _, fm in NOTES if "pc" in get_tags(fm))
-    print(f"Scanned {len(NOTES)} notes with frontmatter ({pc_count} tagged pc)")
-    html = COMPENDIUM.read_text(encoding="utf-8")
-    updated = inject(html)
-    updated = inject_pc_items(updated, collect_pcs())
-    COMPENDIUM.write_text(updated, encoding="utf-8")
-    print(f"Wrote {COMPENDIUM.name} ({len(updated):,} bytes)")
+    for campaign in CAMPAIGNS:
+        VAULT = campaign["vault"]
+        SECRET_ITEMS = campaign["secret_items"]
+        compendium = campaign["compendium"]
+        print(f"\n=== {campaign['name']} ===")
+        if not VAULT.exists():
+            print(f"  ! vault not found at {VAULT}, skipped")
+            continue
+        notes = collect_notes()
+        pc_count = sum(1 for _, fm, _f in notes if "pc" in get_tags(fm))
+        print(f"Scanned {len(notes)} notes with frontmatter ({pc_count} tagged pc)")
+        html = compendium.read_text(encoding="utf-8")
+        updated = inject(html, notes)
+        if campaign["pc_items"]:
+            updated = inject_pc_items(updated, collect_pcs())
+        compendium.write_text(updated, encoding="utf-8")
+        print(f"Wrote {compendium.name} ({len(updated):,} bytes)")

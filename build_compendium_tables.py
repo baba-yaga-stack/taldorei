@@ -23,13 +23,15 @@ from pathlib import Path
 
 import yaml
 
-# The Website repo now lives in the D&D Campaign Management hub, outside the
-# Obsidian vaults, so it can no longer derive the vault from its own location.
-# Point VAULT at the Tal'Dorei vault explicitly; override with TALDOREI_VAULT.
-DEFAULT_VAULT = Path("/Users/j/Sync/Obsi/Taldorei")
+# The Website repo lives inside the D&D Campaign Management hub, alongside the
+# Obsidian vaults: Taldorei/ and Striesara/ are siblings of Website/. Derive the
+# vault from this file's location so it survives folder moves; override with
+# TALDOREI_VAULT if the vault ever lives elsewhere.
+WEBSITE = Path(__file__).resolve().parent
+HUB = WEBSITE.parent
+DEFAULT_VAULT = HUB / "Taldorei"
 VAULT = Path(os.environ.get("TALDOREI_VAULT", str(DEFAULT_VAULT)))
 # Output lives alongside this script (the Website repo), not in the vault.
-WEBSITE = Path(__file__).resolve().parent
 COMPENDIUM = WEBSITE / "taldorei" / "compendium.html"
 
 # Items hidden from the player-facing site (DM secrets). Edit as needed.

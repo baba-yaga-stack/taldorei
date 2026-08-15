@@ -66,6 +66,23 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px so
 a.artlink{display:contents}
 a.artlink .pcart{cursor:zoom-in;transition:border-color .15s,box-shadow .15s}
 a.artlink:hover .pcart{border-color:#f0cf82;box-shadow:0 6px 22px rgba(240,207,130,.35)}
+
+/* full-size portrait viewer */
+.lb{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+  background:rgba(6,8,12,.92);backdrop-filter:blur(3px);padding:4vh 4vw;}
+.lb.open{display:flex}
+.lb figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px;max-height:92vh}
+.lb img{width:min(74vw,660px);height:min(74vw,660px);max-height:76vh;max-width:76vh;
+  object-fit:cover;display:block;border-radius:12px;
+  border:3px solid #d4a94e;box-shadow:0 0 0 1px rgba(0,0,0,.6),0 24px 70px rgba(0,0,0,.7);
+  background:#0d1017;}
+.lb figcaption{font-family:'Cinzel',Georgia,serif;font-weight:700;letter-spacing:.06em;
+  font-size:1.05rem;color:#f0cf82;text-align:center;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+.lb .x{position:absolute;top:18px;right:22px;width:40px;height:40px;border:0;cursor:pointer;
+  border-radius:50%;background:rgba(255,255,255,.08);color:#f0cf82;font-size:1.5rem;line-height:1;
+  font-family:inherit;}
+.lb .x:hover{background:rgba(240,207,130,.2)}
+@media(max-width:600px){.lb img{width:86vw;height:86vw}}
 </style>
 </head>
 <body>
@@ -4237,5 +4254,27 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 <div class="owl-egg" aria-hidden="true" title="owlbear" style="position:fixed;left:8px;bottom:0;width:88px;z-index:6;pointer-events:none;opacity:.95"><svg viewBox="0 0 160 164" style="width:100%;height:auto;display:block"><ellipse cx="82" cy="130" rx="66" ry="26" fill="#050408" opacity=".6"/><path d="M20,120 C14,88 40,62 78,62 C118,62 144,88 138,122 C120,110 96,116 90,132 C84,120 60,112 40,120 C34,116 26,116 20,120 Z" fill="#1c1420" stroke="#0a0806" stroke-width="2.6"/><path d="M22,118 C16,96 30,78 54,78 C76,78 88,96 84,116 C72,108 56,110 48,120 C40,112 30,112 22,118 Z" fill="#1c1420" stroke="#0a0806" stroke-width="2.4"/><path d="M32,82 L26,58 L46,80 Z" fill="#1c1420" stroke="#0a0806" stroke-width="2"/><path d="M60,80 L64,58 L78,80 Z" fill="#1c1420" stroke="#0a0806" stroke-width="2"/><path d="M35,100 Q44,106.3 53,100" fill="none" stroke="#0a0806" stroke-width="2.6"/><path d="M57,100 Q66,106.3 75,100" fill="none" stroke="#0a0806" stroke-width="2.6"/><path d="M50,110 L58,108 L54,118 Z" fill="#8a6420" stroke="#0a0806" stroke-width="1.4"/><path d="M132,120 Q150,124 146,138 Q138,146 128,138" fill="#1c1420" stroke="#0a0806" stroke-width="2.4"/><g fill="none" stroke="#3a3348" stroke-width="1.6"><path d="M70,128 Q80,122 90,130"/><path d="M96,124 Q106,118 116,126"/></g><text x="96" y="60" font-family="serif" font-size="16" fill="#3a3348">z z</text></svg></div>
 
 <script src="flaming-donkey.js"></script>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Full size portrait">
+  <button class="x" type="button" aria-label="Close">&times;</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+</div>
+<script>
+(function(){
+  var lb=document.getElementById('lb'); if(!lb) return;
+  var img=lb.querySelector('img'), cap=lb.querySelector('figcaption');
+  function open(href,label){img.src=href;img.alt=label;cap.textContent=label;lb.classList.add('open');
+    document.body.style.overflow='hidden';lb.querySelector('.x').focus();}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';img.src='';}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest && e.target.closest('a.artlink'); if(!a) return;
+    e.preventDefault();
+    var t=a.querySelector('img');
+    open(a.getAttribute('href'),(t&&t.getAttribute('alt')||'').replace(/^Portrait of /,''));
+  });
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target.closest('.x'))close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
 </body>
 </html>

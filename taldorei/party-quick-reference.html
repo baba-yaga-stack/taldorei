@@ -115,6 +115,23 @@ body{margin:0}
 a.artlink{display:contents}
 a.artlink .pcart{cursor:zoom-in;transition:border-color .15s,box-shadow .15s}
 a.artlink:hover .pcart{border-color:#f0cf82;box-shadow:0 6px 22px rgba(240,207,130,.35)}
+
+/* full-size portrait viewer */
+.lb{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+  background:rgba(6,8,12,.92);backdrop-filter:blur(3px);padding:4vh 4vw;}
+.lb.open{display:flex}
+.lb figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px;max-height:92vh}
+.lb img{width:min(74vw,660px);height:min(74vw,660px);max-height:76vh;max-width:76vh;
+  object-fit:cover;display:block;border-radius:12px;
+  border:3px solid #d4a94e;box-shadow:0 0 0 1px rgba(0,0,0,.6),0 24px 70px rgba(0,0,0,.7);
+  background:#0d1017;}
+.lb figcaption{font-family:'Cinzel',Georgia,serif;font-weight:700;letter-spacing:.06em;
+  font-size:1.05rem;color:#f0cf82;text-align:center;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+.lb .x{position:absolute;top:18px;right:22px;width:40px;height:40px;border:0;cursor:pointer;
+  border-radius:50%;background:rgba(255,255,255,.08);color:#f0cf82;font-size:1.5rem;line-height:1;
+  font-family:inherit;}
+.lb .x:hover{background:rgba(240,207,130,.2)}
+@media(max-width:600px){.lb img{width:86vw;height:86vw}}
 </style><style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@600;700;900&display=swap');
 :root{--n-bg:#0a0c12;--n-card:#141927;--n-card2:#1a2033;--n-line:#262e44;
@@ -388,4 +405,26 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px so
 
 
 <script src="flaming-donkey.js"></script>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Full size portrait">
+  <button class="x" type="button" aria-label="Close">&times;</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+</div>
+<script>
+(function(){
+  var lb=document.getElementById('lb'); if(!lb) return;
+  var img=lb.querySelector('img'), cap=lb.querySelector('figcaption');
+  function open(href,label){img.src=href;img.alt=label;cap.textContent=label;lb.classList.add('open');
+    document.body.style.overflow='hidden';lb.querySelector('.x').focus();}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';img.src='';}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest && e.target.closest('a.artlink'); if(!a) return;
+    e.preventDefault();
+    var t=a.querySelector('img');
+    open(a.getAttribute('href'),(t&&t.getAttribute('alt')||'').replace(/^Portrait of /,''));
+  });
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target.closest('.x'))close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
 </body></html>

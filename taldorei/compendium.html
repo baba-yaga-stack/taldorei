@@ -58,6 +58,12 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px so
   margin:0 0 12px 16px;border:2px solid #d4a94e;box-shadow:0 4px 18px rgba(0,0,0,.45);}
 @media(max-width:600px){.pcart{width:96px;height:96px;margin-left:12px}}
 
+/* location / scene art (added 2026-08-15) -- full width, keeps its own aspect */
+.locart{display:block;width:100%;height:auto;border-radius:10px;margin:0 0 16px;
+  border:2px solid #d4a94e;box-shadow:0 4px 18px rgba(0,0,0,.45);}
+a.artlink .locart{cursor:zoom-in;transition:border-color .15s,box-shadow .15s}
+a.artlink:hover .locart{border-color:#f0cf82;box-shadow:0 6px 22px rgba(240,207,130,.35)}
+
 /* character banner (replaced the owlbear/dragon SVG 2026-08-14) */
 .banner img{display:block;width:100%;max-width:100%;height:auto;border-radius:10px;
   border:1px solid rgba(201,160,74,.35);box-shadow:0 6px 22px rgba(0,0,0,.4);}
@@ -76,13 +82,15 @@ a.artlink:hover .pcart{border-color:#f0cf82;box-shadow:0 6px 22px rgba(240,207,1
   object-fit:cover;display:block;border-radius:12px;
   border:3px solid #d4a94e;box-shadow:0 0 0 1px rgba(0,0,0,.6),0 24px 70px rgba(0,0,0,.7);
   background:#0d1017;}
+/* landscape art: add data-wide on the a.artlink to keep the native aspect */
+.lb.wide img{width:auto;height:auto;max-width:min(90vw,1240px);max-height:78vh;object-fit:contain;}
 .lb figcaption{font-family:'Cinzel',Georgia,serif;font-weight:700;letter-spacing:.06em;
   font-size:1.05rem;color:#f0cf82;text-align:center;text-shadow:0 2px 10px rgba(0,0,0,.8)}
 .lb .x{position:absolute;top:18px;right:22px;width:40px;height:40px;border:0;cursor:pointer;
   border-radius:50%;background:rgba(255,255,255,.08);color:#f0cf82;font-size:1.5rem;line-height:1;
   font-family:inherit;}
 .lb .x:hover{background:rgba(240,207,130,.2)}
-@media(max-width:600px){.lb img{width:86vw;height:86vw}}
+@media(max-width:600px){.lb img{width:86vw;height:86vw}.lb.wide img{max-width:92vw;height:auto}}
 </style>
 </head>
 <body>
@@ -3919,6 +3927,7 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 <h2>Notes</h2>
 <p>Spelling "Shadebarrow" inferred from raw notes. The split-tongue monolith and iron-gate-past-the-mud are the on-the-ground landmarks for next session. The "iron gates" Orcus used to seal the vault may be the same iron gate Buddleia's signet ring opens. The Remnants cult holed up here and Blaine's incoming Whispered Truth excavation set up a likely three-way collision: party vs. Remnants vs. Blaine.</p><p class='top'><a href='#tw'>&uarr; top</a></p></article>
 <article id='ebonroot'><h3 class='title'>Ebonroot</h3><p class="meta"><b>Status:</b> known</p><h1>Ebonroot</h1>
+<a class="artlink" data-wide href="scenes/full/session-78-ebonroot.jpg" target="_blank" rel="noopener" title="View full size"><img class="locart" src="scenes/session-78-ebonroot.jpg" alt="Ebonroot under the fog" loading="lazy"></a>
 <h2>Description</h2>
 <p>A region to the northeast of <a href="#westruun">Westruun</a>, named in Session 76 as the area where the <a href="#shadebarrow">Shadebarrow</a> and the Baron's Vault lie, and where <a href="#sevil-howthess">Sevil Howthess</a>'s ancestors are waking since the planar tear. It is <a href="#bohdi-shadowtwist">Bohdi</a>'s former home. <a href="#finnick-marigold-mossglow">Finn</a> believes the "bad dude" behind the disturbances can be found in Ebonroot, per the document <a href="#fetch">Fetch</a> provided &#8212; and that document (an intercepted letter from <a href="#blaine-kraverrogg">Blaine Kraverrogg</a>) confirms it: Blaine is heading to Ebonroot to personally oversee the excavation of the Shadebarrow for <a href="#cult-of-vecna">Cult of Vecna</a>.</p>
 <h2>Known Information</h2>
@@ -4263,14 +4272,15 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 (function(){
   var lb=document.getElementById('lb'); if(!lb) return;
   var img=lb.querySelector('img'), cap=lb.querySelector('figcaption');
-  function open(href,label){img.src=href;img.alt=label;cap.textContent=label;lb.classList.add('open');
+  function open(href,label,wide){img.src=href;img.alt=label;cap.textContent=label;
+    lb.classList.toggle('wide',!!wide);lb.classList.add('open');
     document.body.style.overflow='hidden';lb.querySelector('.x').focus();}
   function close(){lb.classList.remove('open');document.body.style.overflow='';img.src='';}
   document.addEventListener('click',function(e){
     var a=e.target.closest && e.target.closest('a.artlink'); if(!a) return;
     e.preventDefault();
     var t=a.querySelector('img');
-    open(a.getAttribute('href'),(t&&t.getAttribute('alt')||'').replace(/^Portrait of /,''));
+    open(a.getAttribute('href'),(t&&t.getAttribute('alt')||'').replace(/^Portrait of /,''),a.hasAttribute('data-wide'));
   });
   lb.addEventListener('click',function(e){if(e.target===lb||e.target.closest('.x'))close();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});

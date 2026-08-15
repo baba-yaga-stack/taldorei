@@ -61,6 +61,35 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px so
 a.artlink{display:contents}
 a.artlink .pcart{cursor:zoom-in;transition:border-color .15s,box-shadow .15s}
 a.artlink:hover .pcart{border-color:#f0cf82;box-shadow:0 6px 22px rgba(240,207,130,.35)}
+
+/* session summary art, 16:9, injected by the sessionArt block at the end of this file */
+a.sart{display:block;position:relative;margin:16px 0 24px;border-radius:12px;overflow:hidden;
+  border:1px solid rgba(201,160,74,.35);box-shadow:0 8px 26px rgba(0,0,0,.45);
+  transition:border-color .18s,box-shadow .18s,transform .18s;}
+a.sart img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;cursor:zoom-in;}
+a.sart:hover{border-color:#f0cf82;box-shadow:0 14px 38px rgba(0,0,0,.55);transform:translateY(-2px);}
+a.sart .cap{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 10px;
+  font-family:'Cinzel',Georgia,serif;font-weight:700;letter-spacing:.06em;font-size:.98rem;color:#f0cf82;
+  background:linear-gradient(180deg,rgba(6,8,12,0),rgba(6,8,12,.85));pointer-events:none;}
+
+/* full-size art viewer */
+.lb{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+  background:rgba(6,8,12,.92);backdrop-filter:blur(3px);padding:4vh 4vw;}
+.lb.open{display:flex}
+.lb figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px;max-height:92vh}
+.lb img{width:min(74vw,660px);height:min(74vw,660px);max-height:76vh;max-width:76vh;
+  object-fit:cover;display:block;border-radius:12px;
+  border:3px solid #d4a94e;box-shadow:0 0 0 1px rgba(0,0,0,.6),0 24px 70px rgba(0,0,0,.7);
+  background:#0d1017;}
+.lb.wide img{width:min(90vw,1240px);height:auto;aspect-ratio:16/9;
+  max-width:min(90vw,1240px);max-height:78vh;object-fit:contain;}
+.lb figcaption{font-family:'Cinzel',Georgia,serif;font-weight:700;letter-spacing:.06em;
+  font-size:1.05rem;color:#f0cf82;text-align:center;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+.lb .x{position:absolute;top:18px;right:22px;width:40px;height:40px;border:0;cursor:pointer;
+  border-radius:50%;background:rgba(255,255,255,.08);color:#f0cf82;font-size:1.5rem;line-height:1;
+  font-family:inherit;}
+.lb .x:hover{background:rgba(240,207,130,.2)}
+@media(max-width:600px){.lb img{width:86vw;height:86vw}.lb.wide img{width:92vw;height:auto}}
 </style>
 </head>
 <body>
@@ -2131,6 +2160,63 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
   var pre=new Image();
   pre.onload=function(){img.src=p[0];img.alt=p[1];};
   pre.src=p[0];
+})();
+</script>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Full size art">
+  <button class="x" type="button" aria-label="Close">&times;</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+</div>
+<script>
+/* SESSION SUMMARY ART
+   One entry per session. Key is the article id. Values are:
+     web    thumbnail served in the page (1600x900, 16:9)
+     full   full-size file opened by the viewer (2400x1350)
+     title  caption, usually the place the session is named for
+   Art is injected at runtime rather than written into the article markup,
+   so a compendium/sessions re-export from Obsidian cannot wipe it.
+   To add a session: drop the two files in scenes/ and scenes/full/, add a line. */
+(function(){
+  var sessionArt={
+    'session-78':{web:'scenes/session-78-ebonroot.jpg',
+                  full:'scenes/full/session-78-ebonroot.jpg',
+                  title:'Ebonroot'}
+  };
+  Object.keys(sessionArt).forEach(function(id){
+    var art=sessionArt[id], a=document.getElementById(id); if(!a) return;
+    var h1=a.querySelector('h1'); if(!h1) return;
+    if(a.querySelector('a.sart')) return;
+    var link=document.createElement('a');
+    link.className='sart artlink'; link.href=art.full;
+    link.setAttribute('data-wide',''); link.title='View the full session art';
+    var img=document.createElement('img');
+    img.src=art.web; img.alt=art.title; img.loading='lazy';
+    img.setAttribute('data-caption',art.title);
+    var cap=document.createElement('span'); cap.className='cap'; cap.textContent=art.title;
+    link.appendChild(img); link.appendChild(cap);
+    h1.parentNode.insertBefore(link,h1.nextSibling);
+  });
+})();
+</script>
+<script>
+/* Click any a.artlink to open the full-size art. data-wide gives the 16:9
+   frame for session art; without it the viewer stays square for portraits. */
+(function(){
+  var lb=document.getElementById('lb'); if(!lb) return;
+  var img=lb.querySelector('img'), cap=lb.querySelector('figcaption');
+  function open(href,label,wide){img.src=href;img.alt=label;cap.textContent=label;
+    lb.classList.toggle('wide',!!wide);lb.classList.add('open');
+    document.body.style.overflow='hidden';lb.querySelector('.x').focus();}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';img.src='';}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest && e.target.closest('a.artlink'); if(!a) return;
+    e.preventDefault();
+    var t=a.querySelector('img');
+    var label=(t&&(t.getAttribute('data-caption')||t.getAttribute('alt'))||'').replace(/^Portrait of /,'');
+    open(a.getAttribute('href'),label,a.hasAttribute('data-wide'));
+  });
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target.closest('.x'))close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 })();
 </script>
 </body>

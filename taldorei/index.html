@@ -241,6 +241,35 @@ footer .about{color:var(--muted);font-size:.86rem;max-width:300px;}
 .navsearch input::placeholder{color:#6b7186}
 .navlinks{margin-left:0!important}
 @media(max-width:760px){.navsearch{display:none}}
+
+/* click the session art for the full 16:9 frame */
+a.artlink{display:contents}
+a.artlink img{cursor:zoom-in;transition:filter .18s}
+a.artlink:hover img{filter:brightness(1.08)}
+.arthint{position:absolute;right:12px;bottom:12px;z-index:2;background:rgba(20,25,39,.9);
+  border:1px solid var(--line);border-radius:20px;padding:4px 12px;font-size:.72rem;font-weight:600;
+  color:#f0cf82;font-family:'Inter',sans-serif;pointer-events:none;opacity:0;transition:opacity .18s;}
+.featured .art:hover .arthint{opacity:1}
+
+/* full-size art viewer */
+.lb{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+  background:rgba(6,8,12,.92);backdrop-filter:blur(3px);padding:4vh 4vw;}
+.lb.open{display:flex}
+.lb figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px;max-height:92vh}
+.lb img{width:min(74vw,660px);height:min(74vw,660px);max-height:76vh;max-width:76vh;
+  object-fit:cover;display:block;border-radius:12px;
+  border:3px solid #d4a94e;box-shadow:0 0 0 1px rgba(0,0,0,.6),0 24px 70px rgba(0,0,0,.7);
+  background:#0d1017;}
+/* wide art keeps its native aspect (16:9 scenes, 5:4 featured art) -- no forced ratio */
+.lb.wide img{width:auto;height:auto;aspect-ratio:auto;
+  max-width:min(90vw,1240px);max-height:78vh;object-fit:contain;}
+.lb figcaption{font-family:'Cinzel',Georgia,serif;font-weight:700;letter-spacing:.06em;
+  font-size:1.05rem;color:#f0cf82;text-align:center;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+.lb .x{position:absolute;top:18px;right:22px;width:40px;height:40px;border:0;cursor:pointer;
+  border-radius:50%;background:rgba(255,255,255,.08);color:#f0cf82;font-size:1.5rem;line-height:1;
+  font-family:inherit;}
+.lb .x:hover{background:rgba(240,207,130,.2)}
+@media(max-width:600px){.lb img{width:86vw;height:86vw}.lb.wide img{max-width:92vw;height:auto}}
 </style>
 </head>
 <body>
@@ -339,7 +368,7 @@ footer .about{color:var(--muted);font-size:.86rem;max-width:300px;}
     <h2 class="sec">Session 78 &mdash; The Fog of Ebonroot</h2>
     <div style="height:18px"></div>
     <div class="featured">
-      <div class="art"><img src="scenes/shadebarrow-featured.jpg" alt="The standing stones of the Shadebarrow under an orange sky" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
+      <div class="art"><a class="artlink" data-wide href="scenes/full/camellia-featured.jpg" title="View the full session art"><img src="scenes/camellia-featured.jpg" alt="Camellia Springshower kneeling in the fog outside the Thistle Farmstead" data-caption="Camellia Springshower &middot; last rites at the Thistle Farmstead" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></a><span class="arthint">&#128269; Camellia Springshower</span></div>
       <div class="body">
         <h3>The fog gives the dead back.</h3>
         <p>Ahead of a marching devil army, the party crossed the Dividing Plains to fog-choked Ebonroot and rode out
@@ -469,6 +498,14 @@ footer .about{color:var(--muted);font-size:.86rem;max-width:300px;}
           <span class="bio">A tiny dragon folded out of vellum and parchment, made by the elven wizard Arandor. Sealed inside a book on the fragility of knowledge until the party broke the seal.</span>
         </span>
       </a>
+      <a class="npc" href="compendium.html#camellia-springshower">
+        <img src="portraits/camellia.jpg" alt="Portrait of Camellia Springshower" loading="lazy">
+        <span class="who">
+          <span class="rl">Firbolg Druid &middot; Circle of the Blighted</span>
+          <span class="nm">Camellia Springshower</span>
+          <span class="bio">Self-appointed guardian of the Shadebarrow region. A specter touched her inside the barrow years ago and the change has never stopped &mdash; she is not undead, whatever her eyes suggest. Met at the Thistle Farmstead in Session 78 and walked back toward the barrow with the party.</span>
+        </span>
+      </a>
     </div>
   </section>
 
@@ -516,5 +553,31 @@ footer .about{color:var(--muted);font-size:.86rem;max-width:300px;}
 
 
 <script src="flaming-donkey.js"></script>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Full size art">
+  <button class="x" type="button" aria-label="Close">&times;</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+</div>
+<script>
+/* Click any a.artlink to open the full-size art. Add data-wide on the link
+   for 16:9 session art; leave it off for square portraits. */
+(function(){
+  var lb=document.getElementById('lb'); if(!lb) return;
+  var img=lb.querySelector('img'), cap=lb.querySelector('figcaption');
+  function open(href,label,wide){img.src=href;img.alt=label;cap.textContent=label;
+    lb.classList.toggle('wide',!!wide);lb.classList.add('open');
+    document.body.style.overflow='hidden';lb.querySelector('.x').focus();}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';img.src='';}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest && e.target.closest('a.artlink'); if(!a) return;
+    e.preventDefault();
+    var t=a.querySelector('img');
+    var label=(t&&(t.getAttribute('data-caption')||t.getAttribute('alt'))||'').replace(/^Portrait of /,'');
+    open(a.getAttribute('href'),label,a.hasAttribute('data-wide'));
+  });
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target.closest('.x'))close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
 </body>
 </html>

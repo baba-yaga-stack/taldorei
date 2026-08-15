@@ -4276,5 +4276,21 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 })();
 </script>
+
+<script>
+/* Page banner cycles through the party's wide shots. Ana is the markup
+   default so the banner still renders with JS off. Add a file here when
+   a new character's wide shot lands. */
+(function(){
+  var art=[["banners/banner-ana.jpg","Anastasia Ravenswood leaning on a wall, goggles pushed up on her head"],
+           ["banners/banner-finn.jpg","Finnick Marigold Mossglow drawing his saw-toothed sword"],
+           ["banners/banner-imdra.jpg","Imdra d'Vadalis, arms spread before a wall of fire"]];
+  var img=document.querySelector('.banner img'); if(!img) return;
+  var p=art[Math.floor(Math.random()*art.length)];
+  var pre=new Image();
+  pre.onload=function(){img.src=p[0];img.alt=p[1];};
+  pre.src=p[0];
+})();
+</script>
 </body>
 </html>

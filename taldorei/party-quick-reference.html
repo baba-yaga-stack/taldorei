@@ -102,6 +102,19 @@ body{margin:0}
 .sitenav a:hover{background:#7a1f1f;color:#fff;}
 .sitenav a.active{background:#8a6d1f;color:#2a2118;}
 #tw a.ddb{color:inherit;text-decoration:none;border-bottom:1px dotted var(--acc);}#tw a.ddb:hover{color:var(--acc);border-bottom-style:solid;}
+
+/* character portraits (added 2026-08-14) */
+.pcart{float:right;width:104px;height:104px;object-fit:cover;border-radius:10px;
+  margin:0 0 12px 16px;border:2px solid #d4a94e;box-shadow:0 4px 18px rgba(0,0,0,.45);}
+@media(max-width:600px){.pcart{width:84px;height:84px;margin-left:12px}}
+
+/* character banner (replaced the owlbear/dragon SVG 2026-08-14) */
+#tw .banner img{display:block;width:100%;height:auto;border-radius:10px;
+  border:1px solid rgba(201,160,74,.35);box-shadow:0 6px 22px rgba(0,0,0,.4);}
+/* click any character portrait for the full-size art */
+a.artlink{display:contents}
+a.artlink .pcart{cursor:zoom-in;transition:border-color .15s,box-shadow .15s}
+a.artlink:hover .pcart{border-color:#f0cf82;box-shadow:0 6px 22px rgba(240,207,130,.35)}
 </style><style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@600;700;900&display=swap');
 :root{--n-bg:#0a0c12;--n-card:#141927;--n-card2:#1a2033;--n-line:#262e44;
@@ -252,6 +265,7 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px so
   <div class="grid">
   <article class="card">
   <h3 class="title">Bohdi Shadowtwist</h3>
+  <a class="artlink" href="portraits/full/bohdi.jpg" target="_blank" rel="noopener" title="View full size"><img class="pcart" src="portraits/bohdi.jpg" alt="Portrait of Bohdi Shadowtwist" loading="lazy"></a>
   <div class="meta">Bugbear &middot; Sorcerer 11</div>
   <div class="combat"><div class="stat"><div class="stat-val">12</div><div class="stat-lbl">AC</div></div><div class="stat"><div class="stat-val">66</div><div class="stat-lbl">HP</div></div><div class="stat"><div class="stat-val">30 ft</div><div class="stat-lbl">Speed</div></div><div class="stat"><div class="stat-val">+2</div><div class="stat-lbl">Init</div></div><div class="stat"><div class="stat-val">11</div><div class="stat-lbl">Pass. Per</div></div><div class="stat"><div class="stat-val">+4</div><div class="stat-lbl">Prof</div></div></div>
   <div class="abilities"><div class="abil"><div class="abil-name">STR</div><div class="abil-mod">-1</div><div class="abil-score">8</div></div><div class="abil"><div class="abil-name">DEX</div><div class="abil-mod">+2</div><div class="abil-score">14</div></div><div class="abil"><div class="abil-name">CON</div><div class="abil-mod">+2</div><div class="abil-score">14</div></div><div class="abil"><div class="abil-name">INT</div><div class="abil-mod">+0</div><div class="abil-score">10</div></div><div class="abil"><div class="abil-name">WIS</div><div class="abil-mod">+1</div><div class="abil-score">12</div></div><div class="abil"><div class="abil-name">CHA</div><div class="abil-mod">+5</div><div class="abil-score">20</div></div></div>
@@ -269,6 +283,7 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px so
 </article>
 <article class="card">
   <h3 class="title">Finnick Marigold Mossglow (Illrigger)</h3>
+  <a class="artlink" href="portraits/full/finn.jpg" target="_blank" rel="noopener" title="View full size"><img class="pcart" src="portraits/finn.jpg" alt="Portrait of Finnick Marigold Mossglow" loading="lazy"></a>
   <div class="meta">Forest Gnome &middot; Illrigger 11</div>
   <div class="combat"><div class="stat"><div class="stat-val">17</div><div class="stat-lbl">AC</div></div><div class="stat"><div class="stat-val">89</div><div class="stat-lbl">HP</div></div><div class="stat"><div class="stat-val">35 ft</div><div class="stat-lbl">Speed</div></div><div class="stat"><div class="stat-val">+2</div><div class="stat-lbl">Init</div></div><div class="stat"><div class="stat-val">10</div><div class="stat-lbl">Pass. Per</div></div><div class="stat"><div class="stat-val">+4</div><div class="stat-lbl">Prof</div></div></div>
   <div class="abilities"><div class="abil"><div class="abil-name">STR</div><div class="abil-mod">-1</div><div class="abil-score">8</div></div><div class="abil"><div class="abil-name">DEX</div><div class="abil-mod">+2</div><div class="abil-score">14</div></div><div class="abil"><div class="abil-name">CON</div><div class="abil-mod">+1</div><div class="abil-score">12</div></div><div class="abil"><div class="abil-name">INT</div><div class="abil-mod">+3</div><div class="abil-score">16</div></div><div class="abil"><div class="abil-name">WIS</div><div class="abil-mod">+0</div><div class="abil-score">10</div></div><div class="abil"><div class="abil-name">CHA</div><div class="abil-mod">+5</div><div class="abil-score">20</div></div></div>
@@ -286,6 +301,7 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px so
 </article>
 <article class="card">
   <h3 class="title">Ki Nightwhisper</h3>
+  <a class="artlink" href="portraits/full/ki.jpg" target="_blank" rel="noopener" title="View full size"><img class="pcart" src="portraits/ki.jpg" alt="Portrait of Ki Nightwhisper" loading="lazy"></a>
   <div class="meta">Aarakocra &middot; Bard 11</div>
   <div class="combat"><div class="stat"><div class="stat-val">16</div><div class="stat-lbl">AC</div></div><div class="stat"><div class="stat-val">70</div><div class="stat-lbl">HP</div></div><div class="stat"><div class="stat-val">30 ft</div><div class="stat-lbl">Speed</div></div><div class="stat"><div class="stat-val">+3</div><div class="stat-lbl">Init</div></div><div class="stat"><div class="stat-val">19</div><div class="stat-lbl">Pass. Per</div></div><div class="stat"><div class="stat-val">+4</div><div class="stat-lbl">Prof</div></div></div>
   <div class="abilities"><div class="abil"><div class="abil-name">STR</div><div class="abil-mod">-1</div><div class="abil-score">8</div></div><div class="abil"><div class="abil-name">DEX</div><div class="abil-mod">+3</div><div class="abil-score">16</div></div><div class="abil"><div class="abil-name">CON</div><div class="abil-mod">+2</div><div class="abil-score">14</div></div><div class="abil"><div class="abil-name">INT</div><div class="abil-mod">+0</div><div class="abil-score">10</div></div><div class="abil"><div class="abil-name">WIS</div><div class="abil-mod">+1</div><div class="abil-score">12</div></div><div class="abil"><div class="abil-name">CHA</div><div class="abil-mod">+5</div><div class="abil-score">20</div></div></div>
@@ -303,6 +319,7 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px so
 </article>
 <article class="card">
   <h3 class="title">Anastasia Ravenswood</h3>
+  <a class="artlink" href="portraits/full/ana.jpg" target="_blank" rel="noopener" title="View full size"><img class="pcart" src="portraits/ana.jpg" alt="Portrait of Anastasia Ravenswood" loading="lazy"></a>
   <div class="meta">Human &middot; Artificer 11</div>
   <div class="combat"><div class="stat"><div class="stat-val">14</div><div class="stat-lbl">AC</div></div><div class="stat"><div class="stat-val">78</div><div class="stat-lbl">HP</div></div><div class="stat"><div class="stat-val">30 ft</div><div class="stat-lbl">Speed</div></div><div class="stat"><div class="stat-val">+2</div><div class="stat-lbl">Init</div></div><div class="stat"><div class="stat-val">16</div><div class="stat-lbl">Pass. Per</div></div><div class="stat"><div class="stat-val">+4</div><div class="stat-lbl">Prof</div></div></div>
   <div class="abilities"><div class="abil"><div class="abil-name">STR</div><div class="abil-mod">+0</div><div class="abil-score">11</div></div><div class="abil"><div class="abil-name">DEX</div><div class="abil-mod">+2</div><div class="abil-score">15</div></div><div class="abil"><div class="abil-name">CON</div><div class="abil-mod">+2</div><div class="abil-score">15</div></div><div class="abil"><div class="abil-name">INT</div><div class="abil-mod">+5</div><div class="abil-score">20</div></div><div class="abil"><div class="abil-name">WIS</div><div class="abil-mod">+2</div><div class="abil-score">15</div></div><div class="abil"><div class="abil-name">CHA</div><div class="abil-mod">-1</div><div class="abil-score">9</div></div></div>
@@ -320,6 +337,7 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px so
 </article>
 <article class="card">
   <h3 class="title">Grai Malin</h3>
+  <a class="artlink" href="portraits/full/grai.jpg" target="_blank" rel="noopener" title="View full size"><img class="pcart" src="portraits/grai.jpg" alt="Portrait of Grai Malin" loading="lazy"></a>
   <div class="meta">Half-Orc &middot; Barbarian 11</div>
   <div class="combat"><div class="stat"><div class="stat-val">13</div><div class="stat-lbl">AC</div></div><div class="stat"><div class="stat-val">113</div><div class="stat-lbl">HP</div></div><div class="stat"><div class="stat-val">40 ft</div><div class="stat-lbl">Speed</div></div><div class="stat"><div class="stat-val">+1</div><div class="stat-lbl">Init</div></div><div class="stat"><div class="stat-val">15</div><div class="stat-lbl">Pass. Per</div></div><div class="stat"><div class="stat-val">+4</div><div class="stat-lbl">Prof</div></div></div>
   <div class="abilities"><div class="abil"><div class="abil-name">STR</div><div class="abil-mod">+5</div><div class="abil-score">20</div></div><div class="abil"><div class="abil-name">DEX</div><div class="abil-mod">+1</div><div class="abil-score">13</div></div><div class="abil"><div class="abil-name">CON</div><div class="abil-mod">+2</div><div class="abil-score">14</div></div><div class="abil"><div class="abil-name">INT</div><div class="abil-mod">-1</div><div class="abil-score">8</div></div><div class="abil"><div class="abil-name">WIS</div><div class="abil-mod">+1</div><div class="abil-score">12</div></div><div class="abil"><div class="abil-name">CHA</div><div class="abil-mod">-1</div><div class="abil-score">8</div></div></div>
@@ -337,6 +355,7 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px so
 </article>
 <article class="card">
   <h3 class="title">Imdra d&#x27;Vadalis</h3>
+  <a class="artlink" href="portraits/full/imdra.jpg" target="_blank" rel="noopener" title="View full size"><img class="pcart" src="portraits/imdra.jpg" alt="Portrait of Imdra d'Vadalis" loading="lazy"></a>
   <div class="meta">Variant Human &middot; Druid 11</div>
   <div class="combat"><div class="stat"><div class="stat-val">17</div><div class="stat-lbl">AC</div></div><div class="stat"><div class="stat-val">80</div><div class="stat-lbl">HP</div></div><div class="stat"><div class="stat-val">30 ft</div><div class="stat-lbl">Speed</div></div><div class="stat"><div class="stat-val">+1</div><div class="stat-lbl">Init</div></div><div class="stat"><div class="stat-val">19</div><div class="stat-lbl">Pass. Per</div></div><div class="stat"><div class="stat-val">+4</div><div class="stat-lbl">Prof</div></div></div>
   <div class="abilities"><div class="abil"><div class="abil-name">STR</div><div class="abil-mod">-1</div><div class="abil-score">8</div></div><div class="abil"><div class="abil-name">DEX</div><div class="abil-mod">+1</div><div class="abil-score">13</div></div><div class="abil"><div class="abil-name">CON</div><div class="abil-mod">+3</div><div class="abil-score">16</div></div><div class="abil"><div class="abil-name">INT</div><div class="abil-mod">+1</div><div class="abil-score">12</div></div><div class="abil"><div class="abil-name">WIS</div><div class="abil-mod">+5</div><div class="abil-score">20</div></div><div class="abil"><div class="abil-name">CHA</div><div class="abil-mod">+0</div><div class="abil-score">10</div></div></div>

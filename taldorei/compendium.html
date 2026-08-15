@@ -52,6 +52,20 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px so
 .banner g[fill="#2a2118"]{fill:#c9a04a}
 @media(prefers-reduced-motion:reduce){.annbar .track{animation:none}}
 @media(max-width:640px){nav.newtop{padding:10px 12px}.navlinks a.lnk{padding:8px 10px;font-size:.72rem}}
+
+/* character portraits (added 2026-08-14) */
+.pcart{float:right;width:132px;height:132px;object-fit:cover;border-radius:10px;
+  margin:0 0 12px 16px;border:2px solid #d4a94e;box-shadow:0 4px 18px rgba(0,0,0,.45);}
+@media(max-width:600px){.pcart{width:96px;height:96px;margin-left:12px}}
+
+/* character banner (replaced the owlbear/dragon SVG 2026-08-14) */
+.banner img{display:block;width:100%;max-width:100%;height:auto;border-radius:10px;
+  border:1px solid rgba(201,160,74,.35);box-shadow:0 6px 22px rgba(0,0,0,.4);}
+.banner{max-width:100%;overflow:hidden}
+/* click any character portrait for the full-size art */
+a.artlink{display:contents}
+a.artlink .pcart{cursor:zoom-in;transition:border-color .15s,box-shadow .15s}
+a.artlink:hover .pcart{border-color:#f0cf82;box-shadow:0 6px 22px rgba(240,207,130,.35)}
 </style>
 </head>
 <body>
@@ -196,127 +210,7 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 #tw .sitenav a:hover{background:#7a1f1f;color:#fff}
 #tw .sitenav a.active{background:#8a6d1f;color:#2a2118}
 </style>
-<div class='banner'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 170" role="img" aria-label="An owlbear faces a dragon breathing fire">
-  <defs>
-    <linearGradient id="fireg" x1="1" y1="0" x2="0" y2="0">
-      <stop offset="0" stop-color="#8e2620"/>
-      <stop offset="0.45" stop-color="#c96a25"/>
-      <stop offset="1" stop-color="#e9b34a"/>
-    </linearGradient>
-    <linearGradient id="fireg2" x1="1" y1="0" x2="0" y2="0">
-      <stop offset="0" stop-color="#c96a25"/>
-      <stop offset="1" stop-color="#f3d27c"/>
-    </linearGradient>
-  </defs>
-
-  <!-- ground rule -->
-  <rect x="20" y="152" width="920" height="2.5" fill="#8a6d1f"/>
-  <rect x="20" y="158" width="920" height="1" fill="#8a6d1f" opacity="0.6"/>
-
-  <!-- ===================== OWLBEAR (left, facing right) ===================== -->
-  <g fill="#2a2118">
-    <path d="M95,152
-             C82,140 76,122 84,106
-             C92,88 116,78 142,80
-             C150,70 160,62 174,60
-             C170,52 168,44 172,36
-             C176,42 181,46 187,48
-             C196,44 207,44 216,48
-             C222,44 228,40 231,33
-             C235,42 234,50 230,57
-             C240,66 244,80 240,92
-             C236,104 226,112 213,115
-             C220,124 223,134 222,152
-             L204,152 L203,128
-             C196,132 186,134 176,133
-             C172,140 170,146 170,152
-             L152,152 L151,134
-             C138,132 124,127 115,118
-             C113,130 113,142 116,152 Z"/>
-    <path d="M95,152 l-7,0 l3,-5 Z M116,152 l-8,0 l3,-5 Z M152,152 l-8,0 l3,-5 Z M170,152 l-8,0 l3,-5 Z M204,152 l-8,0 l3,-5 Z M222,152 l-8,0 l3,-5 Z"/>
-  </g>
-  <circle cx="214" cy="78" r="5" fill="#f6ecd3"/>
-  <circle cx="214" cy="78" r="2" fill="#2a2118"/>
-  <path d="M232,86 q9,4 7,14 q-8,-3 -11,-9 Z" fill="#8a6d1f"/>
-
-  <!-- ===================== FIRE ===================== -->
-  <path d="M608,56
-           C560,46 510,42 466,48
-           C448,51 430,57 416,66
-           C430,74 450,80 472,82
-           C516,86 566,80 610,72 Z" fill="url(#fireg)"/>
-  <path d="M606,58
-           C570,52 534,50 502,53
-           C482,55 462,60 450,66
-           C464,72 486,75 508,75
-           C544,76 580,71 606,68 Z" fill="url(#fireg2)" opacity="0.92"/>
-  <path d="M474,44 q-16,-9 -34,-7 q11,9 25,11 Z" fill="#c96a25"/>
-  <path d="M460,80 q-18,9 -36,8 q13,-11 27,-13 Z" fill="#c96a25"/>
-  <path d="M424,62 q-20,-1 -33,5 q13,6 28,4 Z" fill="#e9b34a"/>
-
-  <!-- ===================== DRAGON (right, facing left) ===================== -->
-  <g fill="#2a2118">
-    <!-- tail: from rump sweeping along the ground to the left, arrow tip -->
-    <path d="M893,120
-             C896,136 884,146 862,148
-             C812,153 748,150 700,148
-             C688,147 676,146 668,144
-             C678,140 690,138 702,138
-             C748,136 806,140 850,138
-             C872,137 882,130 878,118 Z"/>
-    <path d="M676,146 l-30,-9 l12,15 l-16,3 l28,8 Z"/>
-    <!-- haunch + hind leg -->
-    <path d="M828,96 C854,90 880,98 890,116 C898,132 890,146 872,150 L850,152 C842,138 840,122 846,108 Z"/>
-    <path d="M848,128 C844,138 843,146 845,152 L868,152 C864,142 864,134 868,124 Z"/>
-    <path d="M845,152 l-10,0 l4,-6 Z M868,152 l-10,0 l4,-6 Z"/>
-    <!-- body -->
-    <path d="M760,80
-             C786,62 826,58 856,70
-             C880,80 892,98 886,116
-             C880,134 858,144 830,144
-             C798,144 770,130 760,110
-             C754,98 754,88 760,80 Z"/>
-    <!-- foreleg -->
-    <path d="M774,116 C768,130 766,142 770,152 L792,152 C788,140 789,128 794,118 Z"/>
-    <path d="M770,152 l-10,0 l4,-6 Z M792,152 l-10,0 l4,-6 Z"/>
-    <!-- neck: thick S-curve from body to head -->
-    <path d="M772,84
-             C748,84 722,76 702,62
-             C690,54 682,46 678,38
-             L646,44
-             C652,62 668,78 690,90
-             C714,102 744,106 768,100 Z"/>
-    <!-- head with open jaws -->
-    <path d="M688,40
-             C678,30 660,26 644,30
-             C632,33 622,40 616,50
-             L592,56 L622,62
-             C621,68 624,74 630,77
-             L606,88 L644,82
-             C658,80 668,72 672,61
-             C680,56 686,48 688,40 Z"/>
-    <!-- horns swept back -->
-    <path d="M664,32 C670,20 684,12 700,12 C694,24 684,33 672,38 Z"/>
-    <path d="M680,40 C688,33 698,30 708,32 C702,40 693,45 684,46 Z"/>
-    <!-- neck spikes -->
-    <path d="M702,60 l4,-13 l9,10 Z M722,72 l4,-13 l9,10 Z M744,81 l4,-13 l9,10 Z"/>
-    <!-- wing: one bat wing raised over the back, scalloped membrane -->
-    <path d="M796,86
-             C792,58 806,28 844,12
-             C870,2 900,4 920,16
-             C906,20 896,28 890,38
-             C884,48 882,58 884,68
-             C876,62 866,58 856,57
-             C862,68 864,80 861,92
-             C852,82 840,76 826,74
-             C814,72 804,78 796,86 Z"/>
-    <!-- wing fingers (ribs) -->
-    <path d="M800,82 C806,52 824,28 852,16 L858,22 C832,34 816,56 810,84 Z" fill="#ead9b0" opacity="0.18"/>
-  </g>
-  <!-- dragon eye -->
-  <circle cx="654" cy="40" r="3.4" fill="#e9b34a"/>
-</svg>
-</div>
+<div class='banner'><img src="banners/banner-ana.jpg" alt="Anastasia Ravenswood leaning on a wall, goggles pushed up on her head"></div>
 <h1>Taldorei Campaign Compendium</h1><p class='sub'>A player&#x27;s guide to our D&amp;D campaign</p>
 <nav class='toc'>
 <details open><summary>The Party (6)</summary><ul>
@@ -458,7 +352,7 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 </ul></details>
 </nav>
 <section class='cat' id='cat-the-party'><h2>The Party</h2>
-<article id='anastasia-ravenswood'><h3 class='title'>Anastasia Ravenswood</h3><p class="meta"><b>Race:</b> Human (Variant) &middot; <b>Class:</b> Artificer &middot; <b>Level:</b> 11 &middot; <b>Status:</b> active</p><h2>Description</h2>
+<article id='anastasia-ravenswood'><h3 class='title'>Anastasia Ravenswood</h3><a class="artlink" href="portraits/full/ana.jpg" target="_blank" rel="noopener" title="View full size"><img class="pcart" src="portraits/ana.jpg" alt="Portrait of Anastasia Ravenswood" loading="lazy"></a><p class="meta"><b>Race:</b> Human (Variant) &middot; <b>Class:</b> Artificer &middot; <b>Level:</b> 11 &middot; <b>Status:</b> active</p><h2>Description</h2>
 <p>Human Artificer known for her clever use of magic items and spell preparation.</p>
 <h2>Key Moments</h2>
 <ul>
@@ -491,7 +385,7 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 </ul>
 <h2>Notes</h2>
 <p>Ana demonstrates tactical thinking and willingness to make personal sacrifices for the party's benefit.</p><p class='top'><a href='#tw'>&uarr; top</a></p></article>
-<article id='bohdi-shadowtwist'><h3 class='title'>Bohdi Shadowtwist</h3><p class="meta"><b>Race:</b> Bugbear &middot; <b>Class:</b> Sorcerer &middot; <b>Level:</b> 11 &middot; <b>Status:</b> active</p><h2>Description</h2>
+<article id='bohdi-shadowtwist'><h3 class='title'>Bohdi Shadowtwist</h3><a class="artlink" href="portraits/full/bohdi.jpg" target="_blank" rel="noopener" title="View full size"><img class="pcart" src="portraits/bohdi.jpg" alt="Portrait of Bohdi Shadowtwist" loading="lazy"></a><p class="meta"><b>Race:</b> Bugbear &middot; <b>Class:</b> Sorcerer &middot; <b>Level:</b> 11 &middot; <b>Status:</b> active</p><h2>Description</h2>
 <p>Bugbear Sorcerer with connections to The Clasp criminal organization. Known for powerful healing magic and arcane abilities.</p>
 <h2>Key Moments</h2>
 <ul>
@@ -536,7 +430,7 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 </ul>
 <h2>Notes</h2>
 <p>Bohdi's connection to The Clasp provides party with underworld contacts, though not all encounters have been friendly. His healing abilities have proven crucial to party survival.</p><p class='top'><a href='#tw'>&uarr; top</a></p></article>
-<article id='finnick-marigold-mossglow'><h3 class='title'>Finnick Marigold Mossglow</h3><p class="meta"><b>Race:</b> Gnome &middot; <b>Class:</b> Illrigger &middot; <b>Level:</b> 11 &middot; <b>Status:</b> active</p><h2>Description</h2>
+<article id='finnick-marigold-mossglow'><h3 class='title'>Finnick Marigold Mossglow</h3><a class="artlink" href="portraits/full/finn.jpg" target="_blank" rel="noopener" title="View full size"><img class="pcart" src="portraits/finn.jpg" alt="Portrait of Finnick Marigold Mossglow" loading="lazy"></a><p class="meta"><b>Race:</b> Gnome &middot; <b>Class:</b> Illrigger &middot; <b>Level:</b> 11 &middot; <b>Status:</b> active</p><h2>Description</h2>
 <p>Gnome Illrigger with extensive knowledge of planar languages and deep connections to both infernal and abyssal forces. Full name: <strong>Finnick Beatrice Marigold Mossglow</strong>. Stole The Remembrance book to prevent Shadow Masters from obtaining dangerous knowledge. From <a href="#westen">Westen</a>, a small gnome town on the Silver Cut Roadway south of Westruun.</p>
 <h2>Family</h2>
 <ul>
@@ -590,7 +484,7 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 <h2>Notes</h2>
 <p>Finn's decision to steal The Remembrance book has put him at odds with the Shadow Masters. His many planar languages suggest extensive otherworldly experience. Currently has urgent mission to complete before returning to Brom.</p>
 <p>His full name &#8212; Finnick Beatrice Marigold Mossglow &#8212; was revealed in Session 69. Gnome culture places significant weight on names. His mother scratched his name from the cult's obsidian plinth; this implies formal removal or excommunication from the cult. Someone also scrawled "Finnick" inside one of the cult's holding cells &#8212; author and intent unknown.</p><p class='top'><a href='#tw'>&uarr; top</a></p></article>
-<article id='grai-malin'><h3 class='title'>Grai Malin</h3><p class="meta"><b>Race:</b> Half-Orc &middot; <b>Class:</b> Barbarian &middot; <b>Level:</b> 11 &middot; <b>Occupation:</b> Sailor &middot; <b>Status:</b> active</p><h2>Description</h2>
+<article id='grai-malin'><h3 class='title'>Grai Malin</h3><a class="artlink" href="portraits/full/grai.jpg" target="_blank" rel="noopener" title="View full size"><img class="pcart" src="portraits/grai.jpg" alt="Portrait of Grai Malin" loading="lazy"></a><p class="meta"><b>Race:</b> Half-Orc &middot; <b>Class:</b> Barbarian &middot; <b>Level:</b> 11 &middot; <b>Occupation:</b> Sailor &middot; <b>Status:</b> active</p><h2>Description</h2>
 <p>Half-Orc Barbarian with sailor background and a mysterious connection to Prince Windybranch. Formerly wielded the alien flesh whip Mind Lash (sold Session 75).</p>
 <h2>Key Moments</h2>
 <ul>
@@ -627,7 +521,7 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 </ul>
 <h2>Notes</h2>
 <p>Grai's sailor background and exotic weapon choice suggest adventurous past. Connection to Prince Windybranch hints at deeper story. Mind Lash is powerful alien artifact weapon.</p><p class='top'><a href='#tw'>&uarr; top</a></p></article>
-<article id='imdra-d-vadalis'><h3 class='title'>Imdra d&#x27;Vadalis</h3><p class="meta"><b>Race:</b> Human (Variant) &middot; <b>Class:</b> Druid &middot; <b>Level:</b> 11 &middot; <b>Status:</b> active</p><h2>Description</h2>
+<article id='imdra-d-vadalis'><h3 class='title'>Imdra d&#x27;Vadalis</h3><a class="artlink" href="portraits/full/imdra.jpg" target="_blank" rel="noopener" title="View full size"><img class="pcart" src="portraits/imdra.jpg" alt="Portrait of Imdra D Vadalis" loading="lazy"></a><p class="meta"><b>Race:</b> Human (Variant) &middot; <b>Class:</b> Druid &middot; <b>Level:</b> 11 &middot; <b>Status:</b> active</p><h2>Description</h2>
 <p>Human Druid of House d'Vadalis with exceptional wildshape abilities and knowledge of multiple languages. Bonded with Zelthrax the dragon and partied with giant slugs.</p>
 <h2>Key Moments</h2>
 <ul>
@@ -667,7 +561,7 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 </ul>
 <h2>Notes</h2>
 <p>Imdra's extensive language knowledge (including comprehension of planar tongues) suggests scholarly background. Her wildshape versatility has proven tactically valuable. Bonding with Zelthrax provides party access to planar knowledge.</p><p class='top'><a href='#tw'>&uarr; top</a></p></article>
-<article id='ki-nightwhisper'><h3 class='title'>Ki Nightwhisper</h3><p class="meta"><b>Race:</b> Aarakocra &middot; <b>Class:</b> Bard &middot; <b>Level:</b> 11 &middot; <b>Status:</b> active</p><h2>Description</h2>
+<article id='ki-nightwhisper'><h3 class='title'>Ki Nightwhisper</h3><a class="artlink" href="portraits/full/ki.jpg" target="_blank" rel="noopener" title="View full size"><img class="pcart" src="portraits/ki.jpg" alt="Portrait of Ki Nightwhisper" loading="lazy"></a><p class="meta"><b>Race:</b> Aarakocra &middot; <b>Class:</b> Bard &middot; <b>Level:</b> 11 &middot; <b>Status:</b> active</p><h2>Description</h2>
 <p>Aarakocra Bard and historian of the Cobalt Soul. Uses sending spells to maintain communication network with important contacts like Oestra, the Voice of Memory.</p>
 <h2>Key Moments</h2>
 <ul>
@@ -2999,7 +2893,7 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 <ul>
 <li><strong>Session 71</strong> &#8212; Single roadside interaction</li>
 </ul><p class='top'><a href='#tw'>&uarr; top</a></p></article>
-<article id='thrack'><h3 class='title'>Thrack</h3><p class="meta"><b>Race:</b> Dwarf &middot; <b>Status:</b> alive &middot; <b>Affiliation:</b> Party &middot; <b>Location:</b> Emberhold</p><h2>Description</h2>
+<article id='thrack'><h3 class='title'>Thrack</h3><a class="artlink" href="portraits/full/thrack.jpg" target="_blank" rel="noopener" title="View full size"><img class="pcart" src="portraits/thrack.jpg" alt="Portrait of Thrack" loading="lazy"></a><p class="meta"><b>Race:</b> Dwarf &middot; <b>Status:</b> alive &middot; <b>Affiliation:</b> Party &middot; <b>Location:</b> Emberhold</p><h2>Description</h2>
 <p>Dwarf who joined party after Bohdi saved him from magical door trap. Familiar with Yug Voril slaver operations and serves as local intelligence source. Originally from <a href="#emberhold">Emberhold</a>. As of Session 66, his debt has been paid and he is a full party companion.</p>
 <h2>Known Details</h2>
 <p><strong>Door Trap Incident:</strong>
@@ -3205,7 +3099,7 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
 </ul>
 <h2>Notes</h2>
 <p>The "Spooks" promotion places Bohdi in the Clasp's inner circle (later confirmed by <a href="#fetch">Fetch</a>). Whether the black cloak is merely ceremonial or a magic item is unconfirmed.</p><p class='top'><a href='#tw'>&uarr; top</a></p></article>
-<article id='zelthrax-the-folded-promise'><h3 class='title'>Zelthrax the Folded Promise</h3><p class="meta"><b>Race:</b> Velum Dragon (Tiny) &middot; <b>Occupation:</b> Knowledge Keeper &middot; <b>Status:</b> alive &middot; <b>Affiliation:</b> Party &middot; <b>Location:</b> With party (bonded to Imdra)</p><h2>Description</h2>
+<article id='zelthrax-the-folded-promise'><h3 class='title'>Zelthrax the Folded Promise</h3><a class="artlink" href="portraits/full/zelthrax.jpg" target="_blank" rel="noopener" title="View full size"><img class="pcart" src="portraits/zelthrax.jpg" alt="Portrait of Zelthrax The Folded Promise" loading="lazy"></a><p class="meta"><b>Race:</b> Velum Dragon (Tiny) &middot; <b>Occupation:</b> Knowledge Keeper &middot; <b>Status:</b> alive &middot; <b>Affiliation:</b> Party &middot; <b>Location:</b> With party (bonded to Imdra)</p><h2>Description</h2>
 <p>Tiny dragon made of vellum/parchment, created by elven wizard Arandor. Was sealed inside "The Remembrance of Fragility of Knowledge and What Has Been Lost" until party broke the seal.</p>
 <h2>Abilities &amp; Knowledge</h2>
 <p><strong>Consumed Knowledge:</strong>

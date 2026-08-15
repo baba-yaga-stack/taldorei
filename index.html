@@ -18,7 +18,17 @@ header.top p{margin:8px 0 0;color:#8b8fa0;font-family:'Cormorant Garamond',Georg
 .split{flex:1;display:grid;grid-template-columns:1fr 1fr;min-height:70vh;}
 a.side{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-decoration:none;overflow:hidden;padding:60px 30px;transition:flex .3s;}
+a.side .art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:center 35%;}
 a.side .veil{position:absolute;inset:0;transition:background .25s;}
+/* art panels need a scrim: the title and button sit directly on the painting */
+a.side.hasart .veil{background:linear-gradient(180deg,rgba(10,12,18,.30) 0%,rgba(10,12,18,.62) 55%,rgba(10,12,18,.86) 100%);}
+a.side.hasart:hover .veil{background:linear-gradient(180deg,rgba(10,12,18,.22) 0%,rgba(10,12,18,.54) 55%,rgba(10,12,18,.82) 100%);}
+a.side.tal.hasart .sub,a.side.tal.hasart .meta{text-shadow:0 2px 10px rgba(0,0,0,.9)}
+/* Striesara panel is a light painting under dark green type: pale scrim, not a dark one */
+a.side.str.hasart .veil{background:linear-gradient(180deg,rgba(238,241,221,.34) 0%,rgba(238,241,221,.66) 52%,rgba(221,227,200,.88) 100%);}
+a.side.str.hasart:hover .veil{background:linear-gradient(180deg,rgba(238,241,221,.26) 0%,rgba(238,241,221,.58) 52%,rgba(221,227,200,.84) 100%);}
+a.side.str.hasart .sub,a.side.str.hasart .meta{text-shadow:0 1px 8px rgba(255,255,255,.95)}
 a.side:hover .veil{background:rgba(255,255,255,.04)}
 a.side .inner{position:relative;text-align:center;max-width:420px;}
 a.side h2{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1.9rem,3.6vw,3.1rem);margin:.3em 0 .2em;letter-spacing:.06em;}
@@ -56,7 +66,8 @@ footer{background:#0b0d11;border-top:1px solid #23262e;color:#6b7186;text-align:
   <p>Two worlds. One shelf of dice. Where are we playing tonight?</p>
 </header>
 <div class="split">
-  <a class="side tal" href="taldorei/index.html">
+  <a class="side tal hasart" href="taldorei/index.html">
+    <img class="art" src="panels/taldorei-panel.jpg" alt="" loading="lazy">
     <span class="stars" aria-hidden="true">
       <i style="left:12%;top:18%"></i><i style="left:28%;top:34%;animation-delay:1s"></i>
       <i style="left:52%;top:14%;animation-delay:2s"></i><i style="left:70%;top:28%;animation-delay:.5s"></i>
@@ -75,7 +86,8 @@ footer{background:#0b0d11;border-top:1px solid #23262e;color:#6b7186;text-align:
       <span class="enter">Enter the Dark &rarr;</span>
     </span>
   </a>
-  <a class="side str" href="striesara/index.html">
+  <a class="side str hasart" href="striesara/index.html">
+    <img class="art" src="panels/striesara-panel.jpg" alt="" loading="lazy">
     <span class="veil"></span>
     <span class="inner">
       <svg class="emblem" viewBox="0 0 100 100" fill="none" stroke="#3e6b4f" stroke-width="4" stroke-linejoin="round">

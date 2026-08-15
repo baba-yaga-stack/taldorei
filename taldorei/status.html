@@ -63,6 +63,15 @@
   .sitenav a{color:#ead9b0;text-decoration:none;padding:5px 15px;border-radius:3px;font-size:.85rem;letter-spacing:.05em;}
   .sitenav a:hover{background:#7a1f1f;color:#fff;}
   .sitenav a.active{background:#8a6d1f;color:#2a2118;}
+
+/* character banner (replaced the owlbear/dragon SVG 2026-08-14) */
+.banner img{display:block;width:100%;max-width:100%;height:auto;border-radius:10px;
+  border:1px solid rgba(201,160,74,.35);box-shadow:0 6px 22px rgba(0,0,0,.4);}
+.banner{max-width:100%;overflow:hidden}
+/* click any character portrait for the full-size art */
+a.artlink{display:contents}
+a.artlink .pcart{cursor:zoom-in;transition:border-color .15s,box-shadow .15s}
+a.artlink:hover .pcart{border-color:#f0cf82;box-shadow:0 6px 22px rgba(240,207,130,.35)}
 </style>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@600;700;900&display=swap');
@@ -179,127 +188,7 @@ h1{color:#f0cf82!important;}
 
 <div class="wrap">
   <header>
-    <div class='banner'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 170" role="img" aria-label="An owlbear faces a dragon breathing fire">
-  <defs>
-    <linearGradient id="fireg" x1="1" y1="0" x2="0" y2="0">
-      <stop offset="0" stop-color="#8e2620"/>
-      <stop offset="0.45" stop-color="#c96a25"/>
-      <stop offset="1" stop-color="#e9b34a"/>
-    </linearGradient>
-    <linearGradient id="fireg2" x1="1" y1="0" x2="0" y2="0">
-      <stop offset="0" stop-color="#c96a25"/>
-      <stop offset="1" stop-color="#f3d27c"/>
-    </linearGradient>
-  </defs>
-
-  <!-- ground rule -->
-  <rect x="20" y="152" width="920" height="2.5" fill="#8a6d1f"/>
-  <rect x="20" y="158" width="920" height="1" fill="#8a6d1f" opacity="0.6"/>
-
-  <!-- ===================== OWLBEAR (left, facing right) ===================== -->
-  <g fill="#2a2118">
-    <path d="M95,152
-             C82,140 76,122 84,106
-             C92,88 116,78 142,80
-             C150,70 160,62 174,60
-             C170,52 168,44 172,36
-             C176,42 181,46 187,48
-             C196,44 207,44 216,48
-             C222,44 228,40 231,33
-             C235,42 234,50 230,57
-             C240,66 244,80 240,92
-             C236,104 226,112 213,115
-             C220,124 223,134 222,152
-             L204,152 L203,128
-             C196,132 186,134 176,133
-             C172,140 170,146 170,152
-             L152,152 L151,134
-             C138,132 124,127 115,118
-             C113,130 113,142 116,152 Z"/>
-    <path d="M95,152 l-7,0 l3,-5 Z M116,152 l-8,0 l3,-5 Z M152,152 l-8,0 l3,-5 Z M170,152 l-8,0 l3,-5 Z M204,152 l-8,0 l3,-5 Z M222,152 l-8,0 l3,-5 Z"/>
-  </g>
-  <circle cx="214" cy="78" r="5" fill="#f6ecd3"/>
-  <circle cx="214" cy="78" r="2" fill="#2a2118"/>
-  <path d="M232,86 q9,4 7,14 q-8,-3 -11,-9 Z" fill="#8a6d1f"/>
-
-  <!-- ===================== FIRE ===================== -->
-  <path d="M608,56
-           C560,46 510,42 466,48
-           C448,51 430,57 416,66
-           C430,74 450,80 472,82
-           C516,86 566,80 610,72 Z" fill="url(#fireg)"/>
-  <path d="M606,58
-           C570,52 534,50 502,53
-           C482,55 462,60 450,66
-           C464,72 486,75 508,75
-           C544,76 580,71 606,68 Z" fill="url(#fireg2)" opacity="0.92"/>
-  <path d="M474,44 q-16,-9 -34,-7 q11,9 25,11 Z" fill="#c96a25"/>
-  <path d="M460,80 q-18,9 -36,8 q13,-11 27,-13 Z" fill="#c96a25"/>
-  <path d="M424,62 q-20,-1 -33,5 q13,6 28,4 Z" fill="#e9b34a"/>
-
-  <!-- ===================== DRAGON (right, facing left) ===================== -->
-  <g fill="#2a2118">
-    <!-- tail: from rump sweeping along the ground to the left, arrow tip -->
-    <path d="M893,120
-             C896,136 884,146 862,148
-             C812,153 748,150 700,148
-             C688,147 676,146 668,144
-             C678,140 690,138 702,138
-             C748,136 806,140 850,138
-             C872,137 882,130 878,118 Z"/>
-    <path d="M676,146 l-30,-9 l12,15 l-16,3 l28,8 Z"/>
-    <!-- haunch + hind leg -->
-    <path d="M828,96 C854,90 880,98 890,116 C898,132 890,146 872,150 L850,152 C842,138 840,122 846,108 Z"/>
-    <path d="M848,128 C844,138 843,146 845,152 L868,152 C864,142 864,134 868,124 Z"/>
-    <path d="M845,152 l-10,0 l4,-6 Z M868,152 l-10,0 l4,-6 Z"/>
-    <!-- body -->
-    <path d="M760,80
-             C786,62 826,58 856,70
-             C880,80 892,98 886,116
-             C880,134 858,144 830,144
-             C798,144 770,130 760,110
-             C754,98 754,88 760,80 Z"/>
-    <!-- foreleg -->
-    <path d="M774,116 C768,130 766,142 770,152 L792,152 C788,140 789,128 794,118 Z"/>
-    <path d="M770,152 l-10,0 l4,-6 Z M792,152 l-10,0 l4,-6 Z"/>
-    <!-- neck: thick S-curve from body to head -->
-    <path d="M772,84
-             C748,84 722,76 702,62
-             C690,54 682,46 678,38
-             L646,44
-             C652,62 668,78 690,90
-             C714,102 744,106 768,100 Z"/>
-    <!-- head with open jaws -->
-    <path d="M688,40
-             C678,30 660,26 644,30
-             C632,33 622,40 616,50
-             L592,56 L622,62
-             C621,68 624,74 630,77
-             L606,88 L644,82
-             C658,80 668,72 672,61
-             C680,56 686,48 688,40 Z"/>
-    <!-- horns swept back -->
-    <path d="M664,32 C670,20 684,12 700,12 C694,24 684,33 672,38 Z"/>
-    <path d="M680,40 C688,33 698,30 708,32 C702,40 693,45 684,46 Z"/>
-    <!-- neck spikes -->
-    <path d="M702,60 l4,-13 l9,10 Z M722,72 l4,-13 l9,10 Z M744,81 l4,-13 l9,10 Z"/>
-    <!-- wing: one bat wing raised over the back, scalloped membrane -->
-    <path d="M796,86
-             C792,58 806,28 844,12
-             C870,2 900,4 920,16
-             C906,20 896,28 890,38
-             C884,48 882,58 884,68
-             C876,62 866,58 856,57
-             C862,68 864,80 861,92
-             C852,82 840,76 826,74
-             C814,72 804,78 796,86 Z"/>
-    <!-- wing fingers (ribs) -->
-    <path d="M800,82 C806,52 824,28 852,16 L858,22 C832,34 816,56 810,84 Z" fill="#ead9b0" opacity="0.18"/>
-  </g>
-  <!-- dragon eye -->
-  <circle cx="654" cy="40" r="3.4" fill="#e9b34a"/>
-</svg>
-</div>
+    <div class='banner'><img src="banners/banner-ana.jpg" alt="Anastasia Ravenswood leaning on a wall, goggles pushed up on her head"></div>
     <h1>⚔️ Taldorei — Campaign Status</h1>
     <div class="sub">Abyssal Anchors Crisis · Current through <b>Session 78 — The Fog of Ebonroot</b> · Party Level 11 · <i>Intelligence update: Fetch's letter (2026-06-27)</i></div>
   </header>

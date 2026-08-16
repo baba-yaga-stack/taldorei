@@ -2183,12 +2183,73 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
                   title:'Ebonroot'},
     'session-77':{web:'scenes/session-77-westruun.jpg',
                   full:'scenes/full/session-77-westruun.jpg',
-                  title:'Westruun'}
+                  title:'Westruun'},
+    'session-76':{web:'scenes/session-76-underweave.jpg',
+                  full:'scenes/full/session-76-underweave.jpg',
+                  title:'The Underweave Haberdashery'},
+    'session-75':{web:'scenes/session-75-gilmores.jpg',
+                  full:'scenes/full/session-75-gilmores.jpg',
+                  title:"Gilmore's Glorious Goods"},
+    'session-74':{web:'scenes/session-74-cloudwatch.jpg',
+                  full:'scenes/full/session-74-cloudwatch.jpg',
+                  title:'Cloudwatch'},
+    'session-73':{web:'scenes/session-73-bastion.jpg',
+                  full:'scenes/full/session-73-bastion.jpg',
+                  title:'The Bastion of the Fading Dawn'},
+    'session-72':{web:'scenes/session-72-jorenn-village.jpg',
+                  full:'scenes/full/session-72-jorenn-village.jpg',
+                  title:'Jorenn Village'},
+    'session-71':{web:'scenes/session-71-vesperas-grove.jpg',
+                  full:'scenes/full/session-71-vesperas-grove.jpg',
+                  title:"Vespera's Grove"},
+    'session-70':{web:'scenes/session-70-mossglow-home.jpg',
+                  full:'scenes/full/session-70-mossglow-home.jpg',
+                  title:'The Mossglow Home'},
+    'session-69':{web:'scenes/session-69-westen-sanctum.jpg',
+                  full:'scenes/full/session-69-westen-sanctum.jpg',
+                  title:'Westen'},
+    'session-68':{web:'scenes/session-68-cobalt-reserve.jpg',
+                  full:'scenes/full/session-68-cobalt-reserve.jpg',
+                  title:'The Cobalt Reserve'},
+    'session-67':{web:'scenes/session-67-emon-cemetery.jpg',
+                  full:'scenes/full/session-67-emon-cemetery.jpg',
+                  title:'Emon'},
+    'session-66':{web:'scenes/session-66-mithril-core.jpg',
+                  full:'scenes/full/session-66-mithril-core.jpg',
+                  title:'The Mithril Core'},
+    'session-65':{web:'scenes/session-65-mithril-mine.jpg',
+                  full:'scenes/full/session-65-mithril-mine.jpg',
+                  title:'The Mithril Mine'},
+    'session-64':{web:'scenes/session-64-zarga-lab.jpg',
+                  full:'scenes/full/session-64-zarga-lab.jpg',
+                  title:'The Zarga Lab'},
+    'session-63':{web:'scenes/session-63-yugvoril-street-level.jpg',
+                  full:'scenes/full/session-63-yugvoril-street-level.jpg',
+                  title:"Yug'Voril Streets"},
+    'session-62':{web:'scenes/session-62-yugvoril.jpg',
+                  full:'scenes/full/session-62-yugvoril.jpg',
+                  title:"Yug'Voril"},
+    'session-61':{web:'scenes/session-61-emberhold-elemental.jpg',
+                  full:'scenes/full/session-61-emberhold-elemental.jpg',
+                  title:'The Lava Tubes'},
+    /* An alternate Emon roll is on disk as scenes/session-60-emon-alt.jpg
+       (and scenes/full/). Swap the two filenames below to use it. */
+    'session-60':{web:'scenes/session-60-emon.jpg',
+                  full:'scenes/full/session-60-emon.jpg',
+                  title:'Emon'},
+    'session-54':{web:'scenes/session-54-emberhold.jpg',
+                  full:'scenes/full/session-54-emberhold.jpg',
+                  title:'Emberhold'},
+    'session-53':{web:'scenes/session-53-syngorn.jpg',
+                  full:'scenes/full/session-53-syngorn.jpg',
+                  title:'Syngorn'}
   };
   Object.keys(sessionArt).forEach(function(id){
     var art=sessionArt[id], a=document.getElementById(id); if(!a) return;
-    var h1=a.querySelector('h1'); if(!h1) return;
     if(a.querySelector('a.sart')) return;
+    /* Older articles (52-65) have no <h1>, only the date title and a meta line.
+       Fall back down the chain so every session can carry art. */
+    var anchor=a.querySelector('h1')||a.querySelector('p.meta')||a.querySelector('h3.title');
     var link=document.createElement('a');
     link.className='sart artlink'; link.href=art.full;
     link.setAttribute('data-wide',''); link.title='View the full session art';
@@ -2197,7 +2258,8 @@ font-family:'Cinzel',Georgia,serif;box-shadow:0 2px 8px rgba(40,28,10,.30)}
     img.setAttribute('data-caption',art.title);
     var cap=document.createElement('span'); cap.className='cap'; cap.textContent=art.title;
     link.appendChild(img); link.appendChild(cap);
-    h1.parentNode.insertBefore(link,h1.nextSibling);
+    if(anchor) anchor.parentNode.insertBefore(link,anchor.nextSibling);
+    else a.insertBefore(link,a.firstChild);
   });
 })();
 </script>

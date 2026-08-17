@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taldorei: Campaign Status</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="theme.css">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=IM+Fell+English:ital@0;1&display=swap');
   :root{
@@ -66,28 +67,27 @@
 
 /* character banner (replaced the owlbear/dragon SVG 2026-08-14) */
 .banner img{display:block;width:100%;max-width:100%;height:auto;border-radius:10px;
-  border:1px solid rgba(201,160,74,.35);box-shadow:0 6px 22px rgba(0,0,0,.4);}
+  border:1px solid rgba(207,154,104,.35);box-shadow:0 6px 22px rgba(0,0,0,.4);}
 .banner{max-width:100%;overflow:hidden}
 /* click any character portrait for the full-size art */
 a.artlink{display:contents}
 a.artlink .pcart{cursor:zoom-in;transition:border-color .15s,box-shadow .15s}
-a.artlink:hover .pcart{border-color:#f0cf82;box-shadow:0 6px 22px rgba(240,207,130,.35)}
+a.artlink:hover .pcart{border-color:#f0b98c;box-shadow:0 6px 22px rgba(240,185,140,.35)}
 </style>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@600;700;900&display=swap');
-:root{--n-bg:#0a0c12;--n-card:#141927;--n-card2:#1a2033;--n-line:#262e44;
-  --n-gold:#d4a94e;--n-gold2:#f0cf82;--n-ember:#e05a3a;--n-text:#e8e2d2;--n-muted:#9298ab;}
+/* colour tokens moved to theme.css (linked in <head>) */
 html{background:var(--n-bg)}
-body{margin:0;background:var(--n-bg) radial-gradient(ellipse 80% 50% at 50% -10%,rgba(70,60,120,.18),transparent)!important;}
-.annbar{background:linear-gradient(90deg,#1a0f14,#241118,#1a0f14);border-bottom:1px solid #3a1e26;
+body{margin:0;background:var(--n-bg) radial-gradient(ellipse 80% 50% at 50% -10%,rgba(60,110,130,.20),transparent)!important;}
+.annbar{background:linear-gradient(90deg,#10262f,#0c1e26,#10262f);border-bottom:1px solid #2a4a52;
   overflow:hidden;white-space:nowrap;font-size:.72rem;letter-spacing:.14em;font-weight:600;
-  color:#e3b8a0;text-transform:uppercase;font-family:'Inter',system-ui,sans-serif;}
+  color:#e6bfa4;text-transform:uppercase;font-family:'Inter',system-ui,sans-serif;}
 .annbar .track{display:inline-block;padding:8px 0;animation:nmarq 36s linear infinite;}
 .annbar span{margin:0 28px}
 .annbar .d{color:var(--n-gold)}
 @keyframes nmarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 nav.newtop{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:6px;
-  padding:10px 22px;background:rgba(10,12,18,.85);backdrop-filter:blur(12px);
+  padding:10px 22px;background:rgba(11,26,33,.85);backdrop-filter:blur(12px);
   border-bottom:1px solid var(--n-line);font-family:'Inter',system-ui,sans-serif;}
 nav.newtop .logo{display:flex;align-items:center;gap:10px;margin-right:18px;text-decoration:none;}
 nav.newtop .logo svg{width:30px;height:30px}
@@ -109,7 +109,7 @@ nav.newtop .logo .wm{font-family:'Cinzel',serif;font-weight:700;font-size:.98rem
 .navlinks .drop .ct{font-size:.7rem;font-weight:700;color:var(--n-muted);background:var(--n-bg);
   border:1px solid var(--n-line);border-radius:20px;padding:1px 8px;}
 footer.newfoot{margin-top:60px;border-top:1px solid var(--n-line);
-  background:linear-gradient(180deg,#0e1220,#080a0f);color:var(--n-muted);
+  background:linear-gradient(180deg,#102630,#081418);color:var(--n-muted);
   font-family:'Inter',system-ui,sans-serif;}
 footer.newfoot .fin{max-width:1180px;margin:0 auto;padding:28px 24px 26px;display:flex;
   flex-wrap:wrap;gap:16px 30px;align-items:center;justify-content:space-between;}
@@ -117,24 +117,24 @@ footer.newfoot .wm{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.14
 footer.newfoot nav{display:flex;flex-wrap:wrap;gap:4px 18px;}
 footer.newfoot a{color:var(--n-muted);text-decoration:none;font-size:.82rem;}
 footer.newfoot a:hover{color:var(--n-gold2)}
-footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px solid var(--n-line);padding-top:14px;}
-.banner g[fill="#2a2118"]{fill:#c9a04a}
+footer.newfoot .fine{width:100%;font-size:.74rem;color:#6f8b93;border-top:1px solid var(--n-line);padding-top:14px;}
+.banner g[fill="#2a2118"]{fill:#cf9a68}
 @media(prefers-reduced-motion:reduce){.annbar .track{animation:none}}
 @media(max-width:640px){nav.newtop{padding:10px 12px}.navlinks a.lnk{padding:8px 10px;font-size:.72rem}}
 </style>
 <style>
 /* ==== Tal'Dorei Nights dark theme override ==== */
-:root{--bg:#0a0c12;--panel:#141927;--panel2:#1a2033;--ink:#e6e0d0;--muted:#9298ab;
-  --gold:#d4a94e;--crit:#e06a6a;--good:#7cba74;--line:#2a3147;--accent:#e0a869;}
-h1{color:#f0cf82!important;}
-.crit-banner{background:linear-gradient(90deg,rgba(176,48,64,.16),rgba(176,48,64,.30))!important;
-  border-color:rgba(224,106,106,.45)!important;color:#f0c9ce!important;}
-.crit-banner b{color:#ff9a8a!important;}
+:root{--bg:#0b1a21;--panel:#14303b;--panel2:#1c3d4a;--ink:#e7e2d2;--muted:#93aab3;
+  --gold:#d98f5c;--crit:#e07a72;--good:#74bba4;--line:#2a5361;--accent:#e0a878;}
+h1{color:#f0b98c!important;}
+.crit-banner{background:linear-gradient(90deg,rgba(168,70,90,.16),rgba(168,70,90,.30))!important;
+  border-color:rgba(224,122,114,.45)!important;color:#e9cfc6!important;}
+.crit-banner b{color:#f5a48c!important;}
 .card{box-shadow:0 6px 22px rgba(0,0,0,.4)!important;}
-.card h2{color:#e08a5e!important;}
-.row{border-bottom-color:#232a3d!important;}
-.lead .t{color:#f0cf82;}
-::selection{background:#d4a94e;color:#141927;}
+.card h2{color:#e59a6e!important;}
+.row{border-bottom-color:#1d3a46!important;}
+.lead .t{color:#f0b98c;}
+::selection{background:#d98f5c;color:#14303b;}
 </style>
 </head>
 <body>
@@ -323,7 +323,6 @@ h1{color:#f0cf82!important;}
 </div></footer>
 
 
-<div class="owl-egg" aria-hidden="true" title="owlbear" style="position:fixed;right:20px;top:0;width:84px;z-index:6;pointer-events:none;opacity:.95"><svg viewBox="0 0 160 164" style="width:100%;height:auto;display:block"><g transform="translate(80,70) scale(1,-1) translate(-80,-70)"><path d="M40,10 C34,42 52,64 82,66 C112,68 132,48 130,18 L130,8 Z" fill="#1c1420" stroke="#0a0806" stroke-width="2.6"/><path d="M56,62 L50,88 L70,66 Z" fill="#1c1420" stroke="#0a0806" stroke-width="2"/><path d="M96,66 L100,92 L114,68 Z" fill="#1c1420" stroke="#0a0806" stroke-width="2"/><g fill="none" stroke="#3a3348" stroke-width="1.6"><path d="M56,42 Q64,49 72,41"/><path d="M96,42 Q104,48 112,40"/></g><circle cx="72" cy="38" r="14" fill="#0a0806"/><circle cx="72" cy="38" r="11" fill="#f0cf82"/><circle cx="72" cy="38" r="4.0" fill="#1c1420"/><circle cx="104" cy="35" r="14" fill="#0a0806"/><circle cx="104" cy="35" r="11" fill="#f0cf82"/><circle cx="104" cy="35" r="4.0" fill="#1c1420"/><path d="M82,22 L92,26 L87,12 Z" fill="#8a6420" stroke="#0a0806" stroke-width="1.6"/></g><path d="M-4,6 L164,6" stroke="#2a2d3a" stroke-width="6" stroke-linecap="round"/><path d="M70,8 L70,16 M96,8 L96,16" stroke="#1c1420" stroke-width="5" stroke-linecap="round"/></svg></div>
 
 <script src="flaming-donkey.js"></script>
 

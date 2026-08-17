@@ -5,24 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tal'Dorei Nights: Map</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="theme.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@600;700;900&display=swap');
-:root{--n-bg:#0a0c12;--n-card:#141927;--n-card2:#1a2033;--n-line:#262e44;
-  --n-gold:#d4a94e;--n-gold2:#f0cf82;--n-ember:#e05a3a;--n-text:#e8e2d2;--n-muted:#9298ab;}
+/* colour tokens moved to theme.css (linked in <head>) */
 html{background:var(--n-bg)}
 body{margin:0;color:var(--n-text);font-family:'Inter',system-ui,sans-serif;line-height:1.6;
-  background:var(--n-bg) radial-gradient(ellipse 80% 50% at 50% -10%,rgba(70,60,120,.18),transparent)!important;}
+  background:var(--n-bg) radial-gradient(ellipse 80% 50% at 50% -10%,rgba(60,110,130,.20),transparent)!important;}
 a{color:var(--n-gold);text-decoration:none}
 a:hover{color:var(--n-gold2)}
-.annbar{background:linear-gradient(90deg,#1a0f14,#241118,#1a0f14);border-bottom:1px solid #3a1e26;
+.annbar{background:linear-gradient(90deg,#10262f,#0c1e26,#10262f);border-bottom:1px solid #2a4a52;
   overflow:hidden;white-space:nowrap;font-size:.72rem;letter-spacing:.14em;font-weight:600;
-  color:#e3b8a0;text-transform:uppercase;font-family:'Inter',system-ui,sans-serif;}
+  color:#e6bfa4;text-transform:uppercase;font-family:'Inter',system-ui,sans-serif;}
 .annbar .track{display:inline-block;padding:8px 0;animation:nmarq 36s linear infinite;}
 .annbar span{margin:0 28px}
 .annbar .d{color:var(--n-gold)}
 @keyframes nmarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 nav.newtop{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:6px;
-  padding:10px 22px;background:rgba(10,12,18,.85);backdrop-filter:blur(12px);
+  padding:10px 22px;background:rgba(11,26,33,.85);backdrop-filter:blur(12px);
   border-bottom:1px solid var(--n-line);font-family:'Inter',system-ui,sans-serif;}
 nav.newtop .logo{display:flex;align-items:center;gap:10px;margin-right:18px;text-decoration:none;}
 nav.newtop .logo svg{width:30px;height:30px}
@@ -44,7 +44,7 @@ nav.newtop .logo .wm{font-family:'Cinzel',serif;font-weight:700;font-size:.98rem
 .navlinks .drop .ct{font-size:.7rem;font-weight:700;color:var(--n-muted);background:var(--n-bg);
   border:1px solid var(--n-line);border-radius:20px;padding:1px 8px;}
 footer.newfoot{margin-top:60px;border-top:1px solid var(--n-line);
-  background:linear-gradient(180deg,#0e1220,#080a0f);color:var(--n-muted);
+  background:linear-gradient(180deg,#102630,#081418);color:var(--n-muted);
   font-family:'Inter',system-ui,sans-serif;}
 footer.newfoot .fin{max-width:1180px;margin:0 auto;padding:28px 24px 26px;display:flex;
   flex-wrap:wrap;gap:16px 30px;align-items:center;justify-content:space-between;}
@@ -52,7 +52,7 @@ footer.newfoot .wm{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.14
 footer.newfoot nav{display:flex;flex-wrap:wrap;gap:4px 18px;}
 footer.newfoot a{color:var(--n-muted);text-decoration:none;font-size:.82rem;}
 footer.newfoot a:hover{color:var(--n-gold2)}
-footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px solid var(--n-line);padding-top:14px;}
+footer.newfoot .fine{width:100%;font-size:.74rem;color:#6f8b93;border-top:1px solid var(--n-line);padding-top:14px;}
 @media(prefers-reduced-motion:reduce){.annbar .track{animation:none}}
 @media(max-width:640px){nav.newtop{padding:10px 12px}.navlinks a.lnk{padding:8px 10px;font-size:.72rem}}
 </style>
@@ -124,23 +124,23 @@ footer.newfoot .fine{width:100%;font-size:.74rem;color:#6b7186;border-top:1px so
 #mapbox svg.overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
 #mapbox svg.cities{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
 #mapbox svg.cities a{pointer-events:auto;}
-.city-dot{fill:#d4a94e;stroke:#0a0c12;stroke-width:4;}
-.camp-dot{fill:#e05a3a;stroke:#0a0c12;stroke-width:3;}
-.site-dot{fill:#8a6fd4;stroke:#0a0c12;stroke-width:2.5;}
-.city-name{font-family:'Cinzel',serif;font-weight:700;font-size:26px;paint-order:stroke;stroke:#0a0c12;stroke-width:6px;fill:#f0cf82;}
-.camp-name{font-family:Georgia,serif;font-style:italic;font-size:22px;paint-order:stroke;stroke:#0a0c12;stroke-width:5px;fill:#f0a488;}
-.site-name{font-family:Georgia,serif;font-style:italic;font-size:19px;paint-order:stroke;stroke:#0a0c12;stroke-width:5px;fill:#b8a4e8;}
+.city-dot{fill:#d98f5c;stroke:#0b1a21;stroke-width:4;}
+.camp-dot{fill:#e07a52;stroke:#0b1a21;stroke-width:3;}
+.site-dot{fill:#8a6fd4;stroke:#0b1a21;stroke-width:2.5;}
+.city-name{font-family:'Cinzel',serif;font-weight:700;font-size:26px;paint-order:stroke;stroke:#0b1a21;stroke-width:6px;fill:#f0b98c;}
+.camp-name{font-family:Georgia,serif;font-style:italic;font-size:22px;paint-order:stroke;stroke:#0b1a21;stroke-width:5px;fill:#f0a488;}
+.site-name{font-family:Georgia,serif;font-style:italic;font-size:19px;paint-order:stroke;stroke:#0b1a21;stroke-width:5px;fill:#b8a4e8;}
 svg.cities a:hover .city-name{fill:#fff2c9;}
 svg.cities a:hover .camp-name{fill:#ffcbb3;}
 svg.cities a:hover .site-name{fill:#d8c9f7;}
-.seg-label{font-family:'Inter',sans-serif;font-weight:700;paint-order:stroke;stroke:#0a0c12;stroke-width:4px;fill:#f0cf82;}
-.map-ring{fill:none;stroke:#d4a94e;stroke-width:2.5;opacity:.6;stroke-dasharray:3 4;}
-svg.cities a:hover .map-ring{opacity:1;stroke:#f0cf82;}
+.seg-label{font-family:'Inter',sans-serif;font-weight:700;paint-order:stroke;stroke:#0b1a21;stroke-width:4px;fill:#f0b98c;}
+.map-ring{fill:none;stroke:#d98f5c;stroke-width:2.5;opacity:.6;stroke-dasharray:3 4;}
+svg.cities a:hover .map-ring{opacity:1;stroke:#f0b98c;}
 .party-halo{fill:none;stroke:#37e0d8;stroke-width:3;}
-.party-core{fill:#37e0d8;stroke:#0a0c12;stroke-width:3;}
-.party-name{font-family:'Cinzel',serif;font-weight:700;font-size:24px;paint-order:stroke;stroke:#0a0c12;stroke-width:6px;fill:#8ff5ee;}
+.party-core{fill:#37e0d8;stroke:#0b1a21;stroke-width:3;}
+.party-name{font-family:'Cinzel',serif;font-weight:700;font-size:24px;paint-order:stroke;stroke:#0b1a21;stroke-width:6px;fill:#8ff5ee;}
 @media(prefers-reduced-motion:reduce){.party-halo animate{display:none}}
-.citymodal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(5,6,10,.82);backdrop-filter:blur(3px);padding:24px;}
+.citymodal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(5,16,21,.82);backdrop-filter:blur(3px);padding:24px;}
 .citymodal.open{display:flex;}
 .citymodal .box{background:var(--n-card);border:1px solid var(--n-line);border-radius:14px;max-width:min(960px,94vw);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.6);}
 .citymodal .hd{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px;border-bottom:1px solid var(--n-line);}
@@ -346,7 +346,6 @@ document.addEventListener('DOMContentLoaded', function(){
   <span class="fine">&copy; 1836 P.D. Tal'Dorei Nights &middot; No refunds on failed saves. Lifetime warranty on nat 20s.</span>
 </div></footer>
 
-<div class="owl-egg" aria-hidden="true" title="owlbear" style="position:fixed;left:12px;bottom:10px;width:92px;z-index:6;pointer-events:none;opacity:.95"><svg viewBox="0 0 160 164" style="width:100%;height:auto;display:block"><rect x="16" y="96" width="132" height="56" rx="6" fill="#12131f" stroke="#0a0806" stroke-width="2.4"/><line x1="28" y1="112" x2="120" y2="112" stroke="#3a3348" stroke-width="2"/><line x1="28" y1="126" x2="104" y2="126" stroke="#3a3348" stroke-width="2"/><line x1="28" y1="140" x2="112" y2="140" stroke="#3a3348" stroke-width="2"/><path d="M52,98 C46,66 64,44 94,44 C124,44 144,64 138,96 Z" fill="#1c1420" stroke="#0a0806" stroke-width="2.6"/><path d="M66,50 L60,24 L80,46 Z" fill="#1c1420" stroke="#0a0806" stroke-width="2"/><path d="M106,46 L110,20 L124,44 Z" fill="#1c1420" stroke="#0a0806" stroke-width="2"/><g fill="none" stroke="#3a3348" stroke-width="1.6"><path d="M66,70 Q74,63 82,71"/><path d="M104,70 Q112,64 120,72"/></g><circle cx="82" cy="74" r="14" fill="#0a0806"/><circle cx="82" cy="74" r="11" fill="#f0cf82"/><circle cx="82" cy="74" r="4.0" fill="#1c1420"/><circle cx="114" cy="74" r="14" fill="#0a0806"/><circle cx="114" cy="74" r="11" fill="#f0cf82"/><circle cx="114" cy="74" r="4.0" fill="#1c1420"/><path d="M92,90 L102,86 L97,100 Z" fill="#8a6420" stroke="#0a0806" stroke-width="1.6"/><g fill="#1c1420" stroke="#0a0806" stroke-width="2.4"><path d="M40,96 L36,82 L50,78 L58,90 L54,96 Z"/><path d="M120,96 L124,82 L138,86 L138,98 Z"/></g><g fill="#e6d9ba" stroke="#0a0806" stroke-width="1.4"><path d="M38,82 L32,72 L44,78 Z"/><path d="M50,78 L48,66 L58,76 Z"/><path d="M124,82 L120,72 L132,78 Z"/><path d="M136,84 L136,72 L144,82 Z"/></g></svg></div>
 
 <script src="flaming-donkey.js"></script>
 </body>

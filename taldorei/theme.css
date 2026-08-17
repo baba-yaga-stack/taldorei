@@ -1,0 +1,37 @@
+/* ============================================================
+   Tal'Dorei Nights - shared theme tokens
+   "Deep teal ink", derived from the watercolour art set
+   (scenes/hero.jpg, the portraits, the session art).
+
+   Single source of truth for site colour. Edit here, every page
+   follows. Linked from index, sessions, compendium, status, map
+   and party-quick-reference.
+
+   Two token families, both defined here:
+     --n-*      nav bar, announcement bar, shared page chrome
+     --bg/--gold/...  page content (index.html and friends)
+   They hold the same values; the split is historical.
+
+   Exception: status.html still carries its own :root blocks for
+   --panel/--ink/--crit/--good/--accent. See the note in that file.
+   ============================================================ */
+:root{
+  /* --- surfaces, darkest to lightest --- */
+  --n-bg:#0b1a21;    --bg:#0b1a21;      /* page ground, deep teal ink   */
+                     --bg2:#102630;     /* recessed panels, footer      */
+  --n-card:#14303b;  --card:#14303b;    /* card face                    */
+  --n-card2:#1c3d4a; --card2:#1c3d4a;   /* raised / hover card face     */
+  --n-line:#2c5765;  --line:#2c5765;    /* hairlines and borders        */
+
+  /* --- accent: apricot, taken from the sun and sky in the art --- */
+  --n-gold:#d98f5c;  --gold:#d98f5c;    /* links, rules, small accents  */
+  --n-gold2:#f0b98c; --gold2:#f0b98c;   /* headings, hover, brighter    */
+  --n-ember:#e07a52; --ember:#e07a52;   /* kickers, eyebrows            */
+                     --crimson:#a8465a; /* threat / danger              */
+
+  /* --- type --- */
+  --n-text:#e9e3d3;  --text:#e9e3d3;    /* body, warm cream             */
+  --n-muted:#93aab3; --muted:#93aab3;   /* secondary, teal-grey         */
+
+  --radius:10px;
+}

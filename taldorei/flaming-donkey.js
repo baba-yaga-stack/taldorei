@@ -1,11 +1,27 @@
 /* Tal'Dorei Nights — tiny flaming donkey easter egg.
-   Gallops across the viewport at random intervals and random angles. */
+   Gallops across the viewport at random intervals and random angles.
+
+   It is also the door to Bohdi's dossier (it took that job over from the
+   owlbear, removed 2026-08-17). Hover the donkey and it freezes mid-gallop
+   so it can actually be clicked; move away and it carries on.
+
+   Two things worth not breaking:
+   - The wrapper is only pointer-events:auto while the donkey is on screen
+     (class fd-live). Otherwise an invisible 72x48 box would sit wherever it
+     stopped and quietly eat clicks on whatever is underneath it.
+   - It stays aria-hidden with tabindex -1. It is a secret, not navigation,
+     and a link with no accessible name would be worse than no link. */
 (function () {
   if (window.__fdonkey) return; window.__fdonkey = true;
+
+  var DEST = 'bohdi/index.html';   // every page that loads this sits in taldorei/
 
   var css =
     '.fd-wrap{position:fixed;left:0;top:0;width:72px;height:48px;z-index:9998;' +
     'pointer-events:none;opacity:0;will-change:transform}' +
+    '.fd-wrap.fd-live{pointer-events:auto}' +
+    '.fd-wrap a{display:block;width:100%;height:100%;cursor:pointer;' +
+    '-webkit-tap-highlight-color:transparent;outline:none}' +
     '.fd-wrap svg{display:block;width:100%;height:100%;overflow:visible}' +
     '@keyframes fd-flick{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.68)}}' +
     '.fd-flame{transform-origin:20px 26px;animation:fd-flick .16s infinite}' +
@@ -32,11 +48,26 @@
     '<path d="M15,35 l-2,5 l4,-2 Z" fill="#5b606c"/></svg>';
 
   var el = document.createElement('div'); el.className = 'fd-wrap';
-  el.innerHTML = DONKEY; document.body.appendChild(el);
+  el.setAttribute('aria-hidden', 'true');
+  el.innerHTML = '<a href="' + DEST + '" tabindex="-1">' + DONKEY + '</a>';
+  document.body.appendChild(el);
+
+  var anim = null;   // the current gallop, so hover can pause it
+
+  el.addEventListener('mouseenter', function () {
+    if (anim && anim.playState === 'running') anim.pause();
+  });
+  el.addEventListener('mouseleave', function () {
+    if (anim && anim.playState === 'paused') anim.play();
+  });
 
   function rand(a, b) { return a + Math.random() * (b - a); }
 
   function gallop() {
+    // A donkey held paused under the cursor can outlast the 22s minimum gap,
+    // so clear any run still in flight before starting the next one.
+    if (anim) { anim.cancel(); anim = null; }
+
     var W = window.innerWidth, H = window.innerHeight, m = 140;
     var rightward = Math.random() < 0.5;
     var tilt = rand(-32, 32) * Math.PI / 180;          // random angle off horizontal
@@ -52,13 +83,32 @@
     var speed = rand(320, 520);                        // px/sec
     var dur = Math.hypot(endX - startX, endY - startY) / speed * 1000;
 
-    el.style.transition = 'none';
-    el.style.transform = 'translate(' + startX + 'px,' + startY + 'px) rotate(' + ang + 'deg) scale(1,' + flipY + ')';
-    el.style.opacity = '1';
-    el.getBoundingClientRect();                          // reflow
-    el.style.transition = 'transform ' + dur + 'ms linear';
-    el.style.transform = 'translate(' + endX + 'px,' + endY + 'px) rotate(' + ang + 'deg) scale(1,' + flipY + ')';
-    setTimeout(function () { el.style.opacity = '0'; }, Math.max(0, dur - 250));
+    var tail = ') rotate(' + ang + 'deg) scale(1,' + flipY + ')';
+    var from = 'translate(' + startX + 'px,' + startY + 'px' + tail;
+    var to   = 'translate(' + endX   + 'px,' + endY   + 'px' + tail;
+
+    el.classList.add('fd-live');                         // catchable from here
+
+    if (el.animate) {
+      // Web Animations rather than a CSS transition, purely so hover can
+      // pause() and play() it. A transition has no equivalent.
+      anim = el.animate([
+        { transform: from, opacity: 1 },
+        { opacity: 1, offset: Math.max(0, (dur - 250) / dur) },
+        { transform: to, opacity: 0 }
+      ], { duration: dur, easing: 'linear', fill: 'forwards' });
+      anim.onfinish = function () { el.classList.remove('fd-live'); anim = null; };
+    } else {
+      // no WAAPI: original transition, still clickable, just not pausable
+      el.style.transition = 'none';
+      el.style.transform = from;
+      el.style.opacity = '1';
+      el.getBoundingClientRect();                        // reflow
+      el.style.transition = 'transform ' + dur + 'ms linear';
+      el.style.transform = to;
+      setTimeout(function () { el.style.opacity = '0'; }, Math.max(0, dur - 250));
+      setTimeout(function () { el.classList.remove('fd-live'); }, dur);
+    }
   }
 
   function loop() { gallop(); setTimeout(loop, rand(22000, 55000)); }  // random intervals

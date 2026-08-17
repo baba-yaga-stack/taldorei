@@ -251,6 +251,40 @@ def render_meta(fm, route, anchors):
     return '<p class="meta">' + " &middot; ".join(parts) + "</p>"
 
 
+def render_portrait(fm, name):
+    """Emit the article's art from a `portrait:` frontmatter field.
+
+    Hand-placing an <img> inside a generated article does not survive, because
+    main() strips every gen block before rebuilding. Driving it from the vault
+    note is what makes the art durable.
+
+        portrait: portraits/lyra-finch.jpg   square, gold ring (.pcart)
+        portrait: scenes/lyra-finch.jpg      wide, keeps its aspect (.locart)
+
+    The directory picks the treatment. The full-size file the viewer opens is
+    assumed to sit in a `full/` subfolder alongside, matching the convention
+    already used by the party portraits.
+    """
+    val = fm.get("portrait")
+    if isinstance(val, list):
+        val = val[0] if val else None
+    if val is None:
+        return ""
+    web = strip_wikilinks(str(val)).strip().strip("[]").strip()
+    if not web or web.lower() in EMPTY_VALUES:
+        return ""
+    web = web.lstrip("/")
+    parent, _, filename = web.rpartition("/")
+    full = f"{parent}/full/{filename}" if parent else f"full/{filename}"
+    square = web.startswith("portraits/")
+    cls = "pcart" if square else "locart"
+    wide = "" if square else " data-wide"
+    alt = esc(f"Portrait of {name}" if square else name)
+    return (f'<a class="artlink"{wide} href="{esc(full)}" target="_blank" '
+            f'rel="noopener" title="View full size">'
+            f'<img class="{cls}" src="{esc(web)}" alt="{alt}" loading="lazy"></a>')
+
+
 def render_article(name, fm, body, route, anchors):
     slug = slugify(name)
     chunks = []
@@ -277,7 +311,8 @@ def render_article(name, fm, body, route, anchors):
         return None, blocked
 
     meta = render_meta(fm, route, anchors)
-    head = f"<article id='{slug}'><h3 class='title'>{esc(name)}</h3>{meta}"
+    art = render_portrait(fm, name)
+    head = f"<article id='{slug}'><h3 class='title'>{esc(name)}</h3>{art}{meta}"
     tail = "<p class='top'><a href='#tw'>&uarr; top</a></p></article>"
     inner = "\n".join(chunks)
     # First heading rides on the opening tag, matching the exported articles.
